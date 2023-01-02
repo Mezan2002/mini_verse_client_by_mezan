@@ -5,11 +5,11 @@ const LeftSideMenu = () => {
     <div className="">
       <div className="px-5">
         <div>
-          <div className="card bg-white shadow-xl">
+          <div className="card bg-white shadow-xl mb-5">
             <div className="p-5 flex items-center">
               <div className="avatar">
                 <div className="w-14 h-14 rounded-full">
-                  <img src="https://placeimg.com/192/192/people" />
+                  <img src="https://placeimg.com/192/192/people" alt="" />
                 </div>
               </div>
               <div className="ml-5">
@@ -19,65 +19,72 @@ const LeftSideMenu = () => {
             </div>
           </div>
         </div>
-        <ul className="menu bg-base-100 w-56 p-2 rounded-box">
-          <li>
-            <a>
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                className="h-5 w-5"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth="2"
-                  d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"
-                />
-              </svg>
-              Item 2
-            </a>
-          </li>
-          <li>
-            <a>
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                className="h-5 w-5"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth="2"
-                  d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
-                />
-              </svg>
-              Item 1
-            </a>
-          </li>
-          <li>
-            <a>
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                className="h-5 w-5"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth="2"
-                  d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"
-                />
-              </svg>
-              Item 3
-            </a>
-          </li>
-        </ul>
+        <div className="menu card bg-white shadow-xl mb-5 w-full rounded-box">
+          <div className="flex items-center hover:bg-gray-200 p-5 m-2 rounded-2xl">
+            <img
+              src="https://i.ibb.co/s5RsSD2/house.png"
+              alt=""
+              className="w-6 mr-5"
+            />
+            <p className="">Home</p>
+          </div>
+          <div className="flex items-center hover:bg-gray-200 p-5 m-2 rounded-2xl">
+            <img
+              src="https://i.ibb.co/DWvktnB/facebook-1.png"
+              alt=""
+              className="w-6 mr-5"
+            />
+            <p className="">Watch</p>
+          </div>
+          <div className="flex items-center hover:bg-gray-200 p-5 m-2 rounded-2xl">
+            <img
+              src="https://i.ibb.co/yS32nXX/people.png"
+              alt=""
+              className="w-6 mr-5"
+            />
+            <p className="">Groups</p>
+          </div>
+          <div className="flex items-center hover:bg-gray-200 p-5 m-2 rounded-2xl">
+            <img
+              src="https://i.ibb.co/0Z8mLb5/facebook-page.png"
+              alt=""
+              className="w-6 mr-5"
+            />
+            <p className="">Pages</p>
+          </div>
+          <div className="flex items-center hover:bg-gray-200 p-5 m-2 rounded-2xl">
+            <img
+              src="https://i.ibb.co/yf2RjzH/save-instagram.png"
+              alt=""
+              className="w-6 mr-5"
+            />
+            <p className="">Saved</p>
+          </div>
+          <div className="flex items-center hover:bg-gray-200 p-5 m-2 rounded-2xl">
+            <img
+              src="https://i.ibb.co/Yjm6Xqk/line-chart.png"
+              alt=""
+              className="w-6 mr-5"
+            />
+            <p className="">Analytics</p>
+          </div>
+          <div className="flex items-center hover:bg-gray-200 p-5 m-2 rounded-2xl">
+            <img
+              src="https://i.ibb.co/KG4htTv/console.png"
+              alt=""
+              className="w-6 mr-5"
+            />
+            <p className="">Gaming</p>
+          </div>
+          <div className="flex items-center hover:bg-gray-200 p-5 m-2 rounded-2xl">
+            <img
+              src="https://i.ibb.co/VqQJKL3/settings.png"
+              alt=""
+              className="w-6 mr-5"
+            />
+            <p className="">Settings</p>
+          </div>
+        </div>
       </div>
     </div>
   );
