@@ -4,7 +4,7 @@ const LeftSideMenu = () => {
   return (
     <div className="">
       <div className="px-5">
-        <div>
+        <div className="">
           <div className="card bg-white shadow-xl mb-5">
             <div className="p-5 flex items-center">
               <div className="avatar">
