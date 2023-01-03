@@ -11,10 +11,10 @@ const Navbar = () => {
       <div className="navbar hidden lg:flex justify-center">
         <div className="navbar-start">
           <a
-            className="btn btn-ghost hover:bg-white px-0 normal-case text-xl"
+            className="btn btn-ghost hover:bg-base-200 px-0 normal-case text-xl"
             href="/"
           >
-            mini <span className="text-purple-500">Verse</span>
+            Mini <span className="text-purple-500">Verse</span>
           </a>
         </div>
         <div className="navbar justify-center">
@@ -22,7 +22,7 @@ const Navbar = () => {
             <label className="input-group w-full">
               <input
                 type="text"
-                placeholder="Search Facebook"
+                placeholder="Search MiniVerse"
                 className="input input-bordered w-[700px] mx-auto"
               />
               <span>
