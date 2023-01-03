@@ -6,7 +6,7 @@ import RightSideMenu from "../RightSideMenu/RightSideMenu";
 const Home = () => {
   return (
     <div>
-      <div className="grid grid-cols-4 gap-4  my-5">
+      <div className="grid grid-cols-4 gap-4 my-5">
         <div>
           <LeftSideMenu></LeftSideMenu>
         </div>
