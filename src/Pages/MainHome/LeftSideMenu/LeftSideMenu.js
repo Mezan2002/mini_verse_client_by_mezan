@@ -3,23 +3,24 @@ import React from "react";
 const LeftSideMenu = () => {
   return (
     <div className="">
-      <div className="px-5">
-        <div className="">
-          <div className="card bg-white shadow-xl mb-5">
-            <div className="p-5 flex items-center">
-              <div className="avatar">
-                <div className="w-14 h-14 rounded-full">
-                  <img src="https://placeimg.com/192/192/people" alt="" />
+      <div className="px-5 ">
+        <div className="menu p-4 card bg-white shadow-xl mb-5 w-full rounded-box">
+          <div className="">
+            <div className="hover:bg-gray-200 rounded-2xl">
+              <div className="p-5 flex items-center">
+                <div className="avatar">
+                  <div className="w-14 h-14 rounded-full">
+                    <img src="https://placeimg.com/192/192/people" alt="" />
+                  </div>
                 </div>
-              </div>
-              <div className="ml-5">
-                <h2 className="">Mezanur Rahman</h2>
-                <p className="text-gray-500">@mezan2002</p>
+                <div className="ml-5">
+                  <h2 className="">Mezanur Rahman</h2>
+                  <p className="text-gray-500">@mezan2002</p>
+                </div>
               </div>
             </div>
           </div>
-        </div>
-        <div className="menu card bg-white shadow-xl mb-5 w-full rounded-box">
+          <div className="divider"></div>
           <div className="flex items-center hover:bg-gray-200 p-5 m-2 rounded-2xl">
             <img
               src="https://i.ibb.co/s5RsSD2/house.png"

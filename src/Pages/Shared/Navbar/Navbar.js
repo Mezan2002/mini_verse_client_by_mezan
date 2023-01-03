@@ -22,7 +22,7 @@ const Navbar = () => {
             <label className="input-group w-full">
               <input
                 type="text"
-                placeholder="Search MiniVerse"
+                placeholder="Search Here"
                 className="input input-bordered w-[700px] mx-auto"
               />
               <span>

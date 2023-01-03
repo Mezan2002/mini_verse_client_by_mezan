@@ -6,7 +6,7 @@ const Feeds = () => {
     <div className="">
       {/* feeds start */}
       {/* stories card start */}
-      <div className="card shadow-xl grid grid-cols-4 p-5 gap-3">
+      <div className="card  shadow-xl grid grid-cols-4 p-5 gap-3">
         {/* create story card start */}
         <div className="">
           <div className="card w-10/12 shadow-xl relative">
@@ -93,6 +93,43 @@ const Feeds = () => {
         {/* signle story card end */}
       </div>
       {/* stories card end */}
+      {/* new post section start */}
+      <div>
+        <div className="card mt-5 rounded-full bg-white shadow-xl">
+          <div className="p-4 flex items-center">
+            <div className="avatar ml-2">
+              <div className="w-8 rounded-full ring ring-primary ring-offset-base-100 ring-offset-2">
+                <img src="https://placeimg.com/192/192/people" alt="" />
+              </div>
+            </div>
+            <input
+              type="text"
+              className="bg-transparent focus:outline-none ml-5 text-xl w-9/12"
+              placeholder="What is your mind, Mezan?"
+            />
+            <button className="btn rounded-full btn-sm btn-primary absolute right-4">
+              Post
+            </button>
+          </div>
+        </div>
+      </div>
+      {/* new post section end */}
+      {/* posts section start */}
+      {/* single post card start */}
+      <div className="card mt-5 bg-white shadow-xl">
+        <figure>
+          <img src="https://placeimg.com/400/225/arch" alt="Shoes" />
+        </figure>
+        <div className="card-body">
+          <h2 className="card-title">Shoes!</h2>
+          <p>If a dog chews shoes whose shoes does he choose?</p>
+          <div className="card-actions justify-end">
+            <button className="btn btn-primary">Buy Now</button>
+          </div>
+        </div>
+      </div>
+      {/* single post card end */}
+      {/* posts section end */}
       {/* feeds end */}
     </div>
   );
