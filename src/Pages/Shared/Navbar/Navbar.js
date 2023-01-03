@@ -32,12 +32,12 @@ const Navbar = () => {
           </div>
         </div>
         <div className="navbar-end">
-          <div className="w-11 flex justify-center items-center h-11 rounded-full bg-gray-300">
+          <div className="w-11 flex justify-center items-center h-11 rounded-full bg-gray-200">
             <span>
               <FaFacebookMessenger className="text-2xl"></FaFacebookMessenger>
             </span>
           </div>
-          <div className="w-11 flex justify-center items-center h-11 rounded-full bg-gray-300 mx-5">
+          <div className="w-11 flex justify-center items-center h-11 rounded-full bg-gray-200 mx-5">
             <span>
               <FaBell className="text-2xl"></FaBell>
             </span>
@@ -47,7 +47,7 @@ const Navbar = () => {
               <img src="https://placeimg.com/192/192/people" alt="" />
             </div>
             <span
-              className="absolute bottom-[-2px] right-0 w-4 h-4 rounded-full bg-gray-300 flex 
+              className="absolute bottom-[-2px] right-0 w-4 h-4 rounded-full bg-gray-200 flex 
             justify-center items-center"
             >
               <FaAngleDown className="text-base"></FaAngleDown>
