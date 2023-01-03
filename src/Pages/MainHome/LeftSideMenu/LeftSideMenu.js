@@ -14,7 +14,7 @@ const LeftSideMenu = () => {
               </div>
               <div className="ml-5">
                 <h2 className="">Mezanur Rahman</h2>
-                <p>@mezan2002</p>
+                <p className="text-gray-500">@mezan2002</p>
               </div>
             </div>
           </div>

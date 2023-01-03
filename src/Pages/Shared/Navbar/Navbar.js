@@ -14,7 +14,7 @@ const Navbar = () => {
             className="btn btn-ghost hover:bg-base-200 px-0 normal-case text-xl"
             href="/"
           >
-            Mini <span className="text-purple-500">Verse</span>
+            Mini <span className="text-primary">Verse</span>
           </a>
         </div>
         <div className="navbar justify-center">
