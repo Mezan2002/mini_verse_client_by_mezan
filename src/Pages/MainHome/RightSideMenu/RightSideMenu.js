@@ -115,16 +115,90 @@ const RightSideMenu = () => {
           </div>
         </div>
         {/* messages card end */}
-        <div className="mt-2">
-          <div className="card shadow-xl">
-            <div className="card-body">
-              <div className="flex items-center justify-between">
-                <h3 className="font-medium text-xl">Friend Reqestes</h3>
-                <h6 className="mt-2">See All</h6>
+        {/* friend request card start */}
+        <div className="mt-5">
+          <div className="flex items-center justify-between">
+            <h3 className="font-medium text-xl">Friend Reqestes</h3>
+            <h6 className="mt-2">See All</h6>
+          </div>
+          {/* single friends request card start */}
+          <div className="card shadow-xl mb-4">
+            <div className="card-body pb-2">
+              <div className="flex items-center mb-2">
+                <div className="avatar">
+                  <div className="w-16 rounded-full">
+                    <img src="https://placeimg.com/192/192/people" alt="" />
+                  </div>
+                </div>
+                <div className="ml-4">
+                  <h5 className="font-semibold">Abdullah</h5>
+                  <p className="text-gray-500">5 mutual friends</p>
+                  <div>
+                    <button className="btn btn-sm rounded-full mr-2 btn-primary">
+                      Accept
+                    </button>
+                    <button className="uppercase btn btn-ghost font-semibold btn-sm rounded-full hover:bg-red-700  bg-red-600 text-white">
+                      Delete
+                    </button>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
+          {/* single friends request card end */}
+          {/* single friends request card start */}
+          <div className="card shadow-xl mb-4">
+            <div className="card-body pb-2">
+              <div className="flex items-center mb-2">
+                <div className="avatar">
+                  <div className="w-16 rounded-full">
+                    <img src="https://placeimg.com/192/192/people" alt="" />
+                  </div>
+                </div>
+                <div className="ml-4">
+                  <h5 className="font-semibold">Abdullah</h5>
+                  <p className="text-gray-500">5 mutual friends</p>
+                  <div>
+                    <button className="btn btn-sm rounded-full mr-2 btn-primary">
+                      Accept
+                    </button>
+                    <button className="uppercase btn btn-ghost font-semibold btn-sm rounded-full hover:bg-red-700  bg-red-600 text-white">
+                      Delete
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          {/* single friends request card end */}
+          {/* single friends request card start */}
+          <div className="card shadow-xl mb-4">
+            <div className="card-body pb-2">
+              <div className="flex items-center mb-2">
+                <div className="avatar">
+                  <div className="w-16 rounded-full">
+                    <img src="https://placeimg.com/192/192/people" alt="" />
+                  </div>
+                </div>
+                <div className="ml-4">
+                  <h5 className="font-semibold">Abdullah</h5>
+                  <p className="text-gray-500">5 mutual friends</p>
+                  <div>
+                    <button className="btn btn-sm rounded-full mr-2 btn-primary">
+                      Accept
+                    </button>
+                    <button className="uppercase btn btn-ghost font-semibold btn-sm rounded-full hover:bg-red-700  bg-red-600 text-white">
+                      Delete
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          {/* single friends request card end */}
         </div>
+
+        {/* friend request card end */}
       </div>
     </div>
   );
