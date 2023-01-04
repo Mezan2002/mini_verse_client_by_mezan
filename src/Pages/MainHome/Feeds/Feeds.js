@@ -9,7 +9,7 @@ const Feeds = () => {
       <div className="card  shadow-xl grid grid-cols-4 p-5 gap-3">
         {/* create story card start */}
         <div className="">
-          <div className="card w-10/12 shadow-xl relative">
+          <div className="card w-10/12 shadow-md relative">
             <figure>
               <img
                 src="https://placeimg.com/192/192/people"
@@ -30,7 +30,7 @@ const Feeds = () => {
         {/* create story card end */}
         {/* signle story card start */}
         <div className="">
-          <div className="card image-full min-h-[97%] w-9/12 shadow-xl relative">
+          <div className="card w-10/12 shadow-md relative image-full min-h-full">
             <figure>
               <img
                 src="https://images.prothomalo.com/prothomalo-english%2F2022-12%2F19fe3ca1-4e88-4f85-bba8-446e6112559b%2FShakib_Al_Hasan.webp?auto=format%2Ccompress&format=webp&w=400&dpr=2.6"
@@ -43,7 +43,7 @@ const Feeds = () => {
                 <img src="https://placeimg.com/192/192/people" alt="" />
               </div>
             </div>
-            <div className="py-5 font-semibold absolute bottom-[-10px] left-4 text-white z-20">
+            <div className="font-semibold absolute bottom-3 left-4 text-white z-20">
               <h2 className="text-sm">Shakib Al Hasan</h2>
             </div>
           </div>
@@ -51,7 +51,7 @@ const Feeds = () => {
         {/* signle story card end */}
         {/* signle story card start */}
         <div className="">
-          <div className="card image-full min-h-[97%] w-9/12 shadow-xl relative">
+          <div className="card w-10/12 shadow-md relative image-full min-h-full">
             <figure>
               <img
                 src="https://images.prothomalo.com/prothomalo-english%2F2022-12%2F19fe3ca1-4e88-4f85-bba8-446e6112559b%2FShakib_Al_Hasan.webp?auto=format%2Ccompress&format=webp&w=400&dpr=2.6"
@@ -64,7 +64,7 @@ const Feeds = () => {
                 <img src="https://placeimg.com/192/192/people" alt="" />
               </div>
             </div>
-            <div className="py-5 font-semibold absolute bottom-[-10px] left-4 text-white z-20">
+            <div className="font-semibold absolute bottom-3 left-4 text-white z-20">
               <h2 className="text-sm">Shakib Al Hasan</h2>
             </div>
           </div>
@@ -72,7 +72,7 @@ const Feeds = () => {
         {/* signle story card end */}
         {/* signle story card start */}
         <div className="">
-          <div className="card image-full min-h-[97%] w-9/12 shadow-xl relative">
+          <div className="card w-10/12 shadow-md relative image-full min-h-full">
             <figure>
               <img
                 src="https://images.prothomalo.com/prothomalo-english%2F2022-12%2F19fe3ca1-4e88-4f85-bba8-446e6112559b%2FShakib_Al_Hasan.webp?auto=format%2Ccompress&format=webp&w=400&dpr=2.6"
@@ -85,7 +85,7 @@ const Feeds = () => {
                 <img src="https://placeimg.com/192/192/people" alt="" />
               </div>
             </div>
-            <div className="py-5 font-semibold absolute bottom-[-10px] left-4 text-white z-20">
+            <div className="font-semibold absolute bottom-3 left-4 text-white z-20">
               <h2 className="text-sm">Shakib Al Hasan</h2>
             </div>
           </div>
@@ -95,21 +95,39 @@ const Feeds = () => {
       {/* stories card end */}
       {/* new post section start */}
       <div>
-        <div className="card mt-5 rounded-full bg-white shadow-xl">
-          <div className="p-4 flex items-center">
-            <div className="avatar ml-2">
-              <div className="w-8 rounded-full ring ring-primary ring-offset-base-100 ring-offset-2">
-                <img src="https://placeimg.com/192/192/people" alt="" />
+        <label htmlFor="addPostModal">
+          <div className="card mt-5 rounded-full bg-white shadow-md">
+            <div className="p-4 flex items-center">
+              <div className="avatar ml-2">
+                <div className="w-9 rounded-full ring ring-primary ring-offset-base-100 ring-offset-2">
+                  <img src="https://placeimg.com/192/192/people" alt="" />
+                </div>
               </div>
+              <div className="ml-5">
+                <h2 className="text-xl">What is your mind, Mezan?</h2>
+              </div>
+              <button className="btn rounded-full btn-sm btn-primary absolute right-4">
+                Post
+              </button>
             </div>
-            <input
-              type="text"
-              className="bg-transparent focus:outline-none ml-5 text-xl w-9/12"
-              placeholder="What is your mind, Mezan?"
-            />
-            <button className="btn rounded-full btn-sm btn-primary absolute right-4">
-              Post
-            </button>
+          </div>
+        </label>
+        <input type="checkbox" id="addPostModal" className="modal-toggle" />
+        <div className="modal">
+          <div className="modal-box relative">
+            <label
+              htmlFor="addPostModal"
+              className="btn btn-sm btn-circle absolute right-2 top-2"
+            >
+              ✕
+            </label>
+            <h3 className="text-lg font-bold">
+              Congratulations random Internet user!
+            </h3>
+            <p className="py-4">
+              You've been selected for a chance to get one year of subscription
+              to use Wikipedia for free!
+            </p>
           </div>
         </div>
       </div>

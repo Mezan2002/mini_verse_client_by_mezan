@@ -5,7 +5,7 @@ const RightSideMenu = () => {
     <div className="px-5">
       <div>
         {/* messages card start */}
-        <div className="card shadow-xl">
+        <div className="card shadow-md">
           <div className="card-body">
             {/* right side topbar start */}
             <div className="flex items-center justify-between">
@@ -122,8 +122,8 @@ const RightSideMenu = () => {
             <h6 className="mt-2">See All</h6>
           </div>
           {/* single friends request card start */}
-          <div className="card shadow-xl mb-4">
-            <div className="card-body pb-2">
+          <div className="card shadow-md mb-4">
+            <div className="card-body pb-5">
               <div className="flex items-center mb-2">
                 <div className="avatar">
                   <div className="w-16 rounded-full">
@@ -147,8 +147,8 @@ const RightSideMenu = () => {
           </div>
           {/* single friends request card end */}
           {/* single friends request card start */}
-          <div className="card shadow-xl mb-4">
-            <div className="card-body pb-2">
+          <div className="card shadow-md mb-4">
+            <div className="card-body pb-5">
               <div className="flex items-center mb-2">
                 <div className="avatar">
                   <div className="w-16 rounded-full">
@@ -172,8 +172,8 @@ const RightSideMenu = () => {
           </div>
           {/* single friends request card end */}
           {/* single friends request card start */}
-          <div className="card shadow-xl mb-4">
-            <div className="card-body pb-2">
+          <div className="card shadow-md mb-4">
+            <div className="card-body pb-5">
               <div className="flex items-center mb-2">
                 <div className="avatar">
                   <div className="w-16 rounded-full">
