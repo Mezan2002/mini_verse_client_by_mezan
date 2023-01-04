@@ -106,9 +106,9 @@ const Feeds = () => {
               <div className="ml-5">
                 <h2 className="text-xl">What is your mind, Mezan?</h2>
               </div>
-              <button className="btn rounded-full btn-sm btn-primary absolute right-4">
-                Post
-              </button>
+              <div className="rounded-full flex items-center justify-center h-10 w-24 text-white bg-primary absolute right-4">
+                <h2>Post</h2>
+              </div>
             </div>
           </div>
         </label>
@@ -153,7 +153,7 @@ const Feeds = () => {
             </span>
           </div>
         </div>
-        <div className="py-4">
+        <div className="py-2">
           <h2 className="pl-6">Hello world this is test!</h2>
         </div>
         <figure>

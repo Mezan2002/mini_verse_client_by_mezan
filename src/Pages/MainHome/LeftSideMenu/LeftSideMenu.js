@@ -3,7 +3,7 @@ import React from "react";
 const LeftSideMenu = () => {
   return (
     <div className="">
-      <div className="sticky top-5 px-5">
+      <div className="px-5">
         <div className="menu p-4 card bg-white shadow-md mb-5 w-full rounded-box">
           <div className="">
             <div className="hover:bg-gray-200 rounded-2xl">
