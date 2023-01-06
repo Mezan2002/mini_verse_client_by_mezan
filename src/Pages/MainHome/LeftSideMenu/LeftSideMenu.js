@@ -2,8 +2,8 @@ import React from "react";
 
 const LeftSideMenu = () => {
   return (
-    <div className="">
-      <div className="px-5">
+    <div className="sticky top-0">
+      <div className="px-5 ">
         <div className="menu p-4 card bg-white shadow-md mb-5 w-full rounded-box">
           <div className="">
             <div className="hover:bg-gray-200 rounded-2xl">
@@ -85,6 +85,9 @@ const LeftSideMenu = () => {
             />
             <p className="">Settings</p>
           </div>
+          <p className="text-sm text-center mt-20">
+            Copyright © 2023 - All right reserved by Mezanur Rahman
+          </p>
         </div>
       </div>
     </div>
