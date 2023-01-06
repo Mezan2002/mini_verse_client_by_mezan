@@ -1,5 +1,11 @@
 import React from "react";
-import { FaEllipsisH, FaPlus } from "react-icons/fa";
+import {
+  FaArrowDown,
+  FaChevronDown,
+  FaEllipsisH,
+  FaPlus,
+  FaUserFriends,
+} from "react-icons/fa";
 
 const Feeds = () => {
   return (
@@ -123,13 +129,34 @@ const Feeds = () => {
             >
               ✕
             </label>
-            <h3 className="text-lg font-bold">
-              Congratulations random Internet user!
-            </h3>
-            <p className="py-4">
-              You've been selected for a chance to get one year of subscription
-              to use Wikipedia for free!
-            </p>
+            <h3 className="text-lg font-bold text-center">Create post</h3>
+            <div className="divider"></div>
+            <div>
+              <div className="flex items-center mb-10">
+                <div className="avatar">
+                  <div className="w-12 rounded-full">
+                    <img src="https://placeimg.com/192/192/people" alt="" />
+                  </div>
+                </div>
+                <div className="ml-4">
+                  <h5 className="font-semibold">Mezanur Rahman</h5>
+                  <button className="btn btn-xs">
+                    <FaUserFriends className="mr-2"></FaUserFriends> Friends
+                    <FaChevronDown className="ml-2"></FaChevronDown>
+                  </button>
+                </div>
+              </div>
+            </div>
+            <div>
+              <textarea
+                className="w-full h-40 focus:outline-none text-xl"
+                placeholder="What's on your mind, Mezan?"
+              ></textarea>
+            </div>
+            <div className="w-full rounded-xl h-16 border border-gray-200 p-5 flex items-center justify-between">
+              <h3 className="text-lg font-medium">Add with your post</h3>
+              <div></div>
+            </div>
           </div>
         </div>
       </div>

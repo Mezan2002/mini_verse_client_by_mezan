@@ -7,7 +7,7 @@ const RightSideMenu = () => {
         <div className="">
           {/* messages card start */}
           <div className="card shadow-md w-full overflow-y-auto max-h-[645px] messagesCard">
-            <div className="z-10 card-body">
+            <div className="z-10 px-10 pt-10">
               <div className="z-10">
                 {/* right side topbar start */}
                 <div className="messageCardTop bg-white sticky top-[10px] z-10">
@@ -46,7 +46,7 @@ const RightSideMenu = () => {
                 </div>
                 {/* message search field end */}
                 {/* messages start */}
-                <div className="mt-5 z-0">
+                <div className="mt-5 z-0 pb-10">
                   {/* single message start */}
                   <div className="flex items-center mb-6">
                     <div className="avatar z-">
