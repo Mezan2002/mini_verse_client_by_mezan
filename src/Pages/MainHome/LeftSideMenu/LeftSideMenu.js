@@ -2,12 +2,12 @@ import React from "react";
 
 const LeftSideMenu = () => {
   return (
-    <div className="sticky top-0">
+    <div className="sticky top-20">
       <div className="px-5 ">
         <div className="menu p-4 card bg-white shadow-md mb-5 w-full rounded-box">
           <div className="">
             <div className="hover:bg-gray-200 rounded-2xl">
-              <div className="p-5 flex items-center">
+              <div className="p-4 flex items-center">
                 <div className="avatar">
                   <div className="w-14 h-14 rounded-full">
                     <img src="https://placeimg.com/192/192/people" alt="" />
@@ -21,7 +21,7 @@ const LeftSideMenu = () => {
             </div>
           </div>
           <div className="divider"></div>
-          <div className="flex items-center hover:bg-gray-200 p-5 m-2 rounded-2xl">
+          <div className="flex items-center hover:bg-gray-200 p-4 m-2 rounded-2xl">
             <img
               src="https://i.ibb.co/s5RsSD2/house.png"
               alt=""
@@ -29,7 +29,7 @@ const LeftSideMenu = () => {
             />
             <p className="">Home</p>
           </div>
-          <div className="flex items-center hover:bg-gray-200 p-5 m-2 rounded-2xl">
+          <div className="flex items-center hover:bg-gray-200 p-4 m-2 rounded-2xl">
             <img
               src="https://i.ibb.co/DWvktnB/facebook-1.png"
               alt=""
@@ -37,7 +37,7 @@ const LeftSideMenu = () => {
             />
             <p className="">Watch</p>
           </div>
-          <div className="flex items-center hover:bg-gray-200 p-5 m-2 rounded-2xl">
+          <div className="flex items-center hover:bg-gray-200 p-4 m-2 rounded-2xl">
             <img
               src="https://i.ibb.co/yS32nXX/people.png"
               alt=""
@@ -45,7 +45,7 @@ const LeftSideMenu = () => {
             />
             <p className="">Groups</p>
           </div>
-          <div className="flex items-center hover:bg-gray-200 p-5 m-2 rounded-2xl">
+          <div className="flex items-center hover:bg-gray-200 p-4 m-2 rounded-2xl">
             <img
               src="https://i.ibb.co/0Z8mLb5/facebook-page.png"
               alt=""
@@ -53,7 +53,7 @@ const LeftSideMenu = () => {
             />
             <p className="">Pages</p>
           </div>
-          <div className="flex items-center hover:bg-gray-200 p-5 m-2 rounded-2xl">
+          <div className="flex items-center hover:bg-gray-200 p-4 m-2 rounded-2xl">
             <img
               src="https://i.ibb.co/yf2RjzH/save-instagram.png"
               alt=""
@@ -61,7 +61,7 @@ const LeftSideMenu = () => {
             />
             <p className="">Saved</p>
           </div>
-          <div className="flex items-center hover:bg-gray-200 p-5 m-2 rounded-2xl">
+          <div className="flex items-center hover:bg-gray-200 p-4 m-2 rounded-2xl">
             <img
               src="https://i.ibb.co/Yjm6Xqk/line-chart.png"
               alt=""
@@ -69,7 +69,7 @@ const LeftSideMenu = () => {
             />
             <p className="">Analytics</p>
           </div>
-          <div className="flex items-center hover:bg-gray-200 p-5 m-2 rounded-2xl">
+          <div className="flex items-center hover:bg-gray-200 p-4 m-2 rounded-2xl">
             <img
               src="https://i.ibb.co/KG4htTv/console.png"
               alt=""
@@ -77,7 +77,7 @@ const LeftSideMenu = () => {
             />
             <p className="">Gaming</p>
           </div>
-          <div className="flex items-center hover:bg-gray-200 p-5 m-2 rounded-2xl">
+          <div className="flex items-center hover:bg-gray-200 p-4 m-2 rounded-2xl">
             <img
               src="https://i.ibb.co/VqQJKL3/settings.png"
               alt=""
@@ -85,7 +85,7 @@ const LeftSideMenu = () => {
             />
             <p className="">Settings</p>
           </div>
-          <p className="text-sm text-center mt-20">
+          <p className="text-sm text-center mt-14">
             Copyright © 2023 - All right reserved by Mezanur Rahman
           </p>
         </div>

@@ -7,12 +7,12 @@ const RightSideMenu = () => {
         <div className="">
           {/* messages card start */}
           <div className="card shadow-md w-full overflow-y-auto max-h-[645px] messagesCard">
-            <div className="card-body">
-              <div className="">
+            <div className="z-10 card-body">
+              <div className="z-10">
                 {/* right side topbar start */}
-                <div className="messageCardTop sticky top-[10px] z-10">
+                <div className="messageCardTop bg-white sticky top-[10px] z-10">
                   <div className="flex items-center justify-between">
-                    <h3 className="font-medium text-xl">Messages</h3>
+                    <h3 className="font-medium text-xl z-10">Messages</h3>
                     <img
                       src="https://i.ibb.co/Psk8TjS/edit.png"
                       alt=""
@@ -46,10 +46,10 @@ const RightSideMenu = () => {
                 </div>
                 {/* message search field end */}
                 {/* messages start */}
-                <div className="mt-5">
+                <div className="mt-5 z-0">
                   {/* single message start */}
                   <div className="flex items-center mb-6">
-                    <div className="avatar z-0">
+                    <div className="avatar z-">
                       <div className="w-14 rounded-full">
                         <img src="https://placeimg.com/192/192/people" alt="" />
                       </div>

@@ -8,7 +8,7 @@ const Feeds = () => {
       {/* stories card start */}
       <div className="card  shadow-xl grid grid-cols-4 p-5 gap-3">
         {/* create story card start */}
-        <div className="">
+        <div className="z-0">
           <div className="card w-10/12 shadow-md relative">
             <figure>
               <img
@@ -104,7 +104,7 @@ const Feeds = () => {
           <label htmlFor="addPostModal">
             <div className="p-4 flex items-center">
               <div className="ml-14 relative">
-                <h2 className="text-xl text-gray-400">
+                <h2 className="text-lg text-gray-400">
                   What is your mind, Mezan?
                 </h2>
               </div>

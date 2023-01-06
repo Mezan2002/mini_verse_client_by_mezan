@@ -7,7 +7,7 @@ import {
 } from "react-icons/fa";
 const Navbar = () => {
   return (
-    <div className="flex justify-between px-10">
+    <div className="flex justify-between px-10 sticky top-0 z-50 bg-white">
       <div className="navbar hidden lg:flex justify-center">
         <div className="navbar-start">
           <a
