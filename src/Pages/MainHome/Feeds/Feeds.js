@@ -96,14 +96,14 @@ const Feeds = () => {
       {/* new post section start */}
       <div>
         <div className="card mt-5 rounded-full bg-white shadow-md">
-          <div className="avatar absolute top-3 left-4">
+          <div className="avatar absolute top-3 left-5">
             <div className="w-9 rounded-full ring ring-primary ring-offset-base-100 ring-offset-2">
               <img src="https://placeimg.com/192/192/people" alt="" />
             </div>
           </div>
           <label htmlFor="addPostModal">
             <div className="p-4 flex items-center">
-              <div className="ml-16 relative">
+              <div className="ml-14 relative">
                 <h2 className="text-xl text-gray-400">
                   What is your mind, Mezan?
                 </h2>

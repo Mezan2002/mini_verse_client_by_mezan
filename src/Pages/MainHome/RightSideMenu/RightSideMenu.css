@@ -1,0 +1,20 @@
+::-webkit-scrollbar {
+  width: 5px;
+}
+::-webkit-scrollbar-thumb {
+  background: gray;
+}
+.singleMessageContainer {
+  overflow-y: auto;
+}
+.mainRightSideMenuContainer ::-webkit-scrollbar {
+  width: 0px;
+}
+
+/* .messageCardTop {
+  width: 20%;
+} */
+.rightSideMenu {
+  width: 100%;
+  max-width: 24%;
+}
