@@ -7,10 +7,10 @@ const RightSideMenu = () => {
         <div className="">
           {/* messages card start */}
           <div className="card shadow-md w-full overflow-y-auto max-h-[645px] messagesCard">
-            <div className="z-10 px-10 pt-10">
+            <div className="z-10 card-body">
               <div className="z-10">
                 {/* right side topbar start */}
-                <div className="messageCardTop bg-white sticky top-[10px] z-10">
+                <div className="messageCardTop bg-white sticky top-0 z-10">
                   <div className="flex items-center justify-between">
                     <h3 className="font-medium text-xl z-10">Messages</h3>
                     <img
@@ -46,10 +46,10 @@ const RightSideMenu = () => {
                 </div>
                 {/* message search field end */}
                 {/* messages start */}
-                <div className="mt-5 z-0 pb-10">
+                <div className="mt-5 z-0">
                   {/* single message start */}
                   <div className="flex items-center mb-6">
-                    <div className="avatar z-">
+                    <div className="avatar">
                       <div className="w-14 rounded-full">
                         <img src="https://placeimg.com/192/192/people" alt="" />
                       </div>
