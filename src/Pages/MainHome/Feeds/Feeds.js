@@ -1,6 +1,5 @@
 import React from "react";
 import {
-  FaArrowDown,
   FaChevronDown,
   FaEllipsisH,
   FaPlus,
@@ -15,7 +14,7 @@ const Feeds = () => {
       <div className="card  shadow-xl grid grid-cols-4 p-5 gap-3">
         {/* create story card start */}
         <div className="z-0">
-          <div className="card w-10/12 shadow-md relative">
+          <div className="card w-9/12 shadow-md relative">
             <figure>
               <img
                 src="https://placeimg.com/192/192/people"
@@ -26,7 +25,7 @@ const Feeds = () => {
             <div className="py-5 text-center font-semibold">
               <p>Create Story</p>
             </div>
-            <div className="bg-primary border border-white absolute top-[67%] left-[38%] rounded-full text-white h-10 w-10 flex justify-center items-center">
+            <div className="bg-primary border border-white absolute top-[67%] left-[38%] rounded-full text-white h-10 w-9 flex justify-center items-center">
               <span>
                 <FaPlus className="text-xl"></FaPlus>
               </span>
@@ -36,7 +35,7 @@ const Feeds = () => {
         {/* create story card end */}
         {/* signle story card start */}
         <div className="">
-          <div className="card w-10/12 shadow-md relative image-full min-h-full">
+          <div className="card w-9/12 shadow-md relative image-full min-h-full">
             <figure>
               <img
                 src="https://images.prothomalo.com/prothomalo-english%2F2022-12%2F19fe3ca1-4e88-4f85-bba8-446e6112559b%2FShakib_Al_Hasan.webp?auto=format%2Ccompress&format=webp&w=400&dpr=2.6"
@@ -45,7 +44,7 @@ const Feeds = () => {
               />
             </figure>
             <div className="avatar">
-              <div className="w-10 rounded-full ring ring-primary z-20 top-5 left-4 ring-offset-base-100 ring-offset-2 absolute">
+              <div className="w-9 rounded-full ring ring-primary z-20 top-5 left-4 ring-offset-base-100 ring-offset-2 absolute">
                 <img src="https://placeimg.com/192/192/people" alt="" />
               </div>
             </div>
@@ -57,7 +56,7 @@ const Feeds = () => {
         {/* signle story card end */}
         {/* signle story card start */}
         <div className="">
-          <div className="card w-10/12 shadow-md relative image-full min-h-full">
+          <div className="card w-9/12 shadow-md relative image-full min-h-full">
             <figure>
               <img
                 src="https://images.prothomalo.com/prothomalo-english%2F2022-12%2F19fe3ca1-4e88-4f85-bba8-446e6112559b%2FShakib_Al_Hasan.webp?auto=format%2Ccompress&format=webp&w=400&dpr=2.6"
@@ -66,7 +65,7 @@ const Feeds = () => {
               />
             </figure>
             <div className="avatar">
-              <div className="w-10 rounded-full ring ring-primary z-20 top-5 left-4 ring-offset-base-100 ring-offset-2 absolute">
+              <div className="w-9 rounded-full ring ring-primary z-20 top-5 left-4 ring-offset-base-100 ring-offset-2 absolute">
                 <img src="https://placeimg.com/192/192/people" alt="" />
               </div>
             </div>
@@ -78,7 +77,7 @@ const Feeds = () => {
         {/* signle story card end */}
         {/* signle story card start */}
         <div className="">
-          <div className="card w-10/12 shadow-md relative image-full min-h-full">
+          <div className="card w-9/12 shadow-md relative image-full min-h-full">
             <figure>
               <img
                 src="https://images.prothomalo.com/prothomalo-english%2F2022-12%2F19fe3ca1-4e88-4f85-bba8-446e6112559b%2FShakib_Al_Hasan.webp?auto=format%2Ccompress&format=webp&w=400&dpr=2.6"
@@ -87,7 +86,7 @@ const Feeds = () => {
               />
             </figure>
             <div className="avatar">
-              <div className="w-10 rounded-full ring ring-primary z-20 top-5 left-4 ring-offset-base-100 ring-offset-2 absolute">
+              <div className="w-9 rounded-full ring ring-primary z-20 top-5 left-4 ring-offset-base-100 ring-offset-2 absolute">
                 <img src="https://placeimg.com/192/192/people" alt="" />
               </div>
             </div>
@@ -155,7 +154,51 @@ const Feeds = () => {
             </div>
             <div className="w-full rounded-xl h-16 border border-gray-200 p-5 flex items-center justify-between">
               <h3 className="text-lg font-medium">Add with your post</h3>
-              <div></div>
+              <div className="flex items-center">
+                <div className="cursor-pointer flex items-center justify-center w-10 h-10 rounded-full hover:bg-gray-200 duration-300">
+                  <img
+                    src="https://i.ibb.co/zxPs4Tq/gallery.png"
+                    alt=""
+                    className="w-7"
+                    title="Photo or Video"
+                  />
+                </div>
+                <div className="cursor-pointer flex items-center justify-center w-10 h-10 rounded-full hover:bg-gray-200 duration-300">
+                  <img
+                    src="https://i.ibb.co/h7JLXFy/tag.png"
+                    alt=""
+                    className="w-7"
+                    title="Tag People"
+                  />
+                </div>
+                <div className="cursor-pointer flex items-center justify-center w-10 h-10 rounded-full hover:bg-gray-200 duration-300">
+                  <img
+                    src="https://i.ibb.co/DgwPvXm/smile.png"
+                    alt=""
+                    className="w-7"
+                    title="Feelings"
+                  />
+                </div>
+                <div className="cursor-pointer flex items-center justify-center w-10 h-10 rounded-full hover:bg-gray-200 duration-300">
+                  <img
+                    src="https://i.ibb.co/b3d154s/check-point.png"
+                    alt=""
+                    className="w-7"
+                    title="Check In"
+                  />
+                </div>
+                <div className="cursor-pointer flex items-center justify-center w-10 h-10 rounded-full hover:bg-gray-200 duration-300">
+                  <img
+                    src="https://i.ibb.co/crBhvbF/calendar.png"
+                    alt=""
+                    className="w-7"
+                    title="Events"
+                  />
+                </div>
+              </div>
+            </div>
+            <div>
+              <button className="btn btn-block mt-2">Post</button>
             </div>
           </div>
         </div>
