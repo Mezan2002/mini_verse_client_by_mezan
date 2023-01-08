@@ -3,11 +3,11 @@ import "./RightSideMenu.css";
 const RightSideMenu = () => {
   return (
     <div className="w-full mainRightSideMenuContainer">
-      <div className="px-5  rightSideMenu fixed max-h-[90vh] overflow-y-auto">
+      <div className="px-5 rightSideMenu fixed max-h-[90vh] overflow-y-auto">
         <div className="">
           {/* messages card start */}
-          <div className="card shadow-md w-full overflow-y-auto max-h-[645px] messagesCard">
-            <div className="z-10 card-body">
+          <div className="card shadow-md w-full overflow-y-auto max-h-[660px] messagesCard mt-2">
+            <div className="z-10  card-body">
               <div className="z-10">
                 {/* right side topbar start */}
                 <div className="messageCardTop bg-white sticky top-0 z-10">
@@ -46,11 +46,11 @@ const RightSideMenu = () => {
                 </div>
                 {/* message search field end */}
                 {/* messages start */}
-                <div className="mt-5 z-0">
+                <div className="z-0 mt-10">
                   {/* single message start */}
                   <div className="flex items-center mb-6">
                     <div className="avatar">
-                      <div className="w-14 rounded-full">
+                      <div className="w-[51px] rounded-full">
                         <img src="https://placeimg.com/192/192/people" alt="" />
                       </div>
                     </div>
@@ -63,7 +63,7 @@ const RightSideMenu = () => {
                   {/* single message start */}
                   <div className="flex items-center mb-6">
                     <div className="avatar">
-                      <div className="w-14 rounded-full">
+                      <div className="w-[51px] rounded-full">
                         <img src="https://placeimg.com/192/192/people" alt="" />
                       </div>
                     </div>
@@ -76,7 +76,7 @@ const RightSideMenu = () => {
                   {/* single message start */}
                   <div className="flex items-center mb-6">
                     <div className="avatar">
-                      <div className="w-14 rounded-full">
+                      <div className="w-[51px] rounded-full">
                         <img src="https://placeimg.com/192/192/people" alt="" />
                       </div>
                     </div>
@@ -89,7 +89,7 @@ const RightSideMenu = () => {
                   {/* single message start */}
                   <div className="flex items-center mb-6">
                     <div className="avatar">
-                      <div className="w-14 rounded-full">
+                      <div className="w-[51px] rounded-full">
                         <img src="https://placeimg.com/192/192/people" alt="" />
                       </div>
                     </div>
@@ -102,7 +102,7 @@ const RightSideMenu = () => {
                   {/* single message start */}
                   <div className="flex items-center mb-6">
                     <div className="avatar">
-                      <div className="w-14 rounded-full">
+                      <div className="w-[51px] rounded-full">
                         <img src="https://placeimg.com/192/192/people" alt="" />
                       </div>
                     </div>
@@ -115,7 +115,7 @@ const RightSideMenu = () => {
                   {/* single message start */}
                   <div className="flex items-center mb-6">
                     <div className="avatar">
-                      <div className="w-14 rounded-full">
+                      <div className="w-[51px] rounded-full">
                         <img src="https://placeimg.com/192/192/people" alt="" />
                       </div>
                     </div>
@@ -128,7 +128,7 @@ const RightSideMenu = () => {
                   {/* single message start */}
                   <div className="flex items-center mb-6">
                     <div className="avatar">
-                      <div className="w-14 rounded-full">
+                      <div className="w-[51px] rounded-full">
                         <img src="https://placeimg.com/192/192/people" alt="" />
                       </div>
                     </div>
@@ -141,7 +141,7 @@ const RightSideMenu = () => {
                   {/* single message start */}
                   <div className="flex items-center mb-6">
                     <div className="avatar">
-                      <div className="w-14 rounded-full">
+                      <div className="w-[51px] rounded-full">
                         <img src="https://placeimg.com/192/192/people" alt="" />
                       </div>
                     </div>

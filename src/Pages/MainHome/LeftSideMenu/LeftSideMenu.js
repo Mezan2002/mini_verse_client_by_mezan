@@ -2,7 +2,7 @@ import React from "react";
 
 const LeftSideMenu = () => {
   return (
-    <div className="sticky top-20">
+    <div className="fixed">
       <div className="px-5 ">
         <div className="menu p-4 card bg-white shadow-md mb-5 w-full rounded-box">
           <div className="">
@@ -85,7 +85,7 @@ const LeftSideMenu = () => {
             />
             <p className="">Settings</p>
           </div>
-          <p className="text-sm text-center mt-14">
+          <p className="text-sm text-center mt-16">
             Copyright © 2023 - All right reserved by Mezanur Rahman
           </p>
         </div>

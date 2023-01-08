@@ -25,7 +25,7 @@ const Feeds = () => {
             <div className="py-5 text-center font-semibold">
               <p>Create Story</p>
             </div>
-            <div className="bg-primary border border-white absolute top-[67%] left-[38%] rounded-full text-white h-10 w-9 flex justify-center items-center">
+            <div className="bg-primary border border-white absolute top-[67%] left-[38%] rounded-full text-white h-9 w-9 flex justify-center items-center">
               <span>
                 <FaPlus className="text-xl"></FaPlus>
               </span>
@@ -220,9 +220,24 @@ const Feeds = () => {
             </div>
           </div>
           <div>
-            <span>
-              <FaEllipsisH className="mr-2 text-xl"></FaEllipsisH>
-            </span>
+            <div className="dropdown dropdown-bottom dropdown-end">
+              <label tabIndex={0} className="m-1">
+                <span>
+                  <FaEllipsisH className="mr-2 text-xl"></FaEllipsisH>
+                </span>
+              </label>
+              <ul
+                tabIndex={0}
+                className="dropdown-content menu p-2 shadow bg-base-100 rounded-box w-52"
+              >
+                <li>
+                  <a>Item 1</a>
+                </li>
+                <li>
+                  <a>Item 2</a>
+                </li>
+              </ul>
+            </div>
           </div>
         </div>
         <div className="py-2">
