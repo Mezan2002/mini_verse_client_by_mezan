@@ -1,10 +1,5 @@
 import React from "react";
-import {
-  FaChevronDown,
-  FaEllipsisH,
-  FaPlus,
-  FaUserFriends,
-} from "react-icons/fa";
+import { FaEllipsisH, FaPlus } from "react-icons/fa";
 import PostModal from "../PostModal/PostModal";
 
 const Feeds = () => {

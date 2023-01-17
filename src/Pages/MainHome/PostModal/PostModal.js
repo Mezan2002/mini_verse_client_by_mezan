@@ -1,7 +1,30 @@
 import React from "react";
+import { toast } from "react-hot-toast";
 import { FaChevronDown, FaUserFriends } from "react-icons/fa";
 
 const PostModal = () => {
+  const handlePost = (e) => {
+    e.preventDefault();
+    const form = e.target;
+    const postedText = form.postedText.value;
+    const postedData = { postedText };
+    fetch("http://localhost:5000/newPost", {
+      method: "POST",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify(postedData),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        if (data.acknowledged) {
+          form.reset();
+          toast.success("Posted Successfully!");
+        }
+        console.log(data);
+      })
+      .catch((err) => console.log(err));
+  };
   return (
     <div>
       <input type="checkbox" id="addPostModal" className="modal-toggle" />
@@ -15,7 +38,7 @@ const PostModal = () => {
           </label>
           <h3 className="text-lg font-bold text-center">Create post</h3>
           <div className="divider"></div>
-          <div>
+          <form onSubmit={handlePost}>
             <div className="flex items-center mb-10">
               <div className="avatar">
                 <div className="w-12 rounded-full">
@@ -30,61 +53,67 @@ const PostModal = () => {
                 </button>
               </div>
             </div>
-          </div>
-          <div>
-            <textarea
-              className="w-full h-40 focus:outline-none text-xl"
-              placeholder="What's on your mind, Mezan?"
-            ></textarea>
-          </div>
-          <div className="w-full rounded-xl h-16 border border-gray-200 p-5 flex items-center justify-between">
-            <h3 className="text-lg font-medium">Add with your post</h3>
-            <div className="flex items-center">
-              <div className="cursor-pointer flex items-center justify-center w-10 h-10 rounded-full hover:bg-gray-200 duration-300">
-                <img
-                  src="https://i.ibb.co/zxPs4Tq/gallery.png"
-                  alt=""
-                  className="w-7"
-                  title="Photo or Video"
-                />
-              </div>
-              <div className="cursor-pointer flex items-center justify-center w-10 h-10 rounded-full hover:bg-gray-200 duration-300">
-                <img
-                  src="https://i.ibb.co/h7JLXFy/tag.png"
-                  alt=""
-                  className="w-7"
-                  title="Tag People"
-                />
-              </div>
-              <div className="cursor-pointer flex items-center justify-center w-10 h-10 rounded-full hover:bg-gray-200 duration-300">
-                <img
-                  src="https://i.ibb.co/DgwPvXm/smile.png"
-                  alt=""
-                  className="w-7"
-                  title="Feelings"
-                />
-              </div>
-              <div className="cursor-pointer flex items-center justify-center w-10 h-10 rounded-full hover:bg-gray-200 duration-300">
-                <img
-                  src="https://i.ibb.co/b3d154s/check-point.png"
-                  alt=""
-                  className="w-7"
-                  title="Check In"
-                />
-              </div>
-              <div className="cursor-pointer flex items-center justify-center w-10 h-10 rounded-full hover:bg-gray-200 duration-300">
-                <img
-                  src="https://i.ibb.co/crBhvbF/calendar.png"
-                  alt=""
-                  className="w-7"
-                  title="Events"
-                />
+
+            <div>
+              <textarea
+                name="postedText"
+                className="w-full h-40 focus:outline-none text-xl"
+                placeholder="What's on your mind, Mezan?"
+              ></textarea>
+            </div>
+            <div className="w-full rounded-xl h-16 border border-gray-200 p-5 flex items-center justify-between">
+              <h3 className="text-lg font-medium">Add with your post</h3>
+              <div className="flex items-center">
+                <div className="cursor-pointer flex items-center justify-center w-10 h-10 rounded-full hover:bg-gray-200 duration-300">
+                  <img
+                    src="https://i.ibb.co/zxPs4Tq/gallery.png"
+                    alt=""
+                    className="w-7"
+                    title="Photo or Video"
+                  />
+                </div>
+                <div className="cursor-pointer flex items-center justify-center w-10 h-10 rounded-full hover:bg-gray-200 duration-300">
+                  <img
+                    src="https://i.ibb.co/h7JLXFy/tag.png"
+                    alt=""
+                    className="w-7"
+                    title="Tag People"
+                  />
+                </div>
+                <div className="cursor-pointer flex items-center justify-center w-10 h-10 rounded-full hover:bg-gray-200 duration-300">
+                  <img
+                    src="https://i.ibb.co/DgwPvXm/smile.png"
+                    alt=""
+                    className="w-7"
+                    title="Feelings"
+                  />
+                </div>
+                <div className="cursor-pointer flex items-center justify-center w-10 h-10 rounded-full hover:bg-gray-200 duration-300">
+                  <img
+                    src="https://i.ibb.co/b3d154s/check-point.png"
+                    alt=""
+                    className="w-7"
+                    title="Check In"
+                  />
+                </div>
+                <div className="cursor-pointer flex items-center justify-center w-10 h-10 rounded-full hover:bg-gray-200 duration-300">
+                  <img
+                    src="https://i.ibb.co/crBhvbF/calendar.png"
+                    alt=""
+                    className="w-7"
+                    title="Events"
+                  />
+                </div>
               </div>
             </div>
-          </div>
-          <div>
-            <button className="btn btn-block mt-2">Post</button>
-          </div>
+            <div>
+              <input
+                type="submit"
+                className="btn btn-block mt-2"
+                value="Post"
+              ></input>
+            </div>
+          </form>
         </div>
       </div>
     </div>
