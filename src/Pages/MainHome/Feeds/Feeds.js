@@ -228,14 +228,48 @@ const Feeds = () => {
               </label>
               <ul
                 tabIndex={0}
-                className="dropdown-content menu p-2 shadow bg-base-100 rounded-box w-52"
+                className="dropdown-content menu p-2 shadow bg-base-100 rounded-box w-72"
               >
-                <li>
-                  <a>Item 1</a>
-                </li>
-                <li>
-                  <a>Item 2</a>
-                </li>
+                <div className="flex items-center hover:bg-gray-200 p-3 m-2 rounded-2xl">
+                  <img
+                    src="https://i.ibb.co/yf2RjzH/save-instagram.png"
+                    alt=""
+                    className="w-6 mr-5"
+                  />
+                  <p className="">Save</p>
+                </div>
+                <div className="flex items-center hover:bg-gray-200 p-3 m-2 rounded-2xl">
+                  <img
+                    src="https://i.ibb.co/7QZgZ5g/link.png"
+                    alt=""
+                    className="w-6 mr-5"
+                  />
+                  <p className="">Copy Link</p>
+                </div>
+                <div className="flex items-center hover:bg-gray-200 p-3 m-2 rounded-2xl">
+                  <img
+                    src="https://i.ibb.co/qmDXmxW/document.png"
+                    alt=""
+                    className="w-6 mr-5"
+                  />
+                  <p className="">Hide post</p>
+                </div>
+                <div className="flex items-center hover:bg-gray-200 p-3 m-2 rounded-2xl">
+                  <img
+                    src="https://i.ibb.co/R7GBGBB/warning.png"
+                    alt=""
+                    className="w-6 mr-5"
+                  />
+                  <p className="">Report this post</p>
+                </div>
+                <div className="flex items-center hover:bg-gray-200 p-3 m-2 rounded-2xl">
+                  <img
+                    src="https://i.ibb.co/VNT4tRr/remove-user.png"
+                    alt=""
+                    className="w-6 mr-5"
+                  />
+                  <p className="">Unfollow Mezan</p>
+                </div>
               </ul>
             </div>
           </div>

@@ -11,7 +11,7 @@ const Navbar = () => {
       <div className="navbar hidden lg:flex justify-center">
         <div className="navbar-start">
           <a
-            className="btn btn-ghost hover:bg-base-200 px-0 normal-case text-xl"
+            className="btn btn-ghost hover:bg-[#fcfcfc] px-0 normal-case text-xl"
             href="/"
           >
             Mini <span className="text-primary">Verse</span>
