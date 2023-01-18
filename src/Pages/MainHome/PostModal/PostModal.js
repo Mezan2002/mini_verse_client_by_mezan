@@ -1,8 +1,9 @@
-import React from "react";
+import React, { useState } from "react";
 import { toast } from "react-hot-toast";
 import { FaChevronDown, FaUserFriends } from "react-icons/fa";
 
 const PostModal = () => {
+  const [postText, setPostText] = useState(null);
   const handlePost = (e) => {
     e.preventDefault();
     const form = e.target;
@@ -19,6 +20,7 @@ const PostModal = () => {
       .then((data) => {
         if (data.acknowledged) {
           form.reset();
+          setPostText(null);
           toast.success("Posted Successfully!");
         }
         console.log(data);
@@ -57,20 +59,41 @@ const PostModal = () => {
             <div>
               <textarea
                 name="postedText"
+                onChange={(e) => {
+                  console.log(e.target.value);
+                  e.target.value >= 0
+                    ? setPostText(null)
+                    : setPostText(e.target.value);
+                }}
                 className="w-full h-40 focus:outline-none text-xl"
                 placeholder="What's on your mind, Mezan?"
+                required
               ></textarea>
             </div>
             <div className="w-full rounded-xl h-16 border border-gray-200 p-5 flex items-center justify-between">
               <h3 className="text-lg font-medium">Add with your post</h3>
               <div className="flex items-center">
-                <div className="cursor-pointer flex items-center justify-center w-10 h-10 rounded-full hover:bg-gray-200 duration-300">
-                  <img
-                    src="https://i.ibb.co/zxPs4Tq/gallery.png"
-                    alt=""
-                    className="w-7"
-                    title="Photo or Video"
+                <div
+                  type="file"
+                  className="cursor-pointer flex items-center justify-center w-10 h-10 rounded-full 
+                hover:bg-gray-200 duration-300"
+                >
+                  <input
+                    type="file"
+                    name="imageUpload"
+                    id="imageUpload"
+                    className="hidden invisible"
                   />
+                  <label htmlFor="imageUpload">
+                    <figure>
+                      <img
+                        src="https://i.ibb.co/zxPs4Tq/gallery.png"
+                        alt=""
+                        className="w-7"
+                        title="Photo or Video"
+                      />
+                    </figure>
+                  </label>
                 </div>
                 <div className="cursor-pointer flex items-center justify-center w-10 h-10 rounded-full hover:bg-gray-200 duration-300">
                   <img
@@ -107,11 +130,20 @@ const PostModal = () => {
               </div>
             </div>
             <div>
-              <input
-                type="submit"
-                className="btn btn-block mt-2"
-                value="Post"
-              ></input>
+              {postText === null ? (
+                <input
+                  type="submit"
+                  className="btn btn-block mt-2"
+                  value="Post"
+                  disabled
+                ></input>
+              ) : (
+                <input
+                  type="submit"
+                  className="btn btn-block mt-2"
+                  value="Post"
+                ></input>
+              )}
             </div>
           </form>
         </div>
