@@ -1,8 +1,9 @@
-import React from "react";
+import React, { useState } from "react";
 import { FaEllipsisH, FaPlus } from "react-icons/fa";
 import PostModal from "../PostModal/PostModal";
 
 const Feeds = () => {
+  const [modalToggle, setModalToggle] = useState(true);
   return (
     <div className="">
       {/* feeds start */}
@@ -102,7 +103,7 @@ const Feeds = () => {
               <img src="https://placeimg.com/192/192/people" alt="" />
             </div>
           </div>
-          <label htmlFor="addPostModal">
+          <label htmlFor="addPostModal" onClick={() => setModalToggle(true)}>
             <div className="p-4 flex items-center">
               <div className="ml-14 relative">
                 <h2 className="text-lg text-gray-400">
@@ -115,7 +116,10 @@ const Feeds = () => {
             </div>
           </label>
         </div>
-        <PostModal></PostModal>
+        <PostModal
+          modalToggle={modalToggle}
+          setModalToggle={setModalToggle}
+        ></PostModal>
       </div>
       {/* new post section end */}
       {/* posts section start */}
