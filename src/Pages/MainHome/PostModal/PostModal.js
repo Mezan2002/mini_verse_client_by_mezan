@@ -1,16 +1,31 @@
 import React, { useState } from "react";
+import { useForm } from "react-hook-form";
 import { toast } from "react-hot-toast";
 import { FaChevronDown, FaUserFriends } from "react-icons/fa";
 
 const PostModal = ({ modalToggle, setModalToggle }) => {
+  const { register, handleSubmit } = useForm();
   const [postText, setPostText] = useState(null);
+  const [image, setImage] = useState(null);
+  const imageHostingKey = process.env.REACT_APP_IMAGE_HOSTING_SERVER_API;
 
-  const handlePost = (e) => {
-    e.preventDefault();
-    const form = e.target;
-    const postedText = form.postedText.value;
-    const postedData = { postedText };
-    fetch("http://localhost:5000/newPost", {
+  const handlePost = (data) => {
+    const postedText = data.postedText;
+    const uploadedImage = data.image[0];
+    const formData = new FormData();
+    formData.append("uploadedImage", uploadedImage);
+    console.log(uploadedImage);
+    const url = `https://api.imgbb.com/1/upload?key=${imageHostingKey}`;
+    fetch(url, {
+      method: "POST",
+      body: formData,
+    })
+      .then((res) => res.json())
+      .then((imageData) => {
+        console.log(imageData);
+      })
+      .catch((err) => console.log(err));
+    /* fetch("http://localhost:5000/newPost", {
       method: "POST",
       headers: {
         "content-type": "application/json",
@@ -27,7 +42,7 @@ const PostModal = ({ modalToggle, setModalToggle }) => {
         }
         console.log(data);
       })
-      .catch((err) => console.log(err));
+      .catch((err) => console.log(err)); */
   };
   return (
     modalToggle === true && (
@@ -58,19 +73,17 @@ const PostModal = ({ modalToggle, setModalToggle }) => {
                 </button>
               </div>
             </div>
-            <form onSubmit={handlePost}>
+            <form onSubmit={handleSubmit(handlePost)}>
               <div>
                 <textarea
-                  name="postedText"
+                  {...register("postedText", { require: true })}
                   onChange={(e) => {
-                    console.log(e.target.value);
                     e.target.value >= 0
                       ? setPostText(null)
                       : setPostText(e.target.value);
                   }}
                   className="w-full h-40 focus:outline-none text-xl"
                   placeholder="What's on your mind, Mezan?"
-                  required
                 ></textarea>
               </div>
               <div className="w-full rounded-xl h-16 border border-gray-200 p-5 flex items-center justify-between">
@@ -82,8 +95,9 @@ const PostModal = ({ modalToggle, setModalToggle }) => {
               hover:bg-gray-200 duration-300"
                   >
                     <input
+                      {...register("image")}
                       type="file"
-                      name="imageUpload"
+                      name="image"
                       id="imageUpload"
                       className="hidden invisible"
                     />
@@ -133,7 +147,7 @@ const PostModal = ({ modalToggle, setModalToggle }) => {
                 </div>
               </div>
               <div>
-                {postText === null ? (
+                {postText === null && image === null ? (
                   <input
                     type="submit"
                     className="btn btn-block mt-2"
