@@ -4,43 +4,38 @@ import { toast } from "react-hot-toast";
 import { FaChevronDown, FaUserFriends } from "react-icons/fa";
 
 const PostModal = ({ modalToggle, setModalToggle }) => {
-  const { register, handleSubmit } = useForm();
+  const { register, handleSubmit, reset } = useForm();
   const [postText, setPostText] = useState(null);
   const [image, setImage] = useState(null);
   const imageHostingKey = process.env.REACT_APP_IMAGE_HOSTING_SERVER_API;
-
   const handlePost = (data) => {
     const postedText = data.postedText;
-    const uploadedImage = data.image[0];
+    const uploadedImage = data.uploadedImage[0];
     const formData = new FormData();
     formData.append("uploadedImage", uploadedImage);
-    console.log(uploadedImage);
-    const url = `https://api.imgbb.com/1/upload?key=${imageHostingKey}`;
+    const url = `https://api.imgbb.com/1/upload?expiration=600&key=${imageHostingKey}`;
     fetch(url, {
       method: "POST",
       body: formData,
     })
       .then((res) => res.json())
-      .then((imageData) => {
-        console.log(imageData);
-      })
+      .then((data) => console.log(data))
       .catch((err) => console.log(err));
     /* fetch("http://localhost:5000/newPost", {
       method: "POST",
       headers: {
-        "content-type": "application/json",
+        "content-type": "application/json",i
       },
       body: JSON.stringify(postedData),
     })
       .then((res) => res.json())
       .then((data) => {
         if (data.acknowledged) {
-          form.reset();
+          reset();
           setPostText(null);
           setModalToggle(false);
           toast.success("Posted Successfully!");
         }
-        console.log(data);
       })
       .catch((err) => console.log(err)); */
   };
@@ -95,13 +90,13 @@ const PostModal = ({ modalToggle, setModalToggle }) => {
               hover:bg-gray-200 duration-300"
                   >
                     <input
-                      {...register("image")}
+                      {...register("uploadedImage")}
                       type="file"
-                      name="image"
-                      id="imageUpload"
+                      name="uploadedImage"
+                      id="uploadedImage"
                       className="hidden invisible"
                     />
-                    <label htmlFor="imageUpload">
+                    <label htmlFor="uploadedImage">
                       <figure>
                         <img
                           src="https://i.ibb.co/zxPs4Tq/gallery.png"

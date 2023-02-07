@@ -42,16 +42,75 @@ const Navbar = () => {
               <FaBell className="text-2xl"></FaBell>
             </span>
           </div>
-          <div className="avatar relative">
-            <div className="w-11 rounded-full">
-              <img src="https://placeimg.com/192/192/people" alt="" />
-            </div>
-            <span
-              className="absolute bottom-[-2px] right-0 w-4 h-4 rounded-full bg-gray-200 flex 
+          <div className="dropdown dropdown-end">
+            <label tabIndex={0} className="m-1">
+              <div className="avatar relative">
+                <div className="w-11 rounded-full">
+                  <img src="https://placeimg.com/192/192/people" alt="" />
+                </div>
+                <span
+                  className="absolute bottom-[-2px] right-0 w-4 h-4 rounded-full bg-gray-200 flex 
             justify-center items-center"
+                >
+                  <FaAngleDown className="text-base"></FaAngleDown>
+                </span>
+              </div>
+            </label>
+            <ul
+              tabIndex={0}
+              className="dropdown-content menu p-2 shadow-md bg-base-100 rounded-box w-[400px]"
             >
-              <FaAngleDown className="text-base"></FaAngleDown>
-            </span>
+              <div className="hover:bg-gray-200 card mt-4">
+                <div className="p-5 rounded">
+                  <div className="flex items-center">
+                    <div className="avatar">
+                      <div className="w-12 rounded-full">
+                        <img src="https://placeimg.com/192/192/people" alt="" />
+                      </div>
+                    </div>
+                    <h2 className="text-xl font-medium ml-2">Mezanur Rahman</h2>
+                  </div>
+                </div>
+              </div>
+              <div className="divider px-2"></div>
+              <div className="mt-5">
+                <div className="flex items-center hover:bg-gray-200 p-4 m-2 rounded-2xl">
+                  <img
+                    src="https://i.ibb.co/VqQJKL3/settings.png"
+                    alt=""
+                    className="w-6 mr-5"
+                  />
+                  <p className="">Setting & Privacy</p>
+                </div>
+                <div className="flex items-center hover:bg-gray-200 p-4 m-2 rounded-2xl">
+                  <img
+                    src="https://i.ibb.co/2yhFqKx/customer-support.png"
+                    alt=""
+                    className="w-6 mr-5"
+                  />
+                  <p className="">Help & Support</p>
+                </div>
+                <div className="flex items-center hover:bg-gray-200 p-4 m-2 rounded-2xl">
+                  <img
+                    src="https://i.ibb.co/hBTcVCF/feedback.png"
+                    alt=""
+                    className="w-6 mr-5"
+                  />
+                  <p className="">Give Feedback</p>
+                </div>
+                <div className="flex items-center hover:bg-gray-200 p-4 m-2 rounded-2xl">
+                  <img
+                    src="https://i.ibb.co/xJ3rwrH/logout-1.png"
+                    alt=""
+                    className="w-6 mr-5"
+                  />
+                  <p className="">Logout</p>
+                </div>
+              </div>
+              <p className="text-sm text-center mt-5">
+                Copyright © 2023 - All right reserved by Mezanur Rahman
+              </p>
+            </ul>
           </div>
         </div>
       </div>
