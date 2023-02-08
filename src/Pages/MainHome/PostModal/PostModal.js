@@ -7,29 +7,31 @@ const PostModal = ({ modalToggle, setModalToggle }) => {
   const imageHostingKey = process.env.REACT_APP_IMAGE_HOSTING_SERVER_API;
   const { register, handleSubmit, reset } = useForm();
   const [postText, setPostText] = useState(null);
-  const [image, setImage] = useState(null);
+  const [postedImage, setPostedImage] = useState("");
+
   const handlePost = (data) => {
     const postedText = data.postedText;
+    const postedData = { postedText, postedImage };
     const image = data.uploadedImage[0];
     const formData = new FormData();
     formData.append("image", image);
-
-    // const url = `https://api.imgbb.com/1/upload?expiration=600&key=${imageHostingKey}`;
     fetch(`https://api.imgbb.com/1/upload?key=${imageHostingKey}`, {
       method: "POST",
       body: formData,
     })
       .then((response) => response.json())
       .then((data) => {
-        console.log(data);
+        if (data.success) {
+          setPostedImage(data.data.url);
+        }
       })
       .catch((error) => {
         console.error(error);
       });
-    /* fetch("http://localhost:5000/newPost", {
+    fetch("http://localhost:5000/newPost", {
       method: "POST",
       headers: {
-        "content-type": "application/json",i
+        "content-type": "application/json",
       },
       body: JSON.stringify(postedData),
     })
@@ -42,7 +44,7 @@ const PostModal = ({ modalToggle, setModalToggle }) => {
           toast.success("Posted Successfully!");
         }
       })
-      .catch((err) => console.log(err)); */
+      .catch((err) => console.log(err));
   };
   return (
     modalToggle === true && (
@@ -146,12 +148,13 @@ const PostModal = ({ modalToggle, setModalToggle }) => {
                 </div>
               </div>
               <div>
-                {postText === null && image === null ? (
+                {postText === null ? (
                   <input
                     type="submit"
                     className="btn btn-block mt-2"
                     value="Post"
                     disabled
+                    title="please put a caption"
                   ></input>
                 ) : (
                   <input
