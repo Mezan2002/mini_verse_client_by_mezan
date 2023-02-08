@@ -10,7 +10,7 @@ const Home = () => {
         <div>
           <LeftSideMenu></LeftSideMenu>
         </div>
-        <div class="col-span-2 mx-10">
+        <div className="col-span-2 mx-10">
           <Feeds></Feeds>
         </div>
         <div>

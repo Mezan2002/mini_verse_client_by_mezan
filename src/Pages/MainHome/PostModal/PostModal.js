@@ -4,23 +4,28 @@ import { toast } from "react-hot-toast";
 import { FaChevronDown, FaUserFriends } from "react-icons/fa";
 
 const PostModal = ({ modalToggle, setModalToggle }) => {
+  const imageHostingKey = process.env.REACT_APP_IMAGE_HOSTING_SERVER_API;
   const { register, handleSubmit, reset } = useForm();
   const [postText, setPostText] = useState(null);
   const [image, setImage] = useState(null);
-  const imageHostingKey = process.env.REACT_APP_IMAGE_HOSTING_SERVER_API;
   const handlePost = (data) => {
     const postedText = data.postedText;
-    const uploadedImage = data.uploadedImage[0];
+    const image = data.uploadedImage[0];
     const formData = new FormData();
-    formData.append("uploadedImage", uploadedImage);
-    const url = `https://api.imgbb.com/1/upload?expiration=600&key=${imageHostingKey}`;
-    fetch(url, {
+    formData.append("image", image);
+
+    // const url = `https://api.imgbb.com/1/upload?expiration=600&key=${imageHostingKey}`;
+    fetch(`https://api.imgbb.com/1/upload?key=${imageHostingKey}`, {
       method: "POST",
       body: formData,
     })
-      .then((res) => res.json())
-      .then((data) => console.log(data))
-      .catch((err) => console.log(err));
+      .then((response) => response.json())
+      .then((data) => {
+        console.log(data);
+      })
+      .catch((error) => {
+        console.error(error);
+      });
     /* fetch("http://localhost:5000/newPost", {
       method: "POST",
       headers: {
@@ -85,7 +90,6 @@ const PostModal = ({ modalToggle, setModalToggle }) => {
                 <h3 className="text-lg font-medium">Add with your post</h3>
                 <div className="flex items-center">
                   <div
-                    type="file"
                     className="cursor-pointer flex items-center justify-center w-10 h-10 rounded-full 
               hover:bg-gray-200 duration-300"
                   >
