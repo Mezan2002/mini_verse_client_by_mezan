@@ -7,7 +7,13 @@ const PostModal = ({ modalToggle, setModalToggle }) => {
   const imageHostingKey = process.env.REACT_APP_IMAGE_HOSTING_SERVER_API;
   const { register, handleSubmit, reset } = useForm();
   const [postText, setPostText] = useState(null);
+  const [selectedImage, setSelectedImage] = useState(null);
   const [postedImage, setPostedImage] = useState("");
+
+  const handleImageChange = (event) => {
+    setSelectedImage(URL.createObjectURL(event.target.files[0]));
+    reset();
+  };
 
   const handlePost = (data) => {
     const postedText = data.postedText;
@@ -96,12 +102,22 @@ const PostModal = ({ modalToggle, setModalToggle }) => {
               hover:bg-gray-200 duration-300"
                   >
                     <input
+                      onChange={handleImageChange}
                       {...register("uploadedImage")}
                       type="file"
                       name="uploadedImage"
                       id="uploadedImage"
                       className="hidden invisible"
                     />
+                    {selectedImage && (
+                      <div style={{ width: "400px", overflow: "hidden" }}>
+                        <img
+                          src={selectedImage}
+                          alt="SelectedImage"
+                          style={{ width: "100%" }}
+                        />
+                      </div>
+                    )}
                     <label htmlFor="uploadedImage">
                       <figure>
                         <img
