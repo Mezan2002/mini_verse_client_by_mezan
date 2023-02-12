@@ -3,26 +3,34 @@ import { toast } from "react-hot-toast";
 import { FaChevronDown, FaUserFriends } from "react-icons/fa";
 import axios from "axios";
 import "./PostModal.css";
+import Loading from "../../Shared/Loading/Loading";
 
 const PostModal = ({ modalToggle, setModalToggle }) => {
   const imageHostingKey = process.env.REACT_APP_IMAGE_HOSTING_SERVER_API;
-
   const [postText, setPostText] = useState(null);
   const [selectedImage, setSelectedImage] = useState(null);
-  const [postedImage, setPostedImage] = useState("");
-
+  const [loading, setLoading] = useState(false);
   const handleImageChange = (event) => {
     if (event.target.files && event.target.files.length > 0) {
       setSelectedImage(URL.createObjectURL(event.target.files[0]));
     }
   };
   const handleFormSubmit = (event) => {
+    event.preventDefault();
+    setLoading(true);
     const form = event.target;
     const postedText = form.postedText.value;
     const image = form.uploadedImage.files[0];
-    event.preventDefault();
     const formData = new FormData();
     formData.append("image", image);
+    let currentTime = new Date();
+    let time =
+      currentTime.getHours() +
+      ":" +
+      currentTime.getMinutes() +
+      ":" +
+      currentTime.getSeconds();
+
     axios
       .post(`https://api.imgbb.com/1/upload?key=${imageHostingKey}`, formData, {
         headers: {
@@ -31,7 +39,7 @@ const PostModal = ({ modalToggle, setModalToggle }) => {
       })
       .then((response) => {
         const postedImage = response.data.data.url;
-        const postedData = { postedText, postedImage };
+        const postedData = { postedText, postedImage, postedTime: time };
 
         fetch("http://localhost:5000/newPost", {
           method: "POST",
@@ -47,6 +55,7 @@ const PostModal = ({ modalToggle, setModalToggle }) => {
               setPostText(null);
               setSelectedImage(null);
               setModalToggle(false);
+              setLoading(false);
               toast.success("Posted Successfully!");
             }
           })
@@ -55,37 +64,6 @@ const PostModal = ({ modalToggle, setModalToggle }) => {
       .catch((error) => {
         console.log(error);
       });
-
-    /* fetch(`https://api.imgbb.com/1/upload?key=${imageHostingKey}`, {
-      method: "POST",
-      body: formData,
-    })
-      .then((response) => response.json())
-      .then((data) => {
-        if (data.success) {
-          setPostedImage(data.data.url);
-          fetch("http://localhost:5000/newPost", {
-            method: "POST",
-            headers: {
-              "content-type": "application/json",
-            },
-            body: JSON.stringify(postedData),
-          })
-            .then((res) => res.json())
-            .then((data) => {
-              if (data.acknowledged) {
-                form.reset();
-                setPostText(null);
-                setModalToggle(false);
-                toast.success("Posted Successfully!");
-              }
-            })
-            .catch((err) => console.log(err));
-        }
-      })
-      .catch((error) => {
-        console.error(error);
-      }); */
   };
   return (
     modalToggle === true && (
@@ -228,11 +206,13 @@ const PostModal = ({ modalToggle, setModalToggle }) => {
                     title="please put a caption"
                   ></input>
                 ) : (
-                  <input
-                    type="submit"
-                    className="btn btn-block mt-2"
-                    value="Post"
-                  ></input>
+                  <>
+                    <input
+                      type="submit"
+                      className="btn btn-block mt-2"
+                      value="Post"
+                    ></input>
+                  </>
                 )}
               </div>
             </form>
