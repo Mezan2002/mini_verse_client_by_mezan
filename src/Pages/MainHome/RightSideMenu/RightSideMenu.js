@@ -52,7 +52,7 @@ const RightSideMenu = () => {
                     <div className="avatar">
                       <div className="w-[51px] rounded-full">
                         <img
-                          src="https://i.ibb.co/347ZrcP/IMG-20220628-172000-1.jpg"
+                          src="https://i.ibb.co/LS3rs9t/320227336-554443479588388-3782794624352602751-n.jpg"
                           alt=""
                         />
                       </div>
@@ -68,7 +68,7 @@ const RightSideMenu = () => {
                     <div className="avatar">
                       <div className="w-[51px] rounded-full">
                         <img
-                          src="https://i.ibb.co/347ZrcP/IMG-20220628-172000-1.jpg"
+                          src="https://i.ibb.co/LS3rs9t/320227336-554443479588388-3782794624352602751-n.jpg"
                           alt=""
                         />
                       </div>
@@ -84,7 +84,7 @@ const RightSideMenu = () => {
                     <div className="avatar">
                       <div className="w-[51px] rounded-full">
                         <img
-                          src="https://i.ibb.co/347ZrcP/IMG-20220628-172000-1.jpg"
+                          src="https://i.ibb.co/LS3rs9t/320227336-554443479588388-3782794624352602751-n.jpg"
                           alt=""
                         />
                       </div>
@@ -100,7 +100,7 @@ const RightSideMenu = () => {
                     <div className="avatar">
                       <div className="w-[51px] rounded-full">
                         <img
-                          src="https://i.ibb.co/347ZrcP/IMG-20220628-172000-1.jpg"
+                          src="https://i.ibb.co/LS3rs9t/320227336-554443479588388-3782794624352602751-n.jpg"
                           alt=""
                         />
                       </div>
@@ -116,7 +116,7 @@ const RightSideMenu = () => {
                     <div className="avatar">
                       <div className="w-[51px] rounded-full">
                         <img
-                          src="https://i.ibb.co/347ZrcP/IMG-20220628-172000-1.jpg"
+                          src="https://i.ibb.co/LS3rs9t/320227336-554443479588388-3782794624352602751-n.jpg"
                           alt=""
                         />
                       </div>
@@ -132,7 +132,7 @@ const RightSideMenu = () => {
                     <div className="avatar">
                       <div className="w-[51px] rounded-full">
                         <img
-                          src="https://i.ibb.co/347ZrcP/IMG-20220628-172000-1.jpg"
+                          src="https://i.ibb.co/LS3rs9t/320227336-554443479588388-3782794624352602751-n.jpg"
                           alt=""
                         />
                       </div>
@@ -148,7 +148,7 @@ const RightSideMenu = () => {
                     <div className="avatar">
                       <div className="w-[51px] rounded-full">
                         <img
-                          src="https://i.ibb.co/347ZrcP/IMG-20220628-172000-1.jpg"
+                          src="https://i.ibb.co/LS3rs9t/320227336-554443479588388-3782794624352602751-n.jpg"
                           alt=""
                         />
                       </div>
@@ -164,7 +164,7 @@ const RightSideMenu = () => {
                     <div className="avatar">
                       <div className="w-[51px] rounded-full">
                         <img
-                          src="https://i.ibb.co/347ZrcP/IMG-20220628-172000-1.jpg"
+                          src="https://i.ibb.co/LS3rs9t/320227336-554443479588388-3782794624352602751-n.jpg"
                           alt=""
                         />
                       </div>
@@ -195,7 +195,7 @@ const RightSideMenu = () => {
                   <div className="avatar">
                     <div className="w-16 rounded-full">
                       <img
-                        src="https://i.ibb.co/347ZrcP/IMG-20220628-172000-1.jpg"
+                        src="https://i.ibb.co/LS3rs9t/320227336-554443479588388-3782794624352602751-n.jpg"
                         alt=""
                       />
                     </div>
@@ -223,7 +223,7 @@ const RightSideMenu = () => {
                   <div className="avatar">
                     <div className="w-16 rounded-full">
                       <img
-                        src="https://i.ibb.co/347ZrcP/IMG-20220628-172000-1.jpg"
+                        src="https://i.ibb.co/LS3rs9t/320227336-554443479588388-3782794624352602751-n.jpg"
                         alt=""
                       />
                     </div>
@@ -251,7 +251,7 @@ const RightSideMenu = () => {
                   <div className="avatar">
                     <div className="w-16 rounded-full">
                       <img
-                        src="https://i.ibb.co/347ZrcP/IMG-20220628-172000-1.jpg"
+                        src="https://i.ibb.co/LS3rs9t/320227336-554443479588388-3782794624352602751-n.jpg"
                         alt=""
                       />
                     </div>
@@ -279,7 +279,7 @@ const RightSideMenu = () => {
                   <div className="avatar">
                     <div className="w-16 rounded-full">
                       <img
-                        src="https://i.ibb.co/347ZrcP/IMG-20220628-172000-1.jpg"
+                        src="https://i.ibb.co/LS3rs9t/320227336-554443479588388-3782794624352602751-n.jpg"
                         alt=""
                       />
                     </div>

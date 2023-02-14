@@ -4,6 +4,13 @@ import PostModal from "../PostModal/PostModal";
 
 const Feeds = ({ posts, refetch, isLoading }) => {
   const [modalToggle, setModalToggle] = useState(true);
+  let currentTime = new Date();
+  let presentTime =
+    currentTime.getHours() +
+    ":" +
+    currentTime.getMinutes() +
+    ":" +
+    currentTime.getSeconds();
   return (
     <div className="">
       {/* feeds start */}
@@ -14,9 +21,9 @@ const Feeds = ({ posts, refetch, isLoading }) => {
           <div className="card w-9/12 mx-auto h-[230px] shadow-md relative">
             <figure>
               <img
-                src="https://i.ibb.co/347ZrcP/IMG-20220628-172000-1.jpg"
+                src="https://i.ibb.co/LS3rs9t/320227336-554443479588388-3782794624352602751-n.jpg"
                 alt="Shoes"
-                className="w-40 h-48"
+                className="h-48"
               />
             </figure>
             <div className="py-3 text-center font-semibold">
@@ -43,7 +50,7 @@ const Feeds = ({ posts, refetch, isLoading }) => {
             <div className="avatar">
               <div className="w-9 rounded-full ring ring-primary z-20 top-5 left-4 ring-offset-base-100 ring-offset-2 absolute">
                 <img
-                  src="https://i.ibb.co/347ZrcP/IMG-20220628-172000-1.jpg"
+                  src="https://i.ibb.co/LS3rs9t/320227336-554443479588388-3782794624352602751-n.jpg"
                   alt=""
                 />
               </div>
@@ -67,7 +74,7 @@ const Feeds = ({ posts, refetch, isLoading }) => {
             <div className="avatar">
               <div className="w-9 rounded-full ring ring-primary z-20 top-5 left-4 ring-offset-base-100 ring-offset-2 absolute">
                 <img
-                  src="https://i.ibb.co/347ZrcP/IMG-20220628-172000-1.jpg"
+                  src="https://i.ibb.co/LS3rs9t/320227336-554443479588388-3782794624352602751-n.jpg"
                   alt=""
                 />
               </div>
@@ -91,7 +98,7 @@ const Feeds = ({ posts, refetch, isLoading }) => {
             <div className="avatar">
               <div className="w-9 rounded-full ring ring-primary z-20 top-5 left-4 ring-offset-base-100 ring-offset-2 absolute">
                 <img
-                  src="https://i.ibb.co/347ZrcP/IMG-20220628-172000-1.jpg"
+                  src="https://i.ibb.co/LS3rs9t/320227336-554443479588388-3782794624352602751-n.jpg"
                   alt=""
                 />
               </div>
@@ -110,7 +117,7 @@ const Feeds = ({ posts, refetch, isLoading }) => {
           <div className="avatar absolute top-3 left-5">
             <div className="w-9 rounded-full ring ring-primary ring-offset-base-100 ring-offset-2">
               <img
-                src="https://i.ibb.co/347ZrcP/IMG-20220628-172000-1.jpg"
+                src="https://i.ibb.co/LS3rs9t/320227336-554443479588388-3782794624352602751-n.jpg"
                 alt=""
               />
             </div>
@@ -144,14 +151,17 @@ const Feeds = ({ posts, refetch, isLoading }) => {
               <div className="avatar">
                 <div className="w-14 rounded-full">
                   <img
-                    src="https://i.ibb.co/347ZrcP/IMG-20220628-172000-1.jpg"
+                    src="https://i.ibb.co/LS3rs9t/320227336-554443479588388-3782794624352602751-n.jpg"
                     alt=""
                   />
                 </div>
               </div>
               <div className="ml-4">
                 <h5 className="font-semibold">Mezanur Rahman</h5>
-                <p className="text-gray-500">Bangladesh, {post.postedTime}</p>
+                <p className="text-gray-500">
+                  Bangladesh,{" "}
+                  {parseInt(presentTime) - parseInt(post?.postedTime)} hours ago
+                </p>
               </div>
             </div>
             <div>
@@ -258,8 +268,8 @@ const Feeds = ({ posts, refetch, isLoading }) => {
             </figure>
           )}
           <div className="card-body">
-            <div className="grid grid-cols-3 gap-5">
-              <div className="hover:bg-gray-200 text-center py-2 rounded-md flex items-center justify-center">
+            <div className="grid grid-cols-3 gap-5 border-y py-1">
+              <div className="hover:bg-gray-200 text-center cursor-pointer py-2 rounded-md flex items-center justify-center">
                 <img
                   src="https://i.ibb.co/bH4dk1w/like.png"
                   alt=""
@@ -267,7 +277,7 @@ const Feeds = ({ posts, refetch, isLoading }) => {
                 />
                 <h2 className="text-lg">Like</h2>
               </div>
-              <div className="hover:bg-gray-200 text-center py-2 rounded-md flex items-center justify-center">
+              <div className="hover:bg-gray-200 text-center py-2 cursor-pointer rounded-md flex items-center justify-center">
                 <img
                   src="https://i.ibb.co/VLvSYSr/comment.png"
                   alt=""
@@ -275,13 +285,33 @@ const Feeds = ({ posts, refetch, isLoading }) => {
                 />
                 <h2 className="text-lg">Comment</h2>
               </div>
-              <div className="hover:bg-gray-200 text-center py-2 rounded-md flex items-center justify-center">
+              <div className="hover:bg-gray-200 text-center py-2 cursor-pointer rounded-md flex items-center justify-center">
                 <img
                   src="https://i.ibb.co/R0Tw5Bt/share.png"
                   alt=""
                   className="w-6 mr-4"
                 />
                 <h2 className="text-lg">Share</h2>
+              </div>
+            </div>
+            <div className="flex items-center">
+              <div className="avatar mr-3">
+                <div className="w-10 rounded-full">
+                  <img
+                    src="https://i.ibb.co/LS3rs9t/320227336-554443479588388-3782794624352602751-n.jpg"
+                    alt=""
+                  />
+                </div>
+              </div>
+              <div className="w-full">
+                <div className="flex items-center mb-5">
+                  <input
+                    type="text"
+                    placeholder="Write a comment..."
+                    className="py-2 w-full border border-gray-400 text-lg rounded-full mt-4 pl-5
+                  focus:outline-none"
+                  />
+                </div>
               </div>
             </div>
           </div>
