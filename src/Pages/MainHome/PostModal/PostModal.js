@@ -5,7 +5,7 @@ import axios from "axios";
 import "./PostModal.css";
 import Loading from "../../Shared/Loading/Loading";
 
-const PostModal = ({ modalToggle, setModalToggle }) => {
+const PostModal = ({ modalToggle, setModalToggle, refetch }) => {
   const imageHostingKey = process.env.REACT_APP_IMAGE_HOSTING_SERVER_API;
   const [postText, setPostText] = useState(null);
   const [selectedImage, setSelectedImage] = useState(null);
@@ -24,7 +24,7 @@ const PostModal = ({ modalToggle, setModalToggle }) => {
     const formData = new FormData();
     formData.append("image", image);
     const likes = 0;
-    const comments = [""];
+    const comments = [];
     const share = 0;
     let currentTime = new Date();
     let time =
@@ -33,46 +33,73 @@ const PostModal = ({ modalToggle, setModalToggle }) => {
       currentTime.getMinutes() +
       ":" +
       currentTime.getSeconds();
-
-    axios
-      .post(`https://api.imgbb.com/1/upload?key=${imageHostingKey}`, formData, {
-        headers: {
-          "Content-Type": "multipart/form-data",
-        },
-      })
-      .then((response) => {
-        const postedImage = response.data.data.url;
-        const postedData = {
-          postedText,
-          postedImage,
-          postedTime: time,
-          likes,
-          comments,
-          share,
-        };
-        fetch("http://localhost:5000/newPost", {
-          method: "POST",
-          headers: {
-            "content-type": "application/json",
-          },
-          body: JSON.stringify(postedData),
-        })
-          .then((res) => res.json())
-          .then((data) => {
-            if (data.acknowledged) {
-              form.reset();
-              setPostText(null);
-              setSelectedImage(null);
-              setModalToggle(false);
-              setLoading(false);
-              toast.success("Posted Successfully!");
-            }
+    const postText = { postedText };
+    if (image) {
+      axios
+        .post(
+          `https://api.imgbb.com/1/upload?key=${imageHostingKey}`,
+          formData,
+          {
+            headers: {
+              "Content-Type": "multipart/form-data",
+            },
+          }
+        )
+        .then((response) => {
+          const postedImage = response.data.data.url;
+          const postedData = {
+            postedText,
+            postedImage,
+            postedTime: time,
+            likes,
+            comments,
+            share,
+          };
+          fetch("http://localhost:5000/newPost", {
+            method: "POST",
+            headers: {
+              "content-type": "application/json",
+            },
+            body: JSON.stringify(postedData),
           })
-          .catch((err) => console.log(err));
+            .then((res) => res.json())
+            .then((data) => {
+              if (data.acknowledged) {
+                form.reset();
+                setPostText(null);
+                setSelectedImage(null);
+                setModalToggle(false);
+                setLoading(false);
+                toast.success("Posted Successfully!");
+                refetch();
+              }
+            })
+            .catch((err) => console.log(err));
+        })
+        .catch((error) => {
+          console.log(error);
+        });
+    } else {
+      fetch("http://localhost:5000/newPost", {
+        method: "POST",
+        headers: {
+          "content-type": "application/json",
+        },
+        body: JSON.stringify(postText),
       })
-      .catch((error) => {
-        console.log(error);
-      });
+        .then((res) => res.json())
+        .then((data) => {
+          if (data.acknowledged) {
+            form.reset();
+            setPostText(null);
+            setModalToggle(false);
+            setLoading(false);
+            toast.success("Posted Successfully!");
+            refetch();
+          }
+        })
+        .catch((err) => console.log(err));
+    }
   };
   return (
     modalToggle === true && (
@@ -92,7 +119,10 @@ const PostModal = ({ modalToggle, setModalToggle }) => {
             <div className="flex items-center mb-10">
               <div className="avatar">
                 <div className="w-12 rounded-full">
-                  <img src="https://placeimg.com/192/192/people" alt="" />
+                  <img
+                    src="https://i.ibb.co/347ZrcP/IMG-20220628-172000-1.jpg"
+                    alt=""
+                  />
                 </div>
               </div>
               <div className="ml-4">

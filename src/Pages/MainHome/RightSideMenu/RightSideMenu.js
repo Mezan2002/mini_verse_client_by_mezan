@@ -51,7 +51,10 @@ const RightSideMenu = () => {
                   <div className="flex items-center mb-6">
                     <div className="avatar">
                       <div className="w-[51px] rounded-full">
-                        <img src="https://placeimg.com/192/192/people" alt="" />
+                        <img
+                          src="https://i.ibb.co/347ZrcP/IMG-20220628-172000-1.jpg"
+                          alt=""
+                        />
                       </div>
                     </div>
                     <div className="ml-4">
@@ -64,7 +67,10 @@ const RightSideMenu = () => {
                   <div className="flex items-center mb-6">
                     <div className="avatar">
                       <div className="w-[51px] rounded-full">
-                        <img src="https://placeimg.com/192/192/people" alt="" />
+                        <img
+                          src="https://i.ibb.co/347ZrcP/IMG-20220628-172000-1.jpg"
+                          alt=""
+                        />
                       </div>
                     </div>
                     <div className="ml-4">
@@ -77,7 +83,10 @@ const RightSideMenu = () => {
                   <div className="flex items-center mb-6">
                     <div className="avatar">
                       <div className="w-[51px] rounded-full">
-                        <img src="https://placeimg.com/192/192/people" alt="" />
+                        <img
+                          src="https://i.ibb.co/347ZrcP/IMG-20220628-172000-1.jpg"
+                          alt=""
+                        />
                       </div>
                     </div>
                     <div className="ml-4">
@@ -90,7 +99,10 @@ const RightSideMenu = () => {
                   <div className="flex items-center mb-6">
                     <div className="avatar">
                       <div className="w-[51px] rounded-full">
-                        <img src="https://placeimg.com/192/192/people" alt="" />
+                        <img
+                          src="https://i.ibb.co/347ZrcP/IMG-20220628-172000-1.jpg"
+                          alt=""
+                        />
                       </div>
                     </div>
                     <div className="ml-4">
@@ -103,7 +115,10 @@ const RightSideMenu = () => {
                   <div className="flex items-center mb-6">
                     <div className="avatar">
                       <div className="w-[51px] rounded-full">
-                        <img src="https://placeimg.com/192/192/people" alt="" />
+                        <img
+                          src="https://i.ibb.co/347ZrcP/IMG-20220628-172000-1.jpg"
+                          alt=""
+                        />
                       </div>
                     </div>
                     <div className="ml-4">
@@ -116,7 +131,10 @@ const RightSideMenu = () => {
                   <div className="flex items-center mb-6">
                     <div className="avatar">
                       <div className="w-[51px] rounded-full">
-                        <img src="https://placeimg.com/192/192/people" alt="" />
+                        <img
+                          src="https://i.ibb.co/347ZrcP/IMG-20220628-172000-1.jpg"
+                          alt=""
+                        />
                       </div>
                     </div>
                     <div className="ml-4">
@@ -129,7 +147,10 @@ const RightSideMenu = () => {
                   <div className="flex items-center mb-6">
                     <div className="avatar">
                       <div className="w-[51px] rounded-full">
-                        <img src="https://placeimg.com/192/192/people" alt="" />
+                        <img
+                          src="https://i.ibb.co/347ZrcP/IMG-20220628-172000-1.jpg"
+                          alt=""
+                        />
                       </div>
                     </div>
                     <div className="ml-4">
@@ -142,7 +163,10 @@ const RightSideMenu = () => {
                   <div className="flex items-center mb-6">
                     <div className="avatar">
                       <div className="w-[51px] rounded-full">
-                        <img src="https://placeimg.com/192/192/people" alt="" />
+                        <img
+                          src="https://i.ibb.co/347ZrcP/IMG-20220628-172000-1.jpg"
+                          alt=""
+                        />
                       </div>
                     </div>
                     <div className="ml-4">
@@ -170,7 +194,10 @@ const RightSideMenu = () => {
                 <div className="flex items-center mb-2">
                   <div className="avatar">
                     <div className="w-16 rounded-full">
-                      <img src="https://placeimg.com/192/192/people" alt="" />
+                      <img
+                        src="https://i.ibb.co/347ZrcP/IMG-20220628-172000-1.jpg"
+                        alt=""
+                      />
                     </div>
                   </div>
                   <div className="ml-4">
@@ -195,7 +222,10 @@ const RightSideMenu = () => {
                 <div className="flex items-center mb-2">
                   <div className="avatar">
                     <div className="w-16 rounded-full">
-                      <img src="https://placeimg.com/192/192/people" alt="" />
+                      <img
+                        src="https://i.ibb.co/347ZrcP/IMG-20220628-172000-1.jpg"
+                        alt=""
+                      />
                     </div>
                   </div>
                   <div className="ml-4">
@@ -220,7 +250,10 @@ const RightSideMenu = () => {
                 <div className="flex items-center mb-2">
                   <div className="avatar">
                     <div className="w-16 rounded-full">
-                      <img src="https://placeimg.com/192/192/people" alt="" />
+                      <img
+                        src="https://i.ibb.co/347ZrcP/IMG-20220628-172000-1.jpg"
+                        alt=""
+                      />
                     </div>
                   </div>
                   <div className="ml-4">
@@ -245,7 +278,10 @@ const RightSideMenu = () => {
                 <div className="flex items-center mb-2">
                   <div className="avatar">
                     <div className="w-16 rounded-full">
-                      <img src="https://placeimg.com/192/192/people" alt="" />
+                      <img
+                        src="https://i.ibb.co/347ZrcP/IMG-20220628-172000-1.jpg"
+                        alt=""
+                      />
                     </div>
                   </div>
                   <div className="ml-4">

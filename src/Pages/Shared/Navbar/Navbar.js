@@ -46,7 +46,10 @@ const Navbar = () => {
             <label tabIndex={0} className="m-1">
               <div className="avatar relative">
                 <div className="w-11 rounded-full">
-                  <img src="https://placeimg.com/192/192/people" alt="" />
+                  <img
+                    src="https://i.ibb.co/347ZrcP/IMG-20220628-172000-1.jpg"
+                    alt=""
+                  />
                 </div>
                 <span
                   className="absolute bottom-[-2px] right-0 w-4 h-4 rounded-full bg-gray-200 flex 
@@ -65,7 +68,10 @@ const Navbar = () => {
                   <div className="flex items-center">
                     <div className="avatar">
                       <div className="w-12 rounded-full">
-                        <img src="https://placeimg.com/192/192/people" alt="" />
+                        <img
+                          src="https://i.ibb.co/347ZrcP/IMG-20220628-172000-1.jpg"
+                          alt=""
+                        />
                       </div>
                     </div>
                     <h2 className="text-xl font-medium ml-2">Mezanur Rahman</h2>

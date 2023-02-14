@@ -10,7 +10,10 @@ const LeftSideMenu = () => {
               <div className="p-4 flex items-center">
                 <div className="avatar">
                   <div className="w-14 h-14 rounded-full">
-                    <img src="https://placeimg.com/192/192/people" alt="" />
+                    <img
+                      src="https://i.ibb.co/347ZrcP/IMG-20220628-172000-1.jpg"
+                      alt=""
+                    />
                   </div>
                 </div>
                 <div className="ml-5">
