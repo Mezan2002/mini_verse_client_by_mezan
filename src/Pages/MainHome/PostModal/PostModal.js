@@ -33,7 +33,13 @@ const PostModal = ({ modalToggle, setModalToggle, refetch }) => {
       currentTime.getMinutes() +
       ":" +
       currentTime.getSeconds();
-    const postText = { postedText };
+    const textDataOnly = {
+      postedText,
+      postedTime: time,
+      likes,
+      comments,
+      share,
+    };
     if (image) {
       axios
         .post(
@@ -85,7 +91,7 @@ const PostModal = ({ modalToggle, setModalToggle, refetch }) => {
         headers: {
           "content-type": "application/json",
         },
-        body: JSON.stringify(postText),
+        body: JSON.stringify(textDataOnly),
       })
         .then((res) => res.json())
         .then((data) => {

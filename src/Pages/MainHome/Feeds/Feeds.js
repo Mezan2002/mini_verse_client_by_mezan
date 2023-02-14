@@ -3,7 +3,6 @@ import { FaEllipsisH, FaPlus } from "react-icons/fa";
 import PostModal from "../PostModal/PostModal";
 
 const Feeds = ({ posts, refetch, isLoading }) => {
-  console.log(posts);
   const [modalToggle, setModalToggle] = useState(true);
   return (
     <div className="">
@@ -17,15 +16,15 @@ const Feeds = ({ posts, refetch, isLoading }) => {
               <img
                 src="https://i.ibb.co/347ZrcP/IMG-20220628-172000-1.jpg"
                 alt="Shoes"
-                className="w-80 h-48"
+                className="w-40 h-48"
               />
             </figure>
-            <div className="py-5 text-center font-semibold">
+            <div className="py-3 text-center font-semibold">
               <p>Create Story</p>
             </div>
-            <div className="bg-primary border border-white absolute top-[67%] left-[38%] rounded-full text-white h-9 w-9 flex justify-center items-center">
+            <div className="bg-primary border-white border-2 absolute top-[71%] left-[38%] rounded-full text-white h-8 w-8 flex justify-center items-center">
               <span>
-                <FaPlus className="text-xl"></FaPlus>
+                <FaPlus className="text-lg"></FaPlus>
               </span>
             </div>
           </div>
@@ -162,63 +161,99 @@ const Feeds = ({ posts, refetch, isLoading }) => {
                     <FaEllipsisH className="mr-2 text-xl"></FaEllipsisH>
                   </span>
                 </label>
-                <ul
-                  tabIndex={0}
-                  className="dropdown-content menu p-2 shadow bg-base-100 rounded-box w-72"
-                >
-                  <div className="flex items-center hover:bg-gray-200 p-3 m-2 rounded-2xl">
-                    <img
-                      src="https://i.ibb.co/yf2RjzH/save-instagram.png"
-                      alt=""
-                      className="w-6 mr-5"
-                    />
-                    <p className="">Save</p>
-                  </div>
-                  <div className="flex items-center hover:bg-gray-200 p-3 m-2 rounded-2xl">
-                    <img
-                      src="https://i.ibb.co/7QZgZ5g/link.png"
-                      alt=""
-                      className="w-6 mr-5"
-                    />
-                    <p className="">Copy Link</p>
-                  </div>
-                  <div className="flex items-center hover:bg-gray-200 p-3 m-2 rounded-2xl">
-                    <img
-                      src="https://i.ibb.co/qmDXmxW/document.png"
-                      alt=""
-                      className="w-6 mr-5"
-                    />
-                    <p className="">Hide post</p>
-                  </div>
-                  <div className="flex items-center hover:bg-gray-200 p-3 m-2 rounded-2xl">
-                    <img
-                      src="https://i.ibb.co/R7GBGBB/warning.png"
-                      alt=""
-                      className="w-6 mr-5"
-                    />
-                    <p className="">Report this post</p>
-                  </div>
-                  <div className="flex items-center hover:bg-gray-200 p-3 m-2 rounded-2xl">
-                    <img
-                      src="https://i.ibb.co/VNT4tRr/remove-user.png"
-                      alt=""
-                      className="w-6 mr-5"
-                    />
-                    <p className="">Unfollow Mezan</p>
-                  </div>
-                </ul>
+                {post.postedImage ? (
+                  <ul
+                    tabIndex={0}
+                    className="dropdown-content menu p-2 shadow bg-base-100 rounded-box w-72"
+                  >
+                    <div className="flex items-center hover:bg-gray-200 p-3 m-2 rounded-2xl">
+                      <img
+                        src="https://i.ibb.co/yf2RjzH/save-instagram.png"
+                        alt=""
+                        className="w-6 mr-5"
+                      />
+                      <p className="">Save</p>
+                    </div>
+                    <div className="flex items-center hover:bg-gray-200 p-3 m-2 rounded-2xl">
+                      <img
+                        src="https://i.ibb.co/7QZgZ5g/link.png"
+                        alt=""
+                        className="w-6 mr-5"
+                      />
+                      <p className="">Copy Link</p>
+                    </div>
+                    <div className="flex items-center hover:bg-gray-200 p-3 m-2 rounded-2xl">
+                      <img
+                        src="https://i.ibb.co/qmDXmxW/document.png"
+                        alt=""
+                        className="w-6 mr-5"
+                      />
+                      <p className="">Hide post</p>
+                    </div>
+                    <div className="flex items-center hover:bg-gray-200 p-3 m-2 rounded-2xl">
+                      <img
+                        src="https://i.ibb.co/R7GBGBB/warning.png"
+                        alt=""
+                        className="w-6 mr-5"
+                      />
+                      <p className="">Report this post</p>
+                    </div>
+                    <div className="flex items-center hover:bg-gray-200 p-3 m-2 rounded-2xl">
+                      <img
+                        src="https://i.ibb.co/VNT4tRr/remove-user.png"
+                        alt=""
+                        className="w-6 mr-5"
+                      />
+                      <p className="">Unfollow Mezan</p>
+                    </div>
+                  </ul>
+                ) : (
+                  <ul
+                    tabIndex={0}
+                    className="dropdown-content menu p-2 shadow bg-base-100 rounded-box w-72"
+                  >
+                    <div className="flex items-center hover:bg-gray-200 p-3 m-2 rounded-2xl">
+                      <img
+                        src="https://i.ibb.co/yf2RjzH/save-instagram.png"
+                        alt=""
+                        className="w-6 mr-5"
+                      />
+                      <p className="">Save</p>
+                    </div>
+                    <div className="flex items-center hover:bg-gray-200 p-3 m-2 rounded-2xl">
+                      <img
+                        src="https://i.ibb.co/qmDXmxW/document.png"
+                        alt=""
+                        className="w-6 mr-5"
+                      />
+                      <p className="">Hide post</p>
+                    </div>
+                    <div className="flex items-center hover:bg-gray-200 p-3 m-2 rounded-2xl">
+                      <img
+                        src="https://i.ibb.co/R7GBGBB/warning.png"
+                        alt=""
+                        className="w-6 mr-5"
+                      />
+                      <p className="">Report this post</p>
+                    </div>
+                  </ul>
+                )}
               </div>
             </div>
           </div>
           <div className="py-2">
-            <h2 className="pl-6 mb-5">{post?.postedText}</h2>
+            {post.postedImage && post.postedText ? (
+              <h2 className="pl-6 mb-5">{post?.postedText}</h2>
+            ) : (
+              <h2 className="pl-6 mb-5 text-4xl">{post?.postedText}</h2>
+            )}
           </div>
           {post.postedImage && (
             <figure>
               <img
                 src={post?.postedImage}
-                alt="Shoes"
-                className="h-[800px] rounded-xl"
+                alt={`${post.postedText}`}
+                className="h-[700px] rounded-xl"
               />
             </figure>
           )}
