@@ -23,6 +23,9 @@ const PostModal = ({ modalToggle, setModalToggle }) => {
     const image = form.uploadedImage.files[0];
     const formData = new FormData();
     formData.append("image", image);
+    const likes = 0;
+    const comments = [""];
+    const share = 0;
     let currentTime = new Date();
     let time =
       currentTime.getHours() +
@@ -39,8 +42,14 @@ const PostModal = ({ modalToggle, setModalToggle }) => {
       })
       .then((response) => {
         const postedImage = response.data.data.url;
-        const postedData = { postedText, postedImage, postedTime: time };
-
+        const postedData = {
+          postedText,
+          postedImage,
+          postedTime: time,
+          likes,
+          comments,
+          share,
+        };
         fetch("http://localhost:5000/newPost", {
           method: "POST",
           headers: {
@@ -96,124 +105,124 @@ const PostModal = ({ modalToggle, setModalToggle }) => {
             </div>
             <form onSubmit={handleFormSubmit}>
               <div>
-                <textarea
-                  name="postedText"
-                  onChange={(e) => {
-                    e.target.value >= 0
-                      ? setPostText(null)
-                      : setPostText(e.target.value);
-                  }}
-                  className="w-full h-8 focus:outline-none text-xl"
-                  placeholder="What's on your mind, Mezan?"
-                ></textarea>
-              </div>
-              <div className="w-full border border-gray-300 h-64 my-3 overflow-auto rounded-xl">
-                {selectedImage === null ? (
-                  <>
-                    {" "}
-                    <label
-                      htmlFor="uploadedImage"
-                      className="flex items-center justify-center h-full flex-col-reverse"
-                    >
-                      <h2>Add a single image</h2>
-                      <figure>
-                        <img
-                          src="https://i.ibb.co/zxPs4Tq/gallery.png"
-                          alt=""
-                          className="w-7"
-                          title="Photo or Video"
-                        />
-                      </figure>
-                    </label>
-                    <input
-                      onChange={handleImageChange}
-                      type="file"
-                      name="selectSingleImage"
-                      id="selectSingleImage"
-                      className="hidden invisible"
-                    />
-                  </>
-                ) : (
-                  <img src={selectedImage} alt="" className="imageDiv" />
-                )}
-              </div>
-              <div className="w-full rounded-xl h-16 border border-gray-200 p-5 flex items-center justify-between">
-                <h3 className="text-lg font-medium">Add with your post</h3>
-                <div className="flex items-center">
-                  <div
-                    className="cursor-pointer flex items-center justify-center w-10 h-10 rounded-full 
+                <div>
+                  <textarea
+                    name="postedText"
+                    onChange={(e) => {
+                      e.target.value >= 0
+                        ? setPostText(null)
+                        : setPostText(e.target.value);
+                    }}
+                    className="w-full h-8 focus:outline-none text-xl"
+                    placeholder="What's on your mind, Mezan?"
+                  ></textarea>
+                </div>
+                <div className="w-full border border-gray-300 h-64 my-3 overflow-auto rounded-xl">
+                  {selectedImage === null ? (
+                    <>
+                      {" "}
+                      <label
+                        htmlFor="uploadedImage"
+                        className="flex items-center justify-center h-full flex-col-reverse"
+                      >
+                        <h2>Add a single image</h2>
+                        <figure>
+                          <img
+                            src="https://i.ibb.co/zxPs4Tq/gallery.png"
+                            alt=""
+                            className="w-7"
+                            title="Photo or Video"
+                          />
+                        </figure>
+                      </label>
+                      <input
+                        onChange={handleImageChange}
+                        type="file"
+                        name="selectSingleImage"
+                        id="selectSingleImage"
+                        className="hidden invisible"
+                      />
+                    </>
+                  ) : (
+                    <img src={selectedImage} alt="" className="imageDiv" />
+                  )}
+                </div>
+                <div className="w-full rounded-xl h-16 border border-gray-200 p-5 flex items-center justify-between">
+                  <h3 className="text-lg font-medium">Add with your post</h3>
+                  <div className="flex items-center">
+                    <div
+                      className="cursor-pointer flex items-center justify-center w-10 h-10 rounded-full 
               hover:bg-gray-200 duration-300"
-                  >
-                    <input
-                      onChange={handleImageChange}
-                      type="file"
-                      name="uploadedImage"
-                      id="uploadedImage"
-                      className="hidden invisible"
-                    />
-                    <label htmlFor="uploadedImage">
-                      <figure>
-                        <img
-                          src="https://i.ibb.co/zxPs4Tq/gallery.png"
-                          alt=""
-                          className="w-7"
-                          title="Photo or Video"
-                        />
-                      </figure>
-                    </label>
-                  </div>
-                  <div className="cursor-pointer flex items-center justify-center w-10 h-10 rounded-full hover:bg-gray-200 duration-300">
-                    <img
-                      src="https://i.ibb.co/h7JLXFy/tag.png"
-                      alt=""
-                      className="w-7"
-                      title="Tag People"
-                    />
-                  </div>
-                  <div className="cursor-pointer flex items-center justify-center w-10 h-10 rounded-full hover:bg-gray-200 duration-300">
-                    <img
-                      src="https://i.ibb.co/DgwPvXm/smile.png"
-                      alt=""
-                      className="w-7"
-                      title="Feelings"
-                    />
-                  </div>
-                  <div className="cursor-pointer flex items-center justify-center w-10 h-10 rounded-full hover:bg-gray-200 duration-300">
-                    <img
-                      src="https://i.ibb.co/b3d154s/check-point.png"
-                      alt=""
-                      className="w-7"
-                      title="Check In"
-                    />
-                  </div>
-                  <div className="cursor-pointer flex items-center justify-center w-10 h-10 rounded-full hover:bg-gray-200 duration-300">
-                    <img
-                      src="https://i.ibb.co/crBhvbF/calendar.png"
-                      alt=""
-                      className="w-7"
-                      title="Events"
-                    />
+                    >
+                      <input
+                        onChange={handleImageChange}
+                        type="file"
+                        name="uploadedImage"
+                        id="uploadedImage"
+                        className="hidden invisible"
+                      />
+                      <label htmlFor="uploadedImage">
+                        <figure>
+                          <img
+                            src="https://i.ibb.co/zxPs4Tq/gallery.png"
+                            alt=""
+                            className="w-7"
+                            title="Photo or Video"
+                          />
+                        </figure>
+                      </label>
+                    </div>
+                    <div className="cursor-pointer flex items-center justify-center w-10 h-10 rounded-full hover:bg-gray-200 duration-300">
+                      <img
+                        src="https://i.ibb.co/h7JLXFy/tag.png"
+                        alt=""
+                        className="w-7"
+                        title="Tag People"
+                      />
+                    </div>
+                    <div className="cursor-pointer flex items-center justify-center w-10 h-10 rounded-full hover:bg-gray-200 duration-300">
+                      <img
+                        src="https://i.ibb.co/DgwPvXm/smile.png"
+                        alt=""
+                        className="w-7"
+                        title="Feelings"
+                      />
+                    </div>
+                    <div className="cursor-pointer flex items-center justify-center w-10 h-10 rounded-full hover:bg-gray-200 duration-300">
+                      <img
+                        src="https://i.ibb.co/b3d154s/check-point.png"
+                        alt=""
+                        className="w-7"
+                        title="Check In"
+                      />
+                    </div>
+                    <div className="cursor-pointer flex items-center justify-center w-10 h-10 rounded-full hover:bg-gray-200 duration-300">
+                      <img
+                        src="https://i.ibb.co/crBhvbF/calendar.png"
+                        alt=""
+                        className="w-7"
+                        title="Events"
+                      />
+                    </div>
                   </div>
                 </div>
-              </div>
-              <div>
-                {postText === null && selectedImage === null ? (
-                  <input
-                    type="submit"
-                    className="btn btn-block mt-2"
-                    value="Post"
-                    disabled
-                    title="please put a caption"
-                  ></input>
-                ) : (
-                  <>
+                <div>
+                  {postText === null && selectedImage === null ? (
                     <input
                       type="submit"
                       className="btn btn-block mt-2"
                       value="Post"
+                      disabled
+                      title="please put a caption"
                     ></input>
-                  </>
-                )}
+                  ) : (
+                    <>
+                      <button type="submit" className="btn btn-block mt-2">
+                        {loading ? <Loading></Loading> : "Post"}
+                      </button>
+                    </>
+                  )}
+                </div>
               </div>
             </form>
           </div>
