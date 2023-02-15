@@ -1,13 +1,6 @@
 import React from "react";
 
 const PostCardTop = ({ post }) => {
-  let currentTime = new Date();
-  let presentTime =
-    currentTime.getHours() +
-    ":" +
-    currentTime.getMinutes() +
-    ":" +
-    currentTime.getSeconds();
   return (
     <div>
       <div className="flex items-center">

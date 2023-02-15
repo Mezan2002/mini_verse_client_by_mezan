@@ -19,9 +19,16 @@ const PostCardBottom = ({ post }) => {
       .then((data) => console.log(data))
       .catch((e) => console.log(e));
   };
+  const handleComment = (post) => {
+    console.log(post);
+  };
   return (
     <div>
       <div className="card-body">
+        <div>
+          <p>{post.likes}</p>
+        </div>
+
         <div className="grid grid-cols-3 gap-5 border-y py-1">
           <div className="" onClick={() => handleLike(post)}>
             <div
@@ -40,14 +47,15 @@ const PostCardBottom = ({ post }) => {
               />
               <h2
                 className={`"text-lg" ${
-                  !liked ? "text-red-500 font-medium" : "text-black"
+                  liked ? "text-black" : " text-red-500 font-medium"
                 }`}
               >
-                {!liked ? "Liked" : "Like"}
+                {liked ? "Like" : "Liked"}
               </h2>
             </div>
           </div>
           <label
+            onClick={() => handleComment(post)}
             htmlFor="comment"
             className="hover:bg-gray-200 text-center py-2 cursor-pointer rounded-md flex 
           items-center justify-center"
