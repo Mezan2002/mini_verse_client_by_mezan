@@ -22,8 +22,7 @@ const PostCardTop = ({ post }) => {
         <div className="ml-4">
           <h5 className="font-semibold">Mezanur Rahman</h5>
           <p className="text-gray-500">
-            Bangladesh, {parseInt(presentTime) - parseInt(post?.postedTime)}{" "}
-            hours ago
+            Bangladesh, {post.postedTime}, {post.postedDate}
           </p>
         </div>
       </div>

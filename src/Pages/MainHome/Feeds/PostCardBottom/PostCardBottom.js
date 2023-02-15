@@ -1,27 +1,68 @@
-import React from "react";
+import React, { useState } from "react";
 
-const PostCardBottom = () => {
+const PostCardBottom = ({ post }) => {
+  const [liked, setLiked] = useState(true);
+  const handleLike = (post) => {
+    let likes = parseInt(post.likes);
+    if (liked === true) {
+      likes = parseInt(likes + 1);
+    }
+    const likedData = { liked, likes };
+    fetch(`http://localhost:5000/liked/${post._id}`, {
+      method: "PUT",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify(likedData),
+    })
+      .then((res) => res.json())
+      .then((data) => console.log(data))
+      .catch((e) => console.log(e));
+  };
   return (
     <div>
       <div className="card-body">
         <div className="grid grid-cols-3 gap-5 border-y py-1">
-          <div className="hover:bg-gray-200 text-center cursor-pointer py-2 rounded-md flex items-center justify-center">
-            <img
-              src="https://i.ibb.co/bH4dk1w/like.png"
-              alt=""
-              className="w-6 mr-4"
-            />
-            <h2 className="text-lg">Like</h2>
+          <div className="" onClick={() => handleLike(post)}>
+            <div
+              className="hover:bg-gray-200 text-center cursor-pointer py-2 rounded-md flex 
+          items-center justify-center"
+              onClick={() => setLiked(!liked)}
+            >
+              <img
+                src={`${
+                  !liked
+                    ? `${"https://i.ibb.co/5RFyxB7/heart.png"}`
+                    : `${"https://i.ibb.co/9hQQvvX/love.png"}`
+                } `}
+                alt=""
+                className="w-6 mr-4"
+              />
+              <h2
+                className={`"text-lg" ${
+                  !liked ? "text-red-500 font-medium" : "text-black"
+                }`}
+              >
+                {!liked ? "Liked" : "Like"}
+              </h2>
+            </div>
           </div>
-          <div className="hover:bg-gray-200 text-center py-2 cursor-pointer rounded-md flex items-center justify-center">
+          <label
+            htmlFor="comment"
+            className="hover:bg-gray-200 text-center py-2 cursor-pointer rounded-md flex 
+          items-center justify-center"
+          >
             <img
               src="https://i.ibb.co/VLvSYSr/comment.png"
               alt=""
               className="w-6 mr-4"
             />
             <h2 className="text-lg">Comment</h2>
-          </div>
-          <div className="hover:bg-gray-200 text-center py-2 cursor-pointer rounded-md flex items-center justify-center">
+          </label>
+          <div
+            className="hover:bg-gray-200 text-center py-2 cursor-pointer rounded-md flex 
+          items-center justify-center"
+          >
             <img
               src="https://i.ibb.co/R0Tw5Bt/share.png"
               alt=""
@@ -43,6 +84,7 @@ const PostCardBottom = () => {
             <div className="flex items-center mb-5">
               <input
                 type="text"
+                id="comment"
                 placeholder="Write a comment..."
                 className="py-2 w-full border border-gray-400 text-lg rounded-full mt-4 pl-5
                   focus:outline-none"

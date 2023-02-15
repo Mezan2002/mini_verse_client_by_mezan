@@ -16,11 +16,13 @@ const Feeds = ({ posts, refetch }) => {
       {/* stories card end */}
 
       {/* new post section start */}
+
       <NewPost
         modalToggle={modalToggle}
         setModalToggle={setModalToggle}
         refetch={refetch}
       ></NewPost>
+
       {/* new post section end */}
 
       {/* posts section start */}
@@ -43,7 +45,7 @@ const Feeds = ({ posts, refetch }) => {
           </div>
           <div className="py-2">
             {post.postedImage && post.postedText ? (
-              <h2 className="pl-6 mb-5">{post?.postedText}</h2>
+              <h2 className="pl-8 mb-5">{post?.postedText}</h2>
             ) : (
               <h2 className="pl-6 mb-5 text-4xl">{post?.postedText}</h2>
             )}
@@ -60,7 +62,7 @@ const Feeds = ({ posts, refetch }) => {
 
           {/* post card bottom start */}
 
-          <PostCardBottom></PostCardBottom>
+          <PostCardBottom post={post}></PostCardBottom>
 
           {/* post card bottom end */}
         </div>

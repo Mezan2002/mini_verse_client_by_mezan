@@ -23,9 +23,9 @@ const PostModal = ({ modalToggle, setModalToggle, refetch }) => {
     const image = form.uploadedImage.files[0];
     const formData = new FormData();
     formData.append("image", image);
-    const likes = 0;
-    const comments = [];
-    const share = 0;
+    let createdDate = new Date().toDateString();
+    let createdTime = new Date().toLocaleTimeString();
+    console.log(createdTime);
     let currentTime = new Date();
     let time =
       currentTime.getHours() +
@@ -35,10 +35,11 @@ const PostModal = ({ modalToggle, setModalToggle, refetch }) => {
       currentTime.getSeconds();
     const textDataOnly = {
       postedText,
-      postedTime: time,
-      likes,
-      comments,
-      share,
+      postedTime: createdTime,
+      postedDate: createdDate,
+      likes: 0,
+      comments: [],
+      share: 0,
     };
     if (image) {
       axios
@@ -56,10 +57,11 @@ const PostModal = ({ modalToggle, setModalToggle, refetch }) => {
           const postedData = {
             postedText,
             postedImage,
-            postedTime: time,
-            likes,
-            comments,
-            share,
+            postedTime: createdTime,
+            postedDate: createdDate,
+            likes: 0,
+            comments: [],
+            share: 0,
           };
           fetch("http://localhost:5000/newPost", {
             method: "POST",
