@@ -11,7 +11,7 @@ const LogIn = () => {
         <form className="px-10">
           <div className="form-control w-full">
             <label className="label">
-              <span className="label-text">useremail or phone number</span>
+              <span className="label-text">Email Adress or Phone Number</span>
             </label>
             <input
               type="email"
@@ -20,28 +20,20 @@ const LogIn = () => {
           </div>
           <div className="form-control w-full">
             <label className="label">
-              <span className="label-text">password</span>
+              <span className="label-text">Password</span>
             </label>
             <input
               type="password"
               className="w-full border py-3 rounded-xl focus:outline-none px-3"
             />
           </div>
-          <div className="flex items-center justify-between mt-3">
-            <div className="form-control">
-              <label className="label cursor-pointer">
-                <input type="checkbox" className="checkbox mr-2" />
-                <span className="label-text">Remember me</span>
-              </label>
-            </div>
-            <p className="hover:underline text-primary">forgot password?</p>
-          </div>
           <button type="submit" className="btn btn-block my-5">
             Login
           </button>
         </form>
-        <div>
-          <p className="text-center mb-5">
+        <div className="flex items-center justify-between px-10 mb-10">
+          <p className="hover:underline text-primary">forgot account?</p>
+          <p className="text-center">
             don't have an account?{" "}
             <Link to="/signUp" className="text-primary">
               sign up
