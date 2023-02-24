@@ -25,7 +25,7 @@ const PostModal = ({ modalToggle, setModalToggle, refetch }) => {
     formData.append("image", image);
     let createdDate = new Date().toDateString();
     let createdTime = new Date().toLocaleTimeString();
-    console.log(createdTime);
+    let createdAt = new Date().toISOString();
     let currentTime = new Date();
     let time =
       currentTime.getHours() +
@@ -35,6 +35,7 @@ const PostModal = ({ modalToggle, setModalToggle, refetch }) => {
       currentTime.getSeconds();
     const textDataOnly = {
       postedText,
+      createdAt,
       postedTime: createdTime,
       postedDate: createdDate,
       likes: 0,
@@ -57,6 +58,7 @@ const PostModal = ({ modalToggle, setModalToggle, refetch }) => {
           const postedData = {
             postedText,
             postedImage,
+            createdAt,
             postedTime: createdTime,
             postedDate: createdDate,
             likes: 0,

@@ -45,7 +45,7 @@ const Feeds = ({ posts, refetch }) => {
           </div>
           <div className="py-2">
             {post.postedImage && post.postedText ? (
-              <h2 className="pl-8 mb-5">{post?.postedText}</h2>
+              <h2 className="pl-8 text-lg mb-5">{post?.postedText}</h2>
             ) : (
               <h2 className="pl-6 mb-5 text-4xl">{post?.postedText}</h2>
             )}
@@ -55,14 +55,14 @@ const Feeds = ({ posts, refetch }) => {
               <img
                 src={post?.postedImage}
                 alt={`${post.postedText}`}
-                className="h-[700px] rounded-xl"
+                className="max-h-[700px] w-[800px] rounded-xl"
               />
             </figure>
           )}
 
           {/* post card bottom start */}
 
-          <PostCardBottom post={post}></PostCardBottom>
+          <PostCardBottom post={post} refetch={refetch}></PostCardBottom>
 
           {/* post card bottom end */}
         </div>

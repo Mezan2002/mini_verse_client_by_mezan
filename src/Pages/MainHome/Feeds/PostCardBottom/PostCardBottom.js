@@ -1,13 +1,13 @@
 import React, { useState } from "react";
 
-const PostCardBottom = ({ post }) => {
+const PostCardBottom = ({ post, refetch }) => {
   const [liked, setLiked] = useState(true);
   const handleLike = (post) => {
     let likes = parseInt(post.likes);
     if (liked === true) {
       likes = parseInt(likes + 1);
     }
-    const likedData = { liked, likes };
+    const likedData = { likes };
     fetch(`http://localhost:5000/liked/${post._id}`, {
       method: "PUT",
       headers: {
@@ -16,7 +16,10 @@ const PostCardBottom = ({ post }) => {
       body: JSON.stringify(likedData),
     })
       .then((res) => res.json())
-      .then((data) => console.log(data))
+      .then((data) => {
+        console.log(data);
+        refetch();
+      })
       .catch((e) => console.log(e));
   };
   const handleComment = (post) => {
@@ -26,7 +29,7 @@ const PostCardBottom = ({ post }) => {
     <div>
       <div className="card-body">
         <div>
-          <p>{post.likes}</p>
+          <p>{post.likes} peoples reacted</p>
         </div>
 
         <div className="grid grid-cols-3 gap-5 border-y py-1">
@@ -92,7 +95,6 @@ const PostCardBottom = ({ post }) => {
             <div className="flex items-center mb-5">
               <input
                 type="text"
-                id="comment"
                 placeholder="Write a comment..."
                 className="py-2 w-full border border-gray-400 text-lg rounded-full mt-4 pl-5
                   focus:outline-none"
