@@ -29,7 +29,16 @@ const PostCardBottom = ({ post, refetch }) => {
     <div>
       <div className="card-body">
         <div>
-          <p>{post.likes} peoples reacted</p>
+          {post.likes >= 1 ? (
+            <div className="flex items-center">
+              <img
+                className="mr-2 w-5 ml-2"
+                src="https://i.ibb.co/5RFyxB7/heart.png"
+                alt=""
+              />
+              <p>{post.likes} peoples loved</p>
+            </div>
+          ) : null}
         </div>
 
         <div className="grid grid-cols-3 gap-5 border-y py-1">
@@ -53,7 +62,7 @@ const PostCardBottom = ({ post, refetch }) => {
                   liked ? "text-black" : " text-red-500 font-medium"
                 }`}
               >
-                {liked ? "Like" : "Liked"}
+                {liked ? "Love" : "Loved"}
               </h2>
             </div>
           </div>

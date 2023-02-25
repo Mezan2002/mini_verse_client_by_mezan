@@ -23,21 +23,10 @@ const PostModal = ({ modalToggle, setModalToggle, refetch }) => {
     const image = form.uploadedImage.files[0];
     const formData = new FormData();
     formData.append("image", image);
-    let createdDate = new Date().toDateString();
-    let createdTime = new Date().toLocaleTimeString();
-    let createdAt = new Date().toISOString();
-    let currentTime = new Date();
-    let time =
-      currentTime.getHours() +
-      ":" +
-      currentTime.getMinutes() +
-      ":" +
-      currentTime.getSeconds();
+    const postedAt = new Date();
     const textDataOnly = {
       postedText,
-      createdAt,
-      postedTime: createdTime,
-      postedDate: createdDate,
+      postedAt,
       likes: 0,
       comments: [],
       share: 0,
@@ -58,9 +47,7 @@ const PostModal = ({ modalToggle, setModalToggle, refetch }) => {
           const postedData = {
             postedText,
             postedImage,
-            createdAt,
-            postedTime: createdTime,
-            postedDate: createdDate,
+            postedAt,
             likes: 0,
             comments: [],
             share: 0,
