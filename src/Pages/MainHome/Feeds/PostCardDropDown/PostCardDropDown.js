@@ -15,7 +15,23 @@ const PostCardDropDown = ({ post }) => {
             tabIndex={0}
             className="dropdown-content menu p-2 shadow bg-base-100 rounded-box w-72"
           >
-            <div className="flex items-center hover:bg-gray-200 p-3 m-2 rounded-2xl">
+            <div className="flex items-center hover:bg-gray-200 p-3 cursor-pointer m-2 rounded-2xl">
+              <img
+                src="https://i.ibb.co/JH0SJXc/edit-1.png"
+                alt=""
+                className="w-6 mr-5"
+              />
+              <p className="">Edit Post</p>
+            </div>
+            <div className="flex items-center hover:bg-gray-200 p-3 cursor-pointer m-2 rounded-2xl">
+              <img
+                src="https://i.ibb.co/SBkdp91/delete-1.png"
+                alt=""
+                className="w-6 mr-5"
+              />
+              <p className="">Delete Post</p>
+            </div>
+            <div className="flex items-center hover:bg-gray-200 p-3 cursor-pointer m-2 rounded-2xl">
               <img
                 src="https://i.ibb.co/yf2RjzH/save-instagram.png"
                 alt=""
@@ -23,7 +39,7 @@ const PostCardDropDown = ({ post }) => {
               />
               <p className="">Save</p>
             </div>
-            <div className="flex items-center hover:bg-gray-200 p-3 m-2 rounded-2xl">
+            <div className="flex items-center hover:bg-gray-200 p-3 cursor-pointer m-2 rounded-2xl">
               <img
                 src="https://i.ibb.co/7QZgZ5g/link.png"
                 alt=""
@@ -31,7 +47,7 @@ const PostCardDropDown = ({ post }) => {
               />
               <p className="">Copy Link</p>
             </div>
-            <div className="flex items-center hover:bg-gray-200 p-3 m-2 rounded-2xl">
+            <div className="flex items-center hover:bg-gray-200 p-3 cursor-pointer m-2 rounded-2xl">
               <img
                 src="https://i.ibb.co/qmDXmxW/document.png"
                 alt=""
@@ -39,7 +55,7 @@ const PostCardDropDown = ({ post }) => {
               />
               <p className="">Hide post</p>
             </div>
-            <div className="flex items-center hover:bg-gray-200 p-3 m-2 rounded-2xl">
+            <div className="flex items-center hover:bg-gray-200 p-3 cursor-pointer m-2 rounded-2xl">
               <img
                 src="https://i.ibb.co/R7GBGBB/warning.png"
                 alt=""
@@ -47,7 +63,7 @@ const PostCardDropDown = ({ post }) => {
               />
               <p className="">Report this post</p>
             </div>
-            <div className="flex items-center hover:bg-gray-200 p-3 m-2 rounded-2xl">
+            <div className="flex items-center hover:bg-gray-200 p-3 cursor-pointer m-2 rounded-2xl">
               <img
                 src="https://i.ibb.co/VNT4tRr/remove-user.png"
                 alt=""
@@ -61,7 +77,23 @@ const PostCardDropDown = ({ post }) => {
             tabIndex={0}
             className="dropdown-content menu p-2 shadow bg-base-100 rounded-box w-72"
           >
-            <div className="flex items-center hover:bg-gray-200 p-3 m-2 rounded-2xl">
+            <div className="flex items-center hover:bg-gray-200 p-2 cursor-pointer m-2 rounded-2xl">
+              <img
+                src="https://i.ibb.co/JH0SJXc/edit-1.png"
+                alt=""
+                className="w-6 mr-5"
+              />
+              <p className="">Edit Post</p>
+            </div>
+            <div className="flex items-center hover:bg-gray-200 p-2 cursor-pointer m-2 rounded-2xl">
+              <img
+                src="https://i.ibb.co/SBkdp91/delete-1.png"
+                alt=""
+                className="w-6 mr-5"
+              />
+              <p className="">Delete Post</p>
+            </div>
+            <div className="flex items-center hover:bg-gray-200 p-2 cursor-pointer m-2 rounded-2xl">
               <img
                 src="https://i.ibb.co/yf2RjzH/save-instagram.png"
                 alt=""
@@ -69,7 +101,7 @@ const PostCardDropDown = ({ post }) => {
               />
               <p className="">Save</p>
             </div>
-            <div className="flex items-center hover:bg-gray-200 p-3 m-2 rounded-2xl">
+            <div className="flex items-center hover:bg-gray-200 p-2 cursor-pointer m-2 rounded-2xl">
               <img
                 src="https://i.ibb.co/qmDXmxW/document.png"
                 alt=""
@@ -77,7 +109,7 @@ const PostCardDropDown = ({ post }) => {
               />
               <p className="">Hide post</p>
             </div>
-            <div className="flex items-center hover:bg-gray-200 p-3 m-2 rounded-2xl">
+            <div className="flex items-center hover:bg-gray-200 p-2 cursor-pointer m-2 rounded-2xl">
               <img
                 src="https://i.ibb.co/R7GBGBB/warning.png"
                 alt=""
