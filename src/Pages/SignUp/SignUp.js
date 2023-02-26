@@ -1,19 +1,57 @@
 import React, { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import { Link } from "react-router-dom";
+import {
+  getDateList,
+  getMonthList,
+  getYearList,
+} from "../../Functions/DateMakerFn";
 
 const SignUp = () => {
+  const [acceptTerm, setAcceptTerm] = useState(false);
+
+  // dates state start
+  const [yearList, setYearList] = useState([]);
+  const [monthList, setMonthList] = useState([]);
+  const [dateList, setDateList] = useState([]);
+  // dates state end
+
+  useEffect(() => {
+    const years = getYearList();
+    const months = getMonthList();
+    const dates = getDateList();
+
+    setYearList(years);
+    setMonthList(months);
+    setDateList(dates);
+  }, []);
+
   const {
     register,
     handleSubmit,
     formState: { errors },
   } = useForm();
   const onSubmit = (data) => {
-    const date = data.date;
-    const month = data.month;
-    const year = data.year;
-    const dateOfBirth = { date, month, year };
-    console.log(data);
+    const userData = {
+      firstName: data.firstName,
+      lastName: data.lastName,
+      email: data.email,
+      phone: data.phoneNumber,
+      password: data.newPassword,
+      dateOfBirth: { date: data.date, month: data.month, year: data.year },
+      gender: data.gender,
+      terms: data.terms,
+    };
+    fetch("http://localhost:5000/signUp", {
+      method: "POST",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify(userData),
+    })
+      .then((res) => res.json())
+      .then((data) => console.log(data))
+      .catch((e) => console.log(e));
   };
   return (
     <div className="flex items-center justify-center min-h-screen">
@@ -101,8 +139,11 @@ const SignUp = () => {
                     className="select select-bordered focus:outline-none w-full border-red-500"
                   >
                     <option value={""}>Date</option>
-                    <option value={1}>1</option>
-                    <option value={2}>2</option>
+                    {dateList.map((date) => (
+                      <option key={date} value={date}>
+                        {date}
+                      </option>
+                    ))}
                   </select>
                 ) : (
                   <select
@@ -110,8 +151,11 @@ const SignUp = () => {
                     className="select select-bordered focus:outline-none w-full"
                   >
                     <option value={""}>Date</option>
-                    <option value={1}>1</option>
-                    <option value={2}>2</option>
+                    {dateList.map((date) => (
+                      <option key={date} value={date}>
+                        {date}
+                      </option>
+                    ))}
                   </select>
                 )}
                 {errors.date && (
@@ -125,8 +169,11 @@ const SignUp = () => {
                     className="select select-bordered focus:outline-none w-full border-red-500"
                   >
                     <option value={""}>Month</option>
-                    <option value={1}>1</option>
-                    <option value={2}>2</option>
+                    {monthList.map((month) => (
+                      <option key={month} value={month}>
+                        {month}
+                      </option>
+                    ))}
                   </select>
                 ) : (
                   <select
@@ -134,8 +181,11 @@ const SignUp = () => {
                     className="select select-bordered focus:outline-none w-full"
                   >
                     <option value={""}>Month</option>
-                    <option value={1}>1</option>
-                    <option value={2}>2</option>
+                    {monthList.map((month) => (
+                      <option key={month} value={month}>
+                        {month}
+                      </option>
+                    ))}
                   </select>
                 )}
                 {errors.month && (
@@ -149,8 +199,11 @@ const SignUp = () => {
                     className="select select-bordered focus:outline-none w-full border-red-500"
                   >
                     <option value={""}>Year</option>
-                    <option value={1}>1</option>
-                    <option value={2}>2</option>
+                    {yearList.map((year) => (
+                      <option key={year} value={year}>
+                        {year}
+                      </option>
+                    ))}
                   </select>
                 ) : (
                   <select
@@ -158,6 +211,11 @@ const SignUp = () => {
                     className="select select-bordered focus:outline-none w-full"
                   >
                     <option value={""}>Year</option>
+                    {yearList.map((year) => (
+                      <option key={year} value={year}>
+                        {year}
+                      </option>
+                    ))}
                   </select>
                 )}
                 {errors.year && (
@@ -266,7 +324,24 @@ const SignUp = () => {
               )}
             </div>
           </div>
-          <button type="submit" className="btn btn-block my-5">
+          <div>
+            <div className="form-control">
+              <label className="cursor-pointer flex items-center mt-5">
+                <input
+                  type="checkbox"
+                  {...register("terms")}
+                  onChange={(e) => setAcceptTerm(e.target.checked)}
+                  className="checkbox mr-2"
+                />
+                <span className="label-text">Accept Terms & Conditions</span>
+              </label>
+            </div>
+          </div>
+          <button
+            type="submit"
+            disabled={!acceptTerm}
+            className="btn btn-block my-5"
+          >
             Sign Up
           </button>
         </form>
