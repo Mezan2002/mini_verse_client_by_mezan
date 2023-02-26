@@ -6,7 +6,7 @@ import {
   getMonthList,
   getYearList,
 } from "../../Functions/DateMakerFn";
-
+import Swal from "sweetalert2";
 const SignUp = () => {
   const [acceptTerm, setAcceptTerm] = useState(false);
 
@@ -50,7 +50,11 @@ const SignUp = () => {
       body: JSON.stringify(userData),
     })
       .then((res) => res.json())
-      .then((data) => console.log(data))
+      .then((data) => {
+        if (data.acknowledged) {
+          Swal.fire("Sign Up Successfully!", "Now Enjoy Mini Verse", "success");
+        }
+      })
       .catch((e) => console.log(e));
   };
   return (
