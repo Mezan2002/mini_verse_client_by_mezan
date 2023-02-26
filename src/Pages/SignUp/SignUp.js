@@ -7,8 +7,19 @@ import {
   getYearList,
 } from "../../Functions/DateMakerFn";
 import Swal from "sweetalert2";
+import { useDispatch, useSelector } from "react-redux";
+import {
+  FETCHING_ERROR,
+  FETCHING_START,
+  FETCHING_SUCCESSFULL,
+} from "../../Redux/Reducer/ActionTypes/actionTypes";
 const SignUp = () => {
+  const dispatch = useDispatch();
   const [acceptTerm, setAcceptTerm] = useState(false);
+
+  const state = useSelector((state) => state);
+
+  console.log(state);
 
   // dates state start
   const [yearList, setYearList] = useState([]);
@@ -42,6 +53,7 @@ const SignUp = () => {
       gender: data.gender,
       terms: data.terms,
     };
+    dispatch({ type: FETCHING_START });
     fetch("http://localhost:5000/signUp", {
       method: "POST",
       headers: {
@@ -52,10 +64,11 @@ const SignUp = () => {
       .then((res) => res.json())
       .then((data) => {
         if (data.acknowledged) {
+          dispatch({ type: FETCHING_SUCCESSFULL, payload: userData });
           Swal.fire("Sign Up Successfully!", "Now Enjoy Mini Verse", "success");
         }
       })
-      .catch((e) => console.log(e));
+      .catch((e) => dispatch({ type: FETCHING_ERROR }));
   };
   return (
     <div className="flex items-center justify-center min-h-screen">

@@ -5,14 +5,9 @@ import PostCardBottom from "../PostCardBottom/PostCardBottom";
 import PostCardDropDown from "../PostCardDropDown/PostCardDropDown";
 import PostCardTop from "../PostCardTop/PostCardTop";
 import StoryCard from "../StoryCard/StoryCard";
-import { useSelector } from "react-redux";
 
 const Feeds = ({ posts, refetch }) => {
   const [modalToggle, setModalToggle] = useState(true);
-
-  const state = useSelector((state) => state);
-
-  console.log(state);
 
   return (
     <div className="">
