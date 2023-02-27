@@ -9,10 +9,10 @@ import {
 import Swal from "sweetalert2";
 import { useDispatch, useSelector } from "react-redux";
 import {
-  FETCHING_ERROR,
-  FETCHING_START,
-  FETCHING_SUCCESSFULL,
-} from "../../Redux/Reducer/ActionTypes/actionTypes";
+  fetchingError,
+  fetchingStart,
+  fetchingSuccessfull,
+} from "../../Redux/ActionCreator/ActionCreator";
 const SignUp = () => {
   const dispatch = useDispatch();
   const [acceptTerm, setAcceptTerm] = useState(false);
@@ -53,7 +53,7 @@ const SignUp = () => {
       gender: data.gender,
       terms: data.terms,
     };
-    dispatch({ type: FETCHING_START });
+    dispatch(fetchingStart());
     fetch("http://localhost:5000/signUp", {
       method: "POST",
       headers: {
@@ -64,11 +64,11 @@ const SignUp = () => {
       .then((res) => res.json())
       .then((data) => {
         if (data.acknowledged) {
-          dispatch({ type: FETCHING_SUCCESSFULL, payload: userData });
-          Swal.fire("Sign Up Successfully!", "Now Enjoy Mini Verse", "success");
+          dispatch(fetchingSuccessfull(userData));
+          Swal.fire("Sign Up Successfully!", "", "success");
         }
       })
-      .catch((e) => dispatch({ type: FETCHING_ERROR }));
+      .catch((e) => dispatch(fetchingError));
   };
   return (
     <div className="flex items-center justify-center min-h-screen">
