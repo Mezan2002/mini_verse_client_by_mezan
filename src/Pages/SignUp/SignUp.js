@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import {
   getDateList,
   getMonthList,
@@ -13,8 +13,10 @@ import {
   fetchingStart,
   fetchingSuccessfull,
 } from "../../Redux/ActionCreator/ActionCreator";
+
 const SignUp = () => {
   const dispatch = useDispatch();
+  const navigate = useNavigate();
   const [acceptTerm, setAcceptTerm] = useState(false);
 
   const state = useSelector((state) => state);
@@ -66,6 +68,7 @@ const SignUp = () => {
         if (data.acknowledged) {
           dispatch(fetchingSuccessfull(userData));
           Swal.fire("Sign Up Successfully!", "", "success");
+          navigate("/");
         }
       })
       .catch((e) => dispatch(fetchingError));
