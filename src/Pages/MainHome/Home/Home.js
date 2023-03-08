@@ -1,5 +1,6 @@
 import { useQuery } from "@tanstack/react-query";
 import React from "react";
+import { useSelector } from "react-redux";
 import Feeds from "../Feeds/Feeds/Feeds";
 import LeftSideMenu from "../LeftSideMenu/LeftSideMenu";
 import RightSideMenu from "../RightSideMenu/RightSideMenu";
@@ -17,6 +18,10 @@ const Home = () => {
       return data;
     },
   });
+
+  const state = useSelector((state) => state);
+
+  console.log(state);
 
   return (
     <div>

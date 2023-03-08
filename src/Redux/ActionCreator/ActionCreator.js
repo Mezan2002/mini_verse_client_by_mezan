@@ -2,6 +2,7 @@ import {
   FETCHING_ERROR,
   FETCHING_START,
   FETCHING_SUCCESSFULL,
+  LOGGEDIN_USER,
 } from "../Reducer/ActionTypes/actionTypes";
 
 export const fetchingStart = () => {
@@ -18,5 +19,11 @@ export const fetchingSuccessfull = (user) => {
 export const fetchingError = () => {
   return {
     type: FETCHING_ERROR,
+  };
+};
+export const loggedInUser = (usersData) => {
+  return {
+    type: LOGGEDIN_USER,
+    payload: usersData,
   };
 };

@@ -4,7 +4,7 @@ import { Outlet } from "react-router-dom";
 import Navbar from "../../Pages/Shared/Navbar/Navbar";
 
 const Main = () => {
-  const user = useSelector((state) => state.user);
+  const user = useSelector((state) => state);
   console.log(user);
   return (
     <div>

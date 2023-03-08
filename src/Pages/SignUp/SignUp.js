@@ -12,6 +12,7 @@ import {
   fetchingError,
   fetchingStart,
   fetchingSuccessfull,
+  loggedInUser,
 } from "../../Redux/ActionCreator/ActionCreator";
 
 const SignUp = () => {
@@ -42,6 +43,7 @@ const SignUp = () => {
   const {
     register,
     handleSubmit,
+    watch,
     formState: { errors },
   } = useForm();
   const onSubmit = (data) => {
@@ -55,7 +57,7 @@ const SignUp = () => {
       gender: data.gender,
       terms: data.terms,
     };
-    dispatch(fetchingStart());
+    dispatch(fetchingStart);
     fetch("http://localhost:5000/signUp", {
       method: "POST",
       headers: {
@@ -69,6 +71,7 @@ const SignUp = () => {
           dispatch(fetchingSuccessfull(userData));
           Swal.fire("Sign Up Successfully!", "", "success");
           navigate("/");
+          dispatch(loggedInUser(userData));
         }
       })
       .catch((e) => dispatch(fetchingError));
