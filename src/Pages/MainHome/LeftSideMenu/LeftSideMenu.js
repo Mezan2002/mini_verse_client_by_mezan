@@ -97,7 +97,7 @@ const LeftSideMenu = () => {
             />
             <p className="">Settings</p>
           </div>
-          <p className="text-sm text-center mt-16">
+          <p className="text-sm text-center mt-10">
             Copyright © 2023 - All right reserved by Mezanur Rahman
           </p>
         </div>

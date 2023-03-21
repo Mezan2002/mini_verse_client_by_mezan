@@ -12,12 +12,11 @@ import {
   fetchingError,
   fetchingStart,
   fetchingSuccessfull,
-  loggedInUser,
 } from "../../Redux/ActionCreator/ActionCreator";
 
 const SignUp = () => {
-  const dispatch = useDispatch();
   const navigate = useNavigate();
+  const dispatch = useDispatch();
   const [acceptTerm, setAcceptTerm] = useState(false);
 
   const state = useSelector((state) => state);
@@ -43,7 +42,6 @@ const SignUp = () => {
   const {
     register,
     handleSubmit,
-    watch,
     formState: { errors },
   } = useForm();
   const onSubmit = (data) => {
@@ -71,7 +69,6 @@ const SignUp = () => {
           dispatch(fetchingSuccessfull(userData));
           Swal.fire("Sign Up Successfully!", "", "success");
           navigate("/");
-          dispatch(loggedInUser(userData));
         }
       })
       .catch((e) => dispatch(fetchingError));
