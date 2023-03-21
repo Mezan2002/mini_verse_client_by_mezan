@@ -4,7 +4,6 @@ import Main from "../../Layout/Main/Main";
 import LogIn from "../../Pages/LogIn/LogIn";
 import Home from "../../Pages/MainHome/Home/Home";
 import SignUp from "../../Pages/SignUp/SignUp";
-import Test from "../../Pages/Test/Test";
 
 const PrimaryRoutes = createBrowserRouter([
   {
@@ -20,10 +19,6 @@ const PrimaryRoutes = createBrowserRouter([
   {
     path: "/logIn",
     element: <LogIn></LogIn>,
-  },
-  {
-    path: "/test",
-    element: <Test></Test>,
   },
   {
     path: "/signUp",

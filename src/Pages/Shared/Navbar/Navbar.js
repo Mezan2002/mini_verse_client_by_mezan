@@ -12,9 +12,9 @@ const Navbar = () => {
         <div className="navbar-start">
           <img
             draggable={false}
-            src="https://i.ibb.co/bbY2WYY/mini-Verse-Logo.png"
+            src="https://i.ibb.co/gDvcnWH/Screenshot-2023-03-22-022259.png"
             alt="miniVerseLogo"
-            className="w-20"
+            className="h-20"
           />
         </div>
         <div className="navbar justify-center">

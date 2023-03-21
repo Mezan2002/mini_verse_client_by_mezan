@@ -1,9 +1,4 @@
-import React, { useEffect, useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import {
-  fetchData,
-  postData,
-} from "../../../../Redux/Thunk/LoggedInUser/LoggedInUser";
+import React, { useState } from "react";
 
 import NewPost from "../NewPost/NewPost";
 import PostCardBottom from "../PostCardBottom/PostCardBottom";

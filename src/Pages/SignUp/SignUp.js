@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import { Link, useNavigate } from "react-router-dom";
 import {
@@ -13,15 +13,15 @@ import {
   fetchingStart,
   fetchingSuccessfull,
 } from "../../Redux/ActionCreator/ActionCreator";
+import { AuthContext } from "../../context/AuthProvider";
 
 const SignUp = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
+  const { user } = useContext(AuthContext);
   const [acceptTerm, setAcceptTerm] = useState(false);
 
-  const state = useSelector((state) => state);
-
-  console.log(state);
+  console.log(user);
 
   // dates state start
   const [yearList, setYearList] = useState([]);

@@ -1,14 +1,10 @@
 import React, { useEffect, useState } from "react";
 import {
   createUserWithEmailAndPassword,
-  FacebookAuthProvider,
   getAuth,
-  GithubAuthProvider,
-  GoogleAuthProvider,
   onAuthStateChanged,
   sendPasswordResetEmail,
   signInWithEmailAndPassword,
-  signInWithPopup,
   signOut,
   updateProfile,
 } from "firebase/auth";
