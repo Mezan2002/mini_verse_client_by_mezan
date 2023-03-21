@@ -54,6 +54,7 @@ const Feeds = ({ posts, refetch }) => {
           {post.postedImage && (
             <figure>
               <img
+                draggable={false}
                 src={post?.postedImage}
                 alt={`${post.postedText}`}
                 className="max-h-[700px] max-w-[800px] rounded-xl"

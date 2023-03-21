@@ -11,6 +11,7 @@ const LeftSideMenu = () => {
                 <div className="avatar">
                   <div className="w-14 h-14 rounded-full">
                     <img
+                      draggable={false}
                       src="https://i.ibb.co/LS3rs9t/320227336-554443479588388-3782794624352602751-n.jpg"
                       alt=""
                     />
@@ -26,6 +27,7 @@ const LeftSideMenu = () => {
           <div className="divider"></div>
           <div className="flex items-center hover:bg-gray-200 p-4 m-2 rounded-2xl">
             <img
+              draggable={false}
               src="https://i.ibb.co/s5RsSD2/house.png"
               alt=""
               className="w-6 mr-5"
@@ -34,6 +36,7 @@ const LeftSideMenu = () => {
           </div>
           <div className="flex items-center hover:bg-gray-200 p-4 m-2 rounded-2xl">
             <img
+              draggable={false}
               src="https://i.ibb.co/DWvktnB/facebook-1.png"
               alt=""
               className="w-6 mr-5"
@@ -42,6 +45,7 @@ const LeftSideMenu = () => {
           </div>
           <div className="flex items-center hover:bg-gray-200 p-4 m-2 rounded-2xl">
             <img
+              draggable={false}
               src="https://i.ibb.co/yS32nXX/people.png"
               alt=""
               className="w-6 mr-5"
@@ -50,6 +54,7 @@ const LeftSideMenu = () => {
           </div>
           <div className="flex items-center hover:bg-gray-200 p-4 m-2 rounded-2xl">
             <img
+              draggable={false}
               src="https://i.ibb.co/0Z8mLb5/facebook-page.png"
               alt=""
               className="w-6 mr-5"
@@ -58,6 +63,7 @@ const LeftSideMenu = () => {
           </div>
           <div className="flex items-center hover:bg-gray-200 p-4 m-2 rounded-2xl">
             <img
+              draggable={false}
               src="https://i.ibb.co/yf2RjzH/save-instagram.png"
               alt=""
               className="w-6 mr-5"
@@ -66,6 +72,7 @@ const LeftSideMenu = () => {
           </div>
           <div className="flex items-center hover:bg-gray-200 p-4 m-2 rounded-2xl">
             <img
+              draggable={false}
               src="https://i.ibb.co/Yjm6Xqk/line-chart.png"
               alt=""
               className="w-6 mr-5"
@@ -74,6 +81,7 @@ const LeftSideMenu = () => {
           </div>
           <div className="flex items-center hover:bg-gray-200 p-4 m-2 rounded-2xl">
             <img
+              draggable={false}
               src="https://i.ibb.co/KG4htTv/console.png"
               alt=""
               className="w-6 mr-5"
@@ -82,6 +90,7 @@ const LeftSideMenu = () => {
           </div>
           <div className="flex items-center hover:bg-gray-200 p-4 m-2 rounded-2xl">
             <img
+              draggable={false}
               src="https://i.ibb.co/VqQJKL3/settings.png"
               alt=""
               className="w-6 mr-5"

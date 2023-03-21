@@ -42,6 +42,7 @@ const PostCardTop = ({ post }) => {
         <div className="avatar">
           <div className="w-14 rounded-full">
             <img
+              draggable={false}
               src="https://i.ibb.co/LS3rs9t/320227336-554443479588388-3782794624352602751-n.jpg"
               alt=""
             />

@@ -17,6 +17,7 @@ const PostCardDropDown = ({ post }) => {
           >
             <div className="flex items-center hover:bg-gray-200 p-3 cursor-pointer m-2 rounded-2xl">
               <img
+                draggable={false}
                 src="https://i.ibb.co/JH0SJXc/edit-1.png"
                 alt=""
                 className="w-6 mr-5"
@@ -25,6 +26,7 @@ const PostCardDropDown = ({ post }) => {
             </div>
             <div className="flex items-center hover:bg-gray-200 p-3 cursor-pointer m-2 rounded-2xl">
               <img
+                draggable={false}
                 src="https://i.ibb.co/SBkdp91/delete-1.png"
                 alt=""
                 className="w-6 mr-5"
@@ -33,6 +35,7 @@ const PostCardDropDown = ({ post }) => {
             </div>
             <div className="flex items-center hover:bg-gray-200 p-3 cursor-pointer m-2 rounded-2xl">
               <img
+                draggable={false}
                 src="https://i.ibb.co/yf2RjzH/save-instagram.png"
                 alt=""
                 className="w-6 mr-5"
@@ -41,6 +44,7 @@ const PostCardDropDown = ({ post }) => {
             </div>
             <div className="flex items-center hover:bg-gray-200 p-3 cursor-pointer m-2 rounded-2xl">
               <img
+                draggable={false}
                 src="https://i.ibb.co/7QZgZ5g/link.png"
                 alt=""
                 className="w-6 mr-5"
@@ -49,6 +53,7 @@ const PostCardDropDown = ({ post }) => {
             </div>
             <div className="flex items-center hover:bg-gray-200 p-3 cursor-pointer m-2 rounded-2xl">
               <img
+                draggable={false}
                 src="https://i.ibb.co/qmDXmxW/document.png"
                 alt=""
                 className="w-6 mr-5"
@@ -57,6 +62,7 @@ const PostCardDropDown = ({ post }) => {
             </div>
             <div className="flex items-center hover:bg-gray-200 p-3 cursor-pointer m-2 rounded-2xl">
               <img
+                draggable={false}
                 src="https://i.ibb.co/R7GBGBB/warning.png"
                 alt=""
                 className="w-6 mr-5"
@@ -65,6 +71,7 @@ const PostCardDropDown = ({ post }) => {
             </div>
             <div className="flex items-center hover:bg-gray-200 p-3 cursor-pointer m-2 rounded-2xl">
               <img
+                draggable={false}
                 src="https://i.ibb.co/VNT4tRr/remove-user.png"
                 alt=""
                 className="w-6 mr-5"
@@ -79,6 +86,7 @@ const PostCardDropDown = ({ post }) => {
           >
             <div className="flex items-center hover:bg-gray-200 p-2 cursor-pointer m-2 rounded-2xl">
               <img
+                draggable={false}
                 src="https://i.ibb.co/JH0SJXc/edit-1.png"
                 alt=""
                 className="w-6 mr-5"
@@ -87,6 +95,7 @@ const PostCardDropDown = ({ post }) => {
             </div>
             <div className="flex items-center hover:bg-gray-200 p-2 cursor-pointer m-2 rounded-2xl">
               <img
+                draggable={false}
                 src="https://i.ibb.co/SBkdp91/delete-1.png"
                 alt=""
                 className="w-6 mr-5"
@@ -95,6 +104,7 @@ const PostCardDropDown = ({ post }) => {
             </div>
             <div className="flex items-center hover:bg-gray-200 p-2 cursor-pointer m-2 rounded-2xl">
               <img
+                draggable={false}
                 src="https://i.ibb.co/yf2RjzH/save-instagram.png"
                 alt=""
                 className="w-6 mr-5"
@@ -103,6 +113,7 @@ const PostCardDropDown = ({ post }) => {
             </div>
             <div className="flex items-center hover:bg-gray-200 p-2 cursor-pointer m-2 rounded-2xl">
               <img
+                draggable={false}
                 src="https://i.ibb.co/qmDXmxW/document.png"
                 alt=""
                 className="w-6 mr-5"
@@ -111,6 +122,7 @@ const PostCardDropDown = ({ post }) => {
             </div>
             <div className="flex items-center hover:bg-gray-200 p-2 cursor-pointer m-2 rounded-2xl">
               <img
+                draggable={false}
                 src="https://i.ibb.co/R7GBGBB/warning.png"
                 alt=""
                 className="w-6 mr-5"

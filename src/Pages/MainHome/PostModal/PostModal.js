@@ -117,6 +117,7 @@ const PostModal = ({ modalToggle, setModalToggle, refetch }) => {
               <div className="avatar">
                 <div className="w-12 rounded-full">
                   <img
+                    draggable={false}
                     src="https://i.ibb.co/LS3rs9t/320227336-554443479588388-3782794624352602751-n.jpg"
                     alt=""
                   />
@@ -155,6 +156,7 @@ const PostModal = ({ modalToggle, setModalToggle, refetch }) => {
                         <h2>Add a single image</h2>
                         <figure>
                           <img
+                            draggable={false}
                             src="https://i.ibb.co/zxPs4Tq/gallery.png"
                             alt=""
                             className="w-7"
@@ -171,7 +173,12 @@ const PostModal = ({ modalToggle, setModalToggle, refetch }) => {
                       />
                     </>
                   ) : (
-                    <img src={selectedImage} alt="" className="imageDiv" />
+                    <img
+                      draggable={false}
+                      src={selectedImage}
+                      alt=""
+                      className="imageDiv"
+                    />
                   )}
                 </div>
                 <div className="w-full rounded-xl h-16 border border-gray-200 p-5 flex items-center justify-between">
@@ -191,6 +198,7 @@ const PostModal = ({ modalToggle, setModalToggle, refetch }) => {
                       <label htmlFor="uploadedImage">
                         <figure>
                           <img
+                            draggable={false}
                             src="https://i.ibb.co/zxPs4Tq/gallery.png"
                             alt=""
                             className="w-7"
@@ -201,6 +209,7 @@ const PostModal = ({ modalToggle, setModalToggle, refetch }) => {
                     </div>
                     <div className="cursor-pointer flex items-center justify-center w-10 h-10 rounded-full hover:bg-gray-200 duration-300">
                       <img
+                        draggable={false}
                         src="https://i.ibb.co/h7JLXFy/tag.png"
                         alt=""
                         className="w-7"
@@ -209,6 +218,7 @@ const PostModal = ({ modalToggle, setModalToggle, refetch }) => {
                     </div>
                     <div className="cursor-pointer flex items-center justify-center w-10 h-10 rounded-full hover:bg-gray-200 duration-300">
                       <img
+                        draggable={false}
                         src="https://i.ibb.co/DgwPvXm/smile.png"
                         alt=""
                         className="w-7"
@@ -217,6 +227,7 @@ const PostModal = ({ modalToggle, setModalToggle, refetch }) => {
                     </div>
                     <div className="cursor-pointer flex items-center justify-center w-10 h-10 rounded-full hover:bg-gray-200 duration-300">
                       <img
+                        draggable={false}
                         src="https://i.ibb.co/b3d154s/check-point.png"
                         alt=""
                         className="w-7"
@@ -225,6 +236,7 @@ const PostModal = ({ modalToggle, setModalToggle, refetch }) => {
                     </div>
                     <div className="cursor-pointer flex items-center justify-center w-10 h-10 rounded-full hover:bg-gray-200 duration-300">
                       <img
+                        draggable={false}
                         src="https://i.ibb.co/crBhvbF/calendar.png"
                         alt=""
                         className="w-7"

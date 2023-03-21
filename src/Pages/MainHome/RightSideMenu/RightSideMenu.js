@@ -14,6 +14,7 @@ const RightSideMenu = () => {
                   <div className="flex items-center justify-between">
                     <h3 className="font-medium text-xl z-10">Messages</h3>
                     <img
+                      draggable={false}
                       src="https://i.ibb.co/Psk8TjS/edit.png"
                       alt=""
                       className="w-7"
@@ -29,6 +30,7 @@ const RightSideMenu = () => {
                   focus:outline-none"
                     />
                     <img
+                      draggable={false}
                       className="absolute left-5 top-1/2 w-4"
                       src="https://i.ibb.co/hYwBRBJ/search-interface-symbol.png"
                       alt=""
@@ -52,6 +54,7 @@ const RightSideMenu = () => {
                     <div className="avatar">
                       <div className="w-[51px] rounded-full">
                         <img
+                          draggable={false}
                           src="https://i.ibb.co/LS3rs9t/320227336-554443479588388-3782794624352602751-n.jpg"
                           alt=""
                         />
@@ -68,6 +71,7 @@ const RightSideMenu = () => {
                     <div className="avatar">
                       <div className="w-[51px] rounded-full">
                         <img
+                          draggable={false}
                           src="https://i.ibb.co/LS3rs9t/320227336-554443479588388-3782794624352602751-n.jpg"
                           alt=""
                         />
@@ -84,6 +88,7 @@ const RightSideMenu = () => {
                     <div className="avatar">
                       <div className="w-[51px] rounded-full">
                         <img
+                          draggable={false}
                           src="https://i.ibb.co/LS3rs9t/320227336-554443479588388-3782794624352602751-n.jpg"
                           alt=""
                         />
@@ -100,6 +105,7 @@ const RightSideMenu = () => {
                     <div className="avatar">
                       <div className="w-[51px] rounded-full">
                         <img
+                          draggable={false}
                           src="https://i.ibb.co/LS3rs9t/320227336-554443479588388-3782794624352602751-n.jpg"
                           alt=""
                         />
@@ -116,6 +122,7 @@ const RightSideMenu = () => {
                     <div className="avatar">
                       <div className="w-[51px] rounded-full">
                         <img
+                          draggable={false}
                           src="https://i.ibb.co/LS3rs9t/320227336-554443479588388-3782794624352602751-n.jpg"
                           alt=""
                         />
@@ -132,6 +139,7 @@ const RightSideMenu = () => {
                     <div className="avatar">
                       <div className="w-[51px] rounded-full">
                         <img
+                          draggable={false}
                           src="https://i.ibb.co/LS3rs9t/320227336-554443479588388-3782794624352602751-n.jpg"
                           alt=""
                         />
@@ -148,6 +156,7 @@ const RightSideMenu = () => {
                     <div className="avatar">
                       <div className="w-[51px] rounded-full">
                         <img
+                          draggable={false}
                           src="https://i.ibb.co/LS3rs9t/320227336-554443479588388-3782794624352602751-n.jpg"
                           alt=""
                         />
@@ -164,6 +173,7 @@ const RightSideMenu = () => {
                     <div className="avatar">
                       <div className="w-[51px] rounded-full">
                         <img
+                          draggable={false}
                           src="https://i.ibb.co/LS3rs9t/320227336-554443479588388-3782794624352602751-n.jpg"
                           alt=""
                         />
@@ -195,6 +205,7 @@ const RightSideMenu = () => {
                   <div className="avatar">
                     <div className="w-16 rounded-full">
                       <img
+                        draggable={false}
                         src="https://i.ibb.co/LS3rs9t/320227336-554443479588388-3782794624352602751-n.jpg"
                         alt=""
                       />
@@ -223,6 +234,7 @@ const RightSideMenu = () => {
                   <div className="avatar">
                     <div className="w-16 rounded-full">
                       <img
+                        draggable={false}
                         src="https://i.ibb.co/LS3rs9t/320227336-554443479588388-3782794624352602751-n.jpg"
                         alt=""
                       />
@@ -251,6 +263,7 @@ const RightSideMenu = () => {
                   <div className="avatar">
                     <div className="w-16 rounded-full">
                       <img
+                        draggable={false}
                         src="https://i.ibb.co/LS3rs9t/320227336-554443479588388-3782794624352602751-n.jpg"
                         alt=""
                       />
@@ -279,6 +292,7 @@ const RightSideMenu = () => {
                   <div className="avatar">
                     <div className="w-16 rounded-full">
                       <img
+                        draggable={false}
                         src="https://i.ibb.co/LS3rs9t/320227336-554443479588388-3782794624352602751-n.jpg"
                         alt=""
                       />

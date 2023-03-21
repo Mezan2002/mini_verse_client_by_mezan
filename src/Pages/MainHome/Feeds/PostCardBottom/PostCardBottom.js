@@ -32,6 +32,7 @@ const PostCardBottom = ({ post, refetch }) => {
           {post.likes >= 1 ? (
             <div className="flex items-center">
               <img
+                draggable={false}
                 className="mr-2 w-5 ml-2"
                 src="https://i.ibb.co/5RFyxB7/heart.png"
                 alt=""
@@ -49,6 +50,7 @@ const PostCardBottom = ({ post, refetch }) => {
               onClick={() => setLiked(!liked)}
             >
               <img
+                draggable={false}
                 src={`${
                   !liked
                     ? `${"https://i.ibb.co/5RFyxB7/heart.png"}`
@@ -73,6 +75,7 @@ const PostCardBottom = ({ post, refetch }) => {
           items-center justify-center"
           >
             <img
+              draggable={false}
               src="https://i.ibb.co/VLvSYSr/comment.png"
               alt=""
               className="w-6 mr-4"
@@ -84,6 +87,7 @@ const PostCardBottom = ({ post, refetch }) => {
           items-center justify-center"
           >
             <img
+              draggable={false}
               src="https://i.ibb.co/R0Tw5Bt/share.png"
               alt=""
               className="w-6 mr-4"
@@ -95,6 +99,7 @@ const PostCardBottom = ({ post, refetch }) => {
           <div className="avatar mr-3">
             <div className="w-10 rounded-full">
               <img
+                draggable={false}
                 src="https://i.ibb.co/LS3rs9t/320227336-554443479588388-3782794624352602751-n.jpg"
                 alt=""
               />

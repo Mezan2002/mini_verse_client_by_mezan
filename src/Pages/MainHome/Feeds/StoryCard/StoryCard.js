@@ -10,6 +10,7 @@ const StoryCard = () => {
           <div className="card w-9/12 mx-auto h-[230px] shadow-md relative">
             <figure>
               <img
+                draggable={false}
                 src="https://i.ibb.co/LS3rs9t/320227336-554443479588388-3782794624352602751-n.jpg"
                 alt="Shoes"
                 className="h-48"
@@ -31,7 +32,8 @@ const StoryCard = () => {
           <div className="card w-9/12 mx-auto h-[230px] shadow-md relative image-full min-h-full">
             <figure>
               <img
-                src="https://images.prothomalo.com/prothomalo-english%2F2022-12%2F19fe3ca1-4e88-4f85-bba8-446e6112559b%2FShakib_Al_Hasan.webp?auto=format%2Ccompress&format=webp&w=400&dpr=2.6"
+                draggable={false}
+                src="https://i.ibb.co/jhr8PDS/336784604-940533650287665-5205716765486193992-n.jpg"
                 alt="Shoes"
                 className="w-72 h-48"
               />
@@ -39,6 +41,7 @@ const StoryCard = () => {
             <div className="avatar">
               <div className="w-9 rounded-full ring ring-primary z-20 top-5 left-4 ring-offset-base-100 ring-offset-2 absolute">
                 <img
+                  draggable={false}
                   src="https://i.ibb.co/LS3rs9t/320227336-554443479588388-3782794624352602751-n.jpg"
                   alt=""
                 />
@@ -55,7 +58,8 @@ const StoryCard = () => {
           <div className="card w-9/12 mx-auto h-[230px] shadow-md relative image-full min-h-full">
             <figure>
               <img
-                src="https://images.prothomalo.com/prothomalo-english%2F2022-12%2F19fe3ca1-4e88-4f85-bba8-446e6112559b%2FShakib_Al_Hasan.webp?auto=format%2Ccompress&format=webp&w=400&dpr=2.6"
+                draggable={false}
+                src="https://i.ibb.co/jhr8PDS/336784604-940533650287665-5205716765486193992-n.jpg"
                 alt="Shoes"
                 className="w-72 h-48"
               />
@@ -63,6 +67,7 @@ const StoryCard = () => {
             <div className="avatar">
               <div className="w-9 rounded-full ring ring-primary z-20 top-5 left-4 ring-offset-base-100 ring-offset-2 absolute">
                 <img
+                  draggable={false}
                   src="https://i.ibb.co/LS3rs9t/320227336-554443479588388-3782794624352602751-n.jpg"
                   alt=""
                 />
@@ -79,7 +84,8 @@ const StoryCard = () => {
           <div className="card w-9/12 mx-auto h-[230px] shadow-md relative image-full min-h-full">
             <figure>
               <img
-                src="https://images.prothomalo.com/prothomalo-english%2F2022-12%2F19fe3ca1-4e88-4f85-bba8-446e6112559b%2FShakib_Al_Hasan.webp?auto=format%2Ccompress&format=webp&w=400&dpr=2.6"
+                draggable={false}
+                src="https://i.ibb.co/jhr8PDS/336784604-940533650287665-5205716765486193992-n.jpg"
                 alt="Shoes"
                 className="w-72 h-48"
               />
@@ -87,6 +93,7 @@ const StoryCard = () => {
             <div className="avatar">
               <div className="w-9 rounded-full ring ring-primary z-20 top-5 left-4 ring-offset-base-100 ring-offset-2 absolute">
                 <img
+                  draggable={false}
                   src="https://i.ibb.co/LS3rs9t/320227336-554443479588388-3782794624352602751-n.jpg"
                   alt=""
                 />

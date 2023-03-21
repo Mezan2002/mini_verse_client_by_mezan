@@ -10,12 +10,12 @@ const Navbar = () => {
     <div className="flex justify-between px-10 sticky top-0 z-50 bg-white">
       <div className="navbar hidden lg:flex justify-center">
         <div className="navbar-start">
-          <a
-            className="btn btn-ghost hover:bg-[#fcfcfc] px-0 normal-case text-xl"
-            href="/"
-          >
-            Mini <span className="text-primary">Verse</span>
-          </a>
+          <img
+            draggable={false}
+            src="https://i.ibb.co/bbY2WYY/mini-Verse-Logo.png"
+            alt="miniVerseLogo"
+            className="w-24"
+          />
         </div>
         <div className="navbar justify-center">
           <div className="form-control">
@@ -47,6 +47,7 @@ const Navbar = () => {
               <div className="avatar relative">
                 <div className="w-11 rounded-full">
                   <img
+                    draggable={false}
                     src="https://i.ibb.co/LS3rs9t/320227336-554443479588388-3782794624352602751-n.jpg"
                     alt=""
                   />
@@ -69,6 +70,7 @@ const Navbar = () => {
                     <div className="avatar">
                       <div className="w-12 rounded-full">
                         <img
+                          draggable={false}
                           src="https://i.ibb.co/LS3rs9t/320227336-554443479588388-3782794624352602751-n.jpg"
                           alt=""
                         />
@@ -82,6 +84,7 @@ const Navbar = () => {
               <div className="mt-5">
                 <div className="flex items-center hover:bg-gray-200 p-4 m-2 rounded-2xl">
                   <img
+                    draggable={false}
                     src="https://i.ibb.co/VqQJKL3/settings.png"
                     alt=""
                     className="w-6 mr-5"
@@ -90,6 +93,7 @@ const Navbar = () => {
                 </div>
                 <div className="flex items-center hover:bg-gray-200 p-4 m-2 rounded-2xl">
                   <img
+                    draggable={false}
                     src="https://i.ibb.co/2yhFqKx/customer-support.png"
                     alt=""
                     className="w-6 mr-5"
@@ -98,6 +102,7 @@ const Navbar = () => {
                 </div>
                 <div className="flex items-center hover:bg-gray-200 p-4 m-2 rounded-2xl">
                   <img
+                    draggable={false}
                     src="https://i.ibb.co/hBTcVCF/feedback.png"
                     alt=""
                     className="w-6 mr-5"
@@ -106,6 +111,7 @@ const Navbar = () => {
                 </div>
                 <div className="flex items-center hover:bg-gray-200 p-4 m-2 rounded-2xl">
                   <img
+                    draggable={false}
                     src="https://i.ibb.co/xJ3rwrH/logout-1.png"
                     alt=""
                     className="w-6 mr-5"
