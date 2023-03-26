@@ -63,6 +63,7 @@ const SignUp = () => {
       .then((data) => {
         if (data.acknowledged) {
           dispatch(fetchingSuccessfull(userData));
+          localStorage.setItem("usersEmail", userData.email);
           Swal.fire("Sign Up Successfully!", "", "success");
           navigate("/");
         }

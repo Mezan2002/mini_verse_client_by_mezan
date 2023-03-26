@@ -1,10 +1,33 @@
 import { useQuery } from "@tanstack/react-query";
-import React from "react";
+import React, { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { loggedInUser } from "../../../Redux/ActionCreator/ActionCreator";
 import Feeds from "../Feeds/Feeds/Feeds";
 import LeftSideMenu from "../LeftSideMenu/LeftSideMenu";
 import RightSideMenu from "../RightSideMenu/RightSideMenu";
 
 const Home = () => {
+  const dispatch = useDispatch();
+  useEffect(() => {
+    if (localStorage.getItem) {
+      try {
+        const url = `http://localhost:5000/usersData?usersEmail=${localStorage.getItem(
+          "usersEmail"
+        )}`;
+        fetch(url)
+          .then((res) => res.json())
+          .then((data) => {
+            dispatch(loggedInUser(data));
+          });
+      } catch (e) {
+        console.log(e);
+      }
+    }
+  }, [dispatch]);
+
+  const user = useSelector((state) => state.loggedInUser[0]);
+  console.log(user);
+
   const {
     data: posts = [],
     refetch,
