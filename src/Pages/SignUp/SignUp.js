@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import { Link, useNavigate } from "react-router-dom";
 import {
@@ -13,12 +13,10 @@ import {
   fetchingStart,
   fetchingSuccessfull,
 } from "../../Redux/ActionCreator/ActionCreator";
-import { AuthContext } from "../../context/AuthProvider";
 
 const SignUp = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
-  const { registerUser } = useContext(AuthContext);
   const [acceptTerm, setAcceptTerm] = useState(false);
 
   // dates state start
@@ -53,12 +51,6 @@ const SignUp = () => {
       gender: data.gender,
       terms: data.terms,
     };
-    registerUser(data.email, data.password)
-      .then((result) => {
-        const user = result.user;
-        console.log(user);
-      })
-      .catch((error) => console.log(error));
     dispatch(fetchingStart);
     fetch("http://localhost:5000/signUp", {
       method: "POST",
