@@ -1,7 +1,5 @@
 import { useQuery } from "@tanstack/react-query";
-import React, { useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { loggedInUser } from "../../../Redux/ActionCreator/ActionCreator";
+import React from "react";
 import Feeds from "../Feeds/Feeds/Feeds";
 import LeftSideMenu from "../LeftSideMenu/LeftSideMenu";
 import RightSideMenu from "../RightSideMenu/RightSideMenu";
@@ -19,15 +17,6 @@ const Home = () => {
       return data;
     },
   });
-
-  const state = useSelector((state) => state);
-  const dispatch = useDispatch();
-
-  console.log(state);
-
-  /*  useEffect(() => {
-    dispatch(loggedInUser());
-  }, [dispatch]); */
 
   return (
     <div>

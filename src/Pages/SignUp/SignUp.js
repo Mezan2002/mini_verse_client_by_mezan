@@ -7,7 +7,7 @@ import {
   getYearList,
 } from "../../Functions/DateMakerFn";
 import Swal from "sweetalert2";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import {
   fetchingError,
   fetchingStart,
@@ -18,10 +18,8 @@ import { AuthContext } from "../../context/AuthProvider";
 const SignUp = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
-  const { user } = useContext(AuthContext);
+  const { registerUser } = useContext(AuthContext);
   const [acceptTerm, setAcceptTerm] = useState(false);
-
-  console.log(user);
 
   // dates state start
   const [yearList, setYearList] = useState([]);
@@ -55,6 +53,12 @@ const SignUp = () => {
       gender: data.gender,
       terms: data.terms,
     };
+    registerUser(data.email, data.password)
+      .then((result) => {
+        const user = result.user;
+        console.log(user);
+      })
+      .catch((error) => console.log(error));
     dispatch(fetchingStart);
     fetch("http://localhost:5000/signUp", {
       method: "POST",
