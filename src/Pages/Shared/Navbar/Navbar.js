@@ -14,7 +14,7 @@ const Navbar = () => {
             draggable={false}
             src="https://i.ibb.co/gDvcnWH/Screenshot-2023-03-22-022259.png"
             alt="miniVerseLogo"
-            className="h-20 p-2"
+            className="h-16 p-2"
           />
         </div>
         <div className="navbar justify-center">

@@ -18,6 +18,7 @@ h4,
 h5,
 h6,
 p,
+span,
 img,
 ::placeholder {
   user-select: none;

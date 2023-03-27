@@ -1,6 +1,7 @@
 import React from "react";
 
-const LeftSideMenu = () => {
+const LeftSideMenu = (posts) => {
+  console.log(posts);
   return (
     <div className="fixed">
       <div className="px-5 ">

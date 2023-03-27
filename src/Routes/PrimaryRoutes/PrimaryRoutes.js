@@ -1,9 +1,11 @@
-import React from "react";
+import React, { useState } from "react";
 import { createBrowserRouter } from "react-router-dom";
 import Main from "../../Layout/Main/Main";
 import LogIn from "../../Pages/LogIn/LogIn";
 import Home from "../../Pages/MainHome/Home/Home";
-import SignUp from "../../Pages/SignUp/SignUp";
+import SignUp from "../../Pages/SignUp/SignUpInfo/SignUp";
+import MultiStepForm from "../../Pages/SignUp/TestMultiStep/TestMultiStep";
+import UserName from "../../Pages/SignUp/UserName/UserName";
 
 const PrimaryRoutes = createBrowserRouter([
   {
@@ -23,6 +25,14 @@ const PrimaryRoutes = createBrowserRouter([
   {
     path: "/signUp",
     element: <SignUp></SignUp>,
+  },
+  {
+    path: "/userName",
+    element: <UserName></UserName>,
+  },
+  {
+    path: "/testMutliStep",
+    element: <MultiStepForm></MultiStepForm>,
   },
 ]);
 
