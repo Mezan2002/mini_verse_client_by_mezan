@@ -1,24 +1,14 @@
 import React, { useEffect, useState } from "react";
-import { useForm } from "react-hook-form";
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import {
   getDateList,
   getMonthList,
   getYearList,
 } from "../../../Functions/DateMakerFn";
-import Swal from "sweetalert2";
-import { useDispatch } from "react-redux";
-import {
-  fetchingError,
-  fetchingStart,
-  fetchingSuccessfull,
-} from "../../../Redux/ActionCreator/ActionCreator";
-import UserName from "../UserName/UserName";
+
 import { MdKeyboardArrowRight } from "react-icons/md";
 
 const SignUp = ({ stepNext, register, errors }) => {
-  const navigate = useNavigate();
-  const dispatch = useDispatch();
   const [acceptTerm, setAcceptTerm] = useState(false);
 
   // dates state start
@@ -37,17 +27,6 @@ const SignUp = ({ stepNext, register, errors }) => {
     setDateList(dates);
   }, []);
 
-  /* const onSubmit = (data) => {
-    const userData = {
-      firstName: data.firstName,
-      lastName: data.lastName,
-      email: data.email,
-      phone: data.phoneNumber,
-      password: data.newPassword,
-      dateOfBirth: { date: data.date, month: data.month, year: data.year },
-      gender: data.gender,
-      terms: data.terms,
-    }; */
   /* dispatch(fetchingStart);
     fetch("http://localhost:5000/signUp", {
       method: "POST",
@@ -66,7 +45,6 @@ const SignUp = ({ stepNext, register, errors }) => {
         }
       })
       .catch((e) => dispatch(fetchingError)); */
-  // submitHandler(userData);
   return (
     <div>
       {/* Steps Start */}

@@ -1,13 +1,44 @@
+import axios from "axios";
 import React, { useState } from "react";
 import { MdKeyboardArrowLeft, MdKeyboardArrowRight } from "react-icons/md";
 
-const ProfilePicture = ({ stepNext, stepPrevious, register, errors }) => {
+const ProfilePicture = ({
+  setProfilePic,
+  stepNext,
+  stepPrevious,
+  register,
+  errors,
+}) => {
   const [selectedImage, setSelectedImage] = useState(null);
   const imageHostingKey = process.env.REACT_APP_IMAGE_HOSTING_SERVER_API;
 
   const handleImageChange = (event) => {
     if (event.target.files && event.target.files.length > 0) {
       setSelectedImage(URL.createObjectURL(event.target.files[0]));
+    }
+    const image = event.target.files[0];
+    const formData = new FormData();
+    formData.append("image", image);
+
+    const config = {
+      headers: {
+        "content-type": "multipart/form-data",
+      },
+    };
+
+    if (image) {
+      axios
+        .post(
+          `https://api.imgbb.com/1/upload?key=${imageHostingKey}`,
+          formData,
+          config
+        )
+        .then((response) => {
+          setProfilePic(response.data.data.url);
+        })
+        .catch((error) => {
+          console.log(error);
+        });
     }
   };
 
@@ -66,7 +97,7 @@ const ProfilePicture = ({ stepNext, stepPrevious, register, errors }) => {
                       </figure>
                     </label>
                     <input
-                      {...register("profilePicture", { required: true })}
+                      {...register("selectedImage", { required: true })}
                       onChange={handleImageChange}
                       type="file"
                       id="selectProfilePicture"

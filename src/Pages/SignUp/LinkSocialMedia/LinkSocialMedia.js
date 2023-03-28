@@ -1,11 +1,7 @@
 import React from "react";
-import {
-  MdCheck,
-  MdKeyboardArrowLeft,
-  MdKeyboardArrowRight,
-} from "react-icons/md";
+import { MdCheck, MdKeyboardArrowLeft } from "react-icons/md";
 
-const LinkSocialMedia = ({ stepNext, stepPrevious, register }) => {
+const LinkSocialMedia = ({ stepPrevious, register, setSignUpClicked }) => {
   return (
     <div>
       {/* Steps Start */}
@@ -95,7 +91,11 @@ const LinkSocialMedia = ({ stepNext, stepPrevious, register }) => {
                 <MdKeyboardArrowLeft className="text-xl"></MdKeyboardArrowLeft>{" "}
                 Previous
               </button>
-              <button type="submit" className="btn w-full my-5">
+              <button
+                type="submit"
+                onClick={() => setSignUpClicked(true)}
+                className="btn w-full my-5"
+              >
                 Sign Up <MdCheck className="text-xl ml-2"></MdCheck>
               </button>
             </div>

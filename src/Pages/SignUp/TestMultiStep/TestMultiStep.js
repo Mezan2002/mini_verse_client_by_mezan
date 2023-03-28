@@ -6,8 +6,21 @@ import ProfilePicture from "../ProfilePicture/ProfilePicture";
 import SignUp from "../SignUpInfo/SignUp";
 import UserName from "../UserName/UserName";
 import WorkingInfo from "../WorkingInfo/WorkingInfo";
+import {
+  fetchingError,
+  fetchingStart,
+  fetchingSuccessfull,
+  loggedInUser,
+} from "../../../Redux/ActionCreator/ActionCreator";
+import Swal from "sweetalert2";
+import { useNavigate } from "react-router-dom";
+import { useDispatch } from "react-redux";
 
 function MultiStepForm() {
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
+  const [profilePic, setProfilePic] = useState("");
+  const [signUpClicked, setSignUpClicked] = useState(false);
   const {
     handleSubmit,
     register,
@@ -33,13 +46,8 @@ function MultiStepForm() {
       },
       gender: formData.gender,
       terms: formData.terms,
-    };
-
-    const userName = {
       userName: formData.userName,
-    };
-    const profilePicture = {
-      profilePicture: formData.profilePicture,
+      profilePicture: profilePic,
     };
 
     const locationInfo = {
@@ -71,14 +79,33 @@ function MultiStepForm() {
 
     const userData = {
       basicInfo: signUpInfo,
-      userName: userName,
-      profilePicture: profilePicture,
       locationInfo: locationInfo,
       workingInfo: workingInfo,
       socialMedia: socialMedia,
     };
 
     console.log(userData);
+
+    if (signUpClicked === true) {
+      dispatch(fetchingStart);
+      fetch("http://localhost:5000/signUp", {
+        method: "POST",
+        headers: {
+          "content-type": "application/json",
+        },
+        body: JSON.stringify(userData),
+      })
+        .then((res) => res.json())
+        .then((data) => {
+          if (data.acknowledged) {
+            dispatch(fetchingSuccessfull(userData));
+            dispatch(loggedInUser(userData));
+            Swal.fire("Sign Up Successfully!", "", "success");
+            navigate("/");
+          }
+        })
+        .catch((e) => dispatch(fetchingError));
+    }
   }, [formData]);
 
   const stepNext = () => {
@@ -115,6 +142,7 @@ function MultiStepForm() {
         return (
           <div>
             <ProfilePicture
+              setProfilePic={setProfilePic}
               stepNext={stepNext}
               stepPrevious={stepPrevious}
               register={register}
@@ -148,6 +176,7 @@ function MultiStepForm() {
         return (
           <div>
             <LinkSocialMedia
+              setSignUpClicked={setSignUpClicked}
               stepNext={stepNext}
               stepPrevious={stepPrevious}
               register={register}
