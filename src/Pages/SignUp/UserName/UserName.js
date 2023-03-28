@@ -1,12 +1,8 @@
 import React from "react";
 import { useForm } from "react-hook-form";
+import { MdKeyboardArrowLeft, MdKeyboardArrowRight } from "react-icons/md";
 
-const UserName = () => {
-  const {
-    register,
-    formState: { errors },
-  } = useForm();
-
+const UserName = ({ stepNext, stepPrevious, register, errors }) => {
   return (
     <div>
       {/* Steps Start */}
@@ -15,19 +11,19 @@ const UserName = () => {
           <li data-content="✓" className="step step-neutral">
             Sign Up Info
           </li>
-          <li data-content="✓" className="step step-neutral">
+          <li data-content="2" className="step step-neutral">
             User Name
           </li>
-          <li data-content="✓" className="step step-neutral">
+          <li data-content="3" className="step">
             Profile Picture
           </li>
-          <li data-content="✓" className="step step-neutral">
+          <li data-content="4" className="step">
             Location Info
           </li>
-          <li data-content="✓" className="step step-neutral">
+          <li data-content="5" className="step">
             Working Info
           </li>
-          <li data-content="✓" className="step step-neutral">
+          <li data-content="6" className="step">
             Link Social Media
           </li>
         </ul>
@@ -35,7 +31,7 @@ const UserName = () => {
       {/* Steps End  */}
       <div className="flex items-center justify-center min-h-[90vh]">
         <div className="border w-4/12 rounded-xl">
-          <h2 className="text-2xl font-medium uppercase text-center my-10">
+          <h2 className="text-2xl font-medium capitalize text-center my-10">
             User Name
           </h2>
           <div className="px-10">
@@ -44,21 +40,37 @@ const UserName = () => {
                 <label className="label">
                   <span className="label-text">User Name</span>
                 </label>
-                <input
-                  {...register("firstName", { required: true })}
-                  type="text"
-                  placeholder="please select an unique user name"
-                  className="w-full border py-3 rounded-xl focus:outline-none px-3"
-                />
-                {errors.firstName && (
+                <label htmlFor="" className="input-group">
+                  <span className="text-xl">@</span>
+                  <input
+                    {...register("userName", { required: true })}
+                    type="text"
+                    placeholder="example001"
+                    className="w-full border py-3 rounded-xl focus:outline-none px-3"
+                  />
+                </label>
+                {errors.userName && (
                   <span className="text-red-500">User Name is required</span>
                 )}
+                <label className="label">
+                  <span className="label-text capitalize">
+                    Please select an unique user name
+                  </span>
+                </label>
               </div>
             </div>
-            <div className="flex justify-between">
-              <button className="btn my-5">Previous</button>
-              <button type="submit" className="btn my-5">
-                Next
+            <div className="grid grid-cols-2 gap-5">
+              <button onClick={stepPrevious} className="btn w-full my-5">
+                <MdKeyboardArrowLeft className="text-xl"></MdKeyboardArrowLeft>{" "}
+                Previous
+              </button>
+              <button
+                onClick={stepNext}
+                type="submit"
+                className="btn w-full my-5"
+              >
+                Next{" "}
+                <MdKeyboardArrowRight className="text-xl"></MdKeyboardArrowRight>
               </button>
             </div>
           </div>

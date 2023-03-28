@@ -1,11 +1,8 @@
 import React from "react";
 import { useForm } from "react-hook-form";
+import { MdKeyboardArrowLeft, MdKeyboardArrowRight } from "react-icons/md";
 
-const LocationInfo = () => {
-  const {
-    register,
-    formState: { errors },
-  } = useForm();
+const LocationInfo = ({ stepNext, stepPrevious, register, errors }) => {
   return (
     <div>
       <div>
@@ -21,13 +18,13 @@ const LocationInfo = () => {
             <li data-content="✓" className="step step-neutral">
               Profile Picture
             </li>
-            <li data-content="✓" className="step step-neutral">
+            <li data-content="4" className="step step-neutral">
               Location Info
             </li>
-            <li data-content="✓" className="step step-neutral">
+            <li data-content="5" className="step">
               Working Info
             </li>
-            <li data-content="✓" className="step step-neutral">
+            <li data-content="6" className="step">
               Link Social Media
             </li>
           </ul>
@@ -35,76 +32,74 @@ const LocationInfo = () => {
         {/* Steps End  */}
         <div className="flex items-center justify-center min-h-[90vh]">
           <div className="border w-4/12 rounded-xl">
-            <h2 className="text-2xl font-medium uppercase text-center my-10">
+            <h2 className="text-2xl font-medium capitalize text-center my-10">
               Location Info
             </h2>
             <div className="px-10">
-              <div className="flex items-center">
-                <div className="form-control w-1/2 mr-2">
+              <div className="grid grid-cols-2 gap-4">
+                <div className="form-control w-full mr-2">
                   <label className="label">
                     <span className="label-text">Country</span>
                   </label>
                   <input
-                    {...register("firstName", { required: true })}
+                    {...register("country", { required: true })}
                     type="text"
                     placeholder=""
                     className="w-full border py-3 rounded-xl focus:outline-none px-3"
                   />
-                  {errors.firstName && (
+                  {errors.country && (
                     <span className="text-red-500">Country is required</span>
                   )}
                 </div>
-                <div className="form-control w-1/2 mr-2">
+                <div className="form-control w-full mr-2">
                   <label className="label">
                     <span className="label-text">City</span>
                   </label>
                   <input
-                    {...register("firstName", { required: true })}
+                    {...register("city", { required: true })}
                     type="text"
                     placeholder=""
                     className="w-full border py-3 rounded-xl focus:outline-none px-3"
                   />
-                  {errors.firstName && (
+                  {errors.city && (
                     <span className="text-red-500">City is required</span>
                   )}
                 </div>
               </div>
-              <div className="flex items-center">
-                <div className="form-control w-1/2 mr-2">
+              <div className="grid grid-cols-2 gap-4">
+                <div className="form-control w-full mr-2">
                   <label className="label">
                     <span className="label-text">State / Division</span>
                   </label>
                   <input
-                    {...register("firstName", { required: true })}
+                    {...register("state", { required: true })}
                     type="text"
                     placeholder=""
                     className="w-full border py-3 rounded-xl focus:outline-none px-3"
                   />
-                  {errors.firstName && (
+                  {errors.state && (
                     <span className="text-red-500">
                       State / Division is required
                     </span>
                   )}
                 </div>
-                <div className="form-control w-1/2 mr-2">
+                <div className="form-control w-full mr-2">
                   <label className="label">
                     <span className="label-text">Zip Code</span>
                   </label>
                   <input
-                    {...register("firstName", { required: true })}
+                    {...register("zipCode", { required: true })}
                     type="text"
                     placeholder=""
                     className="w-full border py-3 rounded-xl focus:outline-none px-3"
                   />
-                  {errors.firstName && (
-                    <span className="text-red-500">
-                      Postal Code is required
-                    </span>
+                  {errors.zipCode && (
+                    <span className="text-red-500">Zip Code is required</span>
                   )}
                 </div>
               </div>
-              <div className="flex items-center">
-                <div className="form-control w-1/2 mr-2">
+              <div className="grid grid-cols-2 gap-4">
+                <div className="form-control w-full mr-2">
                   <label className="label">
                     <span className="label-text">Hometown</span>
                   </label>
@@ -118,7 +113,7 @@ const LocationInfo = () => {
                     <span className="text-red-500">Hometown is required</span>
                   )}
                 </div>
-                <div className="form-control w-1/2 mr-2">
+                <div className="form-control w-full mr-2">
                   <label className="label">
                     <span className="label-text">Street Adress</span>
                   </label>
@@ -128,17 +123,25 @@ const LocationInfo = () => {
                     placeholder=""
                     className="w-full border py-3 rounded-xl focus:outline-none px-3"
                   />
-                  {errors.firstName && (
+                  {errors.street && (
                     <span className="text-red-500">
                       Street Adress is required
                     </span>
                   )}
                 </div>
               </div>
-              <div className="flex justify-between mt-10">
-                <button className="btn my-5">Previous</button>
-                <button type="submit" className="btn my-5">
-                  Next
+              <div className="grid grid-cols-2 gap-5">
+                <button onClick={stepPrevious} className="btn w-full my-5">
+                  <MdKeyboardArrowLeft className="text-xl"></MdKeyboardArrowLeft>{" "}
+                  Previous
+                </button>
+                <button
+                  onClick={stepNext}
+                  type="submit"
+                  className="btn w-full my-5"
+                >
+                  Next{" "}
+                  <MdKeyboardArrowRight className="text-xl"></MdKeyboardArrowRight>
                 </button>
               </div>
             </div>

@@ -1,9 +1,11 @@
 import React from "react";
-import { useForm } from "react-hook-form";
+import {
+  MdCheck,
+  MdKeyboardArrowLeft,
+  MdKeyboardArrowRight,
+} from "react-icons/md";
 
-const LinkSocialMedia = () => {
-  const { register } = useForm();
-
+const LinkSocialMedia = ({ stepNext, stepPrevious, register }) => {
   return (
     <div>
       {/* Steps Start */}
@@ -32,14 +34,14 @@ const LinkSocialMedia = () => {
       {/* Steps End  */}
       <div className="flex items-center justify-center min-h-[90vh]">
         <div className="border w-4/12 rounded-xl">
-          <h2 className="text-2xl font-medium uppercase text-center my-10">
+          <h2 className="text-2xl font-medium capitalize text-center my-10">
             Link Social Media
           </h2>
           <div className="px-10">
             <div className="">
               <div className="form-control w-full mr-2">
                 <label className="label">
-                  <span className="label-text">Facebook</span>
+                  <span className="label-text">Facebook (Optional)</span>
                 </label>
                 <input
                   {...register("facebook")}
@@ -52,7 +54,7 @@ const LinkSocialMedia = () => {
             <div className="">
               <div className="form-control w-full mr-2">
                 <label className="label">
-                  <span className="label-text">Instagram</span>
+                  <span className="label-text">Instagram (Optional)</span>
                 </label>
                 <input
                   {...register("instagram")}
@@ -65,7 +67,7 @@ const LinkSocialMedia = () => {
             <div className="">
               <div className="form-control w-full mr-2">
                 <label className="label">
-                  <span className="label-text">GitHub</span>
+                  <span className="label-text">GitHub (Optional)</span>
                 </label>
                 <input
                   {...register("github")}
@@ -78,7 +80,7 @@ const LinkSocialMedia = () => {
             <div className="">
               <div className="form-control w-full mr-2">
                 <label className="label">
-                  <span className="label-text">Linked In</span>
+                  <span className="label-text">Linked In (Optional)</span>
                 </label>
                 <input
                   {...register("linkedin")}
@@ -88,10 +90,13 @@ const LinkSocialMedia = () => {
                 />
               </div>
             </div>
-            <div className="flex justify-between mt-10">
-              <button className="btn my-5">Previous</button>
-              <button type="submit" className="btn my-5">
-                Next
+            <div className="grid grid-cols-2 gap-5">
+              <button onClick={stepPrevious} className="btn w-full my-5">
+                <MdKeyboardArrowLeft className="text-xl"></MdKeyboardArrowLeft>{" "}
+                Previous
+              </button>
+              <button type="submit" className="btn w-full my-5">
+                Sign Up <MdCheck className="text-xl ml-2"></MdCheck>
               </button>
             </div>
           </div>

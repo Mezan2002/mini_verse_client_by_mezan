@@ -14,8 +14,9 @@ import {
   fetchingSuccessfull,
 } from "../../../Redux/ActionCreator/ActionCreator";
 import UserName from "../UserName/UserName";
+import { MdKeyboardArrowRight } from "react-icons/md";
 
-const SignUp = () => {
+const SignUp = ({ stepNext, register, errors }) => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const [acceptTerm, setAcceptTerm] = useState(false);
@@ -36,10 +37,6 @@ const SignUp = () => {
     setDateList(dates);
   }, []);
 
-  const {
-    register,
-    formState: { errors },
-  } = useForm();
   /* const onSubmit = (data) => {
     const userData = {
       firstName: data.firstName,
@@ -75,22 +72,22 @@ const SignUp = () => {
       {/* Steps Start */}
       <div className="flex justify-center items-center my-4">
         <ul className="steps">
-          <li data-content="✓" className="step step-neutral">
+          <li data-content="1" className="step step-neutral">
             Sign Up Info
           </li>
-          <li data-content="✓" className="step step-neutral">
+          <li data-content="2" className="step">
             User Name
           </li>
-          <li data-content="✓" className="step step-neutral">
+          <li data-content="3" className="step">
             Profile Picture
           </li>
-          <li data-content="✓" className="step step-neutral">
+          <li data-content="4" className="step">
             Location Info
           </li>
-          <li data-content="✓" className="step step-neutral">
+          <li data-content="5" className="step">
             Working Info
           </li>
-          <li data-content="✓" className="step step-neutral">
+          <li data-content="6" className="step">
             Link Social Media
           </li>
         </ul>
@@ -98,7 +95,7 @@ const SignUp = () => {
       {/* Steps End  */}
       <div className="flex items-center justify-center min-h-[90vh]">
         <div className="border w-4/12 rounded-xl">
-          <h2 className="text-2xl font-medium uppercase text-center my-10">
+          <h2 className="text-2xl font-medium capitalize text-center my-10">
             Sign Up Info
           </h2>
           <div className="px-10">
@@ -380,11 +377,13 @@ const SignUp = () => {
               </div>
             </div>
             <button
+              onClick={stepNext}
               type="submit"
               disabled={!acceptTerm}
               className="btn btn-block my-5"
             >
-              Next
+              Next{" "}
+              <MdKeyboardArrowRight className="text-xl"></MdKeyboardArrowRight>
             </button>
           </div>
           <div>

@@ -1,6 +1,7 @@
 import React, { useState } from "react";
+import { MdKeyboardArrowLeft, MdKeyboardArrowRight } from "react-icons/md";
 
-const ProfilePicture = () => {
+const ProfilePicture = ({ stepNext, stepPrevious, register, errors }) => {
   const [selectedImage, setSelectedImage] = useState(null);
   const imageHostingKey = process.env.REACT_APP_IMAGE_HOSTING_SERVER_API;
 
@@ -22,16 +23,16 @@ const ProfilePicture = () => {
             <li data-content="✓" className="step step-neutral">
               User Name
             </li>
-            <li data-content="✓" className="step step-neutral">
+            <li data-content="3" className="step step-neutral">
               Profile Picture
             </li>
-            <li data-content="✓" className="step step-neutral">
+            <li data-content="4" className="step">
               Location Info
             </li>
-            <li data-content="✓" className="step step-neutral">
+            <li data-content="5" className="step">
               Working Info
             </li>
-            <li data-content="✓" className="step step-neutral">
+            <li data-content="6" className="step">
               Link Social Media
             </li>
           </ul>
@@ -39,11 +40,11 @@ const ProfilePicture = () => {
         {/* Steps End  */}
         <div className="flex items-center justify-center min-h-[90vh]">
           <div className="border w-4/12 rounded-xl">
-            <h2 className="text-2xl font-medium uppercase text-center my-10">
+            <h2 className="text-2xl font-medium capitalize text-center my-10">
               Profile Picture
             </h2>
             <div className="px-10">
-              <div className="w-48 border border-gray-300 h-48 mx-auto my-3 overflow-hidden rounded-full">
+              <div className="w-40 border border-gray-300 h-40 mx-auto my-3 overflow-hidden rounded-full">
                 {selectedImage === null ? (
                   <>
                     {" "}
@@ -51,7 +52,7 @@ const ProfilePicture = () => {
                       htmlFor="selectProfilePicture"
                       className="flex items-center justify-center h-full flex-col-reverse cursor-pointer"
                     >
-                      <h2 className="text-center mt-4 text">
+                      <h2 className="text-center mt-4 text-sm capitalize">
                         Select your profile picture
                       </h2>
                       <figure>
@@ -65,12 +66,17 @@ const ProfilePicture = () => {
                       </figure>
                     </label>
                     <input
+                      {...register("profilePicture", { required: true })}
                       onChange={handleImageChange}
                       type="file"
-                      name="selectProfilePicture"
                       id="selectProfilePicture"
                       className="hidden invisible"
                     />
+                    {errors.profilePicture && (
+                      <span className="text-red-500">
+                        Profile Picture is required
+                      </span>
+                    )}
                   </>
                 ) : (
                   <img
@@ -81,10 +87,24 @@ const ProfilePicture = () => {
                   />
                 )}
               </div>
-              <div className="flex justify-between mt-10">
-                <button className="btn my-5">Previous</button>
-                <button type="submit" className="btn my-5">
-                  Next
+              <label
+                htmlFor="selectProfilePicture"
+                className="text-purple-700 text-center flex justify-center cursor-pointer"
+              >
+                Upload Image
+              </label>
+              <div className="grid grid-cols-2 gap-5">
+                <button onClick={stepPrevious} className="btn w-full my-5">
+                  <MdKeyboardArrowLeft className="text-xl"></MdKeyboardArrowLeft>{" "}
+                  Previous
+                </button>
+                <button
+                  onClick={stepNext}
+                  type="submit"
+                  className="btn w-full my-5"
+                >
+                  Next{" "}
+                  <MdKeyboardArrowRight className="text-xl"></MdKeyboardArrowRight>
                 </button>
               </div>
             </div>

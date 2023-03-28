@@ -1,17 +1,13 @@
 import React, { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
+import { MdKeyboardArrowLeft, MdKeyboardArrowRight } from "react-icons/md";
 import {
   getDateList,
   getMonthList,
   getYearList,
 } from "../../../Functions/DateMakerFn";
 
-const WorkingInfo = () => {
-  const {
-    register,
-    formState: { errors },
-  } = useForm();
-
+const WorkingInfo = ({ stepNext, stepPrevious, register, errors }) => {
   // dates state start
   const [yearList, setYearList] = useState([]);
   const [monthList, setMonthList] = useState([]);
@@ -45,10 +41,10 @@ const WorkingInfo = () => {
           <li data-content="✓" className="step step-neutral">
             Location Info
           </li>
-          <li data-content="✓" className="step step-neutral">
+          <li data-content="5" className="step step-neutral">
             Working Info
           </li>
-          <li data-content="✓" className="step step-neutral">
+          <li data-content="6" className="step">
             Link Social Media
           </li>
         </ul>
@@ -56,7 +52,7 @@ const WorkingInfo = () => {
       {/* Steps End  */}
       <div className="flex items-center justify-center min-h-[90vh]">
         <div className="border w-4/12 rounded-xl">
-          <h2 className="text-2xl font-medium uppercase text-center my-10">
+          <h2 className="text-2xl font-medium capitalize text-center my-10">
             Working Info
           </h2>
           <div className="px-10">
@@ -121,18 +117,6 @@ const WorkingInfo = () => {
                   placeholder=""
                   className="w-full h-32 border py-3 rounded-xl focus:outline-none px-3"
                 />
-              </div>
-            </div>
-            <div className="mb-5">
-              <div className="form-control">
-                <label className="cursor-pointer flex items-center mt-5">
-                  <input
-                    type="checkbox"
-                    {...register("working")}
-                    className="checkbox mr-2"
-                  />
-                  <span className="label-text">I am still working here</span>
-                </label>
               </div>
             </div>
             <div>
@@ -232,10 +216,30 @@ const WorkingInfo = () => {
                 </div>
               </div>
             </div>
-            <div className="flex justify-between">
-              <button className="btn my-5">Previous</button>
-              <button type="submit" className="btn my-5">
-                Next
+            <div className="mb-5">
+              <div className="form-control">
+                <label className="cursor-pointer flex items-center mt-5">
+                  <input
+                    type="checkbox"
+                    {...register("working")}
+                    className="checkbox mr-2"
+                  />
+                  <span className="label-text">I am still working here</span>
+                </label>
+              </div>
+            </div>
+            <div className="grid grid-cols-2 gap-5">
+              <button onClick={stepPrevious} className="btn w-full my-5">
+                <MdKeyboardArrowLeft className="text-xl"></MdKeyboardArrowLeft>{" "}
+                Previous
+              </button>
+              <button
+                onClick={stepNext}
+                type="submit"
+                className="btn w-full my-5"
+              >
+                Next{" "}
+                <MdKeyboardArrowRight className="text-xl"></MdKeyboardArrowRight>
               </button>
             </div>
           </div>
