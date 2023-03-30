@@ -1,7 +1,12 @@
 import React from "react";
 import { MdCheck, MdKeyboardArrowLeft } from "react-icons/md";
 
-const LinkSocialMedia = ({ stepPrevious, register, setSignUpClicked }) => {
+const LinkSocialMedia = ({ stepPrevious, register, setUserCode }) => {
+  const handleClick = () => {
+    const randomNumber = Math.floor(Math.random() * 100000) + 1;
+    setUserCode(randomNumber);
+  };
+
   return (
     <div>
       {/* Steps Start */}
@@ -93,7 +98,7 @@ const LinkSocialMedia = ({ stepPrevious, register, setSignUpClicked }) => {
               </button>
               <button
                 type="submit"
-                onClick={() => setSignUpClicked(true)}
+                onClick={handleClick}
                 className="btn w-full my-5"
               >
                 Sign Up <MdCheck className="text-xl ml-2"></MdCheck>

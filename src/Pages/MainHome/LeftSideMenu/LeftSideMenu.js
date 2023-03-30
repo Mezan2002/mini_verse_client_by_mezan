@@ -1,6 +1,6 @@
 import React from "react";
 
-const LeftSideMenu = (posts) => {
+const LeftSideMenu = () => {
   return (
     <div className="fixed">
       <div className="px-5 ">
@@ -97,7 +97,7 @@ const LeftSideMenu = (posts) => {
             />
             <p className="">Settings</p>
           </div>
-          <p className="text-sm text-center mt-10">
+          <p className="text-sm text-center mt-16">
             Copyright © 2023 - All right reserved by Mezanur Rahman
           </p>
         </div>

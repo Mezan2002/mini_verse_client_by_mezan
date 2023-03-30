@@ -10,7 +10,7 @@ import {
   fetchingError,
   fetchingStart,
   fetchingSuccessfull,
-  loggedInUser,
+  usersData,
 } from "../../../Redux/ActionCreator/ActionCreator";
 import Swal from "sweetalert2";
 import { useNavigate } from "react-router-dom";
@@ -20,7 +20,7 @@ function MultiStepForm() {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const [profilePic, setProfilePic] = useState("");
-  const [signUpClicked, setSignUpClicked] = useState(false);
+  const [userCode, setUserCode] = useState(0);
   const {
     handleSubmit,
     register,
@@ -82,11 +82,14 @@ function MultiStepForm() {
       locationInfo: locationInfo,
       workingInfo: workingInfo,
       socialMedia: socialMedia,
+      userCode: JSON.stringify(userCode),
     };
 
-    console.log(userData);
+    /* if (userCode) {
+      dispatch(usersData(signUpInfo.email));
+    } */
 
-    if (signUpClicked === true) {
+    if (userCode !== 0) {
       dispatch(fetchingStart);
       fetch("http://localhost:5000/signUp", {
         method: "POST",
@@ -98,15 +101,15 @@ function MultiStepForm() {
         .then((res) => res.json())
         .then((data) => {
           if (data.acknowledged) {
+            localStorage.setItem("randomNumber", JSON.stringify(userCode));
             dispatch(fetchingSuccessfull(userData));
-            dispatch(loggedInUser(userData));
             Swal.fire("Sign Up Successfully!", "", "success");
             navigate("/");
           }
         })
         .catch((e) => dispatch(fetchingError));
     }
-  }, [formData]);
+  }, [formData, dispatch]);
 
   const stepNext = () => {
     setStep(step + 1);
@@ -176,7 +179,7 @@ function MultiStepForm() {
         return (
           <div>
             <LinkSocialMedia
-              setSignUpClicked={setSignUpClicked}
+              setUserCode={setUserCode}
               stepNext={stepNext}
               stepPrevious={stepPrevious}
               register={register}

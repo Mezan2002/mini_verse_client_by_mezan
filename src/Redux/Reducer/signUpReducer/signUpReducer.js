@@ -3,6 +3,7 @@ import {
   FETCHING_START,
   FETCHING_SUCCESSFULL,
   LOGGEDIN_USER,
+  USERS_DATA,
 } from "../ActionTypes/actionTypes";
 
 const initialState = {
@@ -10,6 +11,7 @@ const initialState = {
   error: false,
   user: [],
   loggedInUser: [],
+  usersData: [],
 };
 const signUpReducer = (state = initialState, action) => {
   switch (action.type) {
@@ -33,6 +35,15 @@ const signUpReducer = (state = initialState, action) => {
         loading: false,
         error: true,
         user: [],
+      };
+
+    case USERS_DATA:
+      return {
+        ...state,
+        loading: false,
+        error: true,
+        user: [],
+        usersData: [...state.usersData, action.payload],
       };
 
     case LOGGEDIN_USER:
