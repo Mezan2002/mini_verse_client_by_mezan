@@ -10,7 +10,6 @@ import {
   fetchingError,
   fetchingStart,
   fetchingSuccessfull,
-  usersData,
 } from "../../../Redux/ActionCreator/ActionCreator";
 import Swal from "sweetalert2";
 import { useNavigate } from "react-router-dom";
@@ -109,7 +108,7 @@ function MultiStepForm() {
         })
         .catch((e) => dispatch(fetchingError));
     }
-  }, [formData, dispatch]);
+  }, [formData, dispatch, profilePic, navigate, userCode]);
 
   const stepNext = () => {
     setStep(step + 1);
