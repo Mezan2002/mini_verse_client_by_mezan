@@ -8,7 +8,6 @@ import RightSideMenu from "../RightSideMenu/RightSideMenu";
 
 const Home = () => {
   const loggedInUserData = useSelector((state) => state.loggedInUser[0]);
-  console.log(loggedInUserData);
   const dispatch = useDispatch();
 
   useEffect(() => {

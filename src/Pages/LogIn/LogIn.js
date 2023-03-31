@@ -1,36 +1,54 @@
-import React from "react";
-import { Link } from "react-router-dom";
+import React, { useEffect } from "react";
+import { Link, useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
+import { loggedInUser } from "../../Redux/ActionCreator/ActionCreator";
+import { useDispatch } from "react-redux";
+import Swal from "sweetalert2";
 
 const LogIn = () => {
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
   const {
     register,
     handleSubmit,
     formState: { errors },
   } = useForm();
   const onSubmit = (data) => {
-    console.log(data);
+    const url = `http://localhost:5000/login?email=${data.email}&password=${data.password}`;
+    fetch(url)
+      .then((res) => res.json())
+      .then((data) => {
+        dispatch(loggedInUser(data));
+        Swal.fire("Login Successfully!", "", "success");
+        navigate("/");
+      })
+      .catch((err) => {
+        Swal.fire(
+          "Wrong Credential!",
+          "Please try with correct email address and password.",
+          "error"
+        );
+      });
   };
+
   return (
     <div className="flex items-center justify-center min-h-screen">
-      <div className="border border-black w-4/12 rounded-xl mt-5">
+      <div className="border w-4/12 rounded-xl mt-5">
         <h2 className="text-2xl font-medium uppercase text-center my-10">
           Login
         </h2>
         <form onSubmit={handleSubmit(onSubmit)} className="px-10">
           <div className="form-control w-full">
             <label className="label">
-              <span className="label-text">Email Adress or Phone Number</span>
+              <span className="label-text">Email Adress</span>
             </label>
             <input
-              {...register("emailOrPhone", { required: true })}
+              {...register("email", { required: true })}
               type="text"
               className="w-full border py-3 rounded-xl focus:outline-none px-3"
             />
-            {errors.emailOrPhone && (
-              <span className="text-red-500">
-                Email or Phone Number is required
-              </span>
+            {errors.email && (
+              <span className="text-red-500">Email Adress is required</span>
             )}
           </div>
           <div className="form-control w-full">
