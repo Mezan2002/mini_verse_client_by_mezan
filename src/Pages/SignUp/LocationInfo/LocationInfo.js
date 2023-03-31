@@ -1,7 +1,13 @@
 import React from "react";
 import { MdKeyboardArrowLeft, MdKeyboardArrowRight } from "react-icons/md";
 
-const LocationInfo = ({ stepNext, stepPrevious, register, errors }) => {
+const LocationInfo = ({
+  stepNext,
+  stepPrevious,
+  register,
+  errors,
+  formState,
+}) => {
   return (
     <div>
       <div>
@@ -137,6 +143,7 @@ const LocationInfo = ({ stepNext, stepPrevious, register, errors }) => {
                 <button
                   onClick={stepNext}
                   type="submit"
+                  disabled={!formState.isValid}
                   className="btn w-full my-5"
                 >
                   Next{" "}

@@ -1,7 +1,7 @@
 import React from "react";
 import { MdKeyboardArrowLeft, MdKeyboardArrowRight } from "react-icons/md";
 
-const UserName = ({ stepNext, stepPrevious, register, errors }) => {
+const UserName = ({ stepNext, stepPrevious, register, errors, formState }) => {
   return (
     <div>
       {/* Steps Start */}
@@ -65,6 +65,7 @@ const UserName = ({ stepNext, stepPrevious, register, errors }) => {
               </button>
               <button
                 onClick={stepNext}
+                disabled={!formState.isValid}
                 type="submit"
                 className="btn w-full my-5"
               >

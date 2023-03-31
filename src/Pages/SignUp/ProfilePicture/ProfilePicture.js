@@ -8,6 +8,7 @@ const ProfilePicture = ({
   stepPrevious,
   register,
   errors,
+  formState,
 }) => {
   const [selectedImage, setSelectedImage] = useState(null);
   const imageHostingKey = process.env.REACT_APP_IMAGE_HOSTING_SERVER_API;
@@ -131,6 +132,7 @@ const ProfilePicture = ({
                 </button>
                 <button
                   onClick={stepNext}
+                  disabled={!selectedImage}
                   type="submit"
                   className="btn w-full my-5"
                 >

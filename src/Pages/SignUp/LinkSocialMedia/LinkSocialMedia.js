@@ -1,7 +1,8 @@
-import React from "react";
+import React, { useState } from "react";
 import { MdCheck, MdKeyboardArrowLeft } from "react-icons/md";
 
 const LinkSocialMedia = ({ stepPrevious, register, setUserCode }) => {
+  const [acceptTerm, setAcceptTerm] = useState(false);
   const handleClick = () => {
     const randomNumber = Math.floor(Math.random() * 100000) + 1;
     setUserCode(randomNumber);
@@ -91,6 +92,19 @@ const LinkSocialMedia = ({ stepPrevious, register, setUserCode }) => {
                 />
               </div>
             </div>
+            <div>
+              <div className="form-control">
+                <label className="cursor-pointer flex items-center mt-5">
+                  <input
+                    type="checkbox"
+                    {...register("terms")}
+                    onChange={(e) => setAcceptTerm(e.target.checked)}
+                    className="checkbox mr-2"
+                  />
+                  <span className="label-text">Accept Terms & Conditions</span>
+                </label>
+              </div>
+            </div>
             <div className="grid grid-cols-2 gap-5">
               <button onClick={stepPrevious} className="btn w-full my-5">
                 <MdKeyboardArrowLeft className="text-xl"></MdKeyboardArrowLeft>{" "}
@@ -99,6 +113,7 @@ const LinkSocialMedia = ({ stepPrevious, register, setUserCode }) => {
               <button
                 type="submit"
                 onClick={handleClick}
+                disabled={!acceptTerm}
                 className="btn w-full my-5"
               >
                 Sign Up <MdCheck className="text-xl ml-2"></MdCheck>

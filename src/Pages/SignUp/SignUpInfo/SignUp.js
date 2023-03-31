@@ -8,9 +8,7 @@ import {
 
 import { MdKeyboardArrowRight } from "react-icons/md";
 
-const SignUp = ({ stepNext, register, errors }) => {
-  const [acceptTerm, setAcceptTerm] = useState(false);
-
+const SignUp = ({ stepNext, register, errors, formState }) => {
   // dates state start
   const [yearList, setYearList] = useState([]);
   const [monthList, setMonthList] = useState([]);
@@ -26,25 +24,6 @@ const SignUp = ({ stepNext, register, errors }) => {
     setMonthList(months);
     setDateList(dates);
   }, []);
-
-  /* dispatch(fetchingStart);
-    fetch("http://localhost:5000/signUp", {
-      method: "POST",
-      headers: {
-        "content-type": "application/json",
-      },
-      body: JSON.stringify(userData),
-    })
-      .then((res) => res.json())
-      .then((data) => {
-        if (data.acknowledged) {
-          dispatch(fetchingSuccessfull(userData));
-          localStorage.setItem("usersEmail", userData.email);
-          Swal.fire("Sign Up Successfully!", "", "success");
-          navigate("/");
-        }
-      })
-      .catch((e) => dispatch(fetchingError)); */
   return (
     <div>
       {/* Steps Start */}
@@ -150,9 +129,9 @@ const SignUp = ({ stepNext, register, errors }) => {
               </label>
               <div className="grid grid-cols-3 gap-5">
                 <div>
-                  {errors.date ? (
+                  {errors.birthDate ? (
                     <select
-                      {...register("date", { required: true })}
+                      {...register("birthDate", { required: true })}
                       className="select select-bordered focus:outline-none w-full border-red-500"
                     >
                       <option value={""}>Date</option>
@@ -164,7 +143,7 @@ const SignUp = ({ stepNext, register, errors }) => {
                     </select>
                   ) : (
                     <select
-                      {...register("date", { required: true })}
+                      {...register("birthDate", { required: true })}
                       className="select select-bordered focus:outline-none w-full"
                     >
                       <option value={""}>Date</option>
@@ -175,14 +154,14 @@ const SignUp = ({ stepNext, register, errors }) => {
                       ))}
                     </select>
                   )}
-                  {errors.date && (
+                  {errors.birthDate && (
                     <span className="text-red-500">Date is required</span>
                   )}
                 </div>
                 <div>
-                  {errors.month ? (
+                  {errors.birthMonth ? (
                     <select
-                      {...register("month", { required: true })}
+                      {...register("birthMonth", { required: true })}
                       className="select select-bordered focus:outline-none w-full border-red-500"
                     >
                       <option value={""}>Month</option>
@@ -194,7 +173,7 @@ const SignUp = ({ stepNext, register, errors }) => {
                     </select>
                   ) : (
                     <select
-                      {...register("month", { required: true })}
+                      {...register("birthMonth", { required: true })}
                       className="select select-bordered focus:outline-none w-full"
                     >
                       <option value={""}>Month</option>
@@ -205,14 +184,14 @@ const SignUp = ({ stepNext, register, errors }) => {
                       ))}
                     </select>
                   )}
-                  {errors.month && (
+                  {errors.birthMonth && (
                     <span className="text-red-500">Month is required</span>
                   )}
                 </div>
                 <div>
-                  {errors.year ? (
+                  {errors.birthYear ? (
                     <select
-                      {...register("year", { required: true })}
+                      {...register("birthYear", { required: true })}
                       className="select select-bordered focus:outline-none w-full border-red-500"
                     >
                       <option value={""}>Year</option>
@@ -224,7 +203,7 @@ const SignUp = ({ stepNext, register, errors }) => {
                     </select>
                   ) : (
                     <select
-                      {...register("year", { required: true })}
+                      {...register("birthYear", { required: true })}
                       className="select select-bordered focus:outline-none w-full"
                     >
                       <option value={""}>Year</option>
@@ -235,7 +214,7 @@ const SignUp = ({ stepNext, register, errors }) => {
                       ))}
                     </select>
                   )}
-                  {errors.year && (
+                  {errors.birthYear && (
                     <span className="text-red-500">Year is required</span>
                   )}
                 </div>
@@ -341,23 +320,10 @@ const SignUp = ({ stepNext, register, errors }) => {
                 )}
               </div>
             </div>
-            <div>
-              <div className="form-control">
-                <label className="cursor-pointer flex items-center mt-5">
-                  <input
-                    type="checkbox"
-                    {...register("terms")}
-                    onChange={(e) => setAcceptTerm(e.target.checked)}
-                    className="checkbox mr-2"
-                  />
-                  <span className="label-text">Accept Terms & Conditions</span>
-                </label>
-              </div>
-            </div>
             <button
               onClick={stepNext}
               type="submit"
-              disabled={!acceptTerm}
+              disabled={!formState.isValid}
               className="btn btn-block my-5"
             >
               Next{" "}

@@ -21,92 +21,93 @@ function MultiStepForm() {
   const [profilePic, setProfilePic] = useState("");
   const [userCode, setUserCode] = useState(0);
   const {
-    handleSubmit,
     register,
+    handleSubmit,
+    formState,
     formState: { errors },
-  } = useForm();
+  } = useForm({
+    mode: "onBlur",
+  });
   const [step, setStep] = useState(1);
   const [formData, setFormData] = useState({});
 
   const onSubmit = (data) => {
+    console.log(data);
     setFormData({ ...formData, ...data });
   };
   useEffect(() => {
-    const signUpInfo = {
-      firstName: formData.firstName,
-      lastName: formData.lastName,
-      email: formData.email,
-      phone: formData.phoneNumber,
-      password: formData.newPassword,
-      dateOfBirth: {
-        date: formData.date,
-        month: formData.month,
-        year: formData.year,
-      },
-      gender: formData.gender,
-      terms: formData.terms,
-      userName: formData.userName,
-      profilePicture: profilePic,
-    };
-
-    const locationInfo = {
-      country: formData.country,
-      city: formData.city,
-      state: formData.state,
-      zipCode: formData.zipCode,
-      hometown: formData.hometown,
-      street: formData.street,
-    };
-
-    const workingInfo = {
-      comapany: formData.comapany,
-      position: formData.position,
-      city: formData.city,
-      description: formData.description,
-      date: formData.date,
-      month: formData.month,
-      year: formData.year,
-      working: formData.working,
-    };
-
-    const socialMedia = {
-      facebook: formData.facebook,
-      instagram: formData.instagram,
-      github: formData.github,
-      linkedin: formData.linkedin,
-    };
-
-    const userData = {
-      basicInfo: signUpInfo,
-      locationInfo: locationInfo,
-      workingInfo: workingInfo,
-      socialMedia: socialMedia,
-      userCode: JSON.stringify(userCode),
-    };
-
-    /* if (userCode) {
-      dispatch(usersData(signUpInfo.email));
-    } */
-
-    if (userCode !== 0) {
-      dispatch(fetchingStart);
-      fetch("http://localhost:5000/signUp", {
-        method: "POST",
-        headers: {
-          "content-type": "application/json",
+    if (formData.firstName !== undefined) {
+      const signUpInfo = {
+        firstName: formData.firstName,
+        lastName: formData.lastName,
+        email: formData.email,
+        phone: formData.phoneNumber,
+        password: formData.newPassword,
+        dateOfBirth: {
+          date: formData.birthDate,
+          month: formData.birthMonth,
+          year: formData.birthYear,
         },
-        body: JSON.stringify(userData),
-      })
-        .then((res) => res.json())
-        .then((data) => {
-          if (data.acknowledged) {
-            localStorage.setItem("randomNumber", JSON.stringify(userCode));
-            dispatch(fetchingSuccessfull(userData));
-            Swal.fire("Sign Up Successfully!", "", "success");
-            navigate("/");
-          }
+        gender: formData.gender,
+        terms: formData.terms,
+        userName: formData.userName,
+        profilePicture: profilePic,
+      };
+
+      const locationInfo = {
+        country: formData.country,
+        city: formData.city,
+        state: formData.state,
+        zipCode: formData.zipCode,
+        hometown: formData.hometown,
+        street: formData.street,
+      };
+
+      const workingInfo = {
+        comapany: formData.comapany,
+        position: formData.position,
+        city: formData.city,
+        description: formData.description,
+        date: formData.startingDate,
+        month: formData.startingMonth,
+        year: formData.startingYear,
+        working: formData.working,
+      };
+
+      const socialMedia = {
+        facebook: formData.facebook,
+        instagram: formData.instagram,
+        github: formData.github,
+        linkedin: formData.linkedin,
+      };
+
+      const userData = {
+        basicInfo: signUpInfo,
+        locationInfo: locationInfo,
+        workingInfo: workingInfo,
+        socialMedia: socialMedia,
+        userCode: JSON.stringify(userCode),
+      };
+      if (userCode !== 0) {
+        dispatch(fetchingStart);
+        fetch("http://localhost:5000/signUp", {
+          method: "POST",
+          headers: {
+            "content-type": "application/json",
+          },
+          body: JSON.stringify(userData),
         })
-        .catch((e) => dispatch(fetchingError));
+          .then((res) => res.json())
+          .then((data) => {
+            if (data.acknowledged) {
+              localStorage.setItem("randomNumber", JSON.stringify(userCode));
+              dispatch(fetchingSuccessfull(userData));
+              Swal.fire("Sign Up Successfully!", "", "success");
+              navigate("/");
+            }
+          })
+          .catch((e) => dispatch(fetchingError));
+      }
     }
   }, [formData, dispatch, profilePic, navigate, userCode]);
 
@@ -126,6 +127,7 @@ function MultiStepForm() {
               stepNext={stepNext}
               register={register}
               errors={errors}
+              formState={formState}
             ></SignUp>
           </div>
         );
@@ -137,6 +139,7 @@ function MultiStepForm() {
               stepPrevious={stepPrevious}
               register={register}
               errors={errors}
+              formState={formState}
             ></UserName>
           </div>
         );
@@ -149,6 +152,7 @@ function MultiStepForm() {
               stepPrevious={stepPrevious}
               register={register}
               errors={errors}
+              formState={formState}
             ></ProfilePicture>
           </div>
         );
@@ -160,6 +164,7 @@ function MultiStepForm() {
               stepPrevious={stepPrevious}
               register={register}
               errors={errors}
+              formState={formState}
             ></LocationInfo>
           </div>
         );
@@ -171,6 +176,7 @@ function MultiStepForm() {
               stepPrevious={stepPrevious}
               register={register}
               errors={errors}
+              formState={formState}
             ></WorkingInfo>
           </div>
         );
@@ -183,6 +189,7 @@ function MultiStepForm() {
               stepPrevious={stepPrevious}
               register={register}
               errors={errors}
+              formState={formState}
             ></LinkSocialMedia>
           </div>
         );

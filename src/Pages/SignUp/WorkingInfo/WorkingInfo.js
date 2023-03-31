@@ -6,7 +6,13 @@ import {
   getYearList,
 } from "../../../Functions/DateMakerFn";
 
-const WorkingInfo = ({ stepNext, stepPrevious, register, errors }) => {
+const WorkingInfo = ({
+  stepNext,
+  stepPrevious,
+  register,
+  errors,
+  formState,
+}) => {
   // dates state start
   const [yearList, setYearList] = useState([]);
   const [monthList, setMonthList] = useState([]);
@@ -124,9 +130,9 @@ const WorkingInfo = ({ stepNext, stepPrevious, register, errors }) => {
               </label>
               <div className="grid grid-cols-3 gap-5">
                 <div>
-                  {errors.date ? (
+                  {errors.startingDate ? (
                     <select
-                      {...register("date", { required: true })}
+                      {...register("startingDate", { required: true })}
                       className="select select-bordered focus:outline-none w-full border-red-500"
                     >
                       <option value={""}>Date</option>
@@ -138,7 +144,7 @@ const WorkingInfo = ({ stepNext, stepPrevious, register, errors }) => {
                     </select>
                   ) : (
                     <select
-                      {...register("date", { required: true })}
+                      {...register("startingDate", { required: true })}
                       className="select select-bordered focus:outline-none w-full"
                     >
                       <option value={""}>Date</option>
@@ -149,14 +155,14 @@ const WorkingInfo = ({ stepNext, stepPrevious, register, errors }) => {
                       ))}
                     </select>
                   )}
-                  {errors.date && (
+                  {errors.startingDate && (
                     <span className="text-red-500">Date is required</span>
                   )}
                 </div>
                 <div>
-                  {errors.month ? (
+                  {errors.startingMonth ? (
                     <select
-                      {...register("month", { required: true })}
+                      {...register("startingMonth", { required: true })}
                       className="select select-bordered focus:outline-none w-full border-red-500"
                     >
                       <option value={""}>Month</option>
@@ -168,7 +174,7 @@ const WorkingInfo = ({ stepNext, stepPrevious, register, errors }) => {
                     </select>
                   ) : (
                     <select
-                      {...register("month", { required: true })}
+                      {...register("startingMonth", { required: true })}
                       className="select select-bordered focus:outline-none w-full"
                     >
                       <option value={""}>Month</option>
@@ -179,14 +185,14 @@ const WorkingInfo = ({ stepNext, stepPrevious, register, errors }) => {
                       ))}
                     </select>
                   )}
-                  {errors.month && (
+                  {errors.startingMonth && (
                     <span className="text-red-500">Month is required</span>
                   )}
                 </div>
                 <div>
-                  {errors.year ? (
+                  {errors.startingYear ? (
                     <select
-                      {...register("year", { required: true })}
+                      {...register("startingYear", { required: true })}
                       className="select select-bordered focus:outline-none w-full border-red-500"
                     >
                       <option value={""}>Year</option>
@@ -198,7 +204,7 @@ const WorkingInfo = ({ stepNext, stepPrevious, register, errors }) => {
                     </select>
                   ) : (
                     <select
-                      {...register("year", { required: true })}
+                      {...register("startingYear", { required: true })}
                       className="select select-bordered focus:outline-none w-full"
                     >
                       <option value={""}>Year</option>
@@ -209,7 +215,7 @@ const WorkingInfo = ({ stepNext, stepPrevious, register, errors }) => {
                       ))}
                     </select>
                   )}
-                  {errors.year && (
+                  {errors.startingYear && (
                     <span className="text-red-500">Year is required</span>
                   )}
                 </div>
@@ -235,6 +241,7 @@ const WorkingInfo = ({ stepNext, stepPrevious, register, errors }) => {
               <button
                 onClick={stepNext}
                 type="submit"
+                disabled={!formState.isValid}
                 className="btn w-full my-5"
               >
                 Next{" "}
