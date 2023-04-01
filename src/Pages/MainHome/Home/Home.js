@@ -37,14 +37,14 @@ const Home = () => {
 
   return (
     <div>
-      <div className="grid grid-cols-4 my-5">
-        <div>
+      <div className="grid grid-cols-4 gap-2 my-5">
+        <div className="">
           <LeftSideMenu></LeftSideMenu>
         </div>
         <div className="col-span-2 mx-10">
           <Feeds posts={posts} refetch={refetch} isLoading={isLoading}></Feeds>
         </div>
-        <div>
+        <div className="">
           <RightSideMenu></RightSideMenu>
         </div>
       </div>

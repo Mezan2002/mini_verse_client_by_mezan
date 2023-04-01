@@ -18,15 +18,21 @@ const Navbar = () => {
           />
         </div>
         <div className="navbar justify-center">
-          <div className="form-control">
-            <label className="input-group w-full">
+          <div className="">
+            <label className="relative w-full">
               <input
                 type="text"
                 placeholder="Search Here"
-                className="input input-bordered w-[700px] mx-auto"
+                className="py-3 pl-5 pr-14 2xl:w-[800px] border-gray-400 rounded-full  xl:w-[550px] mx-auto 
+                focus:outline-none border"
               />
               <span>
-                <FaSearch></FaSearch>
+                <img
+                  draggable={false}
+                  className="absolute right-5 top-[24%] w-6"
+                  src="https://i.ibb.co/hYwBRBJ/search-interface-symbol.png"
+                  alt=""
+                />
               </span>
             </label>
           </div>

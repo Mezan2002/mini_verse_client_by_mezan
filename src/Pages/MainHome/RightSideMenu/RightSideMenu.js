@@ -3,7 +3,7 @@ import "./RightSideMenu.css";
 const RightSideMenu = () => {
   return (
     <div className="w-full mainRightSideMenuContainer">
-      <div className="2xl:px-5 rightSideMenu fixed max-h-[90vh] overflow-y-auto lg:p-1">
+      <div className="2xl:px-2 rightSideMenu fixed max-h-[90vh] overflow-y-auto lg:p-1">
         <div className="">
           {/* messages card start */}
           <div className="card shadow w-full overflow-y-auto max-h-[660px] messagesCard mt-2">
