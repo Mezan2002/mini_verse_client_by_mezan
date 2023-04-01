@@ -27,8 +27,8 @@ const PostCardBottom = ({ post, refetch }) => {
   };
   return (
     <div>
-      <div className="card-body">
-        <div>
+      <div className="px-4 pt-4 pb-2 2xl:card-body">
+        <div className="mb-5 2xl:mb-0">
           {post.likes >= 1 ? (
             <div className="flex items-center">
               <img

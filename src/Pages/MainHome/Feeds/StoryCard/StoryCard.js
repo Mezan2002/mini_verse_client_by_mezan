@@ -7,7 +7,7 @@ const StoryCard = () => {
       <div className="card  shadow-xl grid grid-cols-4 p-5 gap-3">
         {/* create story card start */}
         <div className="z-0">
-          <div className="card w-9/12 mx-auto h-[230px] shadow-md relative">
+          <div className="card 2xl:w-9/12 mx-auto 2xl:h-[230px] shadow-md relative">
             <figure>
               <img
                 draggable={false}
@@ -29,7 +29,7 @@ const StoryCard = () => {
         {/* create story card end */}
         {/* signle story card start */}
         <div className="">
-          <div className="card w-9/12 mx-auto h-[230px] shadow-md relative image-full min-h-full">
+          <div className="card 2xl:w-9/12 mx-auto 2xl:h-[230px] shadow-md relative image-full min-h-full">
             <figure>
               <img
                 draggable={false}
@@ -48,14 +48,14 @@ const StoryCard = () => {
               </div>
             </div>
             <div className="font-semibold absolute bottom-3 left-4 text-white z-20">
-              <h2 className="text-sm">Shakib Al Hasan</h2>
+              <h2 className="2xl:text-sm text-xs pr-2">Shakib Al Hasan</h2>
             </div>
           </div>
         </div>
         {/* signle story card end */}
         {/* signle story card start */}
         <div className="">
-          <div className="card w-9/12 mx-auto h-[230px] shadow-md relative image-full min-h-full">
+          <div className="card 2xl:w-9/12 mx-auto 2xl:h-[230px] shadow-md relative image-full min-h-full">
             <figure>
               <img
                 draggable={false}
@@ -74,14 +74,14 @@ const StoryCard = () => {
               </div>
             </div>
             <div className="font-semibold absolute bottom-3 left-4 text-white z-20">
-              <h2 className="text-sm">Shakib Al Hasan</h2>
+              <h2 className="2xl:text-sm text-xs pr-2">Shakib Al Hasan</h2>
             </div>
           </div>
         </div>
         {/* signle story card end */}
         {/* signle story card start */}
         <div className="">
-          <div className="card w-9/12 mx-auto h-[230px] shadow-md relative image-full min-h-full">
+          <div className="card 2xl:w-9/12 mx-auto 2xl:h-[230px] shadow-md relative image-full min-h-full">
             <figure>
               <img
                 draggable={false}
@@ -100,7 +100,7 @@ const StoryCard = () => {
               </div>
             </div>
             <div className="font-semibold absolute bottom-3 left-4 text-white z-20">
-              <h2 className="text-sm">Shakib Al Hasan</h2>
+              <h2 className="2xl:text-sm text-xs pr-2">Shakib Al Hasan</h2>
             </div>
           </div>
         </div>

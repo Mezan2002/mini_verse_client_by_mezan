@@ -46,7 +46,7 @@ const Feeds = ({ posts, refetch }) => {
           </div>
           <div className="py-2">
             {post.postedImage && post.postedText ? (
-              <h2 className="pl-8 text-lg mb-5">{post?.postedText}</h2>
+              <h2 className="2xl:pl-8 pl-4 text-lg mb-5">{post?.postedText}</h2>
             ) : (
               <h2 className="pl-6 mb-5 text-4xl">{post?.postedText}</h2>
             )}
@@ -57,7 +57,7 @@ const Feeds = ({ posts, refetch }) => {
                 draggable={false}
                 src={post?.postedImage}
                 alt={`${post.postedText}`}
-                className="max-h-[700px] max-w-[800px] rounded-xl"
+                className="2xl:max-h-[700px] 2xl:max-w-[800px] 2xl:rounded-xl"
               />
             </figure>
           )}
