@@ -3,11 +3,11 @@ import "./RightSideMenu.css";
 const RightSideMenu = () => {
   return (
     <div className="w-full mainRightSideMenuContainer">
-      <div className="px-5 rightSideMenu fixed max-h-[90vh] overflow-y-auto">
+      <div className="2xl:px-5 rightSideMenu fixed max-h-[90vh] overflow-y-auto lg:p-1">
         <div className="">
           {/* messages card start */}
           <div className="card shadow-md w-full overflow-y-auto max-h-[660px] messagesCard mt-2">
-            <div className="z-10  card-body">
+            <div className="z-10 2xl:card-body lg:p-5">
               <div className="z-10">
                 {/* right side topbar start */}
                 <div className="messageCardTop bg-white sticky top-0 z-10">
@@ -48,7 +48,7 @@ const RightSideMenu = () => {
                 </div>
                 {/* message search field end */}
                 {/* messages start */}
-                <div className="z-0 mt-10">
+                <div className="z-0 2xl:mt-10 lg:mt-14">
                   {/* single message start */}
                   <div className="flex items-center mb-6">
                     <div className="avatar">
@@ -192,15 +192,15 @@ const RightSideMenu = () => {
           </div>
           {/* messages card end */}
           {/* friend request card start */}
-          <div className="mt-5">
+          <div className="mt-5 pb-5">
             <div className="flex items-center justify-between">
               <h3 className="font-medium text-xl">Friend Reqestes</h3>
               <h6 className="mt-2">See All</h6>
             </div>
 
             {/* single friends request card start */}
-            <div className="card shadow-md mb-4">
-              <div className="card-body pb-5">
+            <div className="card shadow mt-2">
+              <div className="px-5 pt-5 pb-3">
                 <div className="flex items-center mb-2">
                   <div className="avatar">
                     <div className="w-16 rounded-full">
@@ -228,8 +228,8 @@ const RightSideMenu = () => {
             </div>
             {/* single friends request card end */}
             {/* single friends request card start */}
-            <div className="card shadow-md mb-4">
-              <div className="card-body pb-5">
+            <div className="card shadow mt-2">
+              <div className="px-5 pt-5 pb-3">
                 <div className="flex items-center mb-2">
                   <div className="avatar">
                     <div className="w-16 rounded-full">
@@ -257,8 +257,8 @@ const RightSideMenu = () => {
             </div>
             {/* single friends request card end */}
             {/* single friends request card start */}
-            <div className="card shadow-md mb-4">
-              <div className="card-body pb-5">
+            <div className="card shadow mt-2">
+              <div className="px-5 pt-5 pb-3">
                 <div className="flex items-center mb-2">
                   <div className="avatar">
                     <div className="w-16 rounded-full">
@@ -286,8 +286,8 @@ const RightSideMenu = () => {
             </div>
             {/* single friends request card end */}
             {/* single friends request card start */}
-            <div className="card shadow-md mb-4">
-              <div className="card-body pb-5">
+            <div className="card shadow mt-2">
+              <div className="px-5 pt-5 pb-3">
                 <div className="flex items-center mb-2">
                   <div className="avatar">
                     <div className="w-16 rounded-full">
