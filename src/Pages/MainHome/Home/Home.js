@@ -1,13 +1,12 @@
 import { useQuery } from "@tanstack/react-query";
 import React, { useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { loggedInUser } from "../../../Redux/ActionCreator/ActionCreator";
 import Feeds from "../Feeds/Feeds/Feeds";
 import LeftSideMenu from "../LeftSideMenu/LeftSideMenu";
 import RightSideMenu from "../RightSideMenu/RightSideMenu";
 
 const Home = () => {
-  const loggedInUserData = useSelector((state) => state.loggedInUser[0]);
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -21,7 +20,7 @@ const Home = () => {
           dispatch(loggedInUser(data));
         });
     }
-  }, [loggedInUserData, dispatch]);
+  }, [dispatch]);
 
   const {
     data: posts = [],

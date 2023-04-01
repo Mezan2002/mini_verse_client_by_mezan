@@ -1,7 +1,21 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { MdKeyboardArrowLeft, MdKeyboardArrowRight } from "react-icons/md";
 
 const UserName = ({ stepNext, stepPrevious, register, errors, formState }) => {
+  const [checkUserName, setCheckUserName] = useState("");
+  const [isUserNameExist, setIsUserNameExist] = useState(false);
+  const handleUserNameCheck = (e) => {
+    setCheckUserName(e.target.value);
+  };
+  useEffect(() => {
+    if (checkUserName !== "") {
+      fetch(`http://localhost:5000/checkUserName/${checkUserName}`)
+        .then((res) => res.json())
+        .then((data) => {
+          setIsUserNameExist(data.isEmailExist);
+        });
+    }
+  }, [checkUserName]);
   return (
     <div>
       {/* Steps Start */}
@@ -43,13 +57,21 @@ const UserName = ({ stepNext, stepPrevious, register, errors, formState }) => {
                   <span className="text-xl">@</span>
                   <input
                     {...register("userName", { required: true })}
+                    onChange={handleUserNameCheck}
                     type="text"
                     placeholder="example001"
-                    className="w-full border py-3 rounded-xl focus:outline-none px-3"
+                    className={`w-full border py-3 rounded-xl focus:outline-none px-3 ${
+                      isUserNameExist ? "border-red-500" : null
+                    }`}
                   />
                 </label>
                 {errors.userName && (
                   <span className="text-red-500">User Name is required</span>
+                )}
+                {isUserNameExist && (
+                  <span className="text-red-500">
+                    This username already have been taken!
+                  </span>
                 )}
                 <label className="label">
                   <span className="label-text capitalize">
@@ -65,7 +87,7 @@ const UserName = ({ stepNext, stepPrevious, register, errors, formState }) => {
               </button>
               <button
                 onClick={stepNext}
-                disabled={!formState.isValid}
+                disabled={!formState.isValid || isUserNameExist}
                 type="submit"
                 className="btn w-full my-5"
               >

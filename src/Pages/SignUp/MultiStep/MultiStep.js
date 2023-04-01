@@ -32,7 +32,6 @@ function MultiStepForm() {
   const [formData, setFormData] = useState({});
 
   const onSubmit = (data) => {
-    console.log(data);
     setFormData({ ...formData, ...data });
   };
   useEffect(() => {

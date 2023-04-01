@@ -5,7 +5,6 @@ import {
   getMonthList,
   getYearList,
 } from "../../../Functions/DateMakerFn";
-
 import { MdKeyboardArrowRight } from "react-icons/md";
 
 const SignUp = ({ stepNext, register, errors, formState }) => {
@@ -13,6 +12,9 @@ const SignUp = ({ stepNext, register, errors, formState }) => {
   const [yearList, setYearList] = useState([]);
   const [monthList, setMonthList] = useState([]);
   const [dateList, setDateList] = useState([]);
+  const [checkEmail, setCheckEmail] = useState("");
+  const [isEmailExist, setIsEmailExist] = useState(false);
+
   // dates state end
 
   useEffect(() => {
@@ -24,6 +26,20 @@ const SignUp = ({ stepNext, register, errors, formState }) => {
     setMonthList(months);
     setDateList(dates);
   }, []);
+
+  const handleEmailCheck = (e) => {
+    setCheckEmail(e.target.value);
+  };
+  useEffect(() => {
+    if (checkEmail !== "") {
+      fetch(`http://localhost:5000/checkEmail/${checkEmail}`)
+        .then((res) => res.json())
+        .then((data) => {
+          setIsEmailExist(data.isEmailExist);
+        });
+    }
+  }, [checkEmail]);
+
   return (
     <div>
       {/* Steps Start */}
@@ -90,11 +106,17 @@ const SignUp = ({ stepNext, register, errors, formState }) => {
               </label>
               <input
                 {...register("email", { required: true })}
+                onChange={handleEmailCheck}
                 type="email"
-                className="w-full border py-3 rounded-xl focus:outline-none px-3"
+                className={`w-full border py-3 rounded-xl focus:outline-none px-3 ${
+                  isEmailExist ? "border-red-500" : null
+                }`}
               />
               {errors.email && (
                 <span className="text-red-500">Email is required</span>
+              )}
+              {isEmailExist === true && (
+                <span className="text-red-500">Email is already exist!</span>
               )}
             </div>
             <div className="form-control w-full">
@@ -323,7 +345,7 @@ const SignUp = ({ stepNext, register, errors, formState }) => {
             <button
               onClick={stepNext}
               type="submit"
-              disabled={!formState.isValid}
+              disabled={!formState.isValid || isEmailExist}
               className="btn btn-block my-5"
             >
               Next{" "}
