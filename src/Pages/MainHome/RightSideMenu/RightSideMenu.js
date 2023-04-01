@@ -6,7 +6,7 @@ const RightSideMenu = () => {
       <div className="2xl:px-5 rightSideMenu fixed max-h-[90vh] overflow-y-auto lg:p-1">
         <div className="">
           {/* messages card start */}
-          <div className="card shadow-md w-full overflow-y-auto max-h-[660px] messagesCard mt-2">
+          <div className="card shadow w-full overflow-y-auto max-h-[660px] messagesCard mt-2">
             <div className="z-10 2xl:card-body lg:p-5">
               <div className="z-10">
                 {/* right side topbar start */}
@@ -48,9 +48,9 @@ const RightSideMenu = () => {
                 </div>
                 {/* message search field end */}
                 {/* messages start */}
-                <div className="z-0 2xl:mt-10 lg:mt-14">
+                <div className="z-0 mt-10 lg:h-80 2xl:h-96 overflow-auto">
                   {/* single message start */}
-                  <div className="flex items-center mb-6">
+                  <div className="flex items-center p-3 rounded-lg hover:bg-gray-200">
                     <div className="avatar">
                       <div className="w-[51px] rounded-full">
                         <img
@@ -67,7 +67,7 @@ const RightSideMenu = () => {
                   </div>
                   {/* single message end */}
                   {/* single message start */}
-                  <div className="flex items-center mb-6">
+                  <div className="flex items-center p-3 rounded-lg hover:bg-gray-200">
                     <div className="avatar">
                       <div className="w-[51px] rounded-full">
                         <img
@@ -84,7 +84,7 @@ const RightSideMenu = () => {
                   </div>
                   {/* single message end */}
                   {/* single message start */}
-                  <div className="flex items-center mb-6">
+                  <div className="flex items-center p-3 rounded-lg hover:bg-gray-200">
                     <div className="avatar">
                       <div className="w-[51px] rounded-full">
                         <img
@@ -101,7 +101,7 @@ const RightSideMenu = () => {
                   </div>
                   {/* single message end */}
                   {/* single message start */}
-                  <div className="flex items-center mb-6">
+                  <div className="flex items-center p-3 rounded-lg hover:bg-gray-200">
                     <div className="avatar">
                       <div className="w-[51px] rounded-full">
                         <img
@@ -118,7 +118,7 @@ const RightSideMenu = () => {
                   </div>
                   {/* single message end */}
                   {/* single message start */}
-                  <div className="flex items-center mb-6">
+                  <div className="flex items-center p-3 rounded-lg hover:bg-gray-200">
                     <div className="avatar">
                       <div className="w-[51px] rounded-full">
                         <img
@@ -135,7 +135,7 @@ const RightSideMenu = () => {
                   </div>
                   {/* single message end */}
                   {/* single message start */}
-                  <div className="flex items-center mb-6">
+                  <div className="flex items-center p-3 rounded-lg hover:bg-gray-200">
                     <div className="avatar">
                       <div className="w-[51px] rounded-full">
                         <img
@@ -152,7 +152,7 @@ const RightSideMenu = () => {
                   </div>
                   {/* single message end */}
                   {/* single message start */}
-                  <div className="flex items-center mb-6">
+                  <div className="flex items-center p-3 rounded-lg hover:bg-gray-200">
                     <div className="avatar">
                       <div className="w-[51px] rounded-full">
                         <img
@@ -169,7 +169,7 @@ const RightSideMenu = () => {
                   </div>
                   {/* single message end */}
                   {/* single message start */}
-                  <div className="flex items-center mb-6">
+                  <div className="flex items-center p-3 rounded-lg hover:bg-gray-200">
                     <div className="avatar">
                       <div className="w-[51px] rounded-full">
                         <img

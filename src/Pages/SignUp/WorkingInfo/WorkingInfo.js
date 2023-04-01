@@ -156,7 +156,9 @@ const WorkingInfo = ({
                     </select>
                   )}
                   {errors.startingDate && (
-                    <span className="text-red-500">Date is required</span>
+                    <span className="text-red-500 text-sm">
+                      Date is required
+                    </span>
                   )}
                 </div>
                 <div>
@@ -186,7 +188,9 @@ const WorkingInfo = ({
                     </select>
                   )}
                   {errors.startingMonth && (
-                    <span className="text-red-500">Month is required</span>
+                    <span className="text-red-500 text-sm">
+                      Month is required
+                    </span>
                   )}
                 </div>
                 <div>
@@ -216,7 +220,9 @@ const WorkingInfo = ({
                     </select>
                   )}
                   {errors.startingYear && (
-                    <span className="text-red-500">Year is required</span>
+                    <span className="text-red-500 text-sm">
+                      Year is required
+                    </span>
                   )}
                 </div>
               </div>

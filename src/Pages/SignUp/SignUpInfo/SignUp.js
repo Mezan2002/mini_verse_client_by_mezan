@@ -177,7 +177,9 @@ const SignUp = ({ stepNext, register, errors, formState }) => {
                     </select>
                   )}
                   {errors.birthDate && (
-                    <span className="text-red-500">Date is required</span>
+                    <span className="text-red-500 text-sm">
+                      Date is required
+                    </span>
                   )}
                 </div>
                 <div>
@@ -207,7 +209,9 @@ const SignUp = ({ stepNext, register, errors, formState }) => {
                     </select>
                   )}
                   {errors.birthMonth && (
-                    <span className="text-red-500">Month is required</span>
+                    <span className="text-red-500 text-sm">
+                      Month is required
+                    </span>
                   )}
                 </div>
                 <div>
@@ -237,7 +241,9 @@ const SignUp = ({ stepNext, register, errors, formState }) => {
                     </select>
                   )}
                   {errors.birthYear && (
-                    <span className="text-red-500">Year is required</span>
+                    <span className="text-red-500 text-sm">
+                      Year is required
+                    </span>
                   )}
                 </div>
               </div>

@@ -27,7 +27,7 @@ const PostCardBottom = ({ post, refetch }) => {
   };
   return (
     <div>
-      <div className="px-4 pt-4 pb-2 2xl:card-body">
+      <div className="px-4 pt-4 pb-2 2xl:p-5">
         <div className="mb-5 2xl:mb-0">
           {post.likes >= 1 ? (
             <div className="flex items-center">
@@ -37,12 +37,12 @@ const PostCardBottom = ({ post, refetch }) => {
                 src="https://i.ibb.co/5RFyxB7/heart.png"
                 alt=""
               />
-              <p>{post.likes} peoples loved</p>
+              <p className="">{post.likes} peoples loved</p>
             </div>
           ) : null}
         </div>
 
-        <div className="grid grid-cols-3 gap-5 border-y py-1">
+        <div className="grid grid-cols-3 gap-5 border-y py-1 mb-3 mt-5">
           <div className="" onClick={() => handleLike(post)}>
             <div
               className="hover:bg-gray-200 text-center cursor-pointer py-2 rounded-md flex 
