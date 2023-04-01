@@ -43,7 +43,7 @@ const UserName = ({ stepNext, stepPrevious, register, errors, formState }) => {
       </div>
       {/* Steps End  */}
       <div className="flex items-center justify-center min-h-[90vh]">
-        <div className="border w-4/12 rounded-xl">
+        <div className="border lg:w-6/12 2xl:w-4/12 xl:w-5/12 rounded-xl">
           <h2 className="text-2xl font-medium capitalize text-center my-10">
             User Name
           </h2>

@@ -33,7 +33,7 @@ const LogIn = () => {
 
   return (
     <div className="flex items-center justify-center min-h-screen">
-      <div className="border w-4/12 rounded-xl mt-5">
+      <div className="border lg:w-6/12 2xl:w-4/12 xl:w-5/12 rounded-xl mt-5">
         <h2 className="text-2xl font-medium uppercase text-center my-10">
           Login
         </h2>
