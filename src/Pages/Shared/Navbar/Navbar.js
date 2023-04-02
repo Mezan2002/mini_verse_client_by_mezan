@@ -1,10 +1,5 @@
 import React from "react";
-import {
-  FaSearch,
-  FaFacebookMessenger,
-  FaBell,
-  FaAngleDown,
-} from "react-icons/fa";
+import { FaFacebookMessenger, FaBell, FaAngleDown } from "react-icons/fa";
 const Navbar = () => {
   return (
     <div className="flex justify-between px-10 sticky top-0 z-50 bg-white">

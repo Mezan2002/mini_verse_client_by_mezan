@@ -1,9 +1,9 @@
 import React from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
-import { loggedInUser } from "../../Redux/ActionCreator/ActionCreator";
 import { useDispatch } from "react-redux";
 import Swal from "sweetalert2";
+import { loadLoggedInUserData } from "../../Redux/Thunk/LoadLoggedInUserData/LoadLoggedInUserData";
 
 const LogIn = () => {
   const dispatch = useDispatch();
@@ -18,9 +18,10 @@ const LogIn = () => {
     fetch(url)
       .then((res) => res.json())
       .then((data) => {
-        dispatch(loggedInUser(data));
+        localStorage.setItem("randomNumber", parseInt(data.userCode));
         Swal.fire("Login Successfully!", "", "success");
         navigate("/");
+        dispatch(loadLoggedInUserData());
       })
       .catch((err) => {
         Swal.fire(

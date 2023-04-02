@@ -1,25 +1,16 @@
 import { useQuery } from "@tanstack/react-query";
 import React, { useEffect } from "react";
 import { useDispatch } from "react-redux";
-import { loggedInUser } from "../../../Redux/ActionCreator/ActionCreator";
 import Feeds from "../Feeds/Feeds/Feeds";
 import LeftSideMenu from "../LeftSideMenu/LeftSideMenu";
 import RightSideMenu from "../RightSideMenu/RightSideMenu";
+import { loadLoggedInUserData } from "../../../Redux/Thunk/LoadLoggedInUserData/LoadLoggedInUserData";
 
 const Home = () => {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    if (localStorage) {
-      const url = `http://localhost:5000/usersData?userCode=${localStorage.getItem(
-        "randomNumber"
-      )}`;
-      fetch(url)
-        .then((res) => res.json())
-        .then((data) => {
-          dispatch(loggedInUser(data));
-        });
-    }
+    dispatch(loadLoggedInUserData());
   }, [dispatch]);
 
   const {
