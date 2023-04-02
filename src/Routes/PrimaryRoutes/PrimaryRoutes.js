@@ -4,6 +4,7 @@ import Main from "../../Layout/Main/Main";
 import LogIn from "../../Pages/LogIn/LogIn";
 import Home from "../../Pages/MainHome/Home/Home";
 import MultiStepForm from "../../Pages/SignUp/MultiStep/MultiStep";
+import WelcomePage from "../../Pages/WelcomePage/WelcomePage";
 
 const PrimaryRoutes = createBrowserRouter([
   {
@@ -23,6 +24,10 @@ const PrimaryRoutes = createBrowserRouter([
   {
     path: "/signUp",
     element: <MultiStepForm></MultiStepForm>,
+  },
+  {
+    path: "/welcome",
+    element: <WelcomePage></WelcomePage>,
   },
 ]);
 
