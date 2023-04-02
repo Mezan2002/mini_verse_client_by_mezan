@@ -4,7 +4,7 @@ const NewPost = ({ refetch, setModalToggle, modalToggle }) => {
   return (
     <div>
       <div>
-        <div className="card mt-5 rounded-full bg-white shadow-md">
+        <div className="card mt-5 rounded-full bg-white shadow">
           <div className="avatar absolute top-3 left-5">
             <div className="w-9 rounded-full ring ring-primary ring-offset-base-100 ring-offset-2">
               <img

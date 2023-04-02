@@ -29,7 +29,7 @@ const Feeds = ({ posts, refetch }) => {
       {/* posts section start */}
       {/* single post card start */}
       {posts.map((post) => (
-        <div key={post._id} className="card mt-5 bg-white shadow-xl">
+        <div key={post._id} className="card mt-5 bg-white shadow">
           <div className="flex justify-between p-5">
             {/* post card top start */}
 
