@@ -101,7 +101,7 @@ const WorkingInfo = ({
                   <span className="label-text">City / Town</span>
                 </label>
                 <input
-                  {...register("city", { required: true })}
+                  {...register("companyCity", { required: true })}
                   type="text"
                   placeholder=""
                   className="w-full border py-3 rounded-xl focus:outline-none px-3"

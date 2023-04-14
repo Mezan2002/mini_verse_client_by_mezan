@@ -3,6 +3,7 @@ import {
   FETCHING_START,
   FETCHING_SUCCESSFULL,
   LOGGEDIN_USER,
+  LOGOUT_USER,
   USERS_DATA,
 } from "../ActionTypes/actionTypes";
 
@@ -53,6 +54,14 @@ const signUpReducer = (state = initialState, action) => {
         error: false,
         user: [...state.user],
         loggedInUser: [...state.loggedInUser, action.payload],
+      };
+    case LOGOUT_USER:
+      return {
+        ...state,
+        loading: false,
+        error: false,
+        user: [],
+        loggedInUser: [],
       };
 
     default:

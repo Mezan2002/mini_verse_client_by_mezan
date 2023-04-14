@@ -14,6 +14,7 @@ import {
 import Swal from "sweetalert2";
 import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
+import { loadLoggedInUserData } from "../../../Redux/Thunk/LoadLoggedInUserData/LoadLoggedInUserData";
 
 function MultiStepForm() {
   const navigate = useNavigate();
@@ -99,8 +100,9 @@ function MultiStepForm() {
           .then((res) => res.json())
           .then((data) => {
             if (data.acknowledged) {
-              localStorage.setItem("randomNumber", JSON.stringify(userCode));
+              localStorage.setItem("randomNumber", parseInt(userCode));
               dispatch(fetchingSuccessfull(userData));
+              dispatch(loadLoggedInUserData());
               Swal.fire("Sign Up Successfully!", "", "success");
               navigate("/");
             }

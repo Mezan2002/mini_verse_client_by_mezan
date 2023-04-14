@@ -3,6 +3,7 @@ import {
   FETCHING_START,
   FETCHING_SUCCESSFULL,
   LOGGEDIN_USER,
+  LOGOUT_USER,
   USERS_DATA,
 } from "../Reducer/ActionTypes/actionTypes";
 
@@ -32,5 +33,10 @@ export const loggedInUser = (usersData) => {
   return {
     type: LOGGEDIN_USER,
     payload: usersData,
+  };
+};
+export const logOutUser = () => {
+  return {
+    type: LOGOUT_USER,
   };
 };

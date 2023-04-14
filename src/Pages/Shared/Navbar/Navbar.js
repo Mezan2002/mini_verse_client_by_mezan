@@ -1,6 +1,16 @@
 import React from "react";
 import { FaBell, FaAngleDown } from "react-icons/fa";
-const Navbar = () => {
+import { useDispatch } from "react-redux";
+import { logOutUser } from "../../../Redux/ActionCreator/ActionCreator";
+import { useNavigate } from "react-router-dom";
+
+const Navbar = ({ loggedInUser }) => {
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+  const handleLogOut = () => {
+    dispatch(logOutUser());
+    navigate("/logIn");
+  };
   return (
     <div className="flex justify-between px-10 sticky top-0 z-50 bg-white">
       <div className="navbar hidden lg:flex justify-center">
@@ -68,7 +78,7 @@ const Navbar = () => {
                 <div className="w-11 rounded-full">
                   <img
                     draggable={false}
-                    src="https://i.ibb.co/LS3rs9t/320227336-554443479588388-3782794624352602751-n.jpg"
+                    src={loggedInUser?.basicInfo?.profilePicture}
                     alt=""
                   />
                 </div>
@@ -91,7 +101,7 @@ const Navbar = () => {
                       <div className="w-12 rounded-full">
                         <img
                           draggable={false}
-                          src="https://i.ibb.co/LS3rs9t/320227336-554443479588388-3782794624352602751-n.jpg"
+                          src={loggedInUser?.basicInfo?.profilePicture}
                           alt=""
                         />
                       </div>
@@ -102,7 +112,7 @@ const Navbar = () => {
               </div>
               <div className="divider px-2"></div>
               <div className="mt-5">
-                <div className="flex items-center hover:bg-gray-200 p-4 m-2 rounded-2xl">
+                <div className="flex items-center hover:bg-gray-200 p-4 m-2 rounded-2xl cursor-pointer">
                   <img
                     draggable={false}
                     src="https://i.ibb.co/VqQJKL3/settings.png"
@@ -111,7 +121,7 @@ const Navbar = () => {
                   />
                   <p className="">Setting & Privacy</p>
                 </div>
-                <div className="flex items-center hover:bg-gray-200 p-4 m-2 rounded-2xl">
+                <div className="flex items-center hover:bg-gray-200 p-4 m-2 rounded-2xl cursor-pointer">
                   <img
                     draggable={false}
                     src="https://i.ibb.co/2yhFqKx/customer-support.png"
@@ -120,7 +130,7 @@ const Navbar = () => {
                   />
                   <p className="">Help & Support</p>
                 </div>
-                <div className="flex items-center hover:bg-gray-200 p-4 m-2 rounded-2xl">
+                <div className="flex items-center hover:bg-gray-200 p-4 m-2 rounded-2xl cursor-pointer">
                   <img
                     draggable={false}
                     src="https://i.ibb.co/hBTcVCF/feedback.png"
@@ -129,14 +139,18 @@ const Navbar = () => {
                   />
                   <p className="">Give Feedback</p>
                 </div>
-                <div className="flex items-center hover:bg-gray-200 p-4 m-2 rounded-2xl">
+                <div
+                  onClick={handleLogOut}
+                  className="flex items-center hover:bg-gray-200 p-4 m-2 rounded-2xl cursor-pointer"
+                >
                   <img
                     draggable={false}
                     src="https://i.ibb.co/xJ3rwrH/logout-1.png"
                     alt=""
                     className="w-6 mr-5"
                   />
-                  <p className="">Logout</p>
+
+                  <p>Logout</p>
                 </div>
               </div>
               <p className="text-sm text-center mt-5">

@@ -6,7 +6,6 @@ export const loadLoggedInUserData = () => {
       const url = `http://localhost:5000/usersData?userCode=${localStorage.getItem(
         "randomNumber"
       )}`;
-      console.log(url);
       fetch(url)
         .then((res) => res.json())
         .then((data) => {
