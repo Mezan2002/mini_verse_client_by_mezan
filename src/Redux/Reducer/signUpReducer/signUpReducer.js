@@ -52,7 +52,6 @@ const signUpReducer = (state = initialState, action) => {
         ...state,
         loading: false,
         error: false,
-        user: [...state.user],
         loggedInUser: [...state.loggedInUser, action.payload],
       };
     case LOGOUT_USER:
