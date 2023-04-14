@@ -1,6 +1,8 @@
 import React from "react";
+import { useSelector } from "react-redux";
 
 const LeftSideMenu = () => {
+  const loggedInUser = useSelector((state) => state?.loggedInUser[0]);
   return (
     <div className="fixed">
       <div className="px-5 ">
@@ -12,14 +14,20 @@ const LeftSideMenu = () => {
                   <div className="w-14 h-14 rounded-full">
                     <img
                       draggable={false}
-                      src="https://i.ibb.co/LS3rs9t/320227336-554443479588388-3782794624352602751-n.jpg"
+                      src={loggedInUser?.basicInfo?.profilePicture}
                       alt=""
                     />
                   </div>
                 </div>
                 <div className="ml-5">
-                  <h2 className="">Mezanur Rahman</h2>
-                  <p className="text-gray-500">@mezan2002</p>
+                  <h2 className="font-medium">
+                    {loggedInUser?.basicInfo?.firstName +
+                      loggedInUser?.basicInfo?.lastName}
+                  </h2>
+                  <p className="text-gray-500">
+                    {" "}
+                    @{loggedInUser?.basicInfo?.userName}
+                  </p>
                 </div>
               </div>
             </div>

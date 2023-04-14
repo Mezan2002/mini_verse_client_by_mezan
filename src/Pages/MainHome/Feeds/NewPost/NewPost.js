@@ -1,6 +1,8 @@
 import React from "react";
 import PostModal from "../../PostModal/PostModal";
+import { useSelector } from "react-redux";
 const NewPost = ({ refetch, setModalToggle, modalToggle }) => {
+  const loggedInUser = useSelector((state) => state?.loggedInUser[0]);
   return (
     <div>
       <div>
@@ -9,7 +11,7 @@ const NewPost = ({ refetch, setModalToggle, modalToggle }) => {
             <div className="w-9 rounded-full ring ring-primary ring-offset-base-100 ring-offset-2">
               <img
                 draggable={false}
-                src="https://i.ibb.co/LS3rs9t/320227336-554443479588388-3782794624352602751-n.jpg"
+                src={loggedInUser?.basicInfo?.profilePicture}
                 alt=""
               />
             </div>

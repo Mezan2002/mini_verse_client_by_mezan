@@ -1,6 +1,8 @@
 import React, { useState } from "react";
+import { useSelector } from "react-redux";
 
 const PostCardBottom = ({ post, refetch }) => {
+  const loggedInUser = useSelector((state) => state?.loggedInUser[0]);
   const [liked, setLiked] = useState(true);
   const handleLike = (post) => {
     let likes = parseInt(post.likes);
@@ -100,7 +102,7 @@ const PostCardBottom = ({ post, refetch }) => {
             <div className="w-10 rounded-full">
               <img
                 draggable={false}
-                src="https://i.ibb.co/LS3rs9t/320227336-554443479588388-3782794624352602751-n.jpg"
+                src={loggedInUser?.basicInfo?.profilePicture}
                 alt=""
               />
             </div>
