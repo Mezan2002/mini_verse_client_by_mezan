@@ -29,6 +29,7 @@ const PostModal = ({ modalToggle, setModalToggle, refetch }) => {
       postedAt,
       likes: 0,
       comments: [],
+      postLikedBy: [],
       share: 0,
     };
     if (image) {
@@ -49,6 +50,7 @@ const PostModal = ({ modalToggle, setModalToggle, refetch }) => {
             postedImage,
             postedAt,
             likes: 0,
+            postLikedBy: [],
             comments: [],
             share: 0,
           };

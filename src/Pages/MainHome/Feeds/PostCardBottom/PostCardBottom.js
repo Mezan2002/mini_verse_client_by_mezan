@@ -4,12 +4,25 @@ import { useSelector } from "react-redux";
 const PostCardBottom = ({ post, refetch }) => {
   const loggedInUser = useSelector((state) => state?.loggedInUser[0]);
   const [liked, setLiked] = useState(true);
+
   const handleLike = (post) => {
+    console.log(post);
     let likes = parseInt(post.likes);
+    const newLikedUserCode = parseInt(loggedInUser.userCode);
+
     if (liked === true) {
+      // If post is liked, unlike it
       likes = parseInt(likes + 1);
+      post.postLikedBy = [...post.postLikedBy, newLikedUserCode];
+    } else {
+      // If post is not liked, like it
+      likes = parseInt(likes - 1);
+      post.postLikedBy = post.postLikedBy.filter(
+        (userCode) => userCode !== newLikedUserCode
+      );
     }
-    const likedData = { likes };
+
+    const likedData = { likes, postLikedBy: post.postLikedBy };
     fetch(`http://localhost:5000/liked/${post._id}`, {
       method: "PUT",
       headers: {

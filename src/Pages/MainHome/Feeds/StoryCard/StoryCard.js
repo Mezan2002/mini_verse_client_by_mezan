@@ -1,7 +1,9 @@
 import React from "react";
 import { FaPlus } from "react-icons/fa";
+import { useSelector } from "react-redux";
 
 const StoryCard = () => {
+  const loggedInUser = useSelector((state) => state?.loggedInUser[0]);
   return (
     <div>
       <div className="card shadow grid lg:grid-cols-4 2xl:grid-cols-5 p-5 gap-3">
@@ -11,8 +13,8 @@ const StoryCard = () => {
             <figure>
               <img
                 draggable={false}
-                src="https://i.ibb.co/LS3rs9t/320227336-554443479588388-3782794624352602751-n.jpg"
-                alt="Shoes"
+                src={loggedInUser?.basicInfo?.profilePicture}
+                alt="Profile_Picture_of_the_user"
                 className="h-48"
               />
             </figure>
