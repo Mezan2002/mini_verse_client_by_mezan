@@ -5,6 +5,8 @@ import { logOutUser } from "../../../Redux/ActionCreator/ActionCreator";
 import { useNavigate } from "react-router-dom";
 
 const Navbar = ({ loggedInUser }) => {
+  const userFullName =
+    loggedInUser?.basicInfo?.firstName + loggedInUser?.basicInfo?.lastName;
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const handleLogOut = () => {
@@ -106,7 +108,7 @@ const Navbar = ({ loggedInUser }) => {
                         />
                       </div>
                     </div>
-                    <h2 className="text-xl font-medium ml-2">Mezanur Rahman</h2>
+                    <h2 className="text-xl font-medium ml-2">{userFullName}</h2>
                   </div>
                 </div>
               </div>

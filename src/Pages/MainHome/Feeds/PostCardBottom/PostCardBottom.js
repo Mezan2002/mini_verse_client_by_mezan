@@ -10,16 +10,16 @@ const PostCardBottom = ({ post, refetch }) => {
     let likes = parseInt(post.likes);
     const newLikedUserCode = parseInt(loggedInUser.userCode);
 
-    if (liked === true) {
+    if (!liked) {
       // If post is liked, unlike it
-      likes = parseInt(likes + 1);
-      post.postLikedBy = [...post.postLikedBy, newLikedUserCode];
-    } else {
-      // If post is not liked, like it
       likes = parseInt(likes - 1);
       post.postLikedBy = post.postLikedBy.filter(
         (userCode) => userCode !== newLikedUserCode
       );
+    } else {
+      // If post is not liked, like it
+      likes = parseInt(likes + 1);
+      post.postLikedBy = [...post.postLikedBy, newLikedUserCode];
     }
 
     const likedData = { likes, postLikedBy: post.postLikedBy };

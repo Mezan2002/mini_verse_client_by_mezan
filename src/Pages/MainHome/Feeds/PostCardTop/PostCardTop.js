@@ -43,14 +43,31 @@ const PostCardTop = ({ post }) => {
           <div className="w-14 rounded-full">
             <img
               draggable={false}
-              src="https://i.ibb.co/LS3rs9t/320227336-554443479588388-3782794624352602751-n.jpg"
+              src={post?.postedBy?.profilePicture}
               alt=""
             />
           </div>
         </div>
         <div className="ml-4">
-          <h5 className="font-semibold">Mezanur Rahman</h5>
-          <p className="text-gray-500">Bangladesh, {timer}</p>
+          <h5 className="font-semibold">{post?.postedBy?.userFullName}</h5>
+          <div className="flex items-center">
+            <div className="flex items-center">
+              <img
+                src="https://i.ibb.co/9Nz5Pxr/location.png"
+                className="w-4"
+                alt=""
+              />
+              <p className="text-gray-500">{post?.postedBy?.usersCountry},</p>
+            </div>
+            <div className="flex items-center">
+              <img
+                className="w-4 ml-1"
+                src="https://i.ibb.co/3dCnGfg/clock-1.png"
+                alt=""
+              />
+              <p className="text-gray-500 ml-1">{timer}</p>
+            </div>
+          </div>
         </div>
       </div>
     </div>

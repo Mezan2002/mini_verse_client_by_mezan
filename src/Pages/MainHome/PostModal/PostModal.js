@@ -4,8 +4,12 @@ import { FaChevronDown, FaUserFriends } from "react-icons/fa";
 import axios from "axios";
 import "./PostModal.css";
 import Loading from "../../Shared/Loading/Loading";
+import { useSelector } from "react-redux";
 
 const PostModal = ({ modalToggle, setModalToggle, refetch }) => {
+  const loggedInUser = useSelector((state) => state?.loggedInUser[0]);
+  const userFullName =
+    loggedInUser?.basicInfo?.firstName + loggedInUser?.basicInfo?.lastName;
   const imageHostingKey = process.env.REACT_APP_IMAGE_HOSTING_SERVER_API;
   const [postText, setPostText] = useState(null);
   const [selectedImage, setSelectedImage] = useState(null);
@@ -24,11 +28,17 @@ const PostModal = ({ modalToggle, setModalToggle, refetch }) => {
     const formData = new FormData();
     formData.append("image", image);
     const postedAt = new Date();
+    const postedBy = {
+      userFullName,
+      profilePicture: loggedInUser?.basicInfo?.profilePicture,
+      usersCountry: loggedInUser?.locationInfo?.country,
+    };
     const textDataOnly = {
       postedText,
       postedAt,
       likes: 0,
       comments: [],
+      postedBy,
       postLikedBy: [],
       share: 0,
     };
@@ -49,6 +59,7 @@ const PostModal = ({ modalToggle, setModalToggle, refetch }) => {
             postedText,
             postedImage,
             postedAt,
+            postedBy,
             likes: 0,
             postLikedBy: [],
             comments: [],
