@@ -1,10 +1,10 @@
-import React, { useState } from "react";
+import React, { useRef, useState } from "react";
 import { useSelector } from "react-redux";
 
 const PostCardBottom = ({ post, refetch }) => {
   const loggedInUser = useSelector((state) => state?.loggedInUser[0]);
   const [liked, setLiked] = useState(true);
-
+  const commentInputRef = useRef(null);
   const handleLike = (post) => {
     console.log(post);
     let likes = parseInt(post.likes);
@@ -39,6 +39,7 @@ const PostCardBottom = ({ post, refetch }) => {
   };
   const handleComment = (post) => {
     console.log(post);
+    commentInputRef.current.focus();
   };
   return (
     <div>
@@ -123,6 +124,7 @@ const PostCardBottom = ({ post, refetch }) => {
           <div className="w-full">
             <div className="flex items-center mb-5">
               <input
+                ref={commentInputRef}
                 type="text"
                 placeholder="Write a comment..."
                 className="py-2 w-full border border-gray-400 text-lg rounded-full mt-4 pl-5

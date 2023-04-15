@@ -1,5 +1,5 @@
 import React from "react";
-import { FaBell, FaAngleDown } from "react-icons/fa";
+import { FaAngleDown } from "react-icons/fa";
 import { useDispatch } from "react-redux";
 import { logOutUser } from "../../../Redux/ActionCreator/ActionCreator";
 import { useNavigate } from "react-router-dom";
@@ -49,7 +49,7 @@ const Navbar = ({ loggedInUser }) => {
             <label className="swap swap-rotate">
               <input type="checkbox" />
               <svg
-                className="swap-on fill-current w-8 h-8"
+                className="swap-on fill-current w-7 h-7"
                 xmlns="http://www.w3.org/2000/svg"
                 viewBox="0 0 24 24"
               >
@@ -57,7 +57,7 @@ const Navbar = ({ loggedInUser }) => {
               </svg>
 
               <svg
-                className="swap-off fill-current w-8 h-8"
+                className="swap-off fill-current w-7 h-7"
                 xmlns="http://www.w3.org/2000/svg"
                 viewBox="0 0 24 24"
               >
@@ -70,9 +70,11 @@ const Navbar = ({ loggedInUser }) => {
             </label>
           </div>
           <div className="w-11 flex justify-center items-center h-11 rounded-full bg-gray-200 mx-5">
-            <span>
-              <FaBell className="text-2xl"></FaBell>
-            </span>
+            <img
+              src="https://i.ibb.co/vxTxZx5/notification.png"
+              className="w-7"
+              alt=""
+            />
           </div>
           <div className="dropdown dropdown-end">
             <label tabIndex={0} className="m-1">
