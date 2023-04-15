@@ -3,6 +3,8 @@ import { useSelector } from "react-redux";
 
 const LeftSideMenu = () => {
   const loggedInUser = useSelector((state) => state?.loggedInUser[0]);
+  const userFullName =
+    loggedInUser?.basicInfo?.firstName + loggedInUser?.basicInfo?.lastName;
   return (
     <div className="fixed">
       <div className="px-5 ">
@@ -20,10 +22,7 @@ const LeftSideMenu = () => {
                   </div>
                 </div>
                 <div className="ml-5">
-                  <h2 className="font-medium">
-                    {loggedInUser?.basicInfo?.firstName +
-                      loggedInUser?.basicInfo?.lastName}
-                  </h2>
+                  <h2 className="font-medium">{userFullName.toString()}</h2>
                   <p className="text-gray-500">
                     {" "}
                     @{loggedInUser?.basicInfo?.userName}

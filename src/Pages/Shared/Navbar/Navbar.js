@@ -110,7 +110,9 @@ const Navbar = ({ loggedInUser }) => {
                         />
                       </div>
                     </div>
-                    <h2 className="text-xl font-medium ml-2">{userFullName}</h2>
+                    <h2 className="text-xl font-medium ml-2">
+                      {userFullName.toString()}
+                    </h2>
                   </div>
                 </div>
               </div>
