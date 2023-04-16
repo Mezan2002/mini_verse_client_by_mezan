@@ -7,7 +7,9 @@ import Loading from "../../Shared/Loading/Loading";
 import { useSelector } from "react-redux";
 
 const PostModal = ({ modalToggle, setModalToggle, refetch }) => {
-  const loggedInUser = useSelector((state) => state?.loggedInUser[0]);
+  const loggedInUser = useSelector(
+    (state) => state?.signUpReducer.loggedInUser[0]
+  );
   const userFullName =
     loggedInUser?.basicInfo?.firstName + loggedInUser?.basicInfo?.lastName;
   const imageHostingKey = process.env.REACT_APP_IMAGE_HOSTING_SERVER_API;

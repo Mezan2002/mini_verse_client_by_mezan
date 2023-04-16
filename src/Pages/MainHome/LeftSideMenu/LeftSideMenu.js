@@ -2,7 +2,9 @@ import React from "react";
 import { useSelector } from "react-redux";
 
 const LeftSideMenu = () => {
-  const loggedInUser = useSelector((state) => state?.loggedInUser[0]);
+  const loggedInUser = useSelector(
+    (state) => state?.signUpReducer.loggedInUser[0]
+  );
   const userFullName =
     loggedInUser?.basicInfo?.firstName + loggedInUser?.basicInfo?.lastName;
   return (

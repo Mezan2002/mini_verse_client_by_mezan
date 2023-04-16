@@ -3,7 +3,9 @@ import { FaPlus } from "react-icons/fa";
 import { useSelector } from "react-redux";
 
 const StoryCard = () => {
-  const loggedInUser = useSelector((state) => state?.loggedInUser[0]);
+  const loggedInUser = useSelector(
+    (state) => state?.signUpReducer.loggedInUser[0]
+  );
   return (
     <div>
       <div className="card shadow grid lg:grid-cols-4 2xl:grid-cols-5 p-5 gap-3">

@@ -1,14 +1,11 @@
 import { applyMiddleware, createStore } from "redux";
 import { composeWithDevTools } from "@redux-devtools/extension";
-import signUpReducer from "../Reducer/signUpReducer/signUpReducer";
 import thunk from "redux-thunk";
+import rootReducer from "../Reducer/RootReducer/RootReducer";
 
 const store = createStore(
-  signUpReducer,
-  // window.__INITIAL_STATE__,
+  rootReducer,
   composeWithDevTools(applyMiddleware(thunk))
 );
-
-// store.dispatch(fetchInitialState());
 
 export default store;

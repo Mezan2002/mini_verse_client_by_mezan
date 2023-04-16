@@ -2,7 +2,9 @@ import React, { useRef, useState } from "react";
 import { useSelector } from "react-redux";
 
 const PostCardBottom = ({ post, refetch }) => {
-  const loggedInUser = useSelector((state) => state?.loggedInUser[0]);
+  const loggedInUser = useSelector(
+    (state) => state?.signUpReducer.loggedInUser[0]
+  );
   const [liked, setLiked] = useState(true);
   const commentInputRef = useRef(null);
   const handleLike = (post) => {

@@ -5,7 +5,9 @@ import { useSelector } from "react-redux";
 
 const Main = () => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
-  const loggedInUser = useSelector((state) => state?.loggedInUser[0]);
+  const loggedInUser = useSelector(
+    (state) => state?.signUpReducer.loggedInUser[0]
+  );
 
   useEffect(() => {
     const checkRandomNumber = localStorage.getItem("randomNumber");

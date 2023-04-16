@@ -2,7 +2,9 @@ import React from "react";
 import PostModal from "../../PostModal/PostModal";
 import { useSelector } from "react-redux";
 const NewPost = ({ refetch, setModalToggle, modalToggle }) => {
-  const loggedInUser = useSelector((state) => state?.loggedInUser[0]);
+  const loggedInUser = useSelector(
+    (state) => state?.signUpReducer.loggedInUser[0]
+  );
   return (
     <div>
       <div>
