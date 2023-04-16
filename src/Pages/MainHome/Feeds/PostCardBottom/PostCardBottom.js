@@ -8,7 +8,7 @@ const PostCardBottom = ({ post, refetch }) => {
   const handleLike = (post) => {
     console.log(post);
     let likes = parseInt(post.likes);
-    const newLikedUserCode = parseInt(loggedInUser.userCode);
+    const newLikedUserCode = parseInt(loggedInUser?.userCode);
 
     if (!liked) {
       // If post is liked, unlike it

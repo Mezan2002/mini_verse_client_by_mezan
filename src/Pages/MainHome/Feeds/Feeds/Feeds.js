@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 
 import NewPost from "../NewPost/NewPost";
 import PostCardBottom from "../PostCardBottom/PostCardBottom";
@@ -8,6 +8,9 @@ import StoryCard from "../StoryCard/StoryCard";
 
 const Feeds = ({ posts, refetch }) => {
   const [modalToggle, setModalToggle] = useState(true);
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
 
   return (
     <div className="">
