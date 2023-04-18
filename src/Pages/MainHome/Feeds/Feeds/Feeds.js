@@ -42,7 +42,10 @@ const Feeds = ({ refetch, posts }) => {
             <div>
               {/* post card dropdown start */}
 
-              <PostCardDropDown post={post}></PostCardDropDown>
+              <PostCardDropDown
+                post={post}
+                refetch={refetch}
+              ></PostCardDropDown>
 
               {/* post card dropdown end */}
             </div>

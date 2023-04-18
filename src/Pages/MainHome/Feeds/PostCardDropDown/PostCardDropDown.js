@@ -1,10 +1,32 @@
 import React from "react";
 import { FaEllipsisH } from "react-icons/fa";
+import Swal from "sweetalert2";
 
-const PostCardDropDown = ({ post }) => {
-  console.log(post);
+const PostCardDropDown = ({ post, refetch }) => {
   const handleDelete = (id) => {
-    console.log(id);
+    Swal.fire({
+      title: "Are you sure?",
+      text: "You won't be able to revert this!",
+      icon: "error",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Yes, delete it!",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        fetch(`http://localhost:5000/deletePost/${id}`, {
+          method: "DELETE",
+        })
+          .then((res) => res.json())
+          .then((data) => {
+            if (data.deletedCount > 0) {
+              Swal.fire("Deleted!", "Your file has been deleted.", "success");
+              refetch();
+            }
+          })
+          .catch((err) => console.log(err));
+      }
+    });
   };
   return (
     <div>
