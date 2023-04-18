@@ -52,19 +52,19 @@ const PostCardTop = ({ post }) => {
           <h5 className="font-semibold">{post?.postedBy?.userFullName}</h5>
           <div className="flex items-center">
             <div className="flex items-center">
-              <img
+              {/* <img
                 src="https://i.ibb.co/9Nz5Pxr/location.png"
                 className="w-4"
                 alt=""
-              />
+              /> */}
               <p className="text-gray-500">{post?.postedBy?.usersCountry},</p>
             </div>
             <div className="flex items-center">
-              <img
+              {/*  <img
                 className="w-4 ml-1"
                 src="https://i.ibb.co/3dCnGfg/clock-1.png"
                 alt=""
-              />
+              /> */}
               <p className="text-gray-500 ml-1">{timer}</p>
             </div>
           </div>

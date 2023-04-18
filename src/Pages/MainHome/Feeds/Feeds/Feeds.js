@@ -33,7 +33,7 @@ const Feeds = ({ refetch, posts }) => {
       {/* single post card start */}
       {posts?.map((post) => (
         <div key={post._id} className="card mt-5 bg-white shadow">
-          <div className="flex justify-between p-5">
+          <div className="flex justify-between px-5 pt-5 pb-3">
             {/* post card top start */}
 
             <PostCardTop post={post}></PostCardTop>
@@ -49,7 +49,12 @@ const Feeds = ({ refetch, posts }) => {
           </div>
           <div className="py-2">
             {post.postedImage && post.postedText ? (
-              <h2 className="2xl:pl-8 pl-4 text-lg mb-5">{post?.postedText}</h2>
+              <h2 className="2xl:pl-8 px-4 text-lg mb-5">
+                {" "}
+                {post?.postedText.length > 150
+                  ? post?.postedText.slice(0, 150) + "..."
+                  : post?.postedText}
+              </h2>
             ) : (
               <h2 className="pl-6 mb-5 text-4xl">{post?.postedText}</h2>
             )}
