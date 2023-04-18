@@ -38,7 +38,6 @@ const PostModal = ({ modalToggle, setModalToggle, refetch }) => {
     const textDataOnly = {
       postedText,
       postedAt,
-      likes: 0,
       comments: [],
       postedBy,
       postLikedBy: [],
@@ -62,7 +61,6 @@ const PostModal = ({ modalToggle, setModalToggle, refetch }) => {
             postedImage,
             postedAt,
             postedBy,
-            likes: 0,
             postLikedBy: [],
             comments: [],
             share: 0,

@@ -5,17 +5,12 @@ import Feeds from "../Feeds/Feeds/Feeds";
 import LeftSideMenu from "../LeftSideMenu/LeftSideMenu";
 import RightSideMenu from "../RightSideMenu/RightSideMenu";
 import { loadLoggedInUserData } from "../../../Redux/Thunk/LoadLoggedInUserData/LoadLoggedInUserData";
-import fetchPosts from "../../../Redux/Thunk/FetchPosts/FetchPosts";
 
 const Home = () => {
   const dispatch = useDispatch();
 
   useEffect(() => {
     dispatch(loadLoggedInUserData());
-  }, [dispatch]);
-
-  useEffect(() => {
-    dispatch(fetchPosts());
   }, [dispatch]);
 
   const {

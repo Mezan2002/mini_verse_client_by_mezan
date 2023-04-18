@@ -2,29 +2,23 @@ import React, { useRef, useState } from "react";
 import { useSelector } from "react-redux";
 
 const PostCardBottom = ({ post, refetch }) => {
+  console.log(post);
   const loggedInUser = useSelector(
     (state) => state?.signUpReducer.loggedInUser[0]
   );
   const [liked, setLiked] = useState(true);
+  const likedBy = post?.postLikedBy;
   const commentInputRef = useRef(null);
+  const newLikedUserCode = parseInt(loggedInUser?.userCode);
+  const isUserOnLikedBy = likedBy?.includes(newLikedUserCode);
   const handleLike = (post) => {
-    console.log(post);
-    let likes = parseInt(post.likes);
-    const newLikedUserCode = parseInt(loggedInUser?.userCode);
-
-    if (!liked) {
-      // If post is liked, unlike it
-      likes = parseInt(likes - 1);
-      post.postLikedBy = post.postLikedBy.filter(
-        (userCode) => userCode !== newLikedUserCode
-      );
-    } else {
-      // If post is not liked, like it
-      likes = parseInt(likes + 1);
+    if (!isUserOnLikedBy) {
       post.postLikedBy = [...post.postLikedBy, newLikedUserCode];
+    } else {
+      post.postLikedBy = likedBy.filter((code) => code !== newLikedUserCode);
     }
 
-    const likedData = { likes, postLikedBy: post.postLikedBy };
+    const likedData = { postLikedBy: post.postLikedBy };
     fetch(`http://localhost:5000/liked/${post._id}`, {
       method: "PUT",
       headers: {
@@ -47,7 +41,7 @@ const PostCardBottom = ({ post, refetch }) => {
     <div>
       <div className="px-4 pt-4 pb-2 2xl:p-5">
         <div className="mb-5 2xl:mb-0">
-          {post.likes >= 1 ? (
+          {post?.postLikedBy?.length >= 1 ? (
             <div className="flex items-center">
               <img
                 draggable={false}
@@ -55,7 +49,7 @@ const PostCardBottom = ({ post, refetch }) => {
                 src="https://i.ibb.co/5RFyxB7/heart.png"
                 alt=""
               />
-              <p className="">{post.likes} peoples loved</p>
+              <p className="">{post?.postLikedBy?.length} peoples loved</p>
             </div>
           ) : null}
         </div>
@@ -70,7 +64,7 @@ const PostCardBottom = ({ post, refetch }) => {
               <img
                 draggable={false}
                 src={`${
-                  !liked
+                  isUserOnLikedBy
                     ? `${"https://i.ibb.co/5RFyxB7/heart.png"}`
                     : `${"https://i.ibb.co/9hQQvvX/love.png"}`
                 } `}
@@ -79,10 +73,10 @@ const PostCardBottom = ({ post, refetch }) => {
               />
               <h2
                 className={`"text-lg" ${
-                  liked ? "text-black" : " text-red-500 font-medium"
+                  isUserOnLikedBy ? " text-red-500 font-medium" : "text-black"
                 }`}
               >
-                {liked ? "Love" : "Loved"}
+                {isUserOnLikedBy ? "Loved" : "Love"}
               </h2>
             </div>
           </div>

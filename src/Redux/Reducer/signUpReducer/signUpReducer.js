@@ -5,7 +5,7 @@ import {
   LOGGEDIN_USER,
   LOGOUT_USER,
   USERS_DATA,
-} from "../ActionTypes/actionTypes";
+} from "../../ActionTypes/actionTypes";
 
 const initialState = {
   loading: false,

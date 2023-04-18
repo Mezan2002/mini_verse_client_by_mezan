@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from "react";
-
 import NewPost from "../NewPost/NewPost";
 import PostCardBottom from "../PostCardBottom/PostCardBottom";
 import PostCardDropDown from "../PostCardDropDown/PostCardDropDown";
 import PostCardTop from "../PostCardTop/PostCardTop";
 import StoryCard from "../StoryCard/StoryCard";
 
-const Feeds = ({ posts, refetch }) => {
+const Feeds = ({ refetch, posts }) => {
+  // const posts = useSelector((state) => state?.postReducer?.allPosts[0]);
   const [modalToggle, setModalToggle] = useState(true);
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -31,7 +31,7 @@ const Feeds = ({ posts, refetch }) => {
 
       {/* posts section start */}
       {/* single post card start */}
-      {posts.map((post) => (
+      {posts?.map((post) => (
         <div key={post._id} className="card mt-5 bg-white shadow">
           <div className="flex justify-between p-5">
             {/* post card top start */}
