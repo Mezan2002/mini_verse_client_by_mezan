@@ -1,11 +1,13 @@
 import React, { useRef, useState } from "react";
 import { useSelector } from "react-redux";
+import CommentCard from "../CommentCard/CommentCard";
 
 const PostCardBottom = ({ post, refetch }) => {
-  console.log(post);
   const loggedInUser = useSelector(
     (state) => state?.signUpReducer.loggedInUser[0]
   );
+  const userFullName =
+    loggedInUser?.basicInfo?.firstName + loggedInUser?.basicInfo?.lastName;
   const [liked, setLiked] = useState(true);
   const likedBy = post?.postLikedBy;
   const commentInputRef = useRef(null);
@@ -17,7 +19,6 @@ const PostCardBottom = ({ post, refetch }) => {
     } else {
       post.postLikedBy = likedBy.filter((code) => code !== newLikedUserCode);
     }
-
     const likedData = { postLikedBy: post.postLikedBy };
     fetch(`http://localhost:5000/liked/${post._id}`, {
       method: "PUT",
@@ -28,14 +29,45 @@ const PostCardBottom = ({ post, refetch }) => {
     })
       .then((res) => res.json())
       .then((data) => {
-        console.log(data);
-        refetch();
+        if (data.modifiedCount) {
+          // console.log(data);
+        }
       })
       .catch((e) => console.log(e));
   };
-  const handleComment = (post) => {
-    console.log(post);
+  const handleComment = () => {
     commentInputRef.current.focus();
+  };
+  const handleSubmitComment = (event) => {
+    event.preventDefault();
+    const form = event.target;
+    const comment = form.comment.value;
+    const commentedBy = {
+      userFullName,
+      userProfilePic: loggedInUser?.basicInfo?.profilePicture,
+    };
+    const replyComments = [];
+    const postedComment = {
+      comment,
+      commentedBy,
+      replyComments,
+      commentedAt: new Date(),
+    };
+    fetch(`http://localhost:5000/postComment/${post._id}`, {
+      method: "PUT",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify(postedComment),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        if (data.modifiedCount) {
+          form.reset();
+          refetch();
+        }
+      })
+      .catch((err) => console.log(err));
   };
   return (
     <div>
@@ -81,7 +113,7 @@ const PostCardBottom = ({ post, refetch }) => {
             </div>
           </div>
           <label
-            onClick={() => handleComment(post)}
+            onClick={handleComment}
             htmlFor="comment"
             className="hover:bg-gray-200 text-center py-2 cursor-pointer rounded-md flex 
           items-center justify-center"
@@ -107,6 +139,9 @@ const PostCardBottom = ({ post, refetch }) => {
             <h2 className="text-lg">Share</h2>
           </div>
         </div>
+        {post.comments.map((comment, i) => (
+          <CommentCard comment={comment} key={i}></CommentCard>
+        ))}
         <div className="flex items-center">
           <div className="avatar mr-3">
             <div className="w-10 rounded-full">
@@ -117,17 +152,26 @@ const PostCardBottom = ({ post, refetch }) => {
               />
             </div>
           </div>
-          <div className="w-full">
-            <div className="flex items-center mb-5">
+          <form onSubmit={handleSubmitComment} className="w-full">
+            <div className="flex items-center mb-5 relative">
               <input
                 ref={commentInputRef}
                 type="text"
-                placeholder="Write a comment..."
+                name="comment"
+                placeholder="Write a Comment..."
                 className="py-2 w-full border border-gray-400 text-lg rounded-full mt-4 pl-5
                   focus:outline-none"
               />
+              <button type="submit" className="absolute top-1/2 right-4">
+                {" "}
+                <img
+                  className="w-4"
+                  src="https://i.ibb.co/MsSxMrG/send-message.png"
+                  alt=""
+                />
+              </button>
             </div>
-          </div>
+          </form>
         </div>
       </div>
     </div>
