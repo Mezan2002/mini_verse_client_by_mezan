@@ -30,12 +30,10 @@ const useTimer = ({ timerOfCreated, isLong = false }) => {
         timePosition = `${diffInDays} ${isLong === true ? "days ago" : "day"}`;
       } else if (diffInMonths < 12) {
         timePosition = `${diffInMonths} ${
-          isLong === true ? "months ago" : "month"
+          isLong === true ? "months ago" : "m"
         }`;
       } else {
-        timePosition = `${diffInYears} ${
-          isLong === true ? "years ago" : "year"
-        }`;
+        timePosition = `${diffInYears} ${isLong === true ? "years ago" : "y"}`;
       }
       setTimer(timePosition);
     }, 1000);

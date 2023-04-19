@@ -25,7 +25,7 @@ const CommentCard = ({ comment }) => {
 
   return (
     <div>
-      <div>
+      <div className="mb-5">
         <div className="flex items-start">
           <div className="avatar mr-3">
             <div className="w-9 rounded-full">
@@ -96,7 +96,7 @@ const CommentCard = ({ comment }) => {
           <p className="text-sm font-semibold">{timer}</p>
         </div>
         {showReplyInput && (
-          <div className="flex items-center ml-8 mt-5">
+          <div className="flex items-center ml-8 mt-2">
             <div className="avatar mr-3">
               <div className="w-10 rounded-full">
                 <img
