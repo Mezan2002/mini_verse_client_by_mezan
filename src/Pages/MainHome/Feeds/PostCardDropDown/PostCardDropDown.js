@@ -1,8 +1,14 @@
 import React from "react";
 import { FaEllipsisH } from "react-icons/fa";
+import { useSelector } from "react-redux";
 import Swal from "sweetalert2";
 
 const PostCardDropDown = ({ post, refetch }) => {
+  const postedUserCode = post.postedBy.userCode;
+  const loggedInUserCode = useSelector(
+    (state) => state?.signUpReducer?.loggedInUser[0]?.userCode
+  );
+
   const handleDelete = (id) => {
     Swal.fire({
       title: "Are you sure?",
@@ -40,33 +46,38 @@ const PostCardDropDown = ({ post, refetch }) => {
           tabIndex={0}
           className="dropdown-content menu p-2 shadow bg-base-100 rounded-box w-72"
         >
-          <div
-            className={`flex items-center hover:bg-gray-200 ${
-              post?.postedImage ? "p-3" : "p-2"
-            } cursor-pointer m-2 rounded-2xl`}
-          >
-            <img
-              draggable={false}
-              src="https://i.ibb.co/JH0SJXc/edit-1.png"
-              alt=""
-              className="w-6 mr-5"
-            />
-            <p className="">Edit Post</p>
-          </div>
-          <div
-            onClick={() => handleDelete(post._id)}
-            className={`flex items-center hover:bg-gray-200 ${
-              post?.postedImage ? "p-3" : "p-2"
-            } cursor-pointer m-2 rounded-2xl`}
-          >
-            <img
-              draggable={false}
-              src="https://i.ibb.co/SBkdp91/delete-1.png"
-              alt=""
-              className="w-6 mr-5"
-            />
-            <p className="">Delete Post</p>
-          </div>
+          {loggedInUserCode === postedUserCode && (
+            <>
+              {" "}
+              <div
+                className={`flex items-center hover:bg-gray-200 ${
+                  post?.postedImage ? "p-3" : "p-2"
+                } cursor-pointer m-2 rounded-2xl`}
+              >
+                <img
+                  draggable={false}
+                  src="https://i.ibb.co/JH0SJXc/edit-1.png"
+                  alt=""
+                  className="w-6 mr-5"
+                />
+                <p className="">Edit Post</p>
+              </div>
+              <div
+                onClick={() => handleDelete(post._id)}
+                className={`flex items-center hover:bg-gray-200 ${
+                  post?.postedImage ? "p-3" : "p-2"
+                } cursor-pointer m-2 rounded-2xl`}
+              >
+                <img
+                  draggable={false}
+                  src="https://i.ibb.co/SBkdp91/delete-1.png"
+                  alt=""
+                  className="w-6 mr-5"
+                />
+                <p className="">Delete Post</p>
+              </div>
+            </>
+          )}
           <div
             className={`flex items-center hover:bg-gray-200 ${
               post?.postedImage ? "p-3" : "p-2"

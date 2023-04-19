@@ -34,6 +34,7 @@ const PostModal = ({ modalToggle, setModalToggle, refetch }) => {
       userFullName,
       profilePicture: loggedInUser?.basicInfo?.profilePicture,
       usersCountry: loggedInUser?.locationInfo?.country,
+      userCode: loggedInUser?.userCode,
     };
     const textDataOnly = {
       postedText,
