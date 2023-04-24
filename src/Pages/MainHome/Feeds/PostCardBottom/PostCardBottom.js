@@ -3,6 +3,7 @@ import { useSelector } from "react-redux";
 import CommentCard from "../CommentCard/CommentCard";
 
 const PostCardBottom = ({ post, refetch }) => {
+  console.log(post);
   const loggedInUser = useSelector(
     (state) => state?.signUpReducer.loggedInUser[0]
   );
@@ -40,6 +41,7 @@ const PostCardBottom = ({ post, refetch }) => {
   };
   const handleSubmitComment = (event) => {
     event.preventDefault();
+    const commentId = Math.floor(Math.random() * 100000) + 1;
     const form = event.target;
     const comment = form.comment.value;
     const commentedBy = {
@@ -50,6 +52,7 @@ const PostCardBottom = ({ post, refetch }) => {
     const postedComment = {
       comment,
       commentedBy,
+      commentId,
       replyComments,
       commentedAt: new Date(),
     };
@@ -140,7 +143,13 @@ const PostCardBottom = ({ post, refetch }) => {
           </div>
         </div>
         {post.comments.map((comment, i) => (
-          <CommentCard comment={comment} key={i}></CommentCard>
+          <CommentCard
+            comment={comment}
+            post={post}
+            postId={post._id}
+            key={i}
+            refetch={refetch}
+          ></CommentCard>
         ))}
         <div className="flex items-center">
           <div className="avatar mr-3">
