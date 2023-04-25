@@ -4,18 +4,18 @@ import { useSelector } from "react-redux";
 import useTimer from "../../../../Hooks/useTimer/useTimer";
 import ReplyCommentCard from "../ReplyCommentCard/ReplyCommentCard";
 
-const CommentCard = ({ comment, refetch, postId, post }) => {
+const CommentCard = ({ comment, refetch, postId, post, nestingLevel = 0 }) => {
   console.log(comment);
   const loggedInUser = useSelector(
     (state) => state?.signUpReducer?.loggedInUser[0]
   );
+  const userFullName =
+    loggedInUser?.basicInfo?.firstName + loggedInUser?.basicInfo?.lastName;
   const userProfile = loggedInUser?.basicInfo?.profilePicture;
   const postedUserCode = post.postedBy.userCode;
   const loggedInUserCode = useSelector(
     (state) => state?.signUpReducer?.loggedInUser[0]?.userCode
   );
-  const userFullName =
-    loggedInUser?.basicInfo?.firstName + loggedInUser?.basicInfo?.lastName;
   const replyCommentsArray = comment.replyComments;
 
   const commentId = comment.commentId;
@@ -166,8 +166,12 @@ const CommentCard = ({ comment, refetch, postId, post }) => {
         {replyCommentsArray.map((reply, i) => (
           <ReplyCommentCard
             key={i}
+            nestingLevel={nestingLevel + 1}
             reply={reply}
+            refetch={refetch}
             post={post}
+            postId={postId}
+            commentId={commentId}
           ></ReplyCommentCard>
         ))}
         {/* reply comment end */}
