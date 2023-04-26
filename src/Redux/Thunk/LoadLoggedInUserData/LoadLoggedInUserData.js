@@ -3,7 +3,7 @@ import { loggedInUser } from "../../ActionCreator/ActionCreator";
 export const loadLoggedInUserData = () => {
   return async (dispatch, getState) => {
     if (localStorage) {
-      const url = `http://localhost:5000/usersData?userCode=${localStorage.getItem(
+      const url = `https://miniverse-server.vercel.app/usersData?userCode=${localStorage.getItem(
         "randomNumber"
       )}`;
       fetch(url)

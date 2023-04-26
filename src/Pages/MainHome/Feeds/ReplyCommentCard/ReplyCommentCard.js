@@ -38,13 +38,16 @@ const ReplyCommentCard = ({
       replyBy,
       repliedAt: new Date(),
     };
-    fetch(`http://localhost:5000/posts/${postId}/comments/${commentId}`, {
-      method: "PUT",
-      headers: {
-        "content-type": "application/json",
-      },
-      body: JSON.stringify(postedReplyComment),
-    })
+    fetch(
+      `https://miniverse-server.vercel.app/posts/${postId}/comments/${commentId}`,
+      {
+        method: "PUT",
+        headers: {
+          "content-type": "application/json",
+        },
+        body: JSON.stringify(postedReplyComment),
+      }
+    )
       .then((res) => res.json())
       .then((data) => {
         if (data.modifiedCount) {

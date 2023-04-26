@@ -8,7 +8,7 @@ const fetchPosts = () => {
   return async (dispatch, getState) => {
     try {
       dispatch(postsFetchingStart());
-      const res = await fetch("http://localhost:5000/posts");
+      const res = await fetch("https://miniverse-server.vercel.app/posts");
       const data = await res.json();
 
       if (data.length) {

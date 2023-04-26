@@ -32,7 +32,7 @@ const SignUp = ({ stepNext, register, errors, formState }) => {
   };
   useEffect(() => {
     if (checkEmail !== "") {
-      fetch(`http://localhost:5000/checkEmail/${checkEmail}`)
+      fetch(`https://miniverse-server.vercel.app/checkEmail/${checkEmail}`)
         .then((res) => res.json())
         .then((data) => {
           setIsEmailExist(data.isEmailExist);

@@ -15,7 +15,7 @@ const LogIn = () => {
     formState: { errors },
   } = useForm();
   const onSubmit = (data) => {
-    const url = `http://localhost:5000/login?email=${data.email}&password=${data.password}`;
+    const url = `https://miniverse-server.vercel.app/login?email=${data.email}&password=${data.password}`;
     fetch(url)
       .then((res) => res.json())
       .then((data) => {

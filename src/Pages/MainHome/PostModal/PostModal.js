@@ -66,7 +66,7 @@ const PostModal = ({ modalToggle, setModalToggle, refetch }) => {
             comments: [],
             share: 0,
           };
-          fetch("http://localhost:5000/newPost", {
+          fetch("https://miniverse-server.vercel.app/newPost", {
             method: "POST",
             headers: {
               "content-type": "application/json",
@@ -91,7 +91,7 @@ const PostModal = ({ modalToggle, setModalToggle, refetch }) => {
           console.log(error);
         });
     } else {
-      fetch("http://localhost:5000/newPost", {
+      fetch("https://miniverse-server.vercel.app/newPost", {
         method: "POST",
         headers: {
           "content-type": "application/json",

@@ -9,7 +9,9 @@ const UserName = ({ stepNext, stepPrevious, register, errors, formState }) => {
   };
   useEffect(() => {
     if (checkUserName !== "") {
-      fetch(`http://localhost:5000/checkUserName/${checkUserName}`)
+      fetch(
+        `https://miniverse-server.vercel.app/checkUserName/${checkUserName}`
+      )
         .then((res) => res.json())
         .then((data) => {
           setIsUserNameExist(data.isEmailExist);

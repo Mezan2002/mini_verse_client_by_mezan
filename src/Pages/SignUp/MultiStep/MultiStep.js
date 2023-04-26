@@ -90,7 +90,7 @@ function MultiStepForm() {
       };
       if (userCode !== 0) {
         dispatch(fetchingStart);
-        fetch("http://localhost:5000/signUp", {
+        fetch("https://miniverse-server.vercel.app/signUp", {
           method: "POST",
           headers: {
             "content-type": "application/json",

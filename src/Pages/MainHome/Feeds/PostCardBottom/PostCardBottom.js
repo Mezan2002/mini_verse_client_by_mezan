@@ -21,7 +21,7 @@ const PostCardBottom = ({ post, refetch }) => {
       post.postLikedBy = likedBy.filter((code) => code !== newLikedUserCode);
     }
     const likedData = { postLikedBy: post.postLikedBy };
-    fetch(`http://localhost:5000/liked/${post._id}`, {
+    fetch(`https://miniverse-server.vercel.app/liked/${post._id}`, {
       method: "PUT",
       headers: {
         "content-type": "application/json",
@@ -56,7 +56,7 @@ const PostCardBottom = ({ post, refetch }) => {
       replyComments,
       commentedAt: new Date(),
     };
-    fetch(`http://localhost:5000/postComment/${post._id}`, {
+    fetch(`https://miniverse-server.vercel.app/postComment/${post._id}`, {
       method: "PUT",
       headers: {
         "content-type": "application/json",
