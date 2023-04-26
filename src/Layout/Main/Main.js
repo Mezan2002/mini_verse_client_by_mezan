@@ -2,8 +2,15 @@ import React, { useState, useEffect } from "react";
 import { Link, Outlet } from "react-router-dom";
 import Navbar from "../../Pages/Shared/Navbar/Navbar";
 import { useSelector } from "react-redux";
+import LoadingScreen from "../../Pages/Shared/LoadingScreen/LoadingScreen";
 
 const Main = () => {
+  const [loading, setLoading] = useState(true);
+  useEffect(() => {
+    setTimeout(() => {
+      setLoading(false);
+    }, 3000);
+  }, []);
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const loggedInUser = useSelector(
     (state) => state?.signUpReducer.loggedInUser[0]
@@ -15,6 +22,10 @@ const Main = () => {
       setIsLoggedIn(true);
     }
   }, []);
+
+  if (loading) {
+    return <LoadingScreen></LoadingScreen>;
+  }
 
   if (!isLoggedIn) {
     return (

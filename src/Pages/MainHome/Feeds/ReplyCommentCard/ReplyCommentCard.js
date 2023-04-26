@@ -1,15 +1,16 @@
 import React, { useState } from "react";
 import { FaEllipsisH } from "react-icons/fa";
 import { useSelector } from "react-redux";
+import useTimer from "../../../../Hooks/useTimer/useTimer";
 
 const ReplyCommentCard = ({
   reply,
-  post,
   refetch,
   postId,
   commentId,
   nestingLevel,
 }) => {
+  const timerOfCreated = reply?.repliedAt;
   const [showReplyInput, setShowReplyInput] = useState(false);
   const loggedInUser = useSelector(
     (state) => state?.signUpReducer?.loggedInUser[0]
@@ -17,10 +18,10 @@ const ReplyCommentCard = ({
   const userFullName =
     loggedInUser?.basicInfo?.firstName + loggedInUser?.basicInfo?.lastName;
   const userProfile = loggedInUser?.basicInfo?.profilePicture;
-  const postedUserCode = post.postedBy?.userCode;
-  const loggedInUserCode = useSelector(
-    (state) => state?.signUpReducer?.loggedInUser[0]?.userCode
-  );
+  const repliedUserProfile = reply?.replyBy?.userProfile;
+  const loggedInUserProfile = loggedInUser?.basicInfo?.profilePicture;
+
+  const { timer } = useTimer({ timerOfCreated });
 
   const handleReplyClick = () => {
     setShowReplyInput(!showReplyInput);
@@ -31,7 +32,12 @@ const ReplyCommentCard = ({
     const form = event.target;
     const replyComment = form.replyComment.value;
     const replyBy = { userFullName, userProfile };
-    const postedReplyComment = { replyComment, replyCommentId, replyBy };
+    const postedReplyComment = {
+      replyComment,
+      replyCommentId,
+      replyBy,
+      repliedAt: new Date(),
+    };
     fetch(`http://localhost:5000/posts/${postId}/comments/${commentId}`, {
       method: "PUT",
       headers: {
@@ -81,19 +87,19 @@ const ReplyCommentCard = ({
                 </label>
                 <ul
                   tabIndex={0}
-                  className="dropdown-content menu p-2 shadow bg-base-100 rounded-box w-72"
+                  className="dropdown-content menu py-1 px-2 shadow bg-base-100 rounded-box w-72"
                 >
                   <>
                     {" "}
-                    {loggedInUserCode === postedUserCode && (
+                    {loggedInUserProfile === repliedUserProfile && (
                       <>
                         <div
-                          className={`flex items-center hover:bg-gray-200 p-2 cursor-pointer m-2 rounded-xl`}
+                          className={`flex items-center hover:bg-gray-200 py-1 px-2 cursor-pointer m-2 rounded-xl`}
                         >
                           <p className="">Edit comment</p>
                         </div>
                         <div
-                          className={`flex items-center hover:bg-gray-200 p-2 cursor-pointer m-2 rounded-xl`}
+                          className={`flex items-center hover:bg-gray-200 py-1 px-2 cursor-pointer m-2 rounded-xl`}
                         >
                           <p className="">Delete comment</p>
                         </div>
@@ -101,12 +107,12 @@ const ReplyCommentCard = ({
                     )}
                   </>
                   <div
-                    className={`flex items-center hover:bg-gray-200 p-2 cursor-pointer m-2 rounded-xl`}
+                    className={`flex items-center hover:bg-gray-200 py-1 px-2 cursor-pointer m-2 rounded-xl`}
                   >
                     <p className="">Hide comment</p>
                   </div>
                   <div
-                    className={`flex items-center hover:bg-gray-200 p-2 cursor-pointer m-2 rounded-xl`}
+                    className={`flex items-center hover:bg-gray-200 py-1 px-2 cursor-pointer m-2 rounded-xl`}
                   >
                     <p className="">Report this comment</p>
                   </div>
@@ -125,7 +131,7 @@ const ReplyCommentCard = ({
               Replay
             </p>
             <p className="text-sm font-semibold cursor-pointer hover:underline">
-              2h
+              {timer}
             </p>
           </div>
         </div>

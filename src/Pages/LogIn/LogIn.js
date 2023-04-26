@@ -8,6 +8,7 @@ import { loadLoggedInUserData } from "../../Redux/Thunk/LoadLoggedInUserData/Loa
 const LogIn = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
+
   const {
     register,
     handleSubmit,
@@ -19,9 +20,9 @@ const LogIn = () => {
       .then((res) => res.json())
       .then((data) => {
         localStorage.setItem("randomNumber", parseInt(data.userCode));
-        Swal.fire("Login Successfully!", "", "success");
-        navigate("/");
         dispatch(loadLoggedInUserData());
+        navigate("/");
+        Swal.fire("Login Successfully!", "", "success");
       })
       .catch((err) => {
         Swal.fire(

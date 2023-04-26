@@ -11,10 +11,10 @@ import {
   fetchingStart,
   fetchingSuccessfull,
 } from "../../../Redux/ActionCreator/ActionCreator";
-import Swal from "sweetalert2";
 import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { loadLoggedInUserData } from "../../../Redux/Thunk/LoadLoggedInUserData/LoadLoggedInUserData";
+import Swal from "sweetalert2";
 
 function MultiStepForm() {
   const navigate = useNavigate();

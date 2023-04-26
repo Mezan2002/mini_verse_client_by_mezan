@@ -5,17 +5,14 @@ import useTimer from "../../../../Hooks/useTimer/useTimer";
 import ReplyCommentCard from "../ReplyCommentCard/ReplyCommentCard";
 
 const CommentCard = ({ comment, refetch, postId, post, nestingLevel = 0 }) => {
-  console.log(comment);
   const loggedInUser = useSelector(
     (state) => state?.signUpReducer?.loggedInUser[0]
   );
   const userFullName =
     loggedInUser?.basicInfo?.firstName + loggedInUser?.basicInfo?.lastName;
   const userProfile = loggedInUser?.basicInfo?.profilePicture;
-  const postedUserCode = post.postedBy.userCode;
-  const loggedInUserCode = useSelector(
-    (state) => state?.signUpReducer?.loggedInUser[0]?.userCode
-  );
+  const commentedUserProfile = comment?.commentedBy?.userProfilePic;
+  const loggedInUserProfile = loggedInUser?.basicInfo?.profilePicture;
   const replyCommentsArray = comment.replyComments;
 
   const commentId = comment.commentId;
@@ -32,8 +29,14 @@ const CommentCard = ({ comment, refetch, postId, post, nestingLevel = 0 }) => {
     const replyCommentId = Math.floor(Math.random() * 100000) + 5;
     const form = event.target;
     const replyComment = form.replyComment.value;
+
     const replyBy = { userFullName, userProfile };
-    const postedReplyComment = { replyComment, replyCommentId, replyBy };
+    const postedReplyComment = {
+      replyComment,
+      replyCommentId,
+      replyBy,
+      repliedAt: new Date(),
+    };
     fetch(`http://localhost:5000/posts/${postId}/comments/${commentId}`, {
       method: "PUT",
       headers: {
@@ -83,20 +86,20 @@ const CommentCard = ({ comment, refetch, postId, post, nestingLevel = 0 }) => {
               </label>
               <ul
                 tabIndex={0}
-                className="dropdown-content menu p-2 shadow bg-base-100 rounded-box w-72"
+                className="dropdown-content menu py-1 px-2 shadow bg-base-100 rounded-box w-72"
               >
                 <>
                   {" "}
-                  {loggedInUserCode === postedUserCode && (
+                  {loggedInUserProfile === commentedUserProfile && (
                     <>
                       <div
-                        className={`flex items-center hover:bg-gray-200 p-2 cursor-pointer m-2 rounded-xl`}
+                        className={`flex items-center hover:bg-gray-200 py-1 px-2 cursor-pointer m-2 rounded-xl`}
                       >
                         <p className="">Edit comment</p>
                       </div>
                       <div
                         // onClick={() => handleDelete(post._id)}
-                        className={`flex items-center hover:bg-gray-200 p-2 cursor-pointer m-2 rounded-xl`}
+                        className={`flex items-center hover:bg-gray-200 py-1 px-2 cursor-pointer m-2 rounded-xl`}
                       >
                         <p className="">Delete comment</p>
                       </div>{" "}
@@ -104,12 +107,12 @@ const CommentCard = ({ comment, refetch, postId, post, nestingLevel = 0 }) => {
                   )}
                 </>
                 <div
-                  className={`flex items-center hover:bg-gray-200 p-2 cursor-pointer m-2 rounded-xl`}
+                  className={`flex items-center hover:bg-gray-200 py-1 px-2 cursor-pointer m-2 rounded-xl`}
                 >
                   <p className="">Hide comment</p>
                 </div>
                 <div
-                  className={`flex items-center hover:bg-gray-200 p-2 cursor-pointer m-2 rounded-xl`}
+                  className={`flex items-center hover:bg-gray-200 py-1 px-2 cursor-pointer m-2 rounded-xl`}
                 >
                   <p className="">Report this comment</p>
                 </div>
