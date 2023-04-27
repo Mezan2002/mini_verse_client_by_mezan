@@ -167,8 +167,9 @@ const PostCardBottom = ({ post, refetch }) => {
                 ref={commentInputRef}
                 type="text"
                 name="comment"
+                required
                 placeholder="Write a Comment..."
-                className="py-2 w-full border border-gray-400 text-lg rounded-full mt-4 pl-5
+                className="py-2 w-full border border-gray-400 text-lg rounded-full mt-4 pl-5 pr-12
                   focus:outline-none"
               />
               <button type="submit" className="absolute top-1/2 right-4">

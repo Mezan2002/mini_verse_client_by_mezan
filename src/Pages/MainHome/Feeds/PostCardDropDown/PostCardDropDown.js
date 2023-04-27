@@ -26,7 +26,11 @@ const PostCardDropDown = ({ post, refetch }) => {
           .then((res) => res.json())
           .then((data) => {
             if (data.deletedCount > 0) {
-              Swal.fire("Deleted!", "Your file has been deleted.", "success");
+              Swal.fire(
+                "Post Deleted!",
+                "Your file has been deleted.",
+                "success"
+              );
               refetch();
             }
           })

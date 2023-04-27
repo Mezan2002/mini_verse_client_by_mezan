@@ -3,6 +3,7 @@ import { FaEllipsisH } from "react-icons/fa";
 import { useSelector } from "react-redux";
 import useTimer from "../../../../Hooks/useTimer/useTimer";
 import ReplyCommentCard from "../ReplyCommentCard/ReplyCommentCard";
+import Swal from "sweetalert2";
 
 const CommentCard = ({ comment, refetch, postId, post, nestingLevel = 0 }) => {
   const loggedInUser = useSelector(
@@ -59,6 +60,39 @@ const CommentCard = ({ comment, refetch, postId, post, nestingLevel = 0 }) => {
       .catch((err) => console.log(err));
   };
 
+  const handleDeleteComment = (commentId, postId) => {
+    console.log(postId);
+    Swal.fire({
+      title: "Are you sure?",
+      text: "You won't be able to revert this!",
+      icon: "error",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Yes, delete it!",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        fetch(
+          `http://localhost:5000/post/${postId}/deleteComment/${commentId}`,
+          {
+            method: "DELETE",
+          }
+        )
+          .then((res) => res.json())
+          .then((data) => {
+            if (data.isDeleted) {
+              refetch();
+              Swal.fire(
+                "Comment Deleted!",
+                "Your file has been deleted.",
+                "success"
+              );
+            }
+          });
+      }
+    });
+  };
+
   return (
     <div>
       <div className="mb-5">
@@ -101,7 +135,9 @@ const CommentCard = ({ comment, refetch, postId, post, nestingLevel = 0 }) => {
                         <p className="">Edit comment</p>
                       </div>
                       <div
-                        // onClick={() => handleDelete(post._id)}
+                        onClick={() =>
+                          handleDeleteComment(comment?.commentId, postId)
+                        }
                         className={`flex items-center hover:bg-gray-200 py-1 px-2 cursor-pointer m-2 rounded-xl`}
                       >
                         <p className="">Delete comment</p>
@@ -152,8 +188,9 @@ const CommentCard = ({ comment, refetch, postId, post, nestingLevel = 0 }) => {
                   ref={replyCommentInputRef}
                   type="text"
                   name="replyComment"
+                  required
                   placeholder="Write a Reply..."
-                  className="py-2 w-full border border-gray-400 text-lg rounded-full mt-4 pl-5
+                  className="py-2 w-full border border-gray-400 text-lg rounded-full mt-4 pl-5 pr-12
                   focus:outline-none"
                 />
                 <button type="submit" className="absolute top-1/2 right-4">

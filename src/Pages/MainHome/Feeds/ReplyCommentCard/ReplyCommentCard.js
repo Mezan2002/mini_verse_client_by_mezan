@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { FaEllipsisH } from "react-icons/fa";
 import { useSelector } from "react-redux";
 import useTimer from "../../../../Hooks/useTimer/useTimer";
+import Swal from "sweetalert2";
 
 const ReplyCommentCard = ({
   reply,
@@ -10,6 +11,7 @@ const ReplyCommentCard = ({
   commentId,
   nestingLevel,
 }) => {
+  console.log(postId);
   const timerOfCreated = reply?.repliedAt;
   const [showReplyInput, setShowReplyInput] = useState(false);
   const loggedInUser = useSelector(
@@ -30,10 +32,10 @@ const ReplyCommentCard = ({
     event.preventDefault();
     const replyCommentId = Math.floor(Math.random() * 100000) + 5;
     const form = event.target;
-    const replyComment = form.replyComment.value;
+    const replyOfRepliedComment = form.replyOfRepliedComment.value;
     const replyBy = { userFullName, userProfile };
     const postedReplyComment = {
-      replyComment,
+      replyOfRepliedComment,
       replyCommentId,
       replyBy,
       repliedAt: new Date(),
@@ -59,6 +61,40 @@ const ReplyCommentCard = ({
       })
       .catch((err) => console.log(err));
   };
+
+  const handleDeleteComment = (postId, commentId, replyCommentId) => {
+    console.log(postId);
+    Swal.fire({
+      title: "Are you sure?",
+      text: "You won't be able to revert this!",
+      icon: "error",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Yes, delete it!",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        fetch(
+          `http://localhost:5000/posts/${postId}/comments/${commentId}/replies/${replyCommentId}`,
+          {
+            method: "DELETE",
+          }
+        )
+          .then((res) => res.json())
+          .then((data) => {
+            if (data.isDeleted) {
+              refetch();
+              Swal.fire(
+                "Comment Deleted!",
+                "Your file has been deleted.",
+                "success"
+              );
+            }
+          });
+      }
+    });
+  };
+
   return (
     <div>
       <div className="mx-8 mt-5">
@@ -104,7 +140,18 @@ const ReplyCommentCard = ({
                         <div
                           className={`flex items-center hover:bg-gray-200 py-1 px-2 cursor-pointer m-2 rounded-xl`}
                         >
-                          <p className="">Delete comment</p>
+                          <p
+                            onClick={() =>
+                              handleDeleteComment(
+                                postId,
+                                commentId,
+                                reply?.replyCommentId
+                              )
+                            }
+                            className=""
+                          >
+                            Delete comment
+                          </p>
                         </div>
                       </>
                     )}
@@ -153,9 +200,10 @@ const ReplyCommentCard = ({
               <div className="flex items-center mb-5 relative">
                 <input
                   type="text"
-                  name="replyComment"
+                  name="replyOfRepliedComment"
+                  required
                   placeholder="Write a Reply..."
-                  className="py-2 w-full border border-gray-400 text-lg rounded-full mt-4 pl-5 pr-10
+                  className="py-2 w-full border border-gray-400 text-lg rounded-full mt-4 pl-5 pr-12
                   focus:outline-none"
                 />
                 <button type="submit" className="absolute top-1/2 right-4">
