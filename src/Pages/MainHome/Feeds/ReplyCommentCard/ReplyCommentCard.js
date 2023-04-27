@@ -75,7 +75,7 @@ const ReplyCommentCard = ({
     }).then((result) => {
       if (result.isConfirmed) {
         fetch(
-          `http://localhost:5000/posts/${postId}/comments/${commentId}/replies/${replyCommentId}`,
+          `https://miniverse-server.vercel.app/posts/${postId}/comments/${commentId}/replies/${replyCommentId}`,
           {
             method: "DELETE",
           }

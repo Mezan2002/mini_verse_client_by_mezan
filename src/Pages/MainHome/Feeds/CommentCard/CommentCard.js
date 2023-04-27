@@ -73,7 +73,7 @@ const CommentCard = ({ comment, refetch, postId, post, nestingLevel = 0 }) => {
     }).then((result) => {
       if (result.isConfirmed) {
         fetch(
-          `http://localhost:5000/post/${postId}/deleteComment/${commentId}`,
+          `https://miniverse-server.vercel.app/post/${postId}/deleteComment/${commentId}`,
           {
             method: "DELETE",
           }
