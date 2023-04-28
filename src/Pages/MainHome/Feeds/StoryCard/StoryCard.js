@@ -16,8 +16,8 @@ const StoryCard = () => {
               <img
                 draggable={false}
                 src={loggedInUser?.basicInfo?.profilePicture}
-                alt="Profile_Picture_of_the_user"
-                className="h-48"
+                alt="Profile_Picture"
+                className="h-48 object-cover w-full"
               />
             </figure>
             <div className="lg:py-3 2xl:py-4 text-center font-semibold">
