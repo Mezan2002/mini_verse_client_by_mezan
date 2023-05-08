@@ -3,11 +3,21 @@ import { FaEllipsisH } from "react-icons/fa";
 import { useSelector } from "react-redux";
 import Swal from "sweetalert2";
 
-const PostCardDropDown = ({ post, refetch }) => {
+const PostCardDropDown = ({
+  post,
+  refetch,
+  setPostData,
+  setEditModalToggle,
+}) => {
   const postedUserCode = post.postedBy.userCode;
   const loggedInUserCode = useSelector(
     (state) => state?.signUpReducer?.loggedInUser[0]?.userCode
   );
+
+  const handleEditPost = (post) => {
+    setPostData(post);
+    setEditModalToggle(true);
+  };
 
   const handleDelete = (id) => {
     Swal.fire({
@@ -38,6 +48,7 @@ const PostCardDropDown = ({ post, refetch }) => {
       }
     });
   };
+
   return (
     <div>
       <div className="dropdown dropdown-bottom dropdown-end">
@@ -53,7 +64,9 @@ const PostCardDropDown = ({ post, refetch }) => {
           {loggedInUserCode === postedUserCode && (
             <>
               {" "}
-              <div
+              <label
+                onClick={() => handleEditPost(post)}
+                htmlFor="editPostModal"
                 className={`flex items-center hover:bg-gray-200 ${
                   post?.postedImage ? "p-3" : "p-2"
                 } cursor-pointer m-2 rounded-2xl`}
@@ -65,7 +78,7 @@ const PostCardDropDown = ({ post, refetch }) => {
                   className="w-6 mr-5"
                 />
                 <p className="">Edit Post</p>
-              </div>
+              </label>
               <div
                 onClick={() => handleDelete(post._id)}
                 className={`flex items-center hover:bg-gray-200 ${

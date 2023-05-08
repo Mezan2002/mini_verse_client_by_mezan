@@ -4,10 +4,14 @@ import PostCardBottom from "../PostCardBottom/PostCardBottom";
 import PostCardDropDown from "../PostCardDropDown/PostCardDropDown";
 import PostCardTop from "../PostCardTop/PostCardTop";
 import StoryCard from "../StoryCard/StoryCard";
+import EditPostModal from "../../EditPostModal/EditPostModal";
 
 const Feeds = ({ refetch, posts }) => {
   // const posts = useSelector((state) => state?.postReducer?.allPosts[0]);
   const [modalToggle, setModalToggle] = useState(true);
+  const [postData, setPostData] = useState([]);
+  const [editModalToggle, setEditModalToggle] = useState(true);
+
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
@@ -45,6 +49,8 @@ const Feeds = ({ refetch, posts }) => {
               <PostCardDropDown
                 post={post}
                 refetch={refetch}
+                setPostData={setPostData}
+                setEditModalToggle={setEditModalToggle}
               ></PostCardDropDown>
 
               {/* post card dropdown end */}
@@ -80,6 +86,15 @@ const Feeds = ({ refetch, posts }) => {
           {/* post card bottom end */}
         </div>
       ))}
+      {/* edit post modal start */}
+
+      <EditPostModal
+        postData={postData}
+        editModalToggle={editModalToggle}
+        setEditModalToggle={setEditModalToggle}
+      ></EditPostModal>
+
+      {/* edit post modal end */}
       {/* single post card end */}
       {/* posts section end */}
       {/* feeds end */}

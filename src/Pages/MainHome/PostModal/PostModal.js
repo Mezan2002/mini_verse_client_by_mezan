@@ -21,6 +21,17 @@ const PostModal = ({ modalToggle, setModalToggle, refetch }) => {
       setSelectedImage(URL.createObjectURL(event.target.files[0]));
     }
   };
+  const handleRemoveImage = () => {
+    setSelectedImage(null);
+  };
+  const handleTextChange = (event) => {
+    setPostText(event.target.value);
+    resizeTextArea(event.target);
+  };
+  const resizeTextArea = (textArea) => {
+    textArea.style.height = "auto";
+    textArea.style.height = textArea.scrollHeight + "px";
+  };
   const handleFormSubmit = (event) => {
     event.preventDefault();
     setLoading(true);
@@ -150,16 +161,13 @@ const PostModal = ({ modalToggle, setModalToggle, refetch }) => {
                 <div>
                   <textarea
                     name="postedText"
-                    onChange={(e) => {
-                      e.target.value >= 0
-                        ? setPostText(null)
-                        : setPostText(e.target.value);
-                    }}
+                    onChange={handleTextChange}
+                    value={postText}
                     className="w-full h-8 focus:outline-none text-xl"
                     placeholder="What's on your mind, Mezan?"
                   ></textarea>
                 </div>
-                <div className="w-full border border-gray-300 h-64 my-3 overflow-auto rounded-xl">
+                <div className="w-full border border-gray-300 h-64 my-3 overflow-auto rounded-xl relative">
                   {selectedImage === null ? (
                     <>
                       {" "}
@@ -215,7 +223,7 @@ const PostModal = ({ modalToggle, setModalToggle, refetch }) => {
                             draggable={false}
                             src="https://i.ibb.co/zxPs4Tq/gallery.png"
                             alt=""
-                            className="w-7"
+                            className="w-7 cursor-pointer"
                             title="Photo or Video"
                           />
                         </figure>
