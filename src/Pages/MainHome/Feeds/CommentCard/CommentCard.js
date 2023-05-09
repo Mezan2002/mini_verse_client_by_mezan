@@ -6,6 +6,9 @@ import ReplyCommentCard from "../ReplyCommentCard/ReplyCommentCard";
 import Swal from "sweetalert2";
 
 const CommentCard = ({ comment, refetch, postId, post, nestingLevel = 0 }) => {
+  const [commentEditModalToggle, setCommentEditModalToggle] = useState(false);
+  const [editedComment, setEditedComment] = useState(comment.comment);
+
   const loggedInUser = useSelector(
     (state) => state?.signUpReducer?.loggedInUser[0]
   );
@@ -60,8 +63,35 @@ const CommentCard = ({ comment, refetch, postId, post, nestingLevel = 0 }) => {
       .catch((err) => console.log(err));
   };
 
+  const handleEditComment = () => {
+    setCommentEditModalToggle(true);
+  };
+
+  const handleSubmitEditComment = (event) => {
+    event.preventDefault();
+    console.log(editedComment);
+    const updatedComment = { editedComment };
+    fetch(
+      `http://localhost:5000/posts/${postId}/updateComment/${comment?.commentId}`,
+      {
+        method: "PUT",
+        headers: {
+          "content-type": "application/json",
+        },
+        body: JSON.stringify(updatedComment),
+      }
+    )
+      .then((res) => res.json())
+      .then((data) => {
+        if (data.acknowledged) {
+          setCommentEditModalToggle(false);
+          refetch();
+          Swal.fire("Comment Edited!", "", "success");
+        }
+      });
+  };
+
   const handleDeleteComment = (commentId, postId) => {
-    console.log(postId);
     Swal.fire({
       title: "Are you sure?",
       text: "You won't be able to revert this!",
@@ -93,6 +123,8 @@ const CommentCard = ({ comment, refetch, postId, post, nestingLevel = 0 }) => {
     });
   };
 
+  console.log(editedComment);
+
   return (
     <div>
       <div className="mb-5">
@@ -109,10 +141,38 @@ const CommentCard = ({ comment, refetch, postId, post, nestingLevel = 0 }) => {
           <div className="w-full flex items-center">
             <div className="card bg-gray-200 w-11/12">
               <div className="px-4 py-2">
-                <h2 className="text-sm font-semibold">
-                  {comment?.commentedBy?.userFullName}
-                </h2>
-                <p>{comment?.comment}</p>
+                <>
+                  <h2 className="text-sm font-semibold">
+                    {comment?.commentedBy?.userFullName}
+                  </h2>
+                  {commentEditModalToggle ? (
+                    <form
+                      action=""
+                      className="relative"
+                      onSubmit={handleSubmitEditComment}
+                    >
+                      <input
+                        type="text"
+                        value={editedComment}
+                        onChange={(e) => setEditedComment(e.target.value)}
+                        className="text-sm font-medium p-3 rounded-xl my-3 bg-white outline-none w-full"
+                      />
+                      <button
+                        type="submit"
+                        className="absolute top-[27px] right-3"
+                      >
+                        {" "}
+                        <img
+                          className="w-3"
+                          src="https://i.ibb.co/MsSxMrG/send-message.png"
+                          alt=""
+                        />
+                      </button>
+                    </form>
+                  ) : (
+                    <p>{comment?.comment}</p>
+                  )}
+                </>
               </div>
             </div>
             <div className="dropdown dropdown-bottom dropdown-end w-1/12 ml-8">
@@ -126,10 +186,10 @@ const CommentCard = ({ comment, refetch, postId, post, nestingLevel = 0 }) => {
                 className="dropdown-content menu py-1 px-2 shadow bg-base-100 rounded-box w-72"
               >
                 <>
-                  {" "}
                   {loggedInUserProfile === commentedUserProfile && (
                     <>
                       <div
+                        onClick={handleEditComment}
                         className={`flex items-center hover:bg-gray-200 py-1 px-2 cursor-pointer m-2 rounded-xl`}
                       >
                         <p className="">Edit comment</p>
@@ -141,7 +201,7 @@ const CommentCard = ({ comment, refetch, postId, post, nestingLevel = 0 }) => {
                         className={`flex items-center hover:bg-gray-200 py-1 px-2 cursor-pointer m-2 rounded-xl`}
                       >
                         <p className="">Delete comment</p>
-                      </div>{" "}
+                      </div>
                     </>
                   )}
                 </>
