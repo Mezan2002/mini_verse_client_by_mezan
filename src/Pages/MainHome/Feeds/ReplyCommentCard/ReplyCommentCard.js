@@ -11,7 +11,6 @@ const ReplyCommentCard = ({
   commentId,
   nestingLevel,
 }) => {
-  console.log(postId);
   const timerOfCreated = reply?.repliedAt;
   const [showReplyInput, setShowReplyInput] = useState(false);
   const loggedInUser = useSelector(
@@ -33,6 +32,7 @@ const ReplyCommentCard = ({
     const replyCommentId = Math.floor(Math.random() * 100000) + 5;
     const form = event.target;
     const replyOfRepliedComment = form.replyOfRepliedComment.value;
+    console.log(replyOfRepliedComment);
     const replyBy = { userFullName, userProfile };
     const postedReplyComment = {
       replyOfRepliedComment,
