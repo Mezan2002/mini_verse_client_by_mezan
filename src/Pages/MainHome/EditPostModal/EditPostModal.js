@@ -19,9 +19,9 @@ const EditPostModal = ({
     loggedInUser?.basicInfo?.firstName + loggedInUser?.basicInfo?.lastName;
   const userImage = loggedInUser?.basicInfo?.profilePicture;
   const imageHostingKey = process.env.REACT_APP_IMAGE_HOSTING_SERVER_API;
-  const [textareaValue, setTextareaValue] = useState(postData?.postedText);
+  const [textareaValue] = useState(postData?.postedText);
   const textareaRef = useRef(null);
-  const [editedPostText, setEditedPostText] = useState("");
+  const [editedPostText] = useState("");
   const [selectedImage, setSelectedImage] = useState("");
   const [loading, setLoading] = useState(false);
   const handleImageChange = (event) => {
@@ -30,48 +30,76 @@ const EditPostModal = ({
     }
   };
   const handleFormSubmit = (event) => {
+    setLoading(true);
     event.preventDefault();
     const form = event.target;
     const editedPostText = form.editedPostText.value;
-    const updatedData = { editedPostText };
-    fetch(`http://localhost:5000/updatedPost/${postData._id}`, {
-      method: "PUT",
-      headers: {
-        "content-type": "application/json",
-      },
-      body: JSON.stringify(updatedData),
-    })
-      .then((res) => res.json())
-      .then((data) => {
-        if (data.modifiedCount === 1) {
-          refetch();
-          setEditModalToggle(false);
-          Swal.fire("Post Edited Successfully!", "", "success");
-        }
-      });
-
-    /* const editedImage = form.editSingleImage.files[0];
-    if (editedImage) {
+    if (selectedImage) {
       const formData = new FormData();
-      formData.append("editedImage", editedImage);
+      const image = form.editedImage.files[0];
+      formData.append("image", image);
+
+      // Upload the updated image to imgbb.com
       axios
         .post(
           `https://api.imgbb.com/1/upload?key=${imageHostingKey}`,
           formData,
           {
             headers: {
-              "Content-Type": "multipart/form-data",
+              "content-type": "multipart/form-data",
             },
           }
         )
         .then((response) => {
-          const postedImage = response.data.data.url;
-          console.log(postedImage);
+          const updatedImage = response.data.data.url;
+          const updatedData = { editedPostText, updatedImage };
+          // Update the image on the backend
+          fetch(`http://localhost:5000/updateImage/${postData._id}`, {
+            method: "PUT",
+            headers: {
+              "content-type": "application/json",
+            },
+            body: JSON.stringify(updatedData),
+          })
+            .then((res) => res.json())
+            .then((data) => {
+              if (data.acknowledged) {
+                setLoading(false);
+                refetch();
+                setEditModalToggle(false);
+                Swal.fire("Post Edited Successfully!", "", "success");
+              }
+            })
+            .catch((error) => {
+              console.log(error);
+            });
         })
         .catch((error) => {
           console.log(error);
         });
-    } */
+    } else {
+      const editedPostText = form.editedPostText.value;
+      const updatedData = { editedPostText };
+
+      // Update the post text on the backend
+      fetch(`http://localhost:5000/updatedPost/${postData._id}`, {
+        method: "PUT",
+        headers: {
+          "content-type": "application/json",
+        },
+        body: JSON.stringify(updatedData),
+      })
+        .then((res) => res.json())
+        .then((data) => {
+          if (data.acknowledged) {
+            // If there is no updated image, simply close the modal
+            setLoading(false);
+            refetch();
+            setEditModalToggle(false);
+            Swal.fire("Post Edited Successfully!", "", "success");
+          }
+        });
+    }
   };
 
   const handleChange = (event) => {
@@ -161,7 +189,7 @@ const EditPostModal = ({
                         <input
                           onChange={handleImageChange}
                           type="file"
-                          name="editSingleImage"
+                          name="editedImage"
                           id="editSingleImage"
                           className="hidden invisible"
                         />

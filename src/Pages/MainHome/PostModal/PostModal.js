@@ -23,9 +23,9 @@ const PostModal = ({ modalToggle, setModalToggle, refetch }) => {
       setSelectedImage(URL.createObjectURL(event.target.files[0]));
     }
   };
-  const handleRemoveImage = () => {
+  /*  const handleRemoveImage = () => {
     setSelectedImage(null);
-  };
+  }; */
   const handleTextChange = (event) => {
     setPostText(event.target.value);
     resizeTextArea(event.target);
