@@ -5,6 +5,7 @@ import axios from "axios";
 import "./PostModal.css";
 import Loading from "../../Shared/Loading/Loading";
 import { useSelector } from "react-redux";
+import Swal from "sweetalert2";
 
 const PostModal = ({ modalToggle, setModalToggle, refetch }) => {
   const loggedInUser = useSelector(
@@ -12,6 +13,7 @@ const PostModal = ({ modalToggle, setModalToggle, refetch }) => {
   );
   const userFullName =
     loggedInUser?.basicInfo?.firstName + loggedInUser?.basicInfo?.lastName;
+  const userImage = loggedInUser?.basicInfo?.profilePicture;
   const imageHostingKey = process.env.REACT_APP_IMAGE_HOSTING_SERVER_API;
   const [postText, setPostText] = useState(null);
   const [selectedImage, setSelectedImage] = useState(null);
@@ -116,7 +118,7 @@ const PostModal = ({ modalToggle, setModalToggle, refetch }) => {
             setPostText(null);
             setModalToggle(false);
             setLoading(false);
-            toast.success("Posted Successfully!");
+            Swal.fire("Posted Successfully!", "", "success");
             refetch();
           }
         })
@@ -141,15 +143,11 @@ const PostModal = ({ modalToggle, setModalToggle, refetch }) => {
             <div className="flex items-center mb-10">
               <div className="avatar">
                 <div className="w-12 rounded-full">
-                  <img
-                    draggable={false}
-                    src="https://i.ibb.co/LS3rs9t/320227336-554443479588388-3782794624352602751-n.jpg"
-                    alt=""
-                  />
+                  <img draggable={false} src={userImage} alt="" />
                 </div>
               </div>
               <div className="ml-4">
-                <h5 className="font-semibold">Mezanur Rahman</h5>
+                <h5 className="font-semibold">{userFullName}</h5>
                 <button className="btn btn-xs">
                   <FaUserFriends className="mr-2"></FaUserFriends> Friends
                   <FaChevronDown className="ml-2"></FaChevronDown>

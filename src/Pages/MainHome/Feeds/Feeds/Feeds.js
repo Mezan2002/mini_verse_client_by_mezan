@@ -7,7 +7,6 @@ import StoryCard from "../StoryCard/StoryCard";
 import EditPostModal from "../../EditPostModal/EditPostModal";
 
 const Feeds = ({ refetch, posts }) => {
-  // const posts = useSelector((state) => state?.postReducer?.allPosts[0]);
   const [modalToggle, setModalToggle] = useState(true);
   const [postData, setPostData] = useState([]);
   const [editModalToggle, setEditModalToggle] = useState(true);
@@ -89,6 +88,7 @@ const Feeds = ({ refetch, posts }) => {
       {/* edit post modal start */}
 
       <EditPostModal
+        refetch={refetch}
         postData={postData}
         editModalToggle={editModalToggle}
         setEditModalToggle={setEditModalToggle}

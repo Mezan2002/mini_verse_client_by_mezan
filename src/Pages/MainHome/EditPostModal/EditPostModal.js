@@ -2,10 +2,22 @@ import React, { useEffect, useRef, useState } from "react";
 import { FaChevronDown, FaUserFriends } from "react-icons/fa";
 import Loading from "../../Shared/Loading/Loading";
 import axios from "axios";
+import { useSelector } from "react-redux";
+import Swal from "sweetalert2";
 
-const EditPostModal = ({ postData, editModalToggle, setEditModalToggle }) => {
+const EditPostModal = ({
+  postData,
+  editModalToggle,
+  setEditModalToggle,
+  refetch,
+}) => {
   console.log(postData);
-  console.log(postData?.postedImage);
+  const loggedInUser = useSelector(
+    (state) => state?.signUpReducer.loggedInUser[0]
+  );
+  const userFullName =
+    loggedInUser?.basicInfo?.firstName + loggedInUser?.basicInfo?.lastName;
+  const userImage = loggedInUser?.basicInfo?.profilePicture;
   const imageHostingKey = process.env.REACT_APP_IMAGE_HOSTING_SERVER_API;
   const [textareaValue, setTextareaValue] = useState(postData?.postedText);
   const textareaRef = useRef(null);
@@ -21,7 +33,24 @@ const EditPostModal = ({ postData, editModalToggle, setEditModalToggle }) => {
     event.preventDefault();
     const form = event.target;
     const editedPostText = form.editedPostText.value;
-    const editedImage = form.editSingleImage.files[0];
+    const updatedData = { editedPostText };
+    fetch(`http://localhost:5000/updatedPost/${postData._id}`, {
+      method: "PUT",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify(updatedData),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        if (data.modifiedCount === 1) {
+          refetch();
+          setEditModalToggle(false);
+          Swal.fire("Post Edited Successfully!", "", "success");
+        }
+      });
+
+    /* const editedImage = form.editSingleImage.files[0];
     if (editedImage) {
       const formData = new FormData();
       formData.append("editedImage", editedImage);
@@ -42,7 +71,7 @@ const EditPostModal = ({ postData, editModalToggle, setEditModalToggle }) => {
         .catch((error) => {
           console.log(error);
         });
-    }
+    } */
   };
 
   const handleChange = (event) => {
@@ -84,15 +113,11 @@ const EditPostModal = ({ postData, editModalToggle, setEditModalToggle }) => {
               <div className="flex items-center mb-10">
                 <div className="avatar">
                   <div className="w-12 rounded-full">
-                    <img
-                      draggable={false}
-                      src="https://i.ibb.co/LS3rs9t/320227336-554443479588388-3782794624352602751-n.jpg"
-                      alt=""
-                    />
+                    <img draggable={false} src={userImage} alt="" />
                   </div>
                 </div>
                 <div className="ml-4">
-                  <h5 className="font-semibold">Mezanur Rahman</h5>
+                  <h5 className="font-semibold">{userFullName}</h5>
                   <button className="btn btn-xs">
                     <FaUserFriends className="mr-2"></FaUserFriends> Friends
                     <FaChevronDown className="ml-2"></FaChevronDown>
