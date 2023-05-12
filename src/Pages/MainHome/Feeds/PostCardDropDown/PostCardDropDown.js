@@ -6,6 +6,7 @@ import Swal from "sweetalert2";
 const PostCardDropDown = ({
   post,
   refetch,
+  usersData,
   setPostData,
   setEditModalToggle,
 }) => {
@@ -61,40 +62,75 @@ const PostCardDropDown = ({
           tabIndex={0}
           className="dropdown-content menu p-2 shadow bg-base-100 rounded-box w-72"
         >
-          {loggedInUserCode === postedUserCode && (
-            <>
-              {" "}
-              <label
-                onClick={() => handleEditPost(post)}
-                htmlFor="editPostModal"
-                className={`flex items-center hover:bg-gray-200 ${
-                  post?.postedImage ? "p-3" : "p-2"
-                } cursor-pointer m-2 rounded-2xl`}
-              >
-                <img
-                  draggable={false}
-                  src="https://i.ibb.co/JH0SJXc/edit-1.png"
-                  alt=""
-                  className="w-6 mr-5"
-                />
-                <p className="">Edit Post</p>
-              </label>
-              <div
-                onClick={() => handleDelete(post._id)}
-                className={`flex items-center hover:bg-gray-200 ${
-                  post?.postedImage ? "p-3" : "p-2"
-                } cursor-pointer m-2 rounded-2xl`}
-              >
-                <img
-                  draggable={false}
-                  src="https://i.ibb.co/SBkdp91/delete-1.png"
-                  alt=""
-                  className="w-6 mr-5"
-                />
-                <p className="">Delete Post</p>
-              </div>
-            </>
-          )}
+          {usersData
+            ? usersData?.userCode === postedUserCode && (
+                <>
+                  {" "}
+                  <label
+                    onClick={() => handleEditPost(post)}
+                    htmlFor="editPostModal"
+                    className={`flex items-center hover:bg-gray-200 ${
+                      post?.postedImage ? "p-3" : "p-2"
+                    } cursor-pointer m-2 rounded-2xl`}
+                  >
+                    <img
+                      draggable={false}
+                      src="https://i.ibb.co/JH0SJXc/edit-1.png"
+                      alt=""
+                      className="w-6 mr-5"
+                    />
+                    <p className="">Edit Post</p>
+                  </label>
+                  <div
+                    onClick={() => handleDelete(post._id)}
+                    className={`flex items-center hover:bg-gray-200 ${
+                      post?.postedImage ? "p-3" : "p-2"
+                    } cursor-pointer m-2 rounded-2xl`}
+                  >
+                    <img
+                      draggable={false}
+                      src="https://i.ibb.co/SBkdp91/delete-1.png"
+                      alt=""
+                      className="w-6 mr-5"
+                    />
+                    <p className="">Delete Post</p>
+                  </div>
+                </>
+              )
+            : loggedInUserCode === postedUserCode && (
+                <>
+                  {" "}
+                  <label
+                    onClick={() => handleEditPost(post)}
+                    htmlFor="editPostModal"
+                    className={`flex items-center hover:bg-gray-200 ${
+                      post?.postedImage ? "p-3" : "p-2"
+                    } cursor-pointer m-2 rounded-2xl`}
+                  >
+                    <img
+                      draggable={false}
+                      src="https://i.ibb.co/JH0SJXc/edit-1.png"
+                      alt=""
+                      className="w-6 mr-5"
+                    />
+                    <p className="">Edit Post</p>
+                  </label>
+                  <div
+                    onClick={() => handleDelete(post._id)}
+                    className={`flex items-center hover:bg-gray-200 ${
+                      post?.postedImage ? "p-3" : "p-2"
+                    } cursor-pointer m-2 rounded-2xl`}
+                  >
+                    <img
+                      draggable={false}
+                      src="https://i.ibb.co/SBkdp91/delete-1.png"
+                      alt=""
+                      className="w-6 mr-5"
+                    />
+                    <p className="">Delete Post</p>
+                  </div>
+                </>
+              )}
           <div
             className={`flex items-center hover:bg-gray-200 ${
               post?.postedImage ? "p-3" : "p-2"

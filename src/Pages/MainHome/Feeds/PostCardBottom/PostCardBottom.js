@@ -2,7 +2,7 @@ import React, { useRef, useState } from "react";
 import { useSelector } from "react-redux";
 import CommentCard from "../CommentCard/CommentCard";
 
-const PostCardBottom = ({ post, refetch }) => {
+const PostCardBottom = ({ post, refetch, usersData }) => {
   console.log(post);
   const loggedInUser = useSelector(
     (state) => state?.signUpReducer.loggedInUser[0]
@@ -156,8 +156,13 @@ const PostCardBottom = ({ post, refetch }) => {
             <div className="w-10 rounded-full">
               <img
                 draggable={false}
-                src={loggedInUser?.basicInfo?.profilePicture}
+                src={
+                  usersData
+                    ? usersData?.basicInfo?.profilePicture
+                    : loggedInUser?.basicInfo?.profilePicture
+                }
                 alt=""
+                className="object-cover"
               />
             </div>
           </div>

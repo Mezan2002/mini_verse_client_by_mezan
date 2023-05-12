@@ -1,7 +1,7 @@
 import React from "react";
 import PostModal from "../../PostModal/PostModal";
 import { useSelector } from "react-redux";
-const NewPost = ({ refetch, setModalToggle, modalToggle }) => {
+const NewPost = ({ refetch, setModalToggle, modalToggle, usersData }) => {
   const loggedInUser = useSelector(
     (state) => state?.signUpReducer.loggedInUser[0]
   );
@@ -13,7 +13,11 @@ const NewPost = ({ refetch, setModalToggle, modalToggle }) => {
             <div className="w-9 rounded-full ring ring-primary ring-offset-base-100 ring-offset-2">
               <img
                 draggable={false}
-                src={loggedInUser?.basicInfo?.profilePicture}
+                src={
+                  usersData
+                    ? usersData?.basicInfo?.profilePicture
+                    : loggedInUser?.basicInfo?.profilePicture
+                }
                 alt=""
               />
             </div>
