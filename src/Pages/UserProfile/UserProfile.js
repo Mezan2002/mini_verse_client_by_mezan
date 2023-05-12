@@ -35,9 +35,9 @@ const UserProfile = () => {
                   usersData?.basicInfo?.lastName}
               </h1>
               <div className="flex items-center">
-                <h2>1.6K followers </h2>
+                <h2 className="font-semibold">1.6K followers </h2>
                 <span className="mx-2">•</span>
-                <h2>2K following</h2>
+                <h2 className="font-semibold">2K following</h2>
               </div>
               <div>
                 <div className="avatar-group -space-x-6">
@@ -157,7 +157,7 @@ const UserProfile = () => {
         <div className="col-span-1">
           <div className="card bg-base-100 shadow-md">
             <div className="card-body">
-              <h2 className="card-title">Intro</h2>
+              <h2 className="card-title">Introduction</h2>
               <p className="pb-20">
                 আমি আল্লাহর এক অধম গুনাহগার বান্দা ছাড়া আর কিছুই নই।❤️❤️
               </p>
@@ -313,51 +313,30 @@ const UserProfile = () => {
                   <button className="btn-link">See All Friends</button>
                 </div>
                 <div className="grid grid-cols-3 gap-4">
-                  <img
-                    className="rounded-md"
-                    src="https://i.ibb.co/Cv05hL1/Default-isometric-view-of-a-MINI-cute-hyperrealistic-futuristi-1-2e5b52d0-fe21-48e9-b155-69086913003.jpg"
-                    alt=""
-                  />
-                  <img
-                    className="rounded-md"
-                    src="https://i.ibb.co/Cv05hL1/Default-isometric-view-of-a-MINI-cute-hyperrealistic-futuristi-1-2e5b52d0-fe21-48e9-b155-69086913003.jpg"
-                    alt=""
-                  />
-                  <img
-                    className="rounded-md"
-                    src="https://i.ibb.co/Cv05hL1/Default-isometric-view-of-a-MINI-cute-hyperrealistic-futuristi-1-2e5b52d0-fe21-48e9-b155-69086913003.jpg"
-                    alt=""
-                  />
-                  <img
-                    className="rounded-md"
-                    src="https://i.ibb.co/Cv05hL1/Default-isometric-view-of-a-MINI-cute-hyperrealistic-futuristi-1-2e5b52d0-fe21-48e9-b155-69086913003.jpg"
-                    alt=""
-                  />
-                  <img
-                    className="rounded-md"
-                    src="https://i.ibb.co/Cv05hL1/Default-isometric-view-of-a-MINI-cute-hyperrealistic-futuristi-1-2e5b52d0-fe21-48e9-b155-69086913003.jpg"
-                    alt=""
-                  />
-                  <img
-                    className="rounded-md"
-                    src="https://i.ibb.co/Cv05hL1/Default-isometric-view-of-a-MINI-cute-hyperrealistic-futuristi-1-2e5b52d0-fe21-48e9-b155-69086913003.jpg"
-                    alt=""
-                  />
-                  <img
-                    className="rounded-md"
-                    src="https://i.ibb.co/Cv05hL1/Default-isometric-view-of-a-MINI-cute-hyperrealistic-futuristi-1-2e5b52d0-fe21-48e9-b155-69086913003.jpg"
-                    alt=""
-                  />
-                  <img
-                    className="rounded-md"
-                    src="https://i.ibb.co/Cv05hL1/Default-isometric-view-of-a-MINI-cute-hyperrealistic-futuristi-1-2e5b52d0-fe21-48e9-b155-69086913003.jpg"
-                    alt=""
-                  />
-                  <img
-                    className="rounded-md"
-                    src="https://i.ibb.co/Cv05hL1/Default-isometric-view-of-a-MINI-cute-hyperrealistic-futuristi-1-2e5b52d0-fe21-48e9-b155-69086913003.jpg"
-                    alt=""
-                  />
+                  <div>
+                    <img
+                      className="rounded-md"
+                      src="https://i.ibb.co/Cv05hL1/Default-isometric-view-of-a-MINI-cute-hyperrealistic-futuristi-1-2e5b52d0-fe21-48e9-b155-69086913003.jpg"
+                      alt=""
+                    />
+                    <p className="text-sm font-semibold">Mezanur Rahman</p>
+                  </div>
+                  <div>
+                    <img
+                      className="rounded-md"
+                      src="https://i.ibb.co/Cv05hL1/Default-isometric-view-of-a-MINI-cute-hyperrealistic-futuristi-1-2e5b52d0-fe21-48e9-b155-69086913003.jpg"
+                      alt=""
+                    />
+                    <p className="text-sm font-semibold">Mezanur Rahman</p>
+                  </div>
+                  <div>
+                    <img
+                      className="rounded-md"
+                      src="https://i.ibb.co/Cv05hL1/Default-isometric-view-of-a-MINI-cute-hyperrealistic-futuristi-1-2e5b52d0-fe21-48e9-b155-69086913003.jpg"
+                      alt=""
+                    />
+                    <p className="text-sm font-semibold">Mezanur Rahman</p>
+                  </div>
                 </div>
               </div>
             </div>
