@@ -5,6 +5,7 @@ import LogIn from "../../Pages/LogIn/LogIn";
 import Home from "../../Pages/MainHome/Home/Home";
 import MultiStepForm from "../../Pages/SignUp/MultiStep/MultiStep";
 import WelcomePage from "../../Pages/WelcomePage/WelcomePage";
+import UserProfile from "../../Pages/UserProfile/UserProfile";
 
 const PrimaryRoutes = createBrowserRouter([
   {
@@ -26,8 +27,10 @@ const PrimaryRoutes = createBrowserRouter([
     element: <MultiStepForm></MultiStepForm>,
   },
   {
-    path: "/welcome",
-    element: <WelcomePage></WelcomePage>,
+    path: "/usersProfile/:userId",
+    element: <UserProfile></UserProfile>,
+    loader: ({ params }) =>
+      fetch(`http://localhost:5000/userData/${params.userId}`),
   },
 ]);
 
