@@ -1,5 +1,6 @@
 import React from "react";
 import { useLoaderData } from "react-router-dom";
+import NewPost from "../MainHome/Feeds/NewPost/NewPost";
 
 const UserProfile = () => {
   const usersData = useLoaderData();
@@ -17,10 +18,10 @@ const UserProfile = () => {
         </div>
         {/* cover photo end */}
         <div className="flex items-end justify-between px-32 w-full">
-          <div className="relative flex items-end gap-x-5 mt-[-60px]">
-            <div className="avatar ">
+          <div className="relative flex items-end gap-x-5 mt-[-70px]">
+            <div className="avatar">
               {" "}
-              <div className="w-56 rounded-full ring ring-primary ring-offset-base-100 ring-offset-2">
+              <div className="w-56 rounded-full ring ring-white ring-offset-base-100 ring-offset-2">
                 <img
                   src={usersData?.basicInfo?.profilePicture}
                   alt="user_profile_photo"
@@ -362,7 +363,9 @@ const UserProfile = () => {
             </div>
           </div>
         </div>
-        <div className="col-span-2 h-10 bg-red-400"></div>
+        <div className="col-span-2">
+          <NewPost></NewPost>
+        </div>
       </div>
     </div>
   );
