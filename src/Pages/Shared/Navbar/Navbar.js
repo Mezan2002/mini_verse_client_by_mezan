@@ -2,7 +2,7 @@ import React from "react";
 import { FaAngleDown } from "react-icons/fa";
 import { useDispatch } from "react-redux";
 import { logOutUser } from "../../../Redux/ActionCreator/ActionCreator";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const Navbar = ({ loggedInUser }) => {
   const userFullName =
@@ -16,13 +16,15 @@ const Navbar = ({ loggedInUser }) => {
   return (
     <div className="flex justify-between px-10 sticky top-0 z-50 bg-white">
       <div className="navbar hidden lg:flex justify-center">
-        <div className="navbar-start">
-          <img
-            draggable={false}
-            src="https://i.ibb.co/gDvcnWH/Screenshot-2023-03-22-022259.png"
-            alt="miniVerseLogo"
-            className="h-16 p-2"
-          />
+        <div className="navbar-start" title="Mini Verse Home">
+          <Link to="/">
+            <img
+              draggable={false}
+              src="https://i.ibb.co/gDvcnWH/Screenshot-2023-03-22-022259.png"
+              alt="miniVerseLogo"
+              className="h-16 p-2"
+            />
+          </Link>
         </div>
         <div className="navbar justify-center">
           <div className="">
@@ -98,24 +100,26 @@ const Navbar = ({ loggedInUser }) => {
               tabIndex={0}
               className="dropdown-content menu p-2 shadow bg-base-100 rounded-box w-[400px]"
             >
-              <div className="hover:bg-gray-200 card mt-4">
-                <div className="p-5 rounded">
-                  <div className="flex items-center">
-                    <div className="avatar">
-                      <div className="w-12 rounded-full">
-                        <img
-                          draggable={false}
-                          src={loggedInUser?.basicInfo?.profilePicture}
-                          alt=""
-                        />
+              <Link to={`/usersProfile/${loggedInUser?._id}`}>
+                <div className="hover:bg-gray-200 card mt-4">
+                  <div className="p-5 rounded">
+                    <div className="flex items-center">
+                      <div className="avatar">
+                        <div className="w-12 rounded-full">
+                          <img
+                            draggable={false}
+                            src={loggedInUser?.basicInfo?.profilePicture}
+                            alt=""
+                          />
+                        </div>
                       </div>
+                      <h2 className="text-xl font-medium ml-2">
+                        {userFullName.toString()}
+                      </h2>
                     </div>
-                    <h2 className="text-xl font-medium ml-2">
-                      {userFullName.toString()}
-                    </h2>
                   </div>
                 </div>
-              </div>
+              </Link>
               <div className="divider px-2"></div>
               <div className="mt-5">
                 <div className="flex items-center hover:bg-gray-200 p-4 m-2 rounded-2xl cursor-pointer">

@@ -43,6 +43,19 @@ const LinkSocialMedia = ({ stepPrevious, register, setUserCode }) => {
             <div className="">
               <div className="form-control w-full mr-2">
                 <label className="label">
+                  <span className="label-text">Website (Optional)</span>
+                </label>
+                <input
+                  {...register("website")}
+                  type="text"
+                  placeholder="Website link"
+                  className="w-full border py-3 rounded-xl focus:outline-none px-3"
+                />
+              </div>
+            </div>
+            <div className="">
+              <div className="form-control w-full mr-2">
+                <label className="label">
                   <span className="label-text">Facebook (Optional)</span>
                 </label>
                 <input

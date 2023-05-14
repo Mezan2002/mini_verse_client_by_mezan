@@ -75,6 +75,7 @@ function MultiStepForm() {
       };
 
       const socialMedia = {
+        website: formData.website,
         facebook: formData.facebook,
         instagram: formData.instagram,
         github: formData.github,

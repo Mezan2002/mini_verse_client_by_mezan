@@ -36,6 +36,7 @@ const ProfilePicture = ({
         )
         .then((response) => {
           setProfilePic(response.data.data.url);
+          console.log(setProfilePic);
         })
         .catch((error) => {
           console.log(error);

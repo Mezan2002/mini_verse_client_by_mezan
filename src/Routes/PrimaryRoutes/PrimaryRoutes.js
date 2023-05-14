@@ -15,6 +15,12 @@ const PrimaryRoutes = createBrowserRouter([
         path: "/",
         element: <Home></Home>,
       },
+      {
+        path: "/usersProfile/:userId",
+        element: <UserProfile></UserProfile>,
+        loader: ({ params }) =>
+          fetch(`http://localhost:5000/data/${params?.userId}`),
+      },
     ],
   },
   {
@@ -24,12 +30,6 @@ const PrimaryRoutes = createBrowserRouter([
   {
     path: "/signUp",
     element: <MultiStepForm></MultiStepForm>,
-  },
-  {
-    path: "/usersProfile/:userId",
-    element: <UserProfile></UserProfile>,
-    loader: ({ params }) =>
-      fetch(`http://localhost:5000/userData/${params.userId}`),
   },
 ]);
 

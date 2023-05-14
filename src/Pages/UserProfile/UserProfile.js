@@ -8,10 +8,10 @@ import { useQuery } from "@tanstack/react-query";
 import EditPostModal from "../MainHome/EditPostModal/EditPostModal";
 
 const UserProfile = () => {
+  const usersData = useLoaderData();
   const [modalToggle, setModalToggle] = useState(true);
   const [postData, setPostData] = useState([]);
   const [editModalToggle, setEditModalToggle] = useState(true);
-  const usersData = useLoaderData();
   console.log(usersData);
   const { data: posts = [], refetch } = useQuery({
     queryKey: ["userPosts", usersData?.userCode],
@@ -36,7 +36,7 @@ const UserProfile = () => {
           />
         </div>
         {/* cover photo end */}
-        <div className="flex items-end justify-between px-32 w-full">
+        <div className="flex items-end justify-between 2xl:px-32 lg:px-20 w-full">
           <div className="relative flex items-end gap-x-5 mt-[-70px]">
             <div className="avatar">
               {" "}
@@ -133,8 +133,8 @@ const UserProfile = () => {
             </button>
           </div>
         </div>
-        <div className="divider px-32 mb-0"></div>
-        <div className="px-32 flex items-center justify-between">
+        <div className="divider 2xl:px-32 px-20  mb-0"></div>
+        <div className="2xl:px-32 px-20  flex items-center justify-between">
           <div className="tabs gap-x-5">
             <a
               href="#home"
@@ -172,8 +172,8 @@ const UserProfile = () => {
           </div>
         </div>
       </div>
-      <div className="grid grid-cols-3 gap-5 px-32 mt-10">
-        <div className="col-span-1">
+      <div className="grid 2xl:grid-cols-3 lg:grid-cols-5 gap-5 2xl:px-32 lg:px-20 mt-10">
+        <div className="lg:col-span-2 2xl:col-span-1">
           <div className="card bg-base-100 shadow-md">
             <div className="card-body">
               <h2 className="card-title">Introduction</h2>
@@ -182,7 +182,7 @@ const UserProfile = () => {
               </p>
               <button className="btn btn-primary">Edit Bio</button>
             </div>
-            <div className="card-body">
+            <div className="px-5 py-4">
               <div className="flex items-center hover:bg-gray-200 2xl:p-4 2xl:m-2 lg:p-3 lg:m-1 rounded-2xl">
                 <img
                   draggable={false}
@@ -190,7 +190,7 @@ const UserProfile = () => {
                   alt=""
                   className="w-5 mr-4"
                 />
-                <p className="">Lives in Dhaka, Bangladesh</p>
+                <p className="">Lives in {usersData?.locationInfo?.country}</p>
               </div>
               <div className="flex items-center hover:bg-gray-200 2xl:p-4 2xl:m-2 lg:p-3 lg:m-1 rounded-2xl">
                 <img
@@ -199,17 +199,22 @@ const UserProfile = () => {
                   alt=""
                   className="w-5 mr-4"
                 />
-                <p className="">From Rangpur City</p>
+                <p className="">From {usersData?.locationInfo?.city} City</p>
               </div>
-              <div className="flex items-center hover:bg-gray-200 2xl:p-4 2xl:m-2 lg:p-3 lg:m-1 rounded-2xl">
-                <img
-                  draggable={false}
-                  src="https://i.ibb.co/PzkLgtP/briefcase.png"
-                  alt=""
-                  className="w-5 mr-4"
-                />
-                <p className="">Frontend Developer @ Alter Learning</p>
-              </div>
+              {usersData?.workingInfo?.comapany && (
+                <div className="flex items-center hover:bg-gray-200 2xl:p-4 2xl:m-2 lg:p-3 lg:m-1 rounded-2xl">
+                  <img
+                    draggable={false}
+                    src="https://i.ibb.co/PzkLgtP/briefcase.png"
+                    alt=""
+                    className="w-5 mr-4"
+                  />
+                  <p className="">
+                    {usersData?.workingInfo?.position} at{" "}
+                    {usersData?.workingInfo?.comapany}
+                  </p>
+                </div>
+              )}
               <div className="flex items-center hover:bg-gray-200 2xl:p-4 2xl:m-2 lg:p-3 lg:m-1 rounded-2xl">
                 <img
                   draggable={false}
@@ -219,52 +224,64 @@ const UserProfile = () => {
                 />
                 <p className="">Joined November 2017</p>
               </div>
-              <div className="flex items-center hover:bg-gray-200 2xl:p-4 2xl:m-2 lg:p-3 lg:m-1 rounded-2xl">
-                <img
-                  draggable={false}
-                  src="https://i.ibb.co/cwmS1L2/click.png"
-                  alt=""
-                  className="w-5 mr-4"
-                />
-                <p className="">mezanurrahman-portfolio.netlify.app</p>
-              </div>
-              <div className="flex items-center hover:bg-gray-200 2xl:p-4 2xl:m-2 lg:p-3 lg:m-1 rounded-2xl">
-                <img
-                  draggable={false}
-                  src="https://i.ibb.co/tqZfSnk/github-2.png"
-                  alt=""
-                  className="w-5 mr-4"
-                />
-                <p className="">Mezan2002</p>
-              </div>
-              <div className="flex items-center hover:bg-gray-200 2xl:p-4 2xl:m-2 lg:p-3 lg:m-1 rounded-2xl">
-                <img
-                  draggable={false}
-                  src="https://i.ibb.co/m4W8WPR/instagram.png"
-                  alt=""
-                  className="w-5 mr-4"
-                />
-                <p className="">mezaurrahman2002</p>
-              </div>
-              <div className="flex items-center hover:bg-gray-200 2xl:p-4 2xl:m-2 lg:p-3 lg:m-1 rounded-2xl">
-                <img
-                  draggable={false}
-                  src="https://i.ibb.co/qjDFzWs/linkedin-2.png"
-                  alt=""
-                  className="w-5 mr-4"
-                />
-                <p className="">mezanurrahman2002</p>
-              </div>
-              <div className="flex items-center hover:bg-gray-200 2xl:p-4 2xl:m-2 lg:p-3 lg:m-1 rounded-2xl">
-                <img
-                  draggable={false}
-                  src="https://i.ibb.co/PmJY5z3/facebook-2.png"
-                  alt=""
-                  className="w-5 mr-4"
-                />
-                <p className="">mezanurrahman2002</p>
-              </div>
-              <button className="btn btn-primary">Edit Details</button>
+              {usersData?.socialMedia?.website && (
+                <div className="flex items-center hover:bg-gray-200 2xl:p-4 2xl:m-2 lg:p-3 lg:m-1 rounded-2xl">
+                  <img
+                    draggable={false}
+                    src="https://i.ibb.co/cwmS1L2/click.png"
+                    alt=""
+                    className="w-5 mr-4"
+                  />
+                  <p className="">mezanurrahman-portfolio.netlify.app</p>
+                </div>
+              )}
+              {usersData?.socialMedia?.github && (
+                <div className="flex items-center hover:bg-gray-200 2xl:p-4 2xl:m-2 lg:p-3 lg:m-1 rounded-2xl">
+                  <img
+                    draggable={false}
+                    src="https://i.ibb.co/tqZfSnk/github-2.png"
+                    alt=""
+                    className="w-5 mr-4"
+                  />
+                  <p className="">{usersData?.socialMedia?.github}</p>
+                </div>
+              )}
+              {usersData?.socialMedia?.instagram && (
+                <div className="flex items-center hover:bg-gray-200 2xl:p-4 2xl:m-2 lg:p-3 lg:m-1 rounded-2xl">
+                  <img
+                    draggable={false}
+                    src="https://i.ibb.co/m4W8WPR/instagram.png"
+                    alt=""
+                    className="w-5 mr-4"
+                  />
+                  <p className="">{usersData?.socialMedia?.instagram}</p>
+                </div>
+              )}
+              {usersData?.socialMedia?.linkedin && (
+                <div className="flex items-center hover:bg-gray-200 2xl:p-4 2xl:m-2 lg:p-3 lg:m-1 rounded-2xl">
+                  <img
+                    draggable={false}
+                    src="https://i.ibb.co/qjDFzWs/linkedin-2.png"
+                    alt=""
+                    className="w-5 mr-4"
+                  />
+                  <p className="">{usersData?.socialMedia?.linkedin}</p>
+                </div>
+              )}
+              {usersData?.socialMedia?.facebook && (
+                <div className="flex items-center hover:bg-gray-200 2xl:p-4 2xl:m-2 lg:p-3 lg:m-1 rounded-2xl">
+                  <img
+                    draggable={false}
+                    src="https://i.ibb.co/PmJY5z3/facebook-2.png"
+                    alt=""
+                    className="w-5 mr-4"
+                  />
+                  <p className="">{usersData?.socialMedia?.facebook}</p>
+                </div>
+              )}
+              <button className="btn btn-block mt-10 btn-primary">
+                Edit Details
+              </button>
             </div>
           </div>
           <div className="my-5">
@@ -332,7 +349,7 @@ const UserProfile = () => {
                   <button className="btn-link">See All Friends</button>
                 </div>
                 <div className="grid grid-cols-3 gap-4">
-                  <div>
+                  <div className="">
                     <img
                       className="rounded-md"
                       src="https://i.ibb.co/Cv05hL1/Default-isometric-view-of-a-MINI-cute-hyperrealistic-futuristi-1-2e5b52d0-fe21-48e9-b155-69086913003.jpg"
@@ -361,7 +378,7 @@ const UserProfile = () => {
             </div>
           </div>
         </div>
-        <div className="col-span-2">
+        <div className="2xl:col-span-2 lg:col-span-3">
           <div>
             <NewPost
               usersData={usersData}
