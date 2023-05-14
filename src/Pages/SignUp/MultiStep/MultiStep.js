@@ -35,6 +35,9 @@ function MultiStepForm() {
   const onSubmit = (data) => {
     setFormData({ ...formData, ...data });
   };
+  const currentDate = new Date();
+  const options = { year: "numeric", month: "long" };
+  const joinedAt = currentDate.toLocaleString("en-US", options);
   useEffect(() => {
     if (formData.firstName !== undefined) {
       const signUpInfo = {
@@ -87,6 +90,7 @@ function MultiStepForm() {
         locationInfo: locationInfo,
         workingInfo: workingInfo,
         socialMedia: socialMedia,
+        joinedAt,
         userCode: JSON.stringify(userCode),
       };
       if (userCode !== 0) {
@@ -111,7 +115,7 @@ function MultiStepForm() {
           .catch((e) => dispatch(fetchingError));
       }
     }
-  }, [formData, dispatch, profilePic, navigate, userCode]);
+  }, [formData, dispatch, profilePic, navigate, userCode, joinedAt]);
 
   const stepNext = () => {
     setStep(step + 1);

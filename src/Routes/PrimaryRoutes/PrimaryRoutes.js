@@ -19,7 +19,7 @@ const PrimaryRoutes = createBrowserRouter([
         path: "/usersProfile/:userId",
         element: <UserProfile></UserProfile>,
         loader: ({ params }) =>
-          fetch(`http://localhost:5000/data/${params?.userId}`),
+          fetch(`https://miniverse-server.vercel.app/data/${params?.userId}`),
       },
     ],
   },

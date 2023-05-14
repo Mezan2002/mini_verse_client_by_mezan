@@ -54,13 +54,16 @@ const EditPostModal = ({
           const updatedImage = response.data.data.url;
           const updatedData = { editedPostText, updatedImage };
           // Update the image on the backend
-          fetch(`http://localhost:5000/updateImage/${postData._id}`, {
-            method: "PUT",
-            headers: {
-              "content-type": "application/json",
-            },
-            body: JSON.stringify(updatedData),
-          })
+          fetch(
+            `https://miniverse-server.vercel.app/updateImage/${postData._id}`,
+            {
+              method: "PUT",
+              headers: {
+                "content-type": "application/json",
+              },
+              body: JSON.stringify(updatedData),
+            }
+          )
             .then((res) => res.json())
             .then((data) => {
               if (data.acknowledged) {
@@ -82,7 +85,7 @@ const EditPostModal = ({
       const updatedData = { editedPostText };
 
       // Update the post text on the backend
-      fetch(`http://localhost:5000/updatedPost/${postData._id}`, {
+      fetch(`https://miniverse-server.vercel.app/updatedPost/${postData._id}`, {
         method: "PUT",
         headers: {
           "content-type": "application/json",

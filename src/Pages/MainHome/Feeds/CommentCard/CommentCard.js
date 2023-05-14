@@ -72,7 +72,7 @@ const CommentCard = ({ comment, refetch, postId, post, nestingLevel = 0 }) => {
     console.log(editedComment);
     const updatedComment = { editedComment };
     fetch(
-      `http://localhost:5000/posts/${postId}/updateComment/${comment?.commentId}`,
+      `https://miniverse-server.vercel.app/posts/${postId}/updateComment/${comment?.commentId}`,
       {
         method: "PUT",
         headers: {

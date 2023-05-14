@@ -48,7 +48,7 @@ const LinkSocialMedia = ({ stepPrevious, register, setUserCode }) => {
                 <input
                   {...register("website")}
                   type="text"
-                  placeholder="Website link"
+                  placeholder="without https:// (example.com)"
                   className="w-full border py-3 rounded-xl focus:outline-none px-3"
                 />
               </div>
@@ -61,7 +61,7 @@ const LinkSocialMedia = ({ stepPrevious, register, setUserCode }) => {
                 <input
                   {...register("facebook")}
                   type="text"
-                  placeholder="Facebook profile link"
+                  placeholder="without https:// (mezanurrahman2002)"
                   className="w-full border py-3 rounded-xl focus:outline-none px-3"
                 />
               </div>
@@ -74,7 +74,7 @@ const LinkSocialMedia = ({ stepPrevious, register, setUserCode }) => {
                 <input
                   {...register("instagram")}
                   type="text"
-                  placeholder="Instagram profile link"
+                  placeholder="without https:// (mezanurrahman2002)"
                   className="w-full border py-3 rounded-xl focus:outline-none px-3"
                 />
               </div>
@@ -87,7 +87,7 @@ const LinkSocialMedia = ({ stepPrevious, register, setUserCode }) => {
                 <input
                   {...register("github")}
                   type="text"
-                  placeholder="GitHub profile link"
+                  placeholder="without https:// (mezanurrahman2002)"
                   className="w-full border py-3 rounded-xl focus:outline-none px-3"
                 />
               </div>
@@ -100,7 +100,7 @@ const LinkSocialMedia = ({ stepPrevious, register, setUserCode }) => {
                 <input
                   {...register("linkedin")}
                   type="text"
-                  placeholder="Linked In profile link"
+                  placeholder="without https:// (mezanurrahman2002)"
                   className="w-full border py-3 rounded-xl focus:outline-none px-3"
                 />
               </div>

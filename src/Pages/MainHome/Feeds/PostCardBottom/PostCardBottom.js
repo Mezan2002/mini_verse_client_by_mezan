@@ -3,7 +3,7 @@ import { useSelector } from "react-redux";
 import CommentCard from "../CommentCard/CommentCard";
 
 const PostCardBottom = ({ post, refetch, usersData }) => {
-  console.log(post);
+  console.log(post.postLikedBy);
   const loggedInUser = useSelector(
     (state) => state?.signUpReducer.loggedInUser[0]
   );
@@ -21,7 +21,7 @@ const PostCardBottom = ({ post, refetch, usersData }) => {
       post.postLikedBy = likedBy.filter((code) => code !== newLikedUserCode);
     }
     const likedData = { postLikedBy: post.postLikedBy };
-    fetch(`https://miniverse-server.vercel.app/liked/${post._id}`, {
+    fetch(`http://localhost:5000/liked/${post._id}`, {
       method: "PUT",
       headers: {
         "content-type": "application/json",

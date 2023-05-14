@@ -17,10 +17,9 @@ const UserProfile = () => {
     queryKey: ["userPosts", usersData?.userCode],
     queryFn: async () => {
       const res = await fetch(
-        `http://localhost:5000/userPosts/${usersData?.userCode}`
+        `https://miniverse-server.vercel.app/userPosts/${usersData?.userCode}`
       );
       const data = await res.json();
-      console.log(data);
       return data;
     },
   });
@@ -178,7 +177,10 @@ const UserProfile = () => {
             <div className="card-body">
               <h2 className="card-title">Introduction</h2>
               <p className="pb-20">
-                আমি আল্লাহর এক অধম গুনাহগার বান্দা ছাড়া আর কিছুই নই।❤️❤️
+                Hello There I am {""}
+                {usersData?.basicInfo?.firstName +
+                  " " +
+                  usersData?.basicInfo?.lastName}
               </p>
               <button className="btn btn-primary">Edit Bio</button>
             </div>
@@ -222,7 +224,7 @@ const UserProfile = () => {
                   alt=""
                   className="w-5 mr-4"
                 />
-                <p className="">Joined November 2017</p>
+                <p className="">Joined {usersData?.joinedAt}</p>
               </div>
               {usersData?.socialMedia?.website && (
                 <div className="flex items-center hover:bg-gray-200 2xl:p-4 2xl:m-2 lg:p-3 lg:m-1 rounded-2xl">
@@ -232,7 +234,14 @@ const UserProfile = () => {
                     alt=""
                     className="w-5 mr-4"
                   />
-                  <p className="">mezanurrahman-portfolio.netlify.app</p>
+                  <a
+                    target="_blank"
+                    rel="noreferrer"
+                    className="text-primary"
+                    href={`https://${usersData?.socialMedia?.website}`}
+                  >
+                    {usersData?.socialMedia?.website}
+                  </a>
                 </div>
               )}
               {usersData?.socialMedia?.github && (
@@ -243,7 +252,14 @@ const UserProfile = () => {
                     alt=""
                     className="w-5 mr-4"
                   />
-                  <p className="">{usersData?.socialMedia?.github}</p>
+                  <a
+                    className="text-primary"
+                    target="_blank"
+                    rel="noreferrer"
+                    href={`https://gitHub.com/${usersData?.socialMedia?.github}`}
+                  >
+                    {usersData?.socialMedia?.github}
+                  </a>
                 </div>
               )}
               {usersData?.socialMedia?.instagram && (
@@ -254,7 +270,14 @@ const UserProfile = () => {
                     alt=""
                     className="w-5 mr-4"
                   />
-                  <p className="">{usersData?.socialMedia?.instagram}</p>
+                  <a
+                    className="text-primary"
+                    href={`https://www.instagram.com/${usersData?.socialMedia?.instagram}`}
+                    target="_blank"
+                    rel="noreferrer"
+                  >
+                    {usersData?.socialMedia?.instagram}
+                  </a>
                 </div>
               )}
               {usersData?.socialMedia?.linkedin && (
@@ -265,7 +288,14 @@ const UserProfile = () => {
                     alt=""
                     className="w-5 mr-4"
                   />
-                  <p className="">{usersData?.socialMedia?.linkedin}</p>
+                  <a
+                    className="text-primary"
+                    href={`https://www.linkedin.com/in/${usersData?.socialMedia?.linkedin}`}
+                    target="_blank"
+                    rel="noreferrer"
+                  >
+                    {usersData?.socialMedia?.linkedin}
+                  </a>
                 </div>
               )}
               {usersData?.socialMedia?.facebook && (
@@ -276,7 +306,14 @@ const UserProfile = () => {
                     alt=""
                     className="w-5 mr-4"
                   />
-                  <p className="">{usersData?.socialMedia?.facebook}</p>
+                  <a
+                    className="text-primary"
+                    href={`https://web.facebook.com/${usersData?.socialMedia?.facebook}`}
+                    target="_blank"
+                    rel="noreferrer"
+                  >
+                    {usersData?.socialMedia?.facebook}
+                  </a>
                 </div>
               )}
               <button className="btn btn-block mt-10 btn-primary">
