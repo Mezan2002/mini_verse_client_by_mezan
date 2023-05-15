@@ -17,7 +17,9 @@ const ReplyCommentCard = ({
     (state) => state?.signUpReducer?.loggedInUser[0]
   );
   const userFullName =
-    loggedInUser?.basicInfo?.firstName + loggedInUser?.basicInfo?.lastName;
+    loggedInUser?.basicInfo?.firstName +
+    " " +
+    loggedInUser?.basicInfo?.lastName;
   const userProfile = loggedInUser?.basicInfo?.profilePicture;
   const repliedUserProfile = reply?.replyBy?.userProfile;
   const loggedInUserProfile = loggedInUser?.basicInfo?.profilePicture;

@@ -6,7 +6,9 @@ import { Link, useNavigate } from "react-router-dom";
 
 const Navbar = ({ loggedInUser }) => {
   const userFullName =
-    loggedInUser?.basicInfo?.firstName + loggedInUser?.basicInfo?.lastName;
+    loggedInUser?.basicInfo?.firstName +
+    " " +
+    loggedInUser?.basicInfo?.lastName;
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const handleLogOut = () => {

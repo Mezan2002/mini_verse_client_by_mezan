@@ -64,7 +64,9 @@ const Feeds = ({ refetch, posts }) => {
                   : post?.postedText}
               </h2>
             ) : (
-              <h2 className="pl-6 mb-5 text-4xl">{post?.postedText}</h2>
+              <h2 className="pl-6 mb-5 2xl:text-4xl lg:text-2xl">
+                {post?.postedText}
+              </h2>
             )}
           </div>
           {post.postedImage && (

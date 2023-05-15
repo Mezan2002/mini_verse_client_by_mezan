@@ -8,7 +8,9 @@ const PostCardBottom = ({ post, refetch, usersData }) => {
     (state) => state?.signUpReducer.loggedInUser[0]
   );
   const userFullName =
-    loggedInUser?.basicInfo?.firstName + loggedInUser?.basicInfo?.lastName;
+    loggedInUser?.basicInfo?.firstName +
+    " " +
+    loggedInUser?.basicInfo?.lastName;
   const [liked, setLiked] = useState(true);
   const likedBy = post?.postLikedBy;
   const commentInputRef = useRef(null);

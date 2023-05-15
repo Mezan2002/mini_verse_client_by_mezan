@@ -7,7 +7,9 @@ const LeftSideMenu = () => {
     (state) => state?.signUpReducer.loggedInUser[0]
   );
   const userFullName =
-    loggedInUser?.basicInfo?.firstName + loggedInUser?.basicInfo?.lastName;
+    loggedInUser?.basicInfo?.firstName +
+    " " +
+    loggedInUser?.basicInfo?.lastName;
   return (
     <div>
       <div className="fixed">

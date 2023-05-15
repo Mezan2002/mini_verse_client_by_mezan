@@ -13,7 +13,9 @@ const CommentCard = ({ comment, refetch, postId, post, nestingLevel = 0 }) => {
     (state) => state?.signUpReducer?.loggedInUser[0]
   );
   const userFullName =
-    loggedInUser?.basicInfo?.firstName + loggedInUser?.basicInfo?.lastName;
+    loggedInUser?.basicInfo?.firstName +
+    " " +
+    loggedInUser?.basicInfo?.lastName;
   const userProfile = loggedInUser?.basicInfo?.profilePicture;
   const commentedUserProfile = comment?.commentedBy?.userProfilePic;
   const loggedInUserProfile = loggedInUser?.basicInfo?.profilePicture;

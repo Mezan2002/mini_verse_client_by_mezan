@@ -16,7 +16,9 @@ const EditPostModal = ({
     (state) => state?.signUpReducer.loggedInUser[0]
   );
   const userFullName =
-    loggedInUser?.basicInfo?.firstName + loggedInUser?.basicInfo?.lastName;
+    loggedInUser?.basicInfo?.firstName +
+    " " +
+    loggedInUser?.basicInfo?.lastName;
   const userImage = loggedInUser?.basicInfo?.profilePicture;
   const imageHostingKey = process.env.REACT_APP_IMAGE_HOSTING_SERVER_API;
   const [textareaValue] = useState(postData?.postedText);
