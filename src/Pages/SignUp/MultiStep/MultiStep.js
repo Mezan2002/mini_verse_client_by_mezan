@@ -20,6 +20,7 @@ function MultiStepForm() {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const [profilePic, setProfilePic] = useState("");
+  const [coverPic, setCoverPic] = useState("");
   const [userCode, setUserCode] = useState(0);
   const {
     register,
@@ -55,6 +56,7 @@ function MultiStepForm() {
         terms: formData.terms,
         userName: formData.userName,
         profilePicture: profilePic,
+        coverPhoto: coverPic,
       };
 
       const locationInfo = {
@@ -115,7 +117,7 @@ function MultiStepForm() {
           .catch((e) => dispatch(fetchingError));
       }
     }
-  }, [formData, dispatch, profilePic, navigate, userCode, joinedAt]);
+  }, [formData, dispatch, profilePic, navigate, userCode, joinedAt, coverPic]);
 
   const stepNext = () => {
     setStep(step + 1);
@@ -153,6 +155,7 @@ function MultiStepForm() {
         return (
           <div>
             <ProfilePicture
+              setCoverPic={setCoverPic}
               setProfilePic={setProfilePic}
               stepNext={stepNext}
               stepPrevious={stepPrevious}
