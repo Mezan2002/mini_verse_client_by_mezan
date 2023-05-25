@@ -6,6 +6,7 @@ const WelcomePage = () => {
       <div className="grid grid-cols-2 ">
         <div className="">
           <img
+            loading="lazy"
             src="https://i.ibb.co/HKzjNpq/village.jpg"
             className="min-h-screen"
             alt=""

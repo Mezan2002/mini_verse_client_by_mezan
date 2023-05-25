@@ -11,6 +11,7 @@ const PostCardTop = ({ post }) => {
         <div className="avatar">
           <div className="w-14 rounded-full">
             <img
+              loading="lazy"
               draggable={false}
               src={post?.postedBy?.profilePicture}
               alt=""

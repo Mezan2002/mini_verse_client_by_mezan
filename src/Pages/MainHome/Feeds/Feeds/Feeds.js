@@ -72,6 +72,7 @@ const Feeds = ({ refetch, posts }) => {
           {post.postedImage && (
             <figure>
               <img
+                loading="lazy"
                 draggable={false}
                 src={post?.postedImage}
                 alt={`${post.postedText}`}

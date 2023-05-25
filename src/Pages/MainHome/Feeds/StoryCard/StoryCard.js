@@ -18,6 +18,7 @@ const StoryCard = () => {
           <div className="card 2xl:w-11/12 mx-auto 2xl:h-[230px] shadow relative">
             <figure>
               <img
+                loading="lazy"
                 draggable={false}
                 src={loggedInUser?.basicInfo?.profilePicture}
                 alt="Profile_Picture"
@@ -44,6 +45,7 @@ const StoryCard = () => {
           <div className="card 2xl:w-11/12 mx-auto 2xl:h-[230px] shadow relative image-full min-h-full">
             <figure>
               <img
+                loading="lazy"
                 draggable={false}
                 src="https://i.ibb.co/f1XMVGf/Default-Create-a-mini-world-ultra-resulation-it-will-be-a-gree-2-7aeee866-030a-4723-9019-414852dc01c.jpg"
                 alt="Shoes"
@@ -53,6 +55,7 @@ const StoryCard = () => {
             <div className="avatar">
               <div className="w-9 rounded-full ring ring-primary z-20 top-5 left-4 ring-offset-base-100 ring-offset-2 absolute">
                 <img
+                  loading="lazy"
                   draggable={false}
                   src={loggedInUser?.basicInfo?.profilePicture}
                   alt=""
@@ -70,6 +73,7 @@ const StoryCard = () => {
           <div className="card 2xl:w-11/12 mx-auto 2xl:h-[230px] shadow relative image-full min-h-full">
             <figure>
               <img
+                loading="lazy"
                 draggable={false}
                 src="https://i.ibb.co/f1XMVGf/Default-Create-a-mini-world-ultra-resulation-it-will-be-a-gree-2-7aeee866-030a-4723-9019-414852dc01c.jpg"
                 alt="Shoes"
@@ -79,6 +83,7 @@ const StoryCard = () => {
             <div className="avatar">
               <div className="w-9 rounded-full ring ring-primary z-20 top-5 left-4 ring-offset-base-100 ring-offset-2 absolute">
                 <img
+                  loading="lazy"
                   draggable={false}
                   src={loggedInUser?.basicInfo?.profilePicture}
                   alt=""
@@ -96,6 +101,7 @@ const StoryCard = () => {
           <div className="card 2xl:w-11/12 mx-auto 2xl:h-[230px] shadow relative image-full min-h-full">
             <figure>
               <img
+                loading="lazy"
                 draggable={false}
                 src="https://i.ibb.co/f1XMVGf/Default-Create-a-mini-world-ultra-resulation-it-will-be-a-gree-2-7aeee866-030a-4723-9019-414852dc01c.jpg"
                 alt="Shoes"
@@ -105,6 +111,7 @@ const StoryCard = () => {
             <div className="avatar">
               <div className="w-9 rounded-full ring ring-primary z-20 top-5 left-4 ring-offset-base-100 ring-offset-2 absolute">
                 <img
+                  loading="lazy"
                   draggable={false}
                   src={loggedInUser?.basicInfo?.profilePicture}
                   alt=""
@@ -122,6 +129,7 @@ const StoryCard = () => {
           <div className="card 2xl:w-11/12 mx-auto 2xl:h-[230px] shadow relative image-full min-h-full">
             <figure>
               <img
+                loading="lazy"
                 draggable={false}
                 src="https://i.ibb.co/f1XMVGf/Default-Create-a-mini-world-ultra-resulation-it-will-be-a-gree-2-7aeee866-030a-4723-9019-414852dc01c.jpg"
                 alt="Shoes"
@@ -131,6 +139,7 @@ const StoryCard = () => {
             <div className="avatar">
               <div className="w-9 rounded-full ring ring-primary z-20 top-5 left-4 ring-offset-base-100 ring-offset-2 absolute">
                 <img
+                  loading="lazy"
                   draggable={false}
                   src={loggedInUser?.basicInfo?.profilePicture}
                   alt=""

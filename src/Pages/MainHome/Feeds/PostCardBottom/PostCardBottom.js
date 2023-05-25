@@ -80,6 +80,7 @@ const PostCardBottom = ({ post, refetch, usersData }) => {
           {post?.postLikedBy?.length >= 1 ? (
             <div className="flex items-center">
               <img
+                loading="lazy"
                 draggable={false}
                 className="mr-2 w-5 ml-2"
                 src="https://i.ibb.co/5RFyxB7/heart.png"
@@ -98,6 +99,7 @@ const PostCardBottom = ({ post, refetch, usersData }) => {
               onClick={() => setLiked(!liked)}
             >
               <img
+                loading="lazy"
                 draggable={false}
                 src={`${
                   isUserOnLikedBy
@@ -123,6 +125,7 @@ const PostCardBottom = ({ post, refetch, usersData }) => {
           items-center justify-center"
           >
             <img
+              loading="lazy"
               draggable={false}
               src="https://i.ibb.co/VLvSYSr/comment.png"
               alt=""
@@ -135,6 +138,7 @@ const PostCardBottom = ({ post, refetch, usersData }) => {
           items-center justify-center"
           >
             <img
+              loading="lazy"
               draggable={false}
               src="https://i.ibb.co/R0Tw5Bt/share.png"
               alt=""
@@ -156,6 +160,7 @@ const PostCardBottom = ({ post, refetch, usersData }) => {
           <div className="avatar mr-3">
             <div className="w-10 rounded-full">
               <img
+                loading="lazy"
                 draggable={false}
                 src={
                   usersData
@@ -181,6 +186,7 @@ const PostCardBottom = ({ post, refetch, usersData }) => {
               <button type="submit" className="absolute top-1/2 right-4">
                 {" "}
                 <img
+                  loading="lazy"
                   className="w-4"
                   src="https://i.ibb.co/MsSxMrG/send-message.png"
                   alt=""

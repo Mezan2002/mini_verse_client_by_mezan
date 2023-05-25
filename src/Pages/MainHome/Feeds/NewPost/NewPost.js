@@ -12,6 +12,7 @@ const NewPost = ({ refetch, setModalToggle, modalToggle, usersData }) => {
           <div className="avatar absolute top-3 left-5">
             <div className="w-9 rounded-full ring ring-primary ring-offset-base-100 ring-offset-2">
               <img
+                loading="lazy"
                 draggable={false}
                 src={
                   usersData

@@ -22,6 +22,7 @@ const LeftSideMenu = () => {
                     <div className="avatar">
                       <div className="w-14 h-14 rounded-full">
                         <img
+                          loading="lazy"
                           draggable={false}
                           src={loggedInUser?.basicInfo?.profilePicture}
                           alt=""
@@ -42,6 +43,7 @@ const LeftSideMenu = () => {
             <div className="divider"></div>
             <div className="flex items-center hover:bg-gray-200 2xl:p-4 2xl:m-2 lg:p-3 lg:m-1 rounded-2xl">
               <img
+                loading="lazy"
                 draggable={false}
                 src="https://i.ibb.co/s5RsSD2/house.png"
                 alt=""
@@ -51,6 +53,7 @@ const LeftSideMenu = () => {
             </div>
             <div className="flex items-center hover:bg-gray-200 2xl:p-4 2xl:m-2 lg:p-3 lg:m-1 rounded-2xl">
               <img
+                loading="lazy"
                 draggable={false}
                 src="https://i.ibb.co/DWvktnB/facebook-1.png"
                 alt=""
@@ -60,6 +63,7 @@ const LeftSideMenu = () => {
             </div>
             <div className="flex items-center hover:bg-gray-200 2xl:p-4 2xl:m-2 lg:p-3 lg:m-1 rounded-2xl">
               <img
+                loading="lazy"
                 draggable={false}
                 src="https://i.ibb.co/yS32nXX/people.png"
                 alt=""
@@ -69,6 +73,7 @@ const LeftSideMenu = () => {
             </div>
             <div className="flex items-center hover:bg-gray-200 2xl:p-4 2xl:m-2 lg:p-3 lg:m-1 rounded-2xl">
               <img
+                loading="lazy"
                 draggable={false}
                 src="https://i.ibb.co/0Z8mLb5/facebook-page.png"
                 alt=""
@@ -78,6 +83,7 @@ const LeftSideMenu = () => {
             </div>
             <div className="flex items-center hover:bg-gray-200 2xl:p-4 2xl:m-2 lg:p-3 lg:m-1 rounded-2xl">
               <img
+                loading="lazy"
                 draggable={false}
                 src="https://i.ibb.co/yf2RjzH/save-instagram.png"
                 alt=""
@@ -87,6 +93,7 @@ const LeftSideMenu = () => {
             </div>
             <div className="flex items-center hover:bg-gray-200 2xl:p-4 2xl:m-2 lg:p-3 lg:m-1 rounded-2xl">
               <img
+                loading="lazy"
                 draggable={false}
                 src="https://i.ibb.co/Yjm6Xqk/line-chart.png"
                 alt=""
@@ -96,6 +103,7 @@ const LeftSideMenu = () => {
             </div>
             <div className="flex items-center hover:bg-gray-200 2xl:p-4 2xl:m-2 lg:p-3 lg:m-1 rounded-2xl">
               <img
+                loading="lazy"
                 draggable={false}
                 src="https://i.ibb.co/KG4htTv/console.png"
                 alt=""
@@ -105,6 +113,7 @@ const LeftSideMenu = () => {
             </div>
             <div className="flex items-center hover:bg-gray-200 2xl:p-4 2xl:m-2 lg:p-3 lg:m-1 rounded-2xl">
               <img
+                loading="lazy"
                 draggable={false}
                 src="https://i.ibb.co/VqQJKL3/settings.png"
                 alt=""

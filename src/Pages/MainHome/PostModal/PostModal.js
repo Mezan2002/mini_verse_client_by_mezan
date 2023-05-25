@@ -17,7 +17,7 @@ const PostModal = ({ modalToggle, setModalToggle, refetch }) => {
     loggedInUser?.basicInfo?.lastName;
   const userImage = loggedInUser?.basicInfo?.profilePicture;
   const imageHostingKey = process.env.REACT_APP_IMAGE_HOSTING_SERVER_API;
-  const [postText, setPostText] = useState(null);
+  const [postText, setPostText] = useState("");
   const [selectedImage, setSelectedImage] = useState(null);
   const [loading, setLoading] = useState(false);
   const handleImageChange = (event) => {
@@ -92,7 +92,7 @@ const PostModal = ({ modalToggle, setModalToggle, refetch }) => {
             .then((data) => {
               if (data.acknowledged) {
                 form.reset();
-                setPostText(null);
+                setPostText("");
                 setSelectedImage(null);
                 setModalToggle(false);
                 setLoading(false);
@@ -117,7 +117,7 @@ const PostModal = ({ modalToggle, setModalToggle, refetch }) => {
         .then((data) => {
           if (data.acknowledged) {
             form.reset();
-            setPostText(null);
+            setPostText("");
             setModalToggle(false);
             setLoading(false);
             Swal.fire("Posted Successfully!", "", "success");
@@ -145,7 +145,12 @@ const PostModal = ({ modalToggle, setModalToggle, refetch }) => {
             <div className="flex items-center mb-10">
               <div className="avatar">
                 <div className="w-12 rounded-full">
-                  <img draggable={false} src={userImage} alt="" />
+                  <img
+                    loading="lazy"
+                    draggable={false}
+                    src={userImage}
+                    alt=""
+                  />
                 </div>
               </div>
               <div className="ml-4">
@@ -178,6 +183,7 @@ const PostModal = ({ modalToggle, setModalToggle, refetch }) => {
                         <h2>Add a single image</h2>
                         <figure>
                           <img
+                            loading="lazy"
                             draggable={false}
                             src="https://i.ibb.co/zxPs4Tq/gallery.png"
                             alt=""
@@ -196,6 +202,7 @@ const PostModal = ({ modalToggle, setModalToggle, refetch }) => {
                     </>
                   ) : (
                     <img
+                      loading="lazy"
                       draggable={false}
                       src={selectedImage}
                       alt=""
@@ -220,6 +227,7 @@ const PostModal = ({ modalToggle, setModalToggle, refetch }) => {
                       <label htmlFor="uploadedImage">
                         <figure>
                           <img
+                            loading="lazy"
                             draggable={false}
                             src="https://i.ibb.co/zxPs4Tq/gallery.png"
                             alt=""
@@ -231,6 +239,7 @@ const PostModal = ({ modalToggle, setModalToggle, refetch }) => {
                     </div>
                     <div className="cursor-pointer flex items-center justify-center w-10 h-10 rounded-full hover:bg-gray-200 duration-300">
                       <img
+                        loading="lazy"
                         draggable={false}
                         src="https://i.ibb.co/h7JLXFy/tag.png"
                         alt=""
@@ -240,6 +249,7 @@ const PostModal = ({ modalToggle, setModalToggle, refetch }) => {
                     </div>
                     <div className="cursor-pointer flex items-center justify-center w-10 h-10 rounded-full hover:bg-gray-200 duration-300">
                       <img
+                        loading="lazy"
                         draggable={false}
                         src="https://i.ibb.co/DgwPvXm/smile.png"
                         alt=""
@@ -249,6 +259,7 @@ const PostModal = ({ modalToggle, setModalToggle, refetch }) => {
                     </div>
                     <div className="cursor-pointer flex items-center justify-center w-10 h-10 rounded-full hover:bg-gray-200 duration-300">
                       <img
+                        loading="lazy"
                         draggable={false}
                         src="https://i.ibb.co/b3d154s/check-point.png"
                         alt=""
@@ -258,6 +269,7 @@ const PostModal = ({ modalToggle, setModalToggle, refetch }) => {
                     </div>
                     <div className="cursor-pointer flex items-center justify-center w-10 h-10 rounded-full hover:bg-gray-200 duration-300">
                       <img
+                        loading="lazy"
                         draggable={false}
                         src="https://i.ibb.co/crBhvbF/calendar.png"
                         alt=""

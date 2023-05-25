@@ -21,6 +21,7 @@ const Navbar = ({ loggedInUser }) => {
         <div className="navbar-start" title="Mini Verse Home">
           <Link to="/">
             <img
+              loading="lazy"
               draggable={false}
               src="https://i.ibb.co/gDvcnWH/Screenshot-2023-03-22-022259.png"
               alt="miniVerseLogo"
@@ -39,6 +40,7 @@ const Navbar = ({ loggedInUser }) => {
               />
               <span>
                 <img
+                  loading="lazy"
                   draggable={false}
                   className="absolute right-5 top-[24%] w-6"
                   src="https://i.ibb.co/hYwBRBJ/search-interface-symbol.png"
@@ -75,6 +77,7 @@ const Navbar = ({ loggedInUser }) => {
           </div>
           <div className="w-11 flex justify-center items-center h-11 rounded-full bg-gray-200 mx-5">
             <img
+              loading="lazy"
               src="https://i.ibb.co/vxTxZx5/notification.png"
               className="w-7"
               alt=""
@@ -85,6 +88,7 @@ const Navbar = ({ loggedInUser }) => {
               <div className="avatar relative">
                 <div className="w-11 rounded-full">
                   <img
+                    loading="lazy"
                     draggable={false}
                     src={loggedInUser?.basicInfo?.profilePicture}
                     alt=""
@@ -109,6 +113,7 @@ const Navbar = ({ loggedInUser }) => {
                       <div className="avatar">
                         <div className="w-12 rounded-full">
                           <img
+                            loading="lazy"
                             draggable={false}
                             src={loggedInUser?.basicInfo?.profilePicture}
                             alt=""
@@ -126,6 +131,7 @@ const Navbar = ({ loggedInUser }) => {
               <div className="mt-5">
                 <div className="flex items-center hover:bg-gray-200 p-4 m-2 rounded-2xl cursor-pointer">
                   <img
+                    loading="lazy"
                     draggable={false}
                     src="https://i.ibb.co/VqQJKL3/settings.png"
                     alt=""
@@ -135,6 +141,7 @@ const Navbar = ({ loggedInUser }) => {
                 </div>
                 <div className="flex items-center hover:bg-gray-200 p-4 m-2 rounded-2xl cursor-pointer">
                   <img
+                    loading="lazy"
                     draggable={false}
                     src="https://i.ibb.co/2yhFqKx/customer-support.png"
                     alt=""
@@ -144,6 +151,7 @@ const Navbar = ({ loggedInUser }) => {
                 </div>
                 <div className="flex items-center hover:bg-gray-200 p-4 m-2 rounded-2xl cursor-pointer">
                   <img
+                    loading="lazy"
                     draggable={false}
                     src="https://i.ibb.co/hBTcVCF/feedback.png"
                     alt=""
@@ -156,6 +164,7 @@ const Navbar = ({ loggedInUser }) => {
                   className="flex items-center hover:bg-gray-200 p-4 m-2 rounded-2xl cursor-pointer"
                 >
                   <img
+                    loading="lazy"
                     draggable={false}
                     src="https://i.ibb.co/xJ3rwrH/logout-1.png"
                     alt=""

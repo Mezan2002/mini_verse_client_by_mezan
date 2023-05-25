@@ -4,6 +4,7 @@ const LoadingScreen = () => {
   return (
     <div className="flex items-center justify-center min-h-screen">
       <img
+        loading="lazy"
         src="https://i.ibb.co/4MQXYmK/Black-And-White-Circle-Monogram-Logo-1.gif"
         alt=""
       />

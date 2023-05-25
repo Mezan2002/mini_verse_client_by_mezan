@@ -102,6 +102,7 @@ const ReplyCommentCard = ({
             <div className="avatar mr-3">
               <div className="w-9 rounded-full">
                 <img
+                  loading="lazy"
                   draggable={false}
                   src={reply?.replyBy?.userProfile}
                   alt=""
@@ -193,6 +194,7 @@ const ReplyCommentCard = ({
             <div className="avatar mr-3">
               <div className="w-10 rounded-full">
                 <img
+                  loading="lazy"
                   draggable={false}
                   src={loggedInUser?.basicInfo?.profilePicture}
                   alt=""
@@ -211,6 +213,7 @@ const ReplyCommentCard = ({
                 />
                 <button type="submit" className="absolute top-1/2 right-4">
                   <img
+                    loading="lazy"
                     className="w-4"
                     src="https://i.ibb.co/MsSxMrG/send-message.png"
                     alt=""

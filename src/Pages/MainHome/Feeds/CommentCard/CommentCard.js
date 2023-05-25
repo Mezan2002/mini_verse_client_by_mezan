@@ -19,7 +19,6 @@ const CommentCard = ({ comment, refetch, postId, post, nestingLevel = 0 }) => {
   const commentedUserProfile = comment?.commentedBy?.userProfilePic;
   const loggedInUserProfile = loggedInUser?.basicInfo?.profilePicture;
   const replyCommentsArray = comment.replyComments;
-
   const commentId = comment.commentId;
   const timerOfCreated = comment.commentedAt;
   const { timer } = useTimer({ timerOfCreated });
@@ -128,6 +127,7 @@ const CommentCard = ({ comment, refetch, postId, post, nestingLevel = 0 }) => {
           <div className="avatar mr-3">
             <div className="w-9 rounded-full">
               <img
+                loading="lazy"
                 draggable={false}
                 src={comment?.commentedBy?.userProfilePic}
                 alt=""
@@ -159,6 +159,7 @@ const CommentCard = ({ comment, refetch, postId, post, nestingLevel = 0 }) => {
                       >
                         {" "}
                         <img
+                          loading="lazy"
                           className="w-3"
                           src="https://i.ibb.co/MsSxMrG/send-message.png"
                           alt=""
@@ -186,6 +187,7 @@ const CommentCard = ({ comment, refetch, postId, post, nestingLevel = 0 }) => {
                 <>
                   {loggedInUserProfile === commentedUserProfile && (
                     <>
+                      {" "}
                       <div
                         onClick={handleEditComment}
                         className={`flex items-center hover:bg-gray-200 py-1 px-2 cursor-pointer m-2 rounded-xl`}
@@ -199,9 +201,22 @@ const CommentCard = ({ comment, refetch, postId, post, nestingLevel = 0 }) => {
                         className={`flex items-center hover:bg-gray-200 py-1 px-2 cursor-pointer m-2 rounded-xl`}
                       >
                         <p className="">Delete comment</p>
-                      </div>
+                      </div>{" "}
                     </>
                   )}
+                  {loggedInUserProfile === commentedUserProfile ||
+                    (loggedInUser?.userCode === post?.postedBy?.userCode && (
+                      <>
+                        <div
+                          onClick={() =>
+                            handleDeleteComment(comment?.commentId, postId)
+                          }
+                          className={`flex items-center hover:bg-gray-200 py-1 px-2 cursor-pointer m-2 rounded-xl`}
+                        >
+                          <p className="">Delete comment</p>
+                        </div>
+                      </>
+                    ))}
                 </>
                 <div
                   className={`flex items-center hover:bg-gray-200 py-1 px-2 cursor-pointer m-2 rounded-xl`}
@@ -234,6 +249,7 @@ const CommentCard = ({ comment, refetch, postId, post, nestingLevel = 0 }) => {
             <div className="avatar mr-3">
               <div className="w-10 rounded-full">
                 <img
+                  loading="lazy"
                   draggable={false}
                   src={loggedInUser?.basicInfo?.profilePicture}
                   alt=""
@@ -254,6 +270,7 @@ const CommentCard = ({ comment, refetch, postId, post, nestingLevel = 0 }) => {
                 <button type="submit" className="absolute top-1/2 right-4">
                   {" "}
                   <img
+                    loading="lazy"
                     className="w-4"
                     src="https://i.ibb.co/MsSxMrG/send-message.png"
                     alt=""

@@ -145,7 +145,12 @@ const EditPostModal = ({
               <div className="flex items-center mb-10">
                 <div className="avatar">
                   <div className="w-12 rounded-full">
-                    <img draggable={false} src={userImage} alt="" />
+                    <img
+                      loading="lazy"
+                      draggable={false}
+                      src={userImage}
+                      alt=""
+                    />
                   </div>
                 </div>
                 <div className="ml-4">
@@ -172,6 +177,7 @@ const EditPostModal = ({
                   {postData?.postedImage && (
                     <div className="w-full border border-gray-300 h-64 my-3 overflow-auto rounded-xl">
                       <img
+                        loading="lazy"
                         draggable={false}
                         src={`${
                           selectedImage === ""
@@ -200,6 +206,7 @@ const EditPostModal = ({
                         <label htmlFor="editSingleImage">
                           <figure>
                             <img
+                              loading="lazy"
                               draggable={false}
                               src="https://i.ibb.co/zxPs4Tq/gallery.png"
                               alt=""
@@ -211,6 +218,7 @@ const EditPostModal = ({
                       </div>
                       <div className="cursor-pointer flex items-center justify-center w-10 h-10 rounded-full hover:bg-gray-200 duration-300">
                         <img
+                          loading="lazy"
                           draggable={false}
                           src="https://i.ibb.co/h7JLXFy/tag.png"
                           alt=""
@@ -220,6 +228,7 @@ const EditPostModal = ({
                       </div>
                       <div className="cursor-pointer flex items-center justify-center w-10 h-10 rounded-full hover:bg-gray-200 duration-300">
                         <img
+                          loading="lazy"
                           draggable={false}
                           src="https://i.ibb.co/DgwPvXm/smile.png"
                           alt=""
@@ -229,6 +238,7 @@ const EditPostModal = ({
                       </div>
                       <div className="cursor-pointer flex items-center justify-center w-10 h-10 rounded-full hover:bg-gray-200 duration-300">
                         <img
+                          loading="lazy"
                           draggable={false}
                           src="https://i.ibb.co/b3d154s/check-point.png"
                           alt=""
@@ -238,6 +248,7 @@ const EditPostModal = ({
                       </div>
                       <div className="cursor-pointer flex items-center justify-center w-10 h-10 rounded-full hover:bg-gray-200 duration-300">
                         <img
+                          loading="lazy"
                           draggable={false}
                           src="https://i.ibb.co/crBhvbF/calendar.png"
                           alt=""

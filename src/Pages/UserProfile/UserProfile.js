@@ -31,6 +31,7 @@ const UserProfile = () => {
         {/* cover photo start */}
         <div className="">
           <img
+            loading="lazy"
             src={usersData?.basicInfo?.coverPhoto}
             alt=""
             className="h-[450px] object-cover w-full"
@@ -43,6 +44,7 @@ const UserProfile = () => {
               {" "}
               <div className="w-56 rounded-full ring ring-white ring-offset-base-100 ring-offset-2">
                 <img
+                  loading="lazy"
                   src={usersData?.basicInfo?.profilePicture}
                   alt="user_profile_photo"
                   className=""
@@ -63,42 +65,74 @@ const UserProfile = () => {
                 <div className="avatar-group -space-x-6">
                   <div className="avatar">
                     <div className="w-12">
-                      <img src={usersData?.basicInfo?.profilePicture} alt="" />
+                      <img
+                        loading="lazy"
+                        src={usersData?.basicInfo?.profilePicture}
+                        alt=""
+                      />
                     </div>
                   </div>
                   <div className="avatar">
                     <div className="w-12">
-                      <img src={usersData?.basicInfo?.profilePicture} alt="" />
+                      <img
+                        loading="lazy"
+                        src={usersData?.basicInfo?.profilePicture}
+                        alt=""
+                      />
                     </div>
                   </div>
                   <div className="avatar">
                     <div className="w-12">
-                      <img src={usersData?.basicInfo?.profilePicture} alt="" />
+                      <img
+                        loading="lazy"
+                        src={usersData?.basicInfo?.profilePicture}
+                        alt=""
+                      />
                     </div>
                   </div>
                   <div className="avatar">
                     <div className="w-12">
-                      <img src={usersData?.basicInfo?.profilePicture} alt="" />
+                      <img
+                        loading="lazy"
+                        src={usersData?.basicInfo?.profilePicture}
+                        alt=""
+                      />
                     </div>
                   </div>
                   <div className="avatar">
                     <div className="w-12">
-                      <img src={usersData?.basicInfo?.profilePicture} alt="" />
+                      <img
+                        loading="lazy"
+                        src={usersData?.basicInfo?.profilePicture}
+                        alt=""
+                      />
                     </div>
                   </div>
                   <div className="avatar">
                     <div className="w-12">
-                      <img src={usersData?.basicInfo?.profilePicture} alt="" />
+                      <img
+                        loading="lazy"
+                        src={usersData?.basicInfo?.profilePicture}
+                        alt=""
+                      />
                     </div>
                   </div>
                   <div className="avatar">
                     <div className="w-12">
-                      <img src={usersData?.basicInfo?.profilePicture} alt="" />
+                      <img
+                        loading="lazy"
+                        src={usersData?.basicInfo?.profilePicture}
+                        alt=""
+                      />
                     </div>
                   </div>
                   <div className="avatar">
                     <div className="w-12">
-                      <img src={usersData?.basicInfo?.profilePicture} alt="" />
+                      <img
+                        loading="lazy"
+                        src={usersData?.basicInfo?.profilePicture}
+                        alt=""
+                      />
                     </div>
                   </div>
                 </div>
@@ -109,6 +143,7 @@ const UserProfile = () => {
             <button className="btn btn-primary font-semibold flex items-center justify-center">
               {" "}
               <img
+                loading="lazy"
                 src="https://i.ibb.co/q7L21YS/edit-5.png"
                 alt=""
                 className="w-5 mr-2"
@@ -117,6 +152,7 @@ const UserProfile = () => {
             </button>
             <button className="btn flex items-center justify-center font-semibold">
               <img
+                loading="lazy"
                 src="https://i.ibb.co/XXh8f6b/megaphone-1.png"
                 alt=""
                 className="w-6 mr-2"
@@ -126,6 +162,7 @@ const UserProfile = () => {
             <button className="btn flex items-center justify-center font-semibold">
               {" "}
               <img
+                loading="lazy"
                 src="https://i.ibb.co/cXW1WzD/setting-2.png"
                 alt=""
                 className="w-6 mr-2"
@@ -165,6 +202,7 @@ const UserProfile = () => {
           <div>
             <button className="btn btn-sm h-10">
               <img
+                loading="lazy"
                 src="https://i.ibb.co/cLr7xKW/more.png"
                 alt=""
                 className="w-7"
@@ -190,6 +228,7 @@ const UserProfile = () => {
               <div className="px-5 py-4">
                 <div className="flex items-center hover:bg-gray-200 2xl:p-4 2xl:m-2 lg:p-3 lg:m-1 rounded-2xl">
                   <img
+                    loading="lazy"
                     draggable={false}
                     src="https://i.ibb.co/jVHfdWL/home.png"
                     alt=""
@@ -201,6 +240,7 @@ const UserProfile = () => {
                 </div>
                 <div className="flex items-center hover:bg-gray-200 2xl:p-4 2xl:m-2 lg:p-3 lg:m-1 rounded-2xl">
                   <img
+                    loading="lazy"
                     draggable={false}
                     src="https://i.ibb.co/zntghJX/location-1.png"
                     alt=""
@@ -211,6 +251,7 @@ const UserProfile = () => {
                 {usersData?.workingInfo?.comapany && (
                   <div className="flex items-center hover:bg-gray-200 2xl:p-4 2xl:m-2 lg:p-3 lg:m-1 rounded-2xl">
                     <img
+                      loading="lazy"
                       draggable={false}
                       src="https://i.ibb.co/PzkLgtP/briefcase.png"
                       alt=""
@@ -224,6 +265,7 @@ const UserProfile = () => {
                 )}
                 <div className="flex items-center hover:bg-gray-200 2xl:p-4 2xl:m-2 lg:p-3 lg:m-1 rounded-2xl">
                   <img
+                    loading="lazy"
                     draggable={false}
                     src="https://i.ibb.co/sWdGqcw/clock-2.png"
                     alt=""
@@ -234,6 +276,7 @@ const UserProfile = () => {
                 {usersData?.socialMedia?.website && (
                   <div className="flex items-center hover:bg-gray-200 2xl:p-4 2xl:m-2 lg:p-3 lg:m-1 rounded-2xl">
                     <img
+                      loading="lazy"
                       draggable={false}
                       src="https://i.ibb.co/cwmS1L2/click.png"
                       alt=""
@@ -252,6 +295,7 @@ const UserProfile = () => {
                 {usersData?.socialMedia?.github && (
                   <div className="flex items-center hover:bg-gray-200 2xl:p-4 2xl:m-2 lg:p-3 lg:m-1 rounded-2xl">
                     <img
+                      loading="lazy"
                       draggable={false}
                       src="https://i.ibb.co/tqZfSnk/github-2.png"
                       alt=""
@@ -270,6 +314,7 @@ const UserProfile = () => {
                 {usersData?.socialMedia?.instagram && (
                   <div className="flex items-center hover:bg-gray-200 2xl:p-4 2xl:m-2 lg:p-3 lg:m-1 rounded-2xl">
                     <img
+                      loading="lazy"
                       draggable={false}
                       src="https://i.ibb.co/m4W8WPR/instagram.png"
                       alt=""
@@ -288,6 +333,7 @@ const UserProfile = () => {
                 {usersData?.socialMedia?.linkedin && (
                   <div className="flex items-center hover:bg-gray-200 2xl:p-4 2xl:m-2 lg:p-3 lg:m-1 rounded-2xl">
                     <img
+                      loading="lazy"
                       draggable={false}
                       src="https://i.ibb.co/qjDFzWs/linkedin-2.png"
                       alt=""
@@ -306,6 +352,7 @@ const UserProfile = () => {
                 {usersData?.socialMedia?.facebook && (
                   <div className="flex items-center hover:bg-gray-200 2xl:p-4 2xl:m-2 lg:p-3 lg:m-1 rounded-2xl">
                     <img
+                      loading="lazy"
                       draggable={false}
                       src="https://i.ibb.co/PmJY5z3/facebook-2.png"
                       alt=""
@@ -335,46 +382,55 @@ const UserProfile = () => {
                   </div>
                   <div className="grid grid-cols-3 gap-4">
                     <img
+                      loading="lazy"
                       className="rounded-md"
                       src="https://i.ibb.co/Cv05hL1/Default-isometric-view-of-a-MINI-cute-hyperrealistic-futuristi-1-2e5b52d0-fe21-48e9-b155-69086913003.jpg"
                       alt=""
                     />
                     <img
+                      loading="lazy"
                       className="rounded-md"
                       src="https://i.ibb.co/Cv05hL1/Default-isometric-view-of-a-MINI-cute-hyperrealistic-futuristi-1-2e5b52d0-fe21-48e9-b155-69086913003.jpg"
                       alt=""
                     />
                     <img
+                      loading="lazy"
                       className="rounded-md"
                       src="https://i.ibb.co/Cv05hL1/Default-isometric-view-of-a-MINI-cute-hyperrealistic-futuristi-1-2e5b52d0-fe21-48e9-b155-69086913003.jpg"
                       alt=""
                     />
                     <img
+                      loading="lazy"
                       className="rounded-md"
                       src="https://i.ibb.co/Cv05hL1/Default-isometric-view-of-a-MINI-cute-hyperrealistic-futuristi-1-2e5b52d0-fe21-48e9-b155-69086913003.jpg"
                       alt=""
                     />
                     <img
+                      loading="lazy"
                       className="rounded-md"
                       src="https://i.ibb.co/Cv05hL1/Default-isometric-view-of-a-MINI-cute-hyperrealistic-futuristi-1-2e5b52d0-fe21-48e9-b155-69086913003.jpg"
                       alt=""
                     />
                     <img
+                      loading="lazy"
                       className="rounded-md"
                       src="https://i.ibb.co/Cv05hL1/Default-isometric-view-of-a-MINI-cute-hyperrealistic-futuristi-1-2e5b52d0-fe21-48e9-b155-69086913003.jpg"
                       alt=""
                     />
                     <img
+                      loading="lazy"
                       className="rounded-md"
                       src="https://i.ibb.co/Cv05hL1/Default-isometric-view-of-a-MINI-cute-hyperrealistic-futuristi-1-2e5b52d0-fe21-48e9-b155-69086913003.jpg"
                       alt=""
                     />
                     <img
+                      loading="lazy"
                       className="rounded-md"
                       src="https://i.ibb.co/Cv05hL1/Default-isometric-view-of-a-MINI-cute-hyperrealistic-futuristi-1-2e5b52d0-fe21-48e9-b155-69086913003.jpg"
                       alt=""
                     />
                     <img
+                      loading="lazy"
                       className="rounded-md"
                       src="https://i.ibb.co/Cv05hL1/Default-isometric-view-of-a-MINI-cute-hyperrealistic-futuristi-1-2e5b52d0-fe21-48e9-b155-69086913003.jpg"
                       alt=""
@@ -393,6 +449,7 @@ const UserProfile = () => {
                   <div className="grid grid-cols-3 gap-4">
                     <div className="">
                       <img
+                        loading="lazy"
                         className="rounded-md"
                         src="https://i.ibb.co/Cv05hL1/Default-isometric-view-of-a-MINI-cute-hyperrealistic-futuristi-1-2e5b52d0-fe21-48e9-b155-69086913003.jpg"
                         alt=""
@@ -401,6 +458,7 @@ const UserProfile = () => {
                     </div>
                     <div>
                       <img
+                        loading="lazy"
                         className="rounded-md"
                         src="https://i.ibb.co/Cv05hL1/Default-isometric-view-of-a-MINI-cute-hyperrealistic-futuristi-1-2e5b52d0-fe21-48e9-b155-69086913003.jpg"
                         alt=""
@@ -409,6 +467,7 @@ const UserProfile = () => {
                     </div>
                     <div>
                       <img
+                        loading="lazy"
                         className="rounded-md"
                         src="https://i.ibb.co/Cv05hL1/Default-isometric-view-of-a-MINI-cute-hyperrealistic-futuristi-1-2e5b52d0-fe21-48e9-b155-69086913003.jpg"
                         alt=""
@@ -474,6 +533,7 @@ const UserProfile = () => {
                     {post.postedImage && (
                       <figure>
                         <img
+                          loading="lazy"
                           draggable={false}
                           src={post?.postedImage}
                           alt={`${post.postedText}`}

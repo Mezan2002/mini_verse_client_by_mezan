@@ -120,6 +120,7 @@ const ProfilePicture = ({
                       </h2>
                       <figure>
                         <img
+                          loading="lazy"
                           draggable={false}
                           src="https://i.ibb.co/zxPs4Tq/gallery.png"
                           alt=""
@@ -143,6 +144,7 @@ const ProfilePicture = ({
                   </>
                 ) : (
                   <img
+                    loading="lazy"
                     draggable={false}
                     src={selectedImage}
                     alt=""
@@ -169,6 +171,7 @@ const ProfilePicture = ({
                       </h2>
                       <figure>
                         <img
+                          loading="lazy"
                           draggable={false}
                           src="https://i.ibb.co/zxPs4Tq/gallery.png"
                           alt=""
@@ -191,6 +194,7 @@ const ProfilePicture = ({
                   </>
                 ) : (
                   <img
+                    loading="lazy"
                     draggable={false}
                     src={coverImage}
                     alt=""
