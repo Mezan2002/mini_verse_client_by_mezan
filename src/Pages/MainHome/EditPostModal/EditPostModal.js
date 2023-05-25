@@ -11,7 +11,6 @@ const EditPostModal = ({
   setEditModalToggle,
   refetch,
 }) => {
-  console.log(postData);
   const loggedInUser = useSelector(
     (state) => state?.signUpReducer.loggedInUser[0]
   );

@@ -2,7 +2,6 @@ import React from "react";
 import useTimer from "../../../../Hooks/useTimer/useTimer";
 
 const PostCardTop = ({ post }) => {
-  console.log(post);
   const timerOfCreated = post?.postedAt;
   const isLong = true;
   const { timer } = useTimer({ timerOfCreated, isLong });

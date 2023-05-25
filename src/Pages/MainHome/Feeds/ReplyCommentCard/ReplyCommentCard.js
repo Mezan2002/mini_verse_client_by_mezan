@@ -34,7 +34,6 @@ const ReplyCommentCard = ({
     const replyCommentId = Math.floor(Math.random() * 100000) + 5;
     const form = event.target;
     const replyOfRepliedComment = form.replyOfRepliedComment.value;
-    console.log(replyOfRepliedComment);
     const replyBy = { userFullName, userProfile };
     const postedReplyComment = {
       replyOfRepliedComment,
@@ -55,7 +54,6 @@ const ReplyCommentCard = ({
       .then((res) => res.json())
       .then((data) => {
         if (data.modifiedCount) {
-          console.log(data);
           form.reset();
           setShowReplyInput(false);
           refetch();
@@ -65,7 +63,6 @@ const ReplyCommentCard = ({
   };
 
   const handleDeleteComment = (postId, commentId, replyCommentId) => {
-    console.log(postId);
     Swal.fire({
       title: "Are you sure?",
       text: "You won't be able to revert this!",
@@ -117,7 +114,11 @@ const ReplyCommentCard = ({
                   <h2 className="text-sm font-semibold">
                     {reply?.replyBy?.userFullName}
                   </h2>
-                  <p>{reply?.replyComment}</p>
+                  {reply?.replyOfRepliedComment ? (
+                    <p>{reply?.replyOfRepliedComment}</p>
+                  ) : (
+                    <p>{reply?.replyComment}</p>
+                  )}
                 </div>
               </div>
               <div className="dropdown dropdown-bottom dropdown-end w-1/12 ml-8">

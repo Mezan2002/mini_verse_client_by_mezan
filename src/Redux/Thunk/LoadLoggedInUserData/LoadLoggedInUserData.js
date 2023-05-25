@@ -9,7 +9,6 @@ export const loadLoggedInUserData = () => {
       fetch(url)
         .then((res) => res.json())
         .then((data) => {
-          console.log(data);
           dispatch(loggedInUser(data));
         });
     }

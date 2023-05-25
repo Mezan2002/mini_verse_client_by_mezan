@@ -3,7 +3,6 @@ import { useSelector } from "react-redux";
 import CommentCard from "../CommentCard/CommentCard";
 
 const PostCardBottom = ({ post, refetch, usersData }) => {
-  console.log(post.postLikedBy);
   const loggedInUser = useSelector(
     (state) => state?.signUpReducer.loggedInUser[0]
   );

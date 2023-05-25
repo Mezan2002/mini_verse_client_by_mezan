@@ -7,8 +7,7 @@ import Swal from "sweetalert2";
 
 const CommentCard = ({ comment, refetch, postId, post, nestingLevel = 0 }) => {
   const [commentEditModalToggle, setCommentEditModalToggle] = useState(false);
-  const [editedComment, setEditedComment] = useState(comment.comment);
-
+  const [editedComment, setEditedComment] = useState(comment?.comment);
   const loggedInUser = useSelector(
     (state) => state?.signUpReducer?.loggedInUser[0]
   );
@@ -56,7 +55,6 @@ const CommentCard = ({ comment, refetch, postId, post, nestingLevel = 0 }) => {
       .then((res) => res.json())
       .then((data) => {
         if (data.modifiedCount) {
-          console.log(data);
           form.reset();
           setShowReplyInput(false);
           refetch();
@@ -71,7 +69,6 @@ const CommentCard = ({ comment, refetch, postId, post, nestingLevel = 0 }) => {
 
   const handleSubmitEditComment = (event) => {
     event.preventDefault();
-    console.log(editedComment);
     const updatedComment = { editedComment };
     fetch(
       `https://miniverse-server.vercel.app/posts/${postId}/updateComment/${comment?.commentId}`,
@@ -124,9 +121,6 @@ const CommentCard = ({ comment, refetch, postId, post, nestingLevel = 0 }) => {
       }
     });
   };
-
-  console.log(editedComment);
-
   return (
     <div>
       <div className="mb-5">
@@ -141,7 +135,7 @@ const CommentCard = ({ comment, refetch, postId, post, nestingLevel = 0 }) => {
             </div>
           </div>
           <div className="w-full flex items-center">
-            <div className="card bg-gray-200 w-11/12">
+            <div className="card bg-gray-200 w-10/12">
               <div className="px-4 py-2">
                 <>
                   <h2 className="text-sm font-semibold">
@@ -172,12 +166,14 @@ const CommentCard = ({ comment, refetch, postId, post, nestingLevel = 0 }) => {
                       </button>
                     </form>
                   ) : (
-                    <p>{comment?.comment}</p>
+                    <p style={{ overflowWrap: "break-word" }}>
+                      {comment.comment}
+                    </p>
                   )}
                 </>
               </div>
             </div>
-            <div className="dropdown dropdown-bottom dropdown-end w-1/12 ml-8">
+            <div className="dropdown dropdown-bottom dropdown-end w-2/12 ml-8">
               <label tabIndex={0} className="m-1 cursor-pointer">
                 <span>
                   <FaEllipsisH className="mr-2 text-xl"></FaEllipsisH>
