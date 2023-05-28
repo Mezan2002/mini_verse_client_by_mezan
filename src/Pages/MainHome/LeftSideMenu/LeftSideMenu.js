@@ -41,7 +41,7 @@ const LeftSideMenu = () => {
               </div>
             </Link>
             <div className="divider"></div>
-            <div className="flex items-center hover:bg-gray-200 2xl:p-4 2xl:m-2 lg:p-3 lg:m-1 rounded-2xl">
+            <div className="flex items-center cursor-pointer hover:bg-gray-200 2xl:p-4 2xl:m-2 lg:p-3 lg:m-1 rounded-2xl">
               <img
                 loading="lazy"
                 draggable={false}
@@ -51,7 +51,7 @@ const LeftSideMenu = () => {
               />
               <p className="">Home</p>
             </div>
-            <div className="flex items-center hover:bg-gray-200 2xl:p-4 2xl:m-2 lg:p-3 lg:m-1 rounded-2xl">
+            <div className="flex items-center cursor-pointer hover:bg-gray-200 2xl:p-4 2xl:m-2 lg:p-3 lg:m-1 rounded-2xl">
               <img
                 loading="lazy"
                 draggable={false}
@@ -61,7 +61,7 @@ const LeftSideMenu = () => {
               />
               <p className="">Watch</p>
             </div>
-            <div className="flex items-center hover:bg-gray-200 2xl:p-4 2xl:m-2 lg:p-3 lg:m-1 rounded-2xl">
+            <div className="flex items-center cursor-pointer hover:bg-gray-200 2xl:p-4 2xl:m-2 lg:p-3 lg:m-1 rounded-2xl">
               <img
                 loading="lazy"
                 draggable={false}
@@ -71,7 +71,7 @@ const LeftSideMenu = () => {
               />
               <p className="">Groups</p>
             </div>
-            <div className="flex items-center hover:bg-gray-200 2xl:p-4 2xl:m-2 lg:p-3 lg:m-1 rounded-2xl">
+            <div className="flex items-center cursor-pointer hover:bg-gray-200 2xl:p-4 2xl:m-2 lg:p-3 lg:m-1 rounded-2xl">
               <img
                 loading="lazy"
                 draggable={false}
@@ -81,7 +81,7 @@ const LeftSideMenu = () => {
               />
               <p className="">Pages</p>
             </div>
-            <div className="flex items-center hover:bg-gray-200 2xl:p-4 2xl:m-2 lg:p-3 lg:m-1 rounded-2xl">
+            <div className="flex items-center cursor-pointer hover:bg-gray-200 2xl:p-4 2xl:m-2 lg:p-3 lg:m-1 rounded-2xl">
               <img
                 loading="lazy"
                 draggable={false}
@@ -91,17 +91,32 @@ const LeftSideMenu = () => {
               />
               <p className="">Saved</p>
             </div>
-            <div className="flex items-center hover:bg-gray-200 2xl:p-4 2xl:m-2 lg:p-3 lg:m-1 rounded-2xl">
-              <img
-                loading="lazy"
-                draggable={false}
-                src="https://i.ibb.co/Yjm6Xqk/line-chart.png"
-                alt=""
-                className="w-6 mr-5"
-              />
-              <p className="">Analytics</p>
-            </div>
-            <div className="flex items-center hover:bg-gray-200 2xl:p-4 2xl:m-2 lg:p-3 lg:m-1 rounded-2xl">
+            {loggedInUser?.typeOfUser === "adminOfMiniVerse" ? (
+              <Link to="/adminDashboard">
+                <div className="flex items-center cursor-pointer hover:bg-gray-200 2xl:p-4 2xl:m-2 lg:p-3 lg:m-1 rounded-2xl">
+                  <img
+                    loading="lazy"
+                    draggable={false}
+                    src="https://i.ibb.co/Y0K4W9f/dashboard-2.png"
+                    alt=""
+                    className="w-6 mr-5"
+                  />
+                  <p className="">Dashboard</p>
+                </div>
+              </Link>
+            ) : (
+              <div className="flex items-center cursor-pointer hover:bg-gray-200 2xl:p-4 2xl:m-2 lg:p-3 lg:m-1 rounded-2xl">
+                <img
+                  loading="lazy"
+                  draggable={false}
+                  src="https://i.ibb.co/Yjm6Xqk/line-chart.png"
+                  alt=""
+                  className="w-6 mr-5"
+                />
+                <p className="">Analytics</p>
+              </div>
+            )}
+            <div className="flex items-center cursor-pointer hover:bg-gray-200 2xl:p-4 2xl:m-2 lg:p-3 lg:m-1 rounded-2xl">
               <img
                 loading="lazy"
                 draggable={false}
@@ -111,7 +126,7 @@ const LeftSideMenu = () => {
               />
               <p className="">Gaming</p>
             </div>
-            <div className="flex items-center hover:bg-gray-200 2xl:p-4 2xl:m-2 lg:p-3 lg:m-1 rounded-2xl">
+            <div className="flex items-center cursor-pointer hover:bg-gray-200 2xl:p-4 2xl:m-2 lg:p-3 lg:m-1 rounded-2xl">
               <img
                 loading="lazy"
                 draggable={false}

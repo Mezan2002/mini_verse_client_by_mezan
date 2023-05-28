@@ -5,6 +5,7 @@ import LogIn from "../../Pages/LogIn/LogIn";
 import Home from "../../Pages/MainHome/Home/Home";
 import MultiStepForm from "../../Pages/SignUp/MultiStep/MultiStep";
 import UserProfile from "../../Pages/UserProfile/UserProfile";
+import AdminDashboard from "../../Pages/AdminDashboard/AdminDashboard";
 
 const PrimaryRoutes = createBrowserRouter([
   {
@@ -30,6 +31,10 @@ const PrimaryRoutes = createBrowserRouter([
   {
     path: "/signUp",
     element: <MultiStepForm></MultiStepForm>,
+  },
+  {
+    path: "/adminDashboard",
+    element: <AdminDashboard></AdminDashboard>,
   },
 ]);
 

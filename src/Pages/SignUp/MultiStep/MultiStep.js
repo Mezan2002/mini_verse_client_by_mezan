@@ -94,6 +94,7 @@ function MultiStepForm() {
         socialMedia: socialMedia,
         joinedAt,
         userCode: JSON.stringify(userCode),
+        typeOfUser: "userOfMiniVerse",
       };
       if (userCode !== 0) {
         dispatch(fetchingStart);

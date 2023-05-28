@@ -45,7 +45,7 @@ const PostCardDropDown = ({
               refetch();
             }
           })
-          .catch((err) => console.log(err));
+          .catch((err) => err);
       }
     });
   };
